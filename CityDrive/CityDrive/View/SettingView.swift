@@ -11,15 +11,15 @@ struct SettingView: View {
     @State private var openLogin = false
     @State private var logged = false
     
-    var name: String
+    var name: String = "Тван"
     
     var body: some View {
         NavigationStack {
             List {
-                Section("Авторизация") {
+                Section("authorization") {
                     if logged {
                         HStack {
-                            Text("Вы вошли под именем \(name)")
+                            Text("loginAs \(name)")
                             Spacer()
                             Button(action: {
                                 
@@ -29,18 +29,18 @@ struct SettingView: View {
                             })
                         }
                     } else {
-                        Button("Войти") {
+                        Button("login") {
                             openLogin = true
                         }
                     }
                 }
             }
-            .navigationTitle("Настройки")
+            .navigationTitle("setting")
         }
         .fullScreenCover(isPresented: $openLogin, content: { LoginView() })
     }
 }
 
 #Preview {
-    SettingView(name: "asd")
+    SettingView()
 }

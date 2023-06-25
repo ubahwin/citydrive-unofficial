@@ -20,6 +20,7 @@
 		B76860A12A3DB40F0010D590 /* SmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76860A02A3DB40F0010D590 /* SmsView.swift */; };
 		B76860A32A3DB5D20010D590 /* GreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76860A22A3DB5D20010D590 /* GreenButton.swift */; };
 		B76860C72A3E33C00010D590 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76860C62A3E33C00010D590 /* Color.swift */; };
+		B77C11112A483F520042FA54 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B77C11102A483F520042FA54 /* Localizable.xcstrings */; };
 		B7A369632A3C69E500B31121 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A369622A3C69E500B31121 /* MapViewModel.swift */; };
 		B7A369652A3C6A1200B31121 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A369642A3C6A1200B31121 /* Car.swift */; };
 		B7A369682A3C719200B31121 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A369672A3C719200B31121 /* Pin.swift */; };
@@ -51,6 +52,8 @@
 		B76860A02A3DB40F0010D590 /* SmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsView.swift; sourceTree = "<group>"; };
 		B76860A22A3DB5D20010D590 /* GreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenButton.swift; sourceTree = "<group>"; };
 		B76860C62A3E33C00010D590 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		B77C110F2A4757170042FA54 /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B77C11102A483F520042FA54 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B7A369622A3C69E500B31121 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		B7A369642A3C6A1200B31121 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		B7A369672A3C719200B31121 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
@@ -64,7 +67,6 @@
 		B7CDD0A22A3F92680034278B /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		B7CDD0A82A3F94C80034278B /* CityDriveEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDriveEndpoint.swift; sourceTree = "<group>"; };
 		B7CDD0AC2A3F95FB0034278B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		B7CDD0B02A46F86A0034278B /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7CDD0B12A46FCF90034278B /* SendPhoneSuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPhoneSuccessResponse.swift; sourceTree = "<group>"; };
 		B7CDD0B32A4704EB0034278B /* SendSmsSuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSmsSuccessResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				B70D4AC62A3B1ABF00C90991 /* CityDrive */,
-				B7CDD0B02A46F86A0034278B /* CityDrive.app */,
+				B77C110F2A4757170042FA54 /* CityDrive.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +118,7 @@
 			children = (
 				B70D4ACB2A3B1AC100C90991 /* Assets.xcassets */,
 				B70D4ACD2A3B1AC100C90991 /* Preview Content */,
+				B77C11102A483F520042FA54 /* Localizable.xcstrings */,
 			);
 			path = Resourses;
 			sourceTree = "<group>";
@@ -252,7 +255,7 @@
 			);
 			name = CityDrive;
 			productName = CityDrive;
-			productReference = B7CDD0B02A46F86A0034278B /* CityDrive.app */;
+			productReference = B77C110F2A4757170042FA54 /* CityDrive.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -277,6 +280,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = B70D4ABB2A3B1ABF00C90991;
 			productRefGroup = B70D4ABB2A3B1ABF00C90991;
@@ -295,6 +299,7 @@
 			files = (
 				B70D4ACF2A3B1AC100C90991 /* Preview Assets.xcassets in Resources */,
 				B70D4ACC2A3B1AC100C90991 /* Assets.xcassets in Resources */,
+				B77C11112A483F520042FA54 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

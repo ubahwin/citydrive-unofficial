@@ -37,7 +37,7 @@ struct MapView: View {
                 }
                     .tabItem {
                         Image(systemName: "map")
-                        Text("Карта")
+                        Text("map")
                     }
                 
                 OrderListView(orders: [
@@ -46,13 +46,13 @@ struct MapView: View {
                 ])
                 .tabItem {
                     Image(systemName: "list.bullet.clipboard")
-                    Text("Поездки")
+                    Text("orders")
                 }
                 
-                SettingView(name: "Иван")
+                SettingView()
                     .tabItem {
                         Image(systemName: "gear")
-                        Text("Настройки")
+                        Text("setting")
                     }
             }
             .toolbarBackground(.visible, for: .tabBar)

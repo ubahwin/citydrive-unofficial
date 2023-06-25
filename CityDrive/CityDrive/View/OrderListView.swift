@@ -15,7 +15,7 @@ struct OrderListView: View {
             List(orders) { order in
                 NavigationLink(String(order.sum), destination: OrderDetailsView())
             }
-            .navigationTitle("История поездок")
+            .navigationTitle("orders")
         }
     }
 }
