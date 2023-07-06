@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftKeychainWrapper
 
 struct SmsView: View {
     @State private var smsCode = ""
@@ -29,7 +30,7 @@ struct SmsView: View {
                         isEntered = success
                         
                         UserDefaults.standard.set(response?.user.firstName ?? "", forKey: "username")
-                        UserDefaults.standard.set(response?.sessionID ?? "", forKey: "sessionID")
+                        KeychainWrapper.standard.set(response?.sessionID ?? "", forKey: "sessionID") // token security
                     }
                 }
                 
