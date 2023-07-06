@@ -13,7 +13,7 @@ struct SendPhoneSuccessResponse: Codable {
     
     enum CodingKeys: String, CodingKey {
         case step, phone, success
-      }
+    }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -23,5 +23,3 @@ struct SendPhoneSuccessResponse: Codable {
         success = try container.decode(Bool.self, forKey: .success)
     }
 }
-
-

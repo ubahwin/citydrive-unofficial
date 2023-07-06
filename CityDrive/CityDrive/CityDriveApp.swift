@@ -9,14 +9,18 @@ import SwiftUI
 
 @main
 struct CityDriveApp: App {
-    let isLogged: Bool = false // TODO: refactor
+    #if DEBUG
+    let isLogged: Bool = true
+    #else
+    let isLogged: Bool = false
+    #endif
     
     var body: some Scene {
         WindowGroup {
             if !isLogged {
                 LoginView()
             } else {
-                MapView(mapVM: MapViewModel())
+                MapView()
             }
         }
     }

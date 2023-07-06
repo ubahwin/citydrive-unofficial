@@ -24,6 +24,7 @@
 		B7A369632A3C69E500B31121 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A369622A3C69E500B31121 /* MapViewModel.swift */; };
 		B7A369652A3C6A1200B31121 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A369642A3C6A1200B31121 /* Car.swift */; };
 		B7A369682A3C719200B31121 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A369672A3C719200B31121 /* Pin.swift */; };
+		B7C99B432A504136004A29A8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C99B422A504136004A29A8 /* SettingViewModel.swift */; };
 		B7CDD09B2A3F92390034278B /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CDD0982A3F92390034278B /* JSONParameterEncoder.swift */; };
 		B7CDD09C2A3F92390034278B /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CDD0992A3F92390034278B /* ParameterEncoding.swift */; };
 		B7CDD09D2A3F92390034278B /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CDD09A2A3F92390034278B /* URLParameterEncoder.swift */; };
@@ -57,6 +58,7 @@
 		B7A369622A3C69E500B31121 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		B7A369642A3C6A1200B31121 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		B7A369672A3C719200B31121 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		B7C99B422A504136004A29A8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		B7CDD0982A3F92390034278B /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		B7CDD0992A3F92390034278B /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		B7CDD09A2A3F92390034278B /* URLParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				B7A369622A3C69E500B31121 /* MapViewModel.swift */,
+				B7C99B422A504136004A29A8 /* SettingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				B76860932A3D098B0010D590 /* Order.swift in Sources */,
 				B7CDD0A42A3F92680034278B /* Router.swift in Sources */,
 				B7CDD09B2A3F92390034278B /* JSONParameterEncoder.swift in Sources */,
+				B7C99B432A504136004A29A8 /* SettingViewModel.swift in Sources */,
 				B7CDD0B22A46FCFA0034278B /* SendPhoneSuccessResponse.swift in Sources */,
 				B76860952A3D8FC70010D590 /* OrderDetailsView.swift in Sources */,
 				B76860A12A3DB40F0010D590 /* SmsView.swift in Sources */,

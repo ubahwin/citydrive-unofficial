@@ -10,8 +10,9 @@ import MapKit
 
 class MapViewModel: ObservableObject {
     @Published var cars: [Car] = []
-    
+        
     init() {
+        // for test
         let cars = [
             Car(id: UUID(), name: "reno", coordinate: CLLocationCoordinate2D(latitude: 59.901153, longitude: 30.274750)),
             Car(id: UUID(), name: "nissan", coordinate: CLLocationCoordinate2D(latitude: 59.902153, longitude: 30.214750)),

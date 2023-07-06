@@ -8,21 +8,20 @@
 import SwiftUI
 
 struct SettingView: View {
+    @StateObject private var settingVM = SettingViewModel()
+
     @State private var openLogin = false
-    @State private var logged = false
-    
-    var name: String = "Тван"
     
     var body: some View {
         NavigationStack {
             List {
                 Section("authorization") {
-                    if logged {
+                    if settingVM.logged {
                         HStack {
-                            Text("loginAs \(name)")
+                            Text("loginAs \(settingVM.username)")
                             Spacer()
                             Button(action: {
-                                
+                                settingVM.logged = false
                             }, label: {
                                 Image(systemName: "rectangle.portrait.and.arrow.forward")
                                     .foregroundColor(.red)
@@ -34,6 +33,11 @@ struct SettingView: View {
                         }
                     }
                 }
+                #if DEBUG // TODO: test
+                Section("For test") {
+                    Toggle("logged", isOn: $settingVM.logged)
+                }
+                #endif
             }
             .navigationTitle("setting")
         }

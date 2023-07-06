@@ -10,7 +10,7 @@ import SwiftUI
 struct SmsView: View {
     @State private var smsCode = ""
     @State private var isEntered = false
-    
+        
     var phone: String
     
     var body: some View {
@@ -27,11 +27,15 @@ struct SmsView: View {
                 NetworkManager.shared.sendSms(phone: phone, smsCode: Int(smsCode) ?? 0) { response, error in // TODO: replace to VM
                     if let success = response?.success {
                         isEntered = success
+                        
+                        UserDefaults.standard.set(response?.user.firstName ?? "", forKey: "username")
+                        UserDefaults.standard.set(response?.sessionID ?? "", forKey: "sessionID")
                     }
                 }
+                
             }
             .buttonStyle(GreenButton())
-            .fullScreenCover(isPresented: $isEntered, content: { MapView(mapVM: MapViewModel()) })
+            .fullScreenCover(isPresented: $isEntered, content: { MapView() })
             Spacer().frame(height: 50)
         }
     }

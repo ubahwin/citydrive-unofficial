@@ -9,8 +9,8 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @ObservedObject var mapVM: MapViewModel
-    
+    @StateObject private var mapVM = MapViewModel()
+
     var body: some View {
         TabView {
             Group {
@@ -62,5 +62,5 @@ struct MapView: View {
 }
 
 #Preview {
-    MapView(mapVM: MapViewModel())
+    MapView()
 }
