@@ -10,6 +10,7 @@ import Foundation
 public enum CityDriveApi {
     case sendPhone(phone: String)
     case sendSms(phone: String, smsCode: Int)
+    case getOrders
 }
 
 extension CityDriveApi: EndpointType {
