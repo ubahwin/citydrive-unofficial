@@ -21,7 +21,7 @@ struct SettingView: View {
                             Text("loginAs \(settingVM.username)")
                             Spacer()
                             Button(action: {
-                                settingVM.logged = false
+                                settingVM.exit()
                             }, label: {
                                 Image(systemName: "rectangle.portrait.and.arrow.forward")
                                     .foregroundColor(.red)
@@ -35,7 +35,7 @@ struct SettingView: View {
                 }
                 #if DEBUG 
                 Section("For test") {
-                    Toggle("logged", isOn: $settingVM.logged)
+                    
                 }
                 #endif
             }

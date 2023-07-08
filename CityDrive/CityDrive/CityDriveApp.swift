@@ -9,11 +9,7 @@ import SwiftUI
 
 @main
 struct CityDriveApp: App {
-    #if DEBUG
-    let isLogged: Bool = false
-    #else
-    let isLogged: Bool = false
-    #endif
+    private var isLogged = UserDefaults.standard.bool(forKey: "isLogged")
     
     var body: some Scene {
         WindowGroup {
