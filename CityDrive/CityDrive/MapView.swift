@@ -40,10 +40,7 @@ struct MapView: View {
                         Text("map")
                     }
                 
-                OrderListView(orders: [
-                    Order(date: Date(), sum: 54.1, carName: "nisan"),
-                    Order(date: Date(), sum: 65, carName: "motiz")
-                ])
+                OrderListView()
                 .tabItem {
                     Image(systemName: "list.bullet.clipboard")
                     Text("orders")
@@ -52,7 +49,7 @@ struct MapView: View {
                 SettingView()
                     .tabItem {
                         Image(systemName: "gear")
-                        Text("setting")
+                        Text("settings")
                     }
             }
             .toolbarBackground(.visible, for: .tabBar)

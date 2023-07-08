@@ -117,18 +117,18 @@
         }
       }
     },
-    "setting" : {
+    "settings" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Setting"
+            "value" : "Settings"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Настройки"
           }
         }

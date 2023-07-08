@@ -27,6 +27,7 @@ extension CityDriveApi: EndpointType {
         switch self {
         case .sendSms: return "signup/code"
         case .sendPhone: return "signup"
+        case .getOrders: return "orders"
         }
     }
     
@@ -34,6 +35,7 @@ extension CityDriveApi: EndpointType {
         switch self {
         case .sendSms: return .post
         case .sendPhone: return .post
+        case .getOrders: return .get
         }
     }
     
@@ -50,11 +52,21 @@ extension CityDriveApi: EndpointType {
                 urlParameters: urlParameters,
                 additionHeaders: headers
             )
+        case .getOrders:
+            return .requestParametersAndHeaders(
+                bodyParameters: body,
+                urlParameters: urlParameters,
+                additionHeaders: headers
+            )
         }
     }
     
     var headers: HTTPHeaders? {
         switch self {
+        case .getOrders: return [
+            "User-Agent" : "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)",
+            "Cookie" : "session_id=" // TODO: sessionID
+        ]
         default: return ["User-Agent" : "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)"]
         }
     }
@@ -74,13 +86,19 @@ extension CityDriveApi: EndpointType {
             "phone": phone,
             "phone_code": "7"
         ]
+        default: return nil
         }
     }
 }
 
 extension CityDriveApi {
-    var urlParameters: [String : String] {
+    var urlParameters: Parameters? {
         switch self {
+        case .getOrders: return [
+            "type" : "user",
+            "limit" : 5,
+            "version" : "20"
+        ]
         default: return ["version" : "20"]
         }
     }

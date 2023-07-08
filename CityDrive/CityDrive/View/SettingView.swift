@@ -33,13 +33,13 @@ struct SettingView: View {
                         }
                     }
                 }
-                #if DEBUG // TODO: test
+                #if DEBUG 
                 Section("For test") {
                     Toggle("logged", isOn: $settingVM.logged)
                 }
                 #endif
             }
-            .navigationTitle("setting")
+            .navigationTitle("settings")
         }
         .fullScreenCover(isPresented: $openLogin, content: { LoginView() })
     }

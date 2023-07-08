@@ -8,21 +8,27 @@
 import SwiftUI
 
 struct OrderListView: View {
-    var orders: [Order]
-    
+    @StateObject private var orderVM = OrdersViewModel()
+        
     var body: some View {
         NavigationStack {
-            List(orders) { order in
-                NavigationLink(String(order.sum), destination: OrderDetailsView())
+            List(orderVM.orders) { order in
+                NavigationLink(destination: OrderDetailsView()) {
+                    HStack {
+                        Text(order.amount)
+                        Spacer()
+                        Text(order.startedAtToDate, style: .date)
+                    }
+                }
             }
             .navigationTitle("orders")
+            .refreshable {
+                orderVM.loadOrderList()
+            }
         }
     }
 }
 
 #Preview {
-    OrderListView(orders: [
-        Order(date: Date(), sum: 54.1, carName: "nisan"),
-        Order(date: Date(), sum: 65, carName: "motiz")
-    ])
+    OrderListView()
 }
