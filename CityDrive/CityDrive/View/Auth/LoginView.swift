@@ -10,7 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var phone = ""
     @State private var next = false
-    
+        
     var body: some View {
         NavigationStack {
             VStack {

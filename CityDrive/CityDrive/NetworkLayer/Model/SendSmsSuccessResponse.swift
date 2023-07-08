@@ -9,7 +9,7 @@ import Foundation
 
 struct SendSmsSuccessResponse: Decodable {
     let sessionID: String
-    let user: UserResponse
+    let user: SmsSuccessUserResponse
     let success: Bool
     
     enum CodingKeys: String, CodingKey {
@@ -21,7 +21,7 @@ struct SendSmsSuccessResponse: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         sessionID = try container.decode(String.self, forKey: .sessionID)
-        user = try container.decode(UserResponse.self, forKey: .user)
+        user = try container.decode(SmsSuccessUserResponse.self, forKey: .user)
         success = try container.decode(Bool.self, forKey: .success)
     }
 }

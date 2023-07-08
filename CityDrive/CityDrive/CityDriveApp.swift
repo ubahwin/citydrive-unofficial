@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct CityDriveApp: App {
     #if DEBUG
-    let isLogged: Bool = true
+    let isLogged: Bool = false
     #else
     let isLogged: Bool = false
     #endif

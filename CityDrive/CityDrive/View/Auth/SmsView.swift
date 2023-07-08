@@ -11,7 +11,7 @@ import SwiftKeychainWrapper
 struct SmsView: View {
     @State private var smsCode = ""
     @State private var isEntered = false
-        
+            
     var phone: String
     
     var body: some View {
@@ -26,7 +26,7 @@ struct SmsView: View {
             Spacer()
             Button("login") {
                 NetworkManager.shared.sendSms(phone: phone, smsCode: Int(smsCode) ?? 0) { response, error in // TODO: replace to VM
-                    if let success = response?.success {
+                    if let success = response?.success {                        
                         isEntered = success
                         
                         UserDefaults.standard.set(response?.user.firstName ?? "", forKey: "username")
