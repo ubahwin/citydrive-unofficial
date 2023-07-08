@@ -1,6 +1,6 @@
 # Неофициальный клиент CityDrive
 
-Для iOS 17 и выше.
+Для iOS 17 и выше. По первой же просьбе СитиДрайва приложение будет убрано из публичного доступа!
 
 <span><img src="img/1.png" style="width:200px;"></span>
 
@@ -29,7 +29,7 @@ CityDrive
 │   └── ...
 ├── MapView
 ├── CityDriveApp
-└── ... <- Extentions and Resourses
+└── ...                        <- Extentions and Resourses
 ```
 
 ## Технологии

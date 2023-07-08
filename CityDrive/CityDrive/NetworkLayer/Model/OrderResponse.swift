@@ -12,17 +12,22 @@ struct OrderResponse: Codable {
     let carImg: String?
     let carImgSide: String?
     let cityName: String?
+    let carOdometer: CarOdometerResponse?
+    
     let timezoneOffset: Int?
+    
     let events: [EventResponse]?
+    
     let achievements: [AchievementResponse]?
+    
     let check: CheckResponse?
+    
     let transactionInfo: TransactionInfoResponse?
     let isActive: Bool?
     let period: PeriodResponse?
     let path: PathResponse?
     let kasko: Bool?
     let currency: CurrencyResponse?
-    let carOdometer: CarOdometerResponse?
     let tariffPackage, zoneExpansion: String?
     let tariffMode: String?
     let user: UserResponse?

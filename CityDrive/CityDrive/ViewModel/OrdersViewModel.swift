@@ -21,7 +21,8 @@ class OrdersViewModel: ObservableObject {
             if let orderResponse = response {
                 
                 let order = Order(
-                    amount: orderResponse.check?.totalCostString ?? ""
+                    totalCost: orderResponse.check?.totalCostString ?? "",
+                    
                 )
                 
                 DispatchQueue.main.async {
