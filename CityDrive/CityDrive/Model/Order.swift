@@ -14,9 +14,23 @@ struct Order {
     var events: [EventOrder]
     var check: CheckOrder
     
+    var isActive: Bool
+    
+    var period: Period
+    var path: Path
+    
+    var kasko: Bool
+    
+    var currency: Currency
+    
+    var user: UserOrder
+    
+    var loyaltyProgram: LoyaltyProgram
+    
+    var orderSource: String
+    var success: Bool
+    
     var nn: NNOrder
-    
-    
     
     var totalCostAsDouble: Double {
         let formatter = NumberFormatter()
@@ -30,6 +44,33 @@ struct Order {
             return 0
         }
     }
+}
+
+struct LoyaltyProgram {
+    var programType, status: String
+    var percent: Int
+}
+
+struct UserOrder {
+    var userID, firstName, lastName, fullName: String
+    var middleName, email: String
+    var phone: Int
+}
+
+struct Currency {
+    var code, symbol: String
+}
+
+struct Path {
+    var start, finish: FinishResponse
+}
+
+struct Finish {
+    var lat, lon: Double
+}
+
+struct Period {
+    var start, finish: String
 }
 
 struct CheckOrder {
@@ -70,12 +111,21 @@ struct EventOrder {
     var cost: Int
     var duration: Double
     var userLat, userLon: Double
-    var details: DetailsResponse
 }
 
 struct NNOrder {
     var timezoneOffset: Int
     var achievements: [AchievementOrder]
+    var transactionInfo: TransactionInfo
+    
+    var tariffPackage, zoneExpansion, tariffMode: String
+}
+
+struct TransactionInfo {
+    var status: String
+    var isCreated: Bool
+    var data: String
+    var dataPaymentResponses, paymentResponses: String
 }
 
 struct AchievementOrder {

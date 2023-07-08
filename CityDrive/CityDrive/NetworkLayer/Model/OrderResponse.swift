@@ -23,14 +23,21 @@ struct OrderResponse: Codable {
     let check: CheckResponse?
     
     let transactionInfo: TransactionInfoResponse?
+    
     let isActive: Bool?
+    
     let period: PeriodResponse?
     let path: PathResponse?
+    
     let kasko: Bool?
+    
     let currency: CurrencyResponse?
+    
     let tariffPackage, zoneExpansion: String?
     let tariffMode: String?
+    
     let user: UserResponse?
+    
     let billingTransactionInfo: BillingTransactionInfoResponse?
     let loyaltyProgram: LoyaltyProgramResponse?
     let orderSource: String?
