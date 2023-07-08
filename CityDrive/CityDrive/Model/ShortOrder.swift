@@ -11,8 +11,14 @@ struct ShortOrder: Identifiable {
     var id: UUID
     var startedAt: String
     var amount: String
+}
+
+extension ShortOrder {
+    var idString: String {
+        return id.uuidString
+    }
     
-    func amountAsDouble() -> Double {
+    var amountAsDouble: Double {
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "ru_RU")
         formatter.numberStyle = .decimal

@@ -8,13 +8,13 @@
 import Foundation
 
 struct OrderListResponse: Codable {
-    let orders: [OrderResponse]?
-    let user: UserOrdersResponse?
+    let orders: [ShortOrderResponse]?
+    let user: UserShortOrdersResponse?
     let count: Int?
     let success: Bool?
 }
 
-struct OrderResponse: Codable {
+struct ShortOrderResponse: Codable {
     let orderID, startedAt, amount: String?
 
     enum CodingKeys: String, CodingKey {
@@ -24,7 +24,7 @@ struct OrderResponse: Codable {
     }
 }
 
-struct UserOrdersResponse: Codable {
+struct UserShortOrdersResponse: Codable {
     let firstName, lastName: String?
 
     enum CodingKeys: String, CodingKey {

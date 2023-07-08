@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import SwiftKeychainWrapper
 
 public enum CityDriveApi {
     case sendPhone(phone: String)
     case sendSms(phone: String, smsCode: Int)
     case getOrders
+    case getOrder(id: String)
 }
 
 extension CityDriveApi: EndpointType {
@@ -28,6 +30,7 @@ extension CityDriveApi: EndpointType {
         case .sendSms: return "signup/code"
         case .sendPhone: return "signup"
         case .getOrders: return "orders"
+        case .getOrder(let id): return "order/" + id + "/details"
         }
     }
     
@@ -36,6 +39,7 @@ extension CityDriveApi: EndpointType {
         case .sendSms: return .post
         case .sendPhone: return .post
         case .getOrders: return .get
+        case .getOrder: return .get
         }
     }
     
@@ -58,14 +62,20 @@ extension CityDriveApi: EndpointType {
                 urlParameters: urlParameters,
                 additionHeaders: headers
             )
+        case .getOrder:
+            return .requestParametersAndHeaders(
+                bodyParameters: body,
+                urlParameters: urlParameters,
+                additionHeaders: headers
+            )
         }
     }
     
     var headers: HTTPHeaders? {
         switch self {
-        case .getOrders: return [
+        case .getOrders, .getOrder: return [
             "User-Agent" : "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)",
-            "Cookie" : "session_id=" // TODO: sessionID
+            "Cookie" : "session_id=" + (KeychainWrapper.standard.string(forKey: "sessionID") ?? "") // TODO: sessionID
         ]
         default: return ["User-Agent" : "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)"]
         }
@@ -99,6 +109,7 @@ extension CityDriveApi {
             "limit" : 5,
             "version" : "20"
         ]
+        case .getOrder: return [:]
         default: return ["version" : "20"]
         }
     }

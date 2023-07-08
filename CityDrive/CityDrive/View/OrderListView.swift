@@ -13,12 +13,14 @@ struct OrderListView: View {
     var body: some View {
         NavigationStack {
             List(orderVM.orders) { order in
-                NavigationLink(destination: OrderDetailsView()) {
+                NavigationLink(destination: OrderDetailsView(orderID: order.idString, orderVM: orderVM)) {
                     HStack {
-                        Text(order.amount)
-                        Spacer()
                         Text(order.startedAtToDate, style: .date)
+                        Text(order.startedAtToDate, style: .time)
+                        Spacer()
+                        Text(order.amount).bold()
                     }
+                    .padding()
                 }
             }
             .navigationTitle("orders")

@@ -26,7 +26,7 @@ struct SendSmsSuccessResponse: Decodable {
     }
 }
 
-struct UserResponse: Decodable {
+struct SmsSuccessUserResponse: Decodable {
     let userID, phone, email, firstName, middleName, lastName, avatar: String
 
     enum CodingKeys: String, CodingKey {

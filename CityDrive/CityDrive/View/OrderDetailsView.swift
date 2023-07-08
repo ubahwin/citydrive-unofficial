@@ -6,13 +6,23 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct OrderDetailsView: View {
+    var orderID: String
+    
+    @ObservedObject var orderVM: OrdersViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(orderVM.order.amount)
+        }
+        .onAppear {
+            orderVM.loadOrder(id: orderID)
+        }
     }
 }
 
 #Preview {
-    OrderDetailsView()
+    OrderDetailsView(orderID: "e915e318-d8bd-4505-9a03-16167322e2e9", orderVM: OrdersViewModel())
 }
