@@ -16,7 +16,7 @@ struct OrderListResponse: Codable {
 
 struct ShortOrderResponse: Codable {
     let orderID, startedAt, amount: String?
-
+	
     enum CodingKeys: String, CodingKey {
         case orderID = "order_id"
         case startedAt = "started_at"

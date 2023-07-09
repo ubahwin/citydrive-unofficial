@@ -58,8 +58,8 @@
 		B76860A02A3DB40F0010D590 /* SmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsView.swift; sourceTree = "<group>"; };
 		B76860A22A3DB5D20010D590 /* GreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenButton.swift; sourceTree = "<group>"; };
 		B76860C62A3E33C00010D590 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		B77C110F2A4757170042FA54 /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = CityDrive.app; path = "/Users/ubah/Yandex.Disk.localized/projects/citydrive/CityDrive/build/Debug-iphoneos/CityDrive.app"; sourceTree = "<absolute>"; };
 		B77C11102A483F520042FA54 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		B79DC48A2A5AA02100175413 /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A369622A3C69E500B31121 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		B7A369642A3C6A1200B31121 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		B7A369672A3C719200B31121 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
@@ -98,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				B70D4AC62A3B1ABF00C90991 /* CityDrive */,
+				B79DC48A2A5AA02100175413 /* CityDrive.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,7 +275,7 @@
 				B7A44FCD2A573F06003FCBD4 /* SwiftKeychainWrapper */,
 			);
 			productName = CityDrive;
-			productReference = B77C110F2A4757170042FA54 /* CityDrive.app */;
+			productReference = B79DC48A2A5AA02100175413 /* CityDrive.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

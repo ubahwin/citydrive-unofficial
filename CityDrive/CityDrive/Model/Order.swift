@@ -32,11 +32,13 @@ struct Order {
     
     var nn: NNOrder
     
+    
+    
     var totalCostAsDouble: Double {
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "ru_RU")
         formatter.numberStyle = .decimal
-        let cleanedString = String(check.totalCost).components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
+        let cleanedString = check.totalCost.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
         
         if let doubleValue = formatter.number(from: cleanedString)?.doubleValue {
             return doubleValue
@@ -62,7 +64,7 @@ struct Currency {
 }
 
 struct Path {
-    var start, finish: FinishResponse
+    var start, finish: Finish
 }
 
 struct Finish {
@@ -100,7 +102,8 @@ struct CheckOrder {
     var dailyPriceType: String
     var dailyCost, dailyTime: Int
     var dailyStatus: Bool
-    var discountPercent, discountPrice, totalCost, percentDiscountPrice: Int
+    var discountPercent, discountPrice, percentDiscountPrice: Int
+    var totalCost: String
     var totalCostWithDiscount: Int
 }
 
@@ -129,7 +132,7 @@ struct TransactionInfo {
 }
 
 struct AchievementOrder {
-    var achievementID, type, name: String
+    var type, name: String
     var amount: Int
     var once: Bool
     var properties: String

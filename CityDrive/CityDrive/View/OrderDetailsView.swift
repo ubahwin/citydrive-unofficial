@@ -15,7 +15,7 @@ struct OrderDetailsView: View {
     
     var body: some View {
         VStack {
-            Text(orderVM.order.amount)
+            Text(orderVM.order?.cityName ?? "")
         }
         .onAppear {
             orderVM.loadOrder(id: orderID)
