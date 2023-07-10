@@ -11,7 +11,7 @@
 
 ## Структура проекта
 
-```xml
+```
 CityDrive
 ├── NetworkLayer
 │   ├── Endpoint
