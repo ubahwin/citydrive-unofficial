@@ -4,33 +4,7 @@
     "" : {
 
     },
-    "+7" : {
-
-    },
-    "For test" : {
-
-    },
-    "ID" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ID"
-          }
-        }
-      }
-    },
-    "loginAs %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You login as %@"
-          }
-        }
-      }
-    },
-    "smsCode" : {
+    "******" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -46,9 +20,34 @@
         }
       }
     },
+    "+7" : {
+
+    },
+    "ID" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ID"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ID"
+          }
+        }
+      }
+    },
     "tariff mode" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tariff mode"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "tariff mode"
@@ -63,12 +62,24 @@
             "state" : "translated",
             "value" : "tariff package"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tariff package"
+          }
         }
       }
     },
     "zone expansion" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "zone expansion"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "zone expansion"
@@ -92,6 +103,54 @@
         }
       }
     },
+    "Авторизация" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authorization"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Авторизация"
+          }
+        }
+      }
+    },
+    "Войти" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Войти"
+          }
+        }
+      }
+    },
+    "Вы вошли как %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You login as %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Вы вошли как %@"
+          }
+        }
+      }
+    },
     "Город" : {
       "localizations" : {
         "en" : {
@@ -104,6 +163,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Город"
+          }
+        }
+      }
+    },
+    "Дальше" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дальше"
           }
         }
       }
@@ -204,6 +279,22 @@
         }
       }
     },
+    "История поездок" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orders"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "История поездок"
+          }
+        }
+      }
+    },
     "Итоговая стоимость" : {
       "localizations" : {
         "en" : {
@@ -220,7 +311,23 @@
         }
       }
     },
-    "Картинки" : {
+    "Карта" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Карта"
+          }
+        }
+      }
+    },
+    "Картинка" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -264,6 +371,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Модель"
+          }
+        }
+      }
+    },
+    "Настройки" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки"
           }
         }
       }
