@@ -11,7 +11,7 @@ import SwiftKeychainWrapper
 public enum CityDriveApi {
     case sendPhone(phone: String)
     case sendSms(phone: String, smsCode: Int)
-    case getOrders
+    case getOrders(page: Int, limit: Int)
     case getOrder(id: String)
 }
 
@@ -104,10 +104,11 @@ extension CityDriveApi: EndpointType {
 extension CityDriveApi {
     var urlParameters: Parameters? {
         switch self {
-        case .getOrders: return [
+        case .getOrders(let page, let limit): return [
             "type" : "user",
-            "limit" : 5,
-            "version" : "20"
+            "limit" : limit,
+            "page" : page,
+            "version" : 20
         ]
         case .getOrder: return [:]
         default: return ["version" : "20"]

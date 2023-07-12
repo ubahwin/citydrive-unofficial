@@ -14,8 +14,46 @@ struct OrderDetailsView: View {
     @ObservedObject var orderVM: OrdersViewModel
     
     var body: some View {
-        VStack {
-            Text(orderVM.order?.cityName ?? "")
+        NavigationStack {
+            List {
+                Section("Основная информация") {
+                    HStack {
+                        Text("Итоговая стоимость")
+                        Spacer()
+                        Text(orderVM.order?.check.totalCost ?? "")
+                    }
+                    HStack {
+                        Text("Город")
+                        Spacer()
+                        Text(orderVM.order?.cityName ?? "")
+                    }
+                }
+                
+                Section {
+                    NavigationLink(destination: { PathView(path: orderVM.order?.path, period: orderVM.order?.period) }) {
+                        Text("Путь")
+                    }
+                }
+                
+                Section {
+                    NavigationLink(destination: { AboutCarView(car: orderVM.order?.car) }) {
+                        Text("Автомобиль")
+                    }
+                }
+                
+                Section {
+                    NavigationLink(destination: { AboutUserView(user: orderVM.order?.user) }) {
+                        Text("Пользователь")
+                    }
+                }
+                
+                Section {
+                    NavigationLink(destination: { OtherInfoView(noname: orderVM.order?.nn) }) {
+                        Text("Дополнительная информация")
+                    }
+                }
+            }
+            
         }
         .onAppear {
             orderVM.loadOrder(id: orderID)

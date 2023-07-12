@@ -25,7 +25,13 @@ struct OrderListView: View {
             }
             .navigationTitle("orders")
             .refreshable {
-                orderVM.loadOrderList()
+                orderVM.refresh()
+            }
+            if !orderVM.isLastPage() {
+                Button("Загрузить дальше") {
+                    orderVM.loadOrderList()
+                }
+                .padding()
             }
         }
     }

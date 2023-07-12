@@ -24,7 +24,7 @@ enum Result<String>{
 
 class NetworkManager {
     let router = Router<CityDriveApi>()
-    
+
     static let shared = NetworkManager()
     private init() { }
     
@@ -90,8 +90,8 @@ class NetworkManager {
         }
     }
     
-    func getOrders(completion: @escaping (_ success: OrderListResponse?, _ error: String?) -> ()) {
-        router.request(.getOrders) { data, response, error in
+    func getOrders(page: Int, limit: Int, completion: @escaping (_ success: OrderListResponse?, _ error: String?) -> ()) {
+        router.request(.getOrders(page: page, limit: limit)) { data, response, error in
             if error != nil {
                 completion(nil, "Please check your network connection.")
             }

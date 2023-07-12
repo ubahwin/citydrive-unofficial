@@ -21,6 +21,12 @@
 		B76860A32A3DB5D20010D590 /* GreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76860A22A3DB5D20010D590 /* GreenButton.swift */; };
 		B76860C72A3E33C00010D590 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76860C62A3E33C00010D590 /* Color.swift */; };
 		B77C11112A483F520042FA54 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B77C11102A483F520042FA54 /* Localizable.xcstrings */; };
+		B79DC48F2A5B079300175413 /* AboutUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DC48E2A5B079300175413 /* AboutUserView.swift */; };
+		B79DC4912A5B085800175413 /* OtherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DC4902A5B085800175413 /* OtherInfoView.swift */; };
+		B79DC4932A5B0A3100175413 /* AboutCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DC4922A5B0A3100175413 /* AboutCarView.swift */; };
+		B79DC4962A5B0CDE00175413 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B79DC4952A5B0CDE00175413 /* SDWebImageSwiftUI */; };
+		B79DC4982A5B127A00175413 /* PathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DC4972A5B127A00175413 /* PathView.swift */; };
+		B79DC49F2A5B196C00175413 /* StringConvertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DC49E2A5B196C00175413 /* StringConvertor.swift */; };
 		B7A369632A3C69E500B31121 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A369622A3C69E500B31121 /* MapViewModel.swift */; };
 		B7A369652A3C6A1200B31121 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A369642A3C6A1200B31121 /* Car.swift */; };
 		B7A369682A3C719200B31121 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A369672A3C719200B31121 /* Pin.swift */; };
@@ -60,6 +66,11 @@
 		B76860C62A3E33C00010D590 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B77C11102A483F520042FA54 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B79DC48A2A5AA02100175413 /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B79DC48E2A5B079300175413 /* AboutUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUserView.swift; sourceTree = "<group>"; };
+		B79DC4902A5B085800175413 /* OtherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherInfoView.swift; sourceTree = "<group>"; };
+		B79DC4922A5B0A3100175413 /* AboutCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCarView.swift; sourceTree = "<group>"; };
+		B79DC4972A5B127A00175413 /* PathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathView.swift; sourceTree = "<group>"; };
+		B79DC49E2A5B196C00175413 /* StringConvertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConvertor.swift; sourceTree = "<group>"; };
 		B7A369622A3C69E500B31121 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		B7A369642A3C6A1200B31121 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		B7A369672A3C719200B31121 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
@@ -87,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B79DC4962A5B0CDE00175413 /* SDWebImageSwiftUI in Frameworks */,
 				B7A44FCE2A573F06003FCBD4 /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,8 +117,9 @@
 		B70D4AC62A3B1ABF00C90991 /* CityDrive */ = {
 			isa = PBXGroup;
 			children = (
+				B79DC49D2A5B194100175413 /* Utils */,
 				B76860A42A3DB6F90010D590 /* NetworkLayer */,
-				B768609B2A3DB27F0010D590 /* Extentions */,
+				B768609B2A3DB27F0010D590 /* Extensions */,
 				B7A369612A3C69D400B31121 /* View */,
 				B7A369602A3C69CA00B31121 /* Model */,
 				B7A3695F2A3C69C300B31121 /* ViewModel */,
@@ -144,12 +157,12 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		B768609B2A3DB27F0010D590 /* Extentions */ = {
+		B768609B2A3DB27F0010D590 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				B76860C62A3E33C00010D590 /* Color.swift */,
 			);
-			path = Extentions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B76860A42A3DB6F90010D590 /* NetworkLayer */ = {
@@ -162,6 +175,14 @@
 				B7CDD0932A3F910F0034278B /* Model */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		B79DC49D2A5B194100175413 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B79DC49E2A5B196C00175413 /* StringConvertor.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		B7A3695F2A3C69C300B31121 /* ViewModel */ = {
@@ -202,6 +223,10 @@
 				B7A369672A3C719200B31121 /* Pin.swift */,
 				B768608C2A3C8B5C0010D590 /* MyLocationButton.swift */,
 				B76860A22A3DB5D20010D590 /* GreenButton.swift */,
+				B79DC48E2A5B079300175413 /* AboutUserView.swift */,
+				B79DC4902A5B085800175413 /* OtherInfoView.swift */,
+				B79DC4922A5B0A3100175413 /* AboutCarView.swift */,
+				B79DC4972A5B127A00175413 /* PathView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -273,6 +298,7 @@
 			name = CityDrive;
 			packageProductDependencies = (
 				B7A44FCD2A573F06003FCBD4 /* SwiftKeychainWrapper */,
+				B79DC4952A5B0CDE00175413 /* SDWebImageSwiftUI */,
 			);
 			productName = CityDrive;
 			productReference = B79DC48A2A5AA02100175413 /* CityDrive.app */;
@@ -305,6 +331,7 @@
 			mainGroup = B70D4ABB2A3B1ABF00C90991;
 			packageReferences = (
 				B7A44FCC2A573F06003FCBD4 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				B79DC4942A5B0CDE00175413 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = B70D4ABB2A3B1ABF00C90991;
 			projectDirPath = "";
@@ -335,17 +362,21 @@
 			files = (
 				B76860A32A3DB5D20010D590 /* GreenButton.swift in Sources */,
 				B7CDD0A72A3F92680034278B /* NetworkRouter.swift in Sources */,
+				B79DC4912A5B085800175413 /* OtherInfoView.swift in Sources */,
 				B7CDD0B42A4704EB0034278B /* SendSmsSuccessResponse.swift in Sources */,
+				B79DC48F2A5B079300175413 /* AboutUserView.swift in Sources */,
 				B7A369682A3C719200B31121 /* Pin.swift in Sources */,
 				B7CDD0A62A3F92680034278B /* HTTPMethod.swift in Sources */,
 				B7CDD0A32A3F92680034278B /* EndpointType.swift in Sources */,
 				B76860912A3D09230010D590 /* OrderListView.swift in Sources */,
 				B70D4ACA2A3B1ABF00C90991 /* MapView.swift in Sources */,
+				B79DC4982A5B127A00175413 /* PathView.swift in Sources */,
 				B7CDD0A42A3F92680034278B /* Router.swift in Sources */,
 				B7CDD09B2A3F92390034278B /* JSONParameterEncoder.swift in Sources */,
 				B7C99B432A504136004A29A8 /* SettingViewModel.swift in Sources */,
 				B7CDD0B22A46FCFA0034278B /* SendPhoneSuccessResponse.swift in Sources */,
 				B76860952A3D8FC70010D590 /* OrderDetailsView.swift in Sources */,
+				B79DC49F2A5B196C00175413 /* StringConvertor.swift in Sources */,
 				B76860A12A3DB40F0010D590 /* SmsView.swift in Sources */,
 				B76860C72A3E33C00010D590 /* Color.swift in Sources */,
 				B70D4AC82A3B1ABF00C90991 /* CityDriveApp.swift in Sources */,
@@ -356,6 +387,7 @@
 				B7A369652A3C6A1200B31121 /* Car.swift in Sources */,
 				B7CDD0A52A3F92680034278B /* HTTPTask.swift in Sources */,
 				B7CDD0A92A3F94C80034278B /* CityDriveEndpoint.swift in Sources */,
+				B79DC4932A5B0A3100175413 /* AboutCarView.swift in Sources */,
 				B768609A2A3DA59D0010D590 /* LoginView.swift in Sources */,
 				B7CDD0AD2A3F95FB0034278B /* NetworkManager.swift in Sources */,
 				B7A44FD02A59509F003FCBD4 /* OrderListResponse.swift in Sources */,
@@ -573,6 +605,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B79DC4942A5B0CDE00175413 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.3;
+			};
+		};
 		B7A44FCC2A573F06003FCBD4 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
@@ -584,6 +624,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B79DC4952A5B0CDE00175413 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B79DC4942A5B0CDE00175413 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		B7A44FCD2A573F06003FCBD4 /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B7A44FCC2A573F06003FCBD4 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;

@@ -22,6 +22,11 @@ struct MapView: View {
                             }
                         }
                     }
+                    .mapControls {
+                        MapCompass()
+                        MapPitchButton()
+                        MapUserLocationButton()
+                    }
                     VStack {
                         Spacer()
                         HStack {

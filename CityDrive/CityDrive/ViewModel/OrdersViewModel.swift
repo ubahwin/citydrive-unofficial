@@ -11,6 +11,10 @@ import MapKit
 class OrdersViewModel: ObservableObject {
     @Published var orders: [ShortOrder] = []
     @Published var order: Order?
+        
+    private var totalCount = 0
+    private var page = 0
+    private let limit = 15
     
     init() {
         loadOrderList()
@@ -71,7 +75,6 @@ class OrdersViewModel: ObservableObject {
                                   number: orderResponse.carNumber ?? "",
                                   model: orderResponse.carModel ?? "",
                                   img: orderResponse.carImg ?? "",
-                                  side: orderResponse.carImgSide ?? "",
                                   odometer: Odometer(atStart: orderResponse.carOdometer?.atStart ?? 0,
                                                      atFinish: orderResponse.carOdometer?.atFinish ?? 0)),
                     cityName: orderResponse.cityName ?? "",
@@ -171,7 +174,11 @@ class OrdersViewModel: ObservableObject {
     }
     
     func loadOrderList() {
-        NetworkManager.shared.getOrders { response, error in
+        page += 1
+
+        NetworkManager.shared.getOrders(page: page, limit: limit) { response, error in
+            self.totalCount = response?.count ?? 0
+            
             let orders = response?.orders?.compactMap { orderResponse in
                 if
                     let orderID = orderResponse.orderID,
@@ -183,11 +190,22 @@ class OrdersViewModel: ObservableObject {
                     }
                 return nil
             }
+            
             if let orders = orders {
                 DispatchQueue.main.async {
-                    self.orders = orders
+                    self.orders.append(contentsOf: orders)
                 }
             }
         }
+    }
+    
+    func isLastPage() -> Bool {
+        return page * limit >= totalCount
+    }
+    
+    func refresh() {
+        self.orders = []
+        page = 0
+        loadOrderList()
     }
 }

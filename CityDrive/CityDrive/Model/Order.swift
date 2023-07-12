@@ -140,7 +140,7 @@ struct AchievementOrder {
 }
 
 struct CarOrder {
-    var id, number, model, img, side: String
+    var id, number, model, img: String
     var odometer: Odometer
 }
 
