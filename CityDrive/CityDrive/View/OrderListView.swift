@@ -24,7 +24,7 @@ struct OrderListView: View {
                         .padding()
                     }
                 }
-                .navigationTitle("orders")
+                .navigationTitle("История поездок")
                 .refreshable {
                     orderVM.refresh()
                 }

@@ -42,19 +42,19 @@ struct MapView: View {
                 }
                     .tabItem {
                         Image(systemName: "map")
-                        Text("map")
+                        Text("Карта")
                     }
                 
                 OrderListView()
                 .tabItem {
                     Image(systemName: "list.bullet.clipboard")
-                    Text("orders")
+                    Text("История поездок")
                 }
                 
                 SettingView()
                     .tabItem {
                         Image(systemName: "gear")
-                        Text("settings")
+                        Text("Настройки")
                     }
             }
             .toolbarBackground(.visible, for: .tabBar)

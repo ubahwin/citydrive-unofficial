@@ -26,7 +26,7 @@ struct LoginView: View {
                     Spacer()
                 }.font(.largeTitle)
                 Spacer()
-                Button("next") {
+                Button("Дальше") {
                     NetworkManager.shared.sendPhone(phone: phone) { response, error in
                         if let success = response?.success {
                             next = success

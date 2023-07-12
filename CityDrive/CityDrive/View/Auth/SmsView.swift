@@ -19,12 +19,12 @@ struct SmsView: View {
             Spacer()
             Image("logo")
             Spacer()
-            TextField("smsCode", text: $smsCode)
+            TextField("******", text: $smsCode)
                 .keyboardType(.phonePad)
                 .multilineTextAlignment(.center)
                 .font(.largeTitle)
             Spacer()
-            Button("login") {
+            Button("Войти") {
                 NetworkManager.shared.sendSms(phone: phone, smsCode: Int(smsCode) ?? 0) { response, error in // TODO: replace to VM
                     if let success = response?.success {                        
                         isEntered = success

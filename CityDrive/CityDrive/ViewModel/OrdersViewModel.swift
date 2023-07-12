@@ -7,6 +7,7 @@
 
 import Foundation
 import MapKit
+import SwiftUI
 
 class OrdersViewModel: ObservableObject {
     @Published var orders: [ShortOrder] = []
@@ -193,7 +194,9 @@ class OrdersViewModel: ObservableObject {
             
             if let orders = orders {
                 DispatchQueue.main.async {
-                    self.orders.append(contentsOf: orders)
+                    withAnimation {
+                        self.orders.append(contentsOf: orders)
+                    }
                 }
             }
         }

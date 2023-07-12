@@ -41,7 +41,7 @@ struct AboutCarView: View {
                         .textSelection(.enabled)
                 }
             }
-            Section("Картинки") {
+            Section("Картинка") {
                 VStack {
                     WebImage(url: URL(string: car?.img ?? ""))
                         .resizable()

@@ -15,10 +15,10 @@ struct SettingView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("authorization") {
+                Section("Авторизация") {
                     if settingVM.logged {
                         HStack {
-                            Text("loginAs \(settingVM.username)")
+                            Text("Вы вошли как \(settingVM.username)")
                             Spacer()
                             Button(action: {
                                 settingVM.exit()
@@ -28,18 +28,13 @@ struct SettingView: View {
                             })
                         }
                     } else {
-                        Button("login") {
+                        Button("Войти") {
                             openLogin = true
                         }
                     }
                 }
-                #if DEBUG 
-                Section("For test") {
-                    
-                }
-                #endif
             }
-            .navigationTitle("settings")
+            .navigationTitle("Настройки")
         }
         .fullScreenCover(isPresented: $openLogin, content: { LoginView() })
     }
