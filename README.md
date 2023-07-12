@@ -34,7 +34,7 @@ CityDrive
 │   └── ...
 ├── MapView
 ├── CityDriveApp
-└── ...                   <- Extentions and Resourses
+└── ...                   <- Extensions and Resourses
 ```
 
 ## Технологии
