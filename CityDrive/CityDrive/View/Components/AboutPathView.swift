@@ -10,9 +10,7 @@ import MapKit
 
 struct AboutPathView: View {
     var path: PathOrder?
-    
-    @State private var region: MapCameraPosition = .region(.myRegion)
-    
+        
     var body: some View {
         List {
             Section("Откуда") {
@@ -71,17 +69,6 @@ struct AboutPathView: View {
                 .padding()
             }
         }
-    }
-}
-
-extension CLLocationCoordinate2D {
-    static var myLocation: CLLocationCoordinate2D {
-        return .init(latitude: 59.901153, longitude: 30.274750)
-    }
-}
-extension MKCoordinateRegion {
-    static var myRegion: MKCoordinateRegion {
-        return .init(center: .myLocation, latitudinalMeters: 1000, longitudinalMeters: 1000)
     }
 }
 
