@@ -13,6 +13,7 @@ struct SmsView: View {
     @State private var isEntered = false
             
     var phone: String
+    var networkManager: NetworkManager
     
     var body: some View {
         VStack {
@@ -25,8 +26,8 @@ struct SmsView: View {
                 .font(.largeTitle)
             Spacer()
             Button("Войти") {
-                NetworkManager.shared.sendSms(phone: phone, smsCode: Int(smsCode) ?? 0) { response, error in // TODO: replace to VM
-                    if let success = response?.success {                        
+                networkManager.sendSms(phone: phone, smsCode: Int(smsCode) ?? 0) { response, error in // TODO: replace to VM
+                    if let success = response?.success {
                         isEntered = success
                         
                         UserDefaults.standard.set(success, forKey: "isLogged")
@@ -44,5 +45,5 @@ struct SmsView: View {
 }
 
 #Preview {
-    SmsView(phone: "9803532589")
+    SmsView(phone: "9803532589", networkManager: NetworkManager())
 }

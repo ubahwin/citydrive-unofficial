@@ -25,9 +25,6 @@ struct OrderListView: View {
                     }
                 }
                 .navigationTitle("История поездок")
-                .refreshable {
-                    orderVM.refresh()
-                }
                 if !orderVM.isLastPage() {
                     Text("Загрузка...")
                         .onAppear {
@@ -35,7 +32,9 @@ struct OrderListView: View {
                         }
                 }
             }
-            
+            .refreshable {
+                orderVM.refresh()
+            }
         }
     }
 }

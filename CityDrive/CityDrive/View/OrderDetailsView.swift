@@ -18,19 +18,14 @@ struct OrderDetailsView: View {
             List {
                 Section("Основная информация") {
                     HStack {
-                        Text("Итоговая стоимость")
+                        Text("Использование")
                         Spacer()
-                        Text(orderVM.order?.check.totalCost ?? "")
-                    }
-                    HStack {
-                        Text("Город")
-                        Spacer()
-                        Text(orderVM.order?.cityName ?? "")
+                        Text(orderVM.order?.usageCost.costToString() ?? "")
                     }
                 }
                 
                 Section {
-                    NavigationLink(destination: { PathView(path: orderVM.order?.path, period: orderVM.order?.period) }) {
+                    NavigationLink(destination: { AboutPathView(path: orderVM.order?.path) }) {
                         Text("Путь")
                     }
                 }
@@ -48,12 +43,11 @@ struct OrderDetailsView: View {
                 }
                 
                 Section {
-                    NavigationLink(destination: { OtherInfoView(noname: orderVM.order?.nn) }) {
+                    NavigationLink(destination: { OtherInfoView(otherInfo: orderVM.order?.otherInfo) }) {
                         Text("Дополнительная информация")
                     }
                 }
             }
-            
         }
         .onAppear {
             orderVM.loadOrder(id: orderID)

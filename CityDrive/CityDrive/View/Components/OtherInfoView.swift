@@ -8,24 +8,24 @@
 import SwiftUI
 
 struct OtherInfoView: View {
-    var noname: NNOrder?
+    var otherInfo: OtherInfoOrder?
     
     var body: some View {
         List {
             HStack {
                 Text("tariff mode")
                 Spacer()
-                Text(noname?.tariffMode ?? "")
+                Text(otherInfo?.tariffMode ?? "")
             }
             HStack {
                 Text("tariff package")
                 Spacer()
-                Text(noname?.tariffPackage ?? "")
+                Text(otherInfo?.tariffPackage ?? "")
             }
             HStack {
                 Text("zone expansion")
                 Spacer()
-                Text(noname?.zoneExpansion ?? "")
+                Text(otherInfo?.zoneExpansion ?? "")
             }
 
 

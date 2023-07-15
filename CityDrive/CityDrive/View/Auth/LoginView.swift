@@ -10,6 +10,8 @@ import SwiftUI
 struct LoginView: View {
     @State private var phone = ""
     @State private var next = false
+    
+    private var networkManager = NetworkManager()
         
     var body: some View {
         NavigationStack {
@@ -27,7 +29,7 @@ struct LoginView: View {
                 }.font(.largeTitle)
                 Spacer()
                 Button("Дальше") {
-                    NetworkManager.shared.sendPhone(phone: phone) { response, error in
+                    networkManager.sendPhone(phone: phone) { response, error in
                         if let success = response?.success {
                             next = success
                         }
@@ -37,7 +39,7 @@ struct LoginView: View {
                 Spacer().frame(height: 50)
             }
         }
-        .fullScreenCover(isPresented: $next, content: { SmsView(phone: phone) })
+        .fullScreenCover(isPresented: $next, content: { SmsView(phone: phone, networkManager: networkManager) })
     }
 }
 

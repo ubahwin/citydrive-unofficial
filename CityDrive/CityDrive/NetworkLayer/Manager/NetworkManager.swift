@@ -24,9 +24,6 @@ enum Result<String>{
 
 class NetworkManager {
     let router = Router<CityDriveApi>()
-
-    static let shared = NetworkManager()
-    private init() { }
     
     func sendPhone(phone: String, completion: @escaping (_ success: SendPhoneSuccessResponse?, _ error: String?) -> ()) {
         router.request(.sendPhone(phone: phone)) { data, response, error in
