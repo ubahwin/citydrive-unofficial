@@ -85,5 +85,4 @@ struct TransactionInfo {
     var status: String
     var isCreated: Bool
     var data: String
-    var dataPaymentResponses, paymentResponses: String
 }

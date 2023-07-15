@@ -75,9 +75,13 @@ class OrdersViewModel: ObservableObject {
                     }
                     return nil
                 }
-                
+
                 let order = Order(
-                    usageCost: (orderResponse.check?.usageCost ?? 0).costToDouble(),
+                    usageCost: orderResponse.check?.usageCost?.costToDouble() ?? 0,
+                    totalCost: orderResponse.check?.totalCostWithDiscount?.costToDouble() ?? 0,
+                    parkingCost: orderResponse.check?.parkingCost?.costToDouble() ?? 0,
+                    bonusCancellationAmount: 0,
+                    bonusAccrualAmount: 0,
                     car: CarOrder(
                         id: orderResponse.carID ?? "",
                         number: orderResponse.carNumber ?? "",
@@ -120,9 +124,8 @@ class OrdersViewModel: ObservableObject {
                         transactionInfo: TransactionInfo(
                             status: orderResponse.transactionInfo?.status ?? "",
                             isCreated: orderResponse.transactionInfo?.transactionInfoData?.isCreated ?? false,
-                            data: orderResponse.transactionInfo?.data ?? "",
-                            dataPaymentResponses: orderResponse.transactionInfo?.transactionInfoData?.dataPaymentResponses ?? "",
-                            paymentResponses: orderResponse.transactionInfo?.transactionInfoData?.paymentResponses ?? ""),
+                            data: orderResponse.transactionInfo?.data ?? ""
+                        ),
                         cityName: orderResponse.cityName ?? "",
                         tariffPackage: orderResponse.tariffPackage ?? "",
                         zoneExpansion: orderResponse.zoneExpansion ?? "",
@@ -189,6 +192,8 @@ class OrdersViewModel: ObservableObject {
                     )
                 )
                 
+                
+                
                 DispatchQueue.main.async {
                     self.order = order
                     self.reverseGeocodeStart()
@@ -207,11 +212,15 @@ class OrdersViewModel: ObservableObject {
             let orders = response?.orders?.compactMap { orderResponse in
                 if
                     let orderID = orderResponse.orderID,
-                    let startedAt = orderResponse.startedAt,
+                    let startedAt = orderResponse.startedAt?.ISO8601ToDate(),
                     let amount = orderResponse.amount,
                     
                     let orderUUID = UUID(uuidString: orderID) {
-                        return ShortOrder(id: orderUUID, startedAt: startedAt, amount: amount)
+                        return ShortOrder(
+                            id: orderUUID,
+                            startedAt: startedAt,
+                            amount: amount
+                        )
                     }
                 return nil
             }
