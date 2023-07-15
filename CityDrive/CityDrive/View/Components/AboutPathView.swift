@@ -10,6 +10,8 @@ import MapKit
 
 struct AboutPathView: View {
     var path: PathOrder?
+            
+    @ObservedObject var orderVM: OrdersViewModel
         
     var body: some View {
         List {
@@ -30,7 +32,7 @@ struct AboutPathView: View {
                         HStack {
                             Pin(color: .green)
                             Spacer()
-                            Text("Санкт-Петербург, Нарвская, д. 5")
+                            Text(orderVM.startAddress)
                             Spacer()
                         }
                     }
@@ -58,7 +60,7 @@ struct AboutPathView: View {
                         HStack {
                             Pin(color: .purple)
                             Spacer()
-                            Text("Санкт-Петербург, Нарвская, д. 5")
+                            Text(orderVM.finishAddress)
                             Spacer()
                         }
                     }
@@ -76,6 +78,6 @@ struct AboutPathView: View {
     AboutPathView(path: PathOrder(
         start: LocateOrder(lat: 59.901153, lon: 30.274750),
         finish: LocateOrder(lat: 59.902153, lon: 30.214750),
-        period: PeriodOrder(start: "2023-07-06T09:01:25.574Z", finish: "2023-07-06T09:04:30.574Z"))
+        period: PeriodOrder(start: "2023-07-06T09:01:25.574Z", finish: "2023-07-06T09:04:30.574Z")), orderVM: OrdersViewModel()
     )
 }

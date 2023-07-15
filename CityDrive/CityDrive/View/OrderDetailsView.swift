@@ -25,7 +25,7 @@ struct OrderDetailsView: View {
                 }
                 
                 Section {
-                    NavigationLink(destination: { AboutPathView(path: orderVM.order?.path) }) {
+                    NavigationLink(destination: { AboutPathView(path: orderVM.order?.path, orderVM: orderVM) }) {
                         Text("Путь")
                     }
                 }
