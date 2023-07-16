@@ -15,7 +15,7 @@ struct OrderListView: View {
             Form {
                 List(orderVM.orders) { order in
                     NavigationLink(destination: OrderDetailsView(orderID: order.id.uuidString, orderVM: orderVM)) {
-                        LazyHStack {
+                        HStack {
                             Text(order.startedAt, style: .date)
                             Text(order.startedAt, style: .time)
                             Spacer()
