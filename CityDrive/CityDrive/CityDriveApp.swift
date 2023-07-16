@@ -16,7 +16,7 @@ struct CityDriveApp: App {
             if !isLogged {
                 LoginView()
             } else {
-                MapView()
+                ContentView()
             }
         }
     }

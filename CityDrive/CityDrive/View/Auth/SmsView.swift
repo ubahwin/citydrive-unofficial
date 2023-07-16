@@ -38,7 +38,7 @@ struct SmsView: View {
                 
             }
             .buttonStyle(GreenButton())
-            .fullScreenCover(isPresented: $isEntered, content: { MapView() })
+            .fullScreenCover(isPresented: $isEntered, content: { ContentView() })
             Spacer().frame(height: 50)
         }
     }

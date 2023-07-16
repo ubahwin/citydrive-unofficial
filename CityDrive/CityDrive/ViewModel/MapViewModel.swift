@@ -20,8 +20,4 @@ class MapViewModel: ObservableObject {
         ]
         self.cars = cars
     }
-    
-    func goToMyLocation() {
-        
-    }
 }
