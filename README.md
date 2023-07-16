@@ -4,10 +4,8 @@
     <img src="img/icon.png" alt="AppIcon" height="150">
 </div>
 
-<div align="center">
-  <img alt="Static Badge" src="https://img.shields.io/badge/iOS-17%2B-green?logo=apple">
-  <img alt="Static Badge" src="https://img.shields.io/badge/Swift%205.9-FA7343?style=flat&logo=swift&logoColor=white">
-</div>
+![](https://img.shields.io/badge/iOS-17%2B-green?logo=apple)
+![](https://img.shields.io/badge/Swift%205.9-FA7343?style=flat&logo=swift&logoColor=white)
 
 Данное приложение не несёт цели навредить репутации и информационной безопасности сервиса СитиДрайв. По первой же просьбе представителей каршеринга приложение будет убрано из публичного доступа.
 
