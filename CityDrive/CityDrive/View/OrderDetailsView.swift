@@ -21,6 +21,24 @@ struct OrderDetailsView: View {
                         HStack {
                             Text(row.rowLeft.text)
                             Spacer()
+                            if row.rowRight.iconURL != "" {
+                                AsyncImage(url: URL(string: row.rowRight.iconURL)) { image in
+                                    image
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                            }
+                            if row.rowLeft.iconURL != "" {
+                                AsyncImage(url: URL(string: row.rowLeft.iconURL)) { image in
+                                    image
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                            }
                             Text(row.rowRight.text)
                         }
                     }
