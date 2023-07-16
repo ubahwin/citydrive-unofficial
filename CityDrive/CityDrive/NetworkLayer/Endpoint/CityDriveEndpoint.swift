@@ -12,7 +12,7 @@ public enum CityDriveApi {
     case sendPhone(phone: String)
     case sendSms(phone: String, smsCode: Int)
     case getOrders(page: Int, limit: Int)
-    case getOrder(id: String)
+    case getOrder(id: String, version: Int)
 }
 
 extension CityDriveApi: EndpointType {
@@ -30,7 +30,7 @@ extension CityDriveApi: EndpointType {
         case .sendSms: return "signup/code"
         case .sendPhone: return "signup"
         case .getOrders: return "orders"
-        case .getOrder(let id): return "order/" + id + "/details"
+        case .getOrder(let id, _): return "order/" + id + "/details"
         }
     }
     
@@ -110,7 +110,7 @@ extension CityDriveApi {
             "page" : page,
             "version" : 20
         ]
-        case .getOrder: return [:]
+        case .getOrder(_, let version): return ["version" : version]
         default: return ["version" : "20"]
         }
     }

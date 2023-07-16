@@ -16,36 +16,12 @@ struct OrderDetailsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Стоимость") {
-                    HStack {
-                        Text("Использование")
-                        Spacer()
-                        Text(orderVM.order?.usageCost.costToString() ?? "")
-                    }
-                    if orderVM.order?.parkingCost != 0 {
+                Section(orderVM.middleOrder?.details.title ?? "") {
+                    ForEach(orderVM.middleOrder?.details.rows ?? []) { row in
                         HStack {
-                            Text("Парковка")
+                            Text(row.rowLeft.text)
                             Spacer()
-                            Text(orderVM.order?.parkingCost.costToString() ?? "")
-                        }
-                    }
-                    HStack {
-                        Text("Итого")
-                        Spacer()
-                        Text(orderVM.order?.totalCost.costToString() ?? "")
-                    }.bold()
-                    if orderVM.order?.bonusCancellationAmount != 0 {
-                        HStack {
-                            Text("Число списанных бонусов")
-                            Spacer()
-                            Text(orderVM.order?.bonusCancellationAmount?.costToString() ?? "")
-                        }
-                    }
-                    if orderVM.order?.bonusAccrualAmount != 0 {
-                        HStack {
-                            Text("Число начисленных бонусов")
-                            Spacer()
-                            Text(orderVM.order?.bonusAccrualAmount?.costToString() ?? "")
+                            Text(row.rowRight.text)
                         }
                     }
                 }
@@ -82,6 +58,7 @@ struct OrderDetailsView: View {
             }
         }
         .onAppear {
+            orderVM.loadMiddleOrder(id: orderID)
             orderVM.loadOrder(id: orderID)
         }
     }

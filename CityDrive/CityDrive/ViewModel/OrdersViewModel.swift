@@ -12,6 +12,7 @@ import SwiftUI
 class OrdersViewModel: ObservableObject {
     @Published var orders: [ShortOrder] = []
     @Published var order: Order?
+    @Published var middleOrder: MiddleOrder?
     
     @Published var startAddress = ""
     @Published var finishAddress = ""
@@ -25,6 +26,56 @@ class OrdersViewModel: ObservableObject {
     init() {
         self.networkManager = NetworkManager()
         loadOrderList()
+    }
+    
+    func loadMiddleOrder(id: String) {
+        networkManager.getOrder(id: id, version: 20) { response, error in
+            if let orderResponse = response {
+                
+                let rows = orderResponse.details?.rows?.compactMap { row in
+                    if
+                        let rowLeft = row.rowLeft,
+                        let rowRight = row.rowRight {
+                        return Row(id: UUID(),
+                           rowLeft:
+                            Column(
+                                text: rowLeft.text ?? "",
+                                iconURL: rowLeft.iconURL ?? "",
+                                color: rowLeft.color ?? "",
+                                fontStyle: rowLeft.fontStyle ?? ""),
+                           rowRight:
+                            Column(
+                                text: rowRight.text ?? "",
+                                iconURL: rowRight.iconURL ?? "",
+                                color: rowRight.color ?? "",
+                                fontStyle: rowRight.fontStyle ?? "")
+                        )
+                    }
+                    return nil
+                }
+                
+                let order = MiddleOrder(
+                    locationStart: Location(
+                        timestamp: orderResponse.locationStart?.timestamp ?? "",
+                        address: orderResponse.locationStart?.address ?? "",
+                        lat: orderResponse.locationStart?.lat ?? 0,
+                        lon: orderResponse.locationStart?.lon ?? 0),
+                    locationFinish: Location(
+                        timestamp: orderResponse.locationFinish?.timestamp ?? "",
+                        address: orderResponse.locationFinish?.address ?? "",
+                        lat: orderResponse.locationFinish?.lat ?? 0,
+                        lon: orderResponse.locationFinish?.lon ?? 0),
+                    details: MiddleDetails(
+                        title: orderResponse.details?.title ?? "",
+                        description: orderResponse.details?.description ?? "",
+                        rows: rows ?? []
+                    )
+                )
+                DispatchQueue.main.async {
+                    self.middleOrder = order
+                }
+            }
+        }
     }
     
     func loadOrder(id: String) {
@@ -190,8 +241,6 @@ class OrdersViewModel: ObservableObject {
                         totalCostWithDiscount: orderResponse.check?.totalCostWithDiscount ?? 0
                     )
                 )
-                
-                
                 
                 DispatchQueue.main.async {
                     self.order = order

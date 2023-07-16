@@ -12,6 +12,8 @@
 		B70D4ACC2A3B1AC100C90991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B70D4ACB2A3B1AC100C90991 /* Assets.xcassets */; };
 		B70D4ACF2A3B1AC100C90991 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B70D4ACE2A3B1AC100C90991 /* Preview Assets.xcassets */; };
 		B71129C32A63BFD700E821FE /* AboutEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C22A63BFD700E821FE /* AboutEventsView.swift */; };
+		B71129C72A63D6F700E821FE /* MiddleOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */; };
+		B71129C92A63D81000E821FE /* MiddleOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C82A63D81000E821FE /* MiddleOrder.swift */; };
 		B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DBF972A597BFE006393B6 /* ShortOrder.swift */; };
 		B768608D2A3C8B5C0010D590 /* MyLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B768608C2A3C8B5C0010D590 /* MyLocationButton.swift */; };
 		B768608F2A3CE9010010D590 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B768608E2A3CE9010010D590 /* SettingView.swift */; };
@@ -63,6 +65,8 @@
 		B70D4ACB2A3B1AC100C90991 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B70D4ACE2A3B1AC100C90991 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B71129C22A63BFD700E821FE /* AboutEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutEventsView.swift; sourceTree = "<group>"; };
+		B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrderResponse.swift; sourceTree = "<group>"; };
+		B71129C82A63D81000E821FE /* MiddleOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrder.swift; sourceTree = "<group>"; };
 		B73DBF972A597BFE006393B6 /* ShortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortOrder.swift; sourceTree = "<group>"; };
 		B768608C2A3C8B5C0010D590 /* MyLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationButton.swift; sourceTree = "<group>"; };
 		B768608E2A3CE9010010D590 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 				B797649F2A607420008B6C7E /* OtherInfoOrder.swift */,
 				B79764A12A60746A008B6C7E /* CarOrder.swift */,
 				B79764A32A607488008B6C7E /* EventOrder.swift */,
+				B71129C82A63D81000E821FE /* MiddleOrder.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 				B7CDD0B32A4704EB0034278B /* SendSmsSuccessResponse.swift */,
 				B7A44FCF2A59509F003FCBD4 /* OrderListResponse.swift */,
 				B7DB05EE2A59BC6900ACE3BC /* OrderResponse.swift */,
+				B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -384,6 +390,7 @@
 				B76860A32A3DB5D20010D590 /* GreenButton.swift in Sources */,
 				B7CAC3FB2A61D44C00E5B271 /* String.swift in Sources */,
 				B7CDD0A72A3F92680034278B /* NetworkRouter.swift in Sources */,
+				B71129C72A63D6F700E821FE /* MiddleOrderResponse.swift in Sources */,
 				B7CAC3F92A61D40500E5B271 /* Int.swift in Sources */,
 				B79DC4912A5B085800175413 /* OtherInfoView.swift in Sources */,
 				B7CDD0B42A4704EB0034278B /* SendSmsSuccessResponse.swift in Sources */,
@@ -394,6 +401,7 @@
 				B71129C32A63BFD700E821FE /* AboutEventsView.swift in Sources */,
 				B76860912A3D09230010D590 /* OrderListView.swift in Sources */,
 				B70D4ACA2A3B1ABF00C90991 /* MapView.swift in Sources */,
+				B71129C92A63D81000E821FE /* MiddleOrder.swift in Sources */,
 				B79DC4982A5B127A00175413 /* AboutPathView.swift in Sources */,
 				B7CDD0A42A3F92680034278B /* Router.swift in Sources */,
 				B7CDD09B2A3F92390034278B /* JSONParameterEncoder.swift in Sources */,
