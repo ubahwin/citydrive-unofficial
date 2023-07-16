@@ -309,7 +309,6 @@ class OrdersViewModel: ObservableObject {
                 self.startAddress = address
             }
         }
-        
     }
     func reverseGeocodeFinish() {
         let geocoder = CLGeocoder()

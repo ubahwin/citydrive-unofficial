@@ -45,18 +45,15 @@ struct OrderDetailsView: View {
                 }
                 
                 Section {
-                    NavigationLink(destination: { AboutPathView(path: orderVM.order?.path, orderVM: orderVM) }) {
+                    NavigationLink(destination: { AboutPathView(path: orderVM.order?.path) }) {
                         Text("Путь")
                     }
-                    
                     NavigationLink(destination: { AboutEventsView(events: orderVM.order?.events) }) {
                         Text("События")
                     }
-                    
                     NavigationLink(destination: { AboutCarView(car: orderVM.order?.car) }) {
                         Text("Автомобиль")
                     }
-                    
                     NavigationLink(destination: { AboutUserView(user: orderVM.order?.user) }) {
                         Text("Пользователь")
                     }
