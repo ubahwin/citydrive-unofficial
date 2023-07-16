@@ -1,8 +1,15 @@
 # Неофициальный клиент CityDrive
 
-Данное приложение не несёт цели навредить репутации и информационной безопасности сервиса СитиДрайв. По первой же просьбе представителей каршеринга приложение будет убрано из публичного доступа.
+<div align="center">
+    <img src="img/icon.png" alt="AppIcon" height="150">
+</div>
 
-Для iOS 17 и выше.
+<div align="center">
+  <img alt="Static Badge" src="https://img.shields.io/badge/iOS-17%2B-green?logo=apple">
+  <img alt="Static Badge" src="https://img.shields.io/badge/Swift%205.9-FA7343?style=flat&logo=swift&logoColor=white">
+</div>
+
+Данное приложение не несёт цели навредить репутации и информационной безопасности сервиса СитиДрайв. По первой же просьбе представителей каршеринга приложение будет убрано из публичного доступа.
 
 <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; column-gap: 24px; row-gap: 20px;">
   <span><img src="img/1.png" style="width:200px;"></span>
