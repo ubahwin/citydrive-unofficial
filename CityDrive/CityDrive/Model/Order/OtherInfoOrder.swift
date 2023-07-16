@@ -73,7 +73,8 @@ struct Currency {
     var code, symbol: String
 }
 
-struct AchievementOrder {
+struct AchievementOrder: Identifiable {
+    var id: UUID
     var type, name: String
     var amount: Int
     var once: Bool

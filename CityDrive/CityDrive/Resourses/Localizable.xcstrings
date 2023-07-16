@@ -23,6 +23,72 @@
     "+7" : {
 
     },
+    "amount" : {
+
+    },
+    "bookingTime" : {
+
+    },
+    "bookingTimeLeft" : {
+
+    },
+    "chargingCost" : {
+
+    },
+    "chargingPrice" : {
+
+    },
+    "chargingPriceType" : {
+
+    },
+    "chargingTime" : {
+
+    },
+    "cityName" : {
+
+    },
+    "code" : {
+
+    },
+    "dailyCost" : {
+
+    },
+    "dailyPrice" : {
+
+    },
+    "dailyPriceType" : {
+
+    },
+    "dailyStatus" : {
+
+    },
+    "dailyTime" : {
+
+    },
+    "data" : {
+
+    },
+    "discountPercent" : {
+
+    },
+    "discountPrice" : {
+
+    },
+    "finishCost" : {
+
+    },
+    "fixTariffCost" : {
+
+    },
+    "fixTariffPrice" : {
+
+    },
+    "fixTariffPriceType" : {
+
+    },
+    "fixTariffTime" : {
+
+    },
     "ID" : {
       "localizations" : {
         "en" : {
@@ -38,6 +104,81 @@
           }
         }
       }
+    },
+    "insuranceIncluded" : {
+
+    },
+    "isActive" : {
+
+    },
+    "isCreated" : {
+
+    },
+    "isInsurance" : {
+
+    },
+    "kasko" : {
+
+    },
+    "name" : {
+
+    },
+    "once" : {
+
+    },
+    "orderSource" : {
+
+    },
+    "parkingCost" : {
+
+    },
+    "parkingNightCost" : {
+
+    },
+    "parkingNightPrice" : {
+
+    },
+    "parkingNightPriceType" : {
+
+    },
+    "parkingNightTime" : {
+
+    },
+    "parkingPrice" : {
+
+    },
+    "parkingPriceType" : {
+
+    },
+    "parkingTime" : {
+
+    },
+    "percent" : {
+
+    },
+    "percentDiscountPrice" : {
+
+    },
+    "programType" : {
+
+    },
+    "properties" : {
+
+    },
+    "riskProfileLevel" : {
+
+    },
+    "riskProfilePoints" : {
+
+    },
+    "status" : {
+
+    },
+    "success" : {
+
+    },
+    "symbol" : {
+
     },
     "tariff mode" : {
       "localizations" : {
@@ -70,6 +211,90 @@
           }
         }
       }
+    },
+    "totalCost" : {
+
+    },
+    "totalCostWithDiscount" : {
+
+    },
+    "transferCost" : {
+
+    },
+    "transferNightCost" : {
+
+    },
+    "transferNightPrice" : {
+
+    },
+    "transferNightPriceType" : {
+
+    },
+    "transferNightTime" : {
+
+    },
+    "transferPrice" : {
+
+    },
+    "transferPriceType" : {
+
+    },
+    "transferTime" : {
+
+    },
+    "type" : {
+
+    },
+    "usageCost" : {
+
+    },
+    "usagePrice" : {
+
+    },
+    "usagePriceType" : {
+
+    },
+    "usageTime" : {
+
+    },
+    "usageWeekendCost" : {
+
+    },
+    "usageWeekendPrice" : {
+
+    },
+    "usageWeekendPriceType" : {
+
+    },
+    "usageWeekendTime" : {
+
+    },
+    "usageWorkdayCost" : {
+
+    },
+    "usageWorkdayPrice" : {
+
+    },
+    "usageWorkdayPriceType" : {
+
+    },
+    "usageWorkdayTime" : {
+
+    },
+    "waitingCost" : {
+
+    },
+    "waitingPrice" : {
+
+    },
+    "waitingPriceType" : {
+
+    },
+    "waitingTime" : {
+
+    },
+    "waitingTimeLeft" : {
+
     },
     "zone expansion" : {
       "localizations" : {
@@ -118,6 +343,9 @@
           }
         }
       }
+    },
+    "Валюта" : {
+
     },
     "Войти" : {
       "localizations" : {
@@ -199,6 +427,9 @@
           }
         }
       }
+    },
+    "Достижения" : {
+
     },
     "Загрузка..." : {
       "localizations" : {
@@ -493,6 +724,9 @@
         }
       }
     },
+    "Программа лояльности" : {
+
+    },
     "Продолжительность" : {
 
     },
@@ -543,6 +777,9 @@
           }
         }
       }
+    },
+    "Транзакция" : {
+
     },
     "Фамилия" : {
       "localizations" : {

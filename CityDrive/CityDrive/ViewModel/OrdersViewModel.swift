@@ -109,19 +109,20 @@ class OrdersViewModel: ObservableObject {
                 }
                 
                 let achievements = orderResponse.achievements?.compactMap { achievement in
+                    let properties = achievement.properties
+                    let isInsurance = achievement.isInsurance
                     if
                         let type = achievement.type,
                         let name = achievement.name,
                         let amount = achievement.amount,
-                        let once = achievement.once,
-                        let properties = achievement.properties,
-                        let isInsurance = achievement.isInsurance {
-                        return AchievementOrder(type: type,
+                        let once = achievement.once {
+                        return AchievementOrder(id: UUID(),
+                                                type: type,
                                                 name: name,
                                                 amount: amount,
                                                 once: once,
-                                                properties: properties,
-                                                isInsurance: isInsurance)
+                                                properties: properties ?? "",
+                                                isInsurance: isInsurance ?? false)
                     }
                     return nil
                 }
