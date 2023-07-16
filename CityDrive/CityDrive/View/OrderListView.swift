@@ -14,10 +14,10 @@ struct OrderListView: View {
         NavigationStack {
             Form {
                 List(orderVM.orders) { order in
-                    NavigationLink(destination: OrderDetailsView(orderID: order.idString, orderVM: orderVM)) {
+                    NavigationLink(destination: OrderDetailsView(orderID: order.id.uuidString, orderVM: orderVM)) {
                         HStack {
-                            Text(order.startedAtToDate, style: .date)
-                            Text(order.startedAtToDate, style: .time)
+                            Text(order.startedAt, style: .date)
+                            Text(order.startedAt, style: .time)
                             Spacer()
                             Text(order.amount).bold()
                         }
@@ -25,9 +25,6 @@ struct OrderListView: View {
                     }
                 }
                 .navigationTitle("История поездок")
-                .refreshable {
-                    orderVM.refresh()
-                }
                 if !orderVM.isLastPage() {
                     Text("Загрузка...")
                         .onAppear {
@@ -35,7 +32,9 @@ struct OrderListView: View {
                         }
                 }
             }
-            
+            .refreshable {
+                orderVM.refresh()
+            }
         }
     }
 }

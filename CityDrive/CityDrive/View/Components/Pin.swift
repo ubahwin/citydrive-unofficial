@@ -9,10 +9,12 @@ import SwiftUI
 import MapKit
 
 struct Pin: View {
+    var color: Color
+    
     var body: some View {
         ZStack {
             Circle()
-                .fill(.green)
+                .fill(color)
                 .frame(height: 15)
             Circle()
                 .stroke(lineWidth: 3)
@@ -24,5 +26,5 @@ struct Pin: View {
 }
 
 #Preview {
-    Pin()
+    Pin(color: .green)
 }

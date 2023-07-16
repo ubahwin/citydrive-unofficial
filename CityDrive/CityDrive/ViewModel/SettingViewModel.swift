@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftKeychainWrapper
+import SwiftUI
 
 class SettingViewModel: ObservableObject {
     @Published var logged: Bool = UserDefaults.standard.bool(forKey: "isLogged")
@@ -17,7 +18,9 @@ class SettingViewModel: ObservableObject {
     }
     
     func exit() {
-        logged = false
+        withAnimation {
+            logged = false
+        }
         UserDefaults.standard.set("", forKey: "username")
         KeychainWrapper.standard.set("", forKey: "sessionID")
     }

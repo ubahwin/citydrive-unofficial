@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct AboutCarView: View {
     var car: CarOrder?
@@ -43,9 +42,9 @@ struct AboutCarView: View {
             }
             Section("Картинка") {
                 VStack {
-                    WebImage(url: URL(string: car?.img ?? ""))
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                    AsyncImage(url: URL(string: car?.img ?? ""))
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
                 }
             }
         }

@@ -18,7 +18,7 @@ struct MapView: View {
                     Map {
                         ForEach(mapVM.cars) { car in
                             Annotation(car.name, coordinate: car.coordinate) {
-                                Pin()
+                                Pin(color: .green)
                             }
                         }
                     }

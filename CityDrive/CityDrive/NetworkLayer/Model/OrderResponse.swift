@@ -39,6 +39,7 @@ struct OrderResponse: Codable {
     let user: UserResponse?
     
     let billingTransactionInfo: BillingTransactionInfoResponse?
+    
     let loyaltyProgram: LoyaltyProgramResponse?
     let orderSource: String?
     let success: Bool?
@@ -82,7 +83,22 @@ struct AchievementResponse: Codable {
 }
 
 struct BillingTransactionInfoResponse: Codable {
-    let totalByType: [String]?
+    let totalByType: [TotalByTypeResponse]?
+}
+
+struct TotalByTypeResponse: Codable {
+    let accountTypeID, accountTypeName, accountTypeDisplayName, currencyID: String?
+    let currencyCode: String?
+    let currencyDivider: Int?
+    let currencySymbol: String?
+    let sum: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case accountTypeID = "accountTypeId"
+        case accountTypeName, accountTypeDisplayName
+        case currencyID = "currencyId"
+        case currencyCode, currencyDivider, currencySymbol, sum
+    }
 }
 
 struct CarOdometerResponse: Codable {
@@ -206,7 +222,6 @@ struct EventResponse: Codable {
     let duration: Double?
     let userLat, userLon: Double?
     let adminID: String?
-    let details: DetailsResponse?
 
     enum CodingKeys: String, CodingKey {
         case state, name, status, time, lat, lon
@@ -215,15 +230,6 @@ struct EventResponse: Codable {
         case userLat = "user_lat"
         case userLon = "user_lon"
         case adminID = "admin_id"
-        case details
-    }
-}
-
-struct DetailsResponse: Codable {
-    let userID: String?
-
-    enum CodingKeys: String, CodingKey {
-        case userID = "user_id"
     }
 }
 
@@ -259,12 +265,11 @@ struct TransactionInfoResponse: Codable {
 struct DataClassResponse: Codable {
     let product: ProductResponse?
     let isCreated: Bool?
-    let dataPaymentResponses, paymentResponses: String?
+    let dataPaymentResponses: String?
 
     enum CodingKeys: String, CodingKey {
         case product, isCreated
         case dataPaymentResponses = "paymentResponses"
-        case paymentResponses = "_paymentResponses"
     }
 }
 

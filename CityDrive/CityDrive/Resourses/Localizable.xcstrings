@@ -23,6 +23,72 @@
     "+7" : {
 
     },
+    "amount" : {
+
+    },
+    "bookingTime" : {
+
+    },
+    "bookingTimeLeft" : {
+
+    },
+    "chargingCost" : {
+
+    },
+    "chargingPrice" : {
+
+    },
+    "chargingPriceType" : {
+
+    },
+    "chargingTime" : {
+
+    },
+    "cityName" : {
+
+    },
+    "code" : {
+
+    },
+    "dailyCost" : {
+
+    },
+    "dailyPrice" : {
+
+    },
+    "dailyPriceType" : {
+
+    },
+    "dailyStatus" : {
+
+    },
+    "dailyTime" : {
+
+    },
+    "data" : {
+
+    },
+    "discountPercent" : {
+
+    },
+    "discountPrice" : {
+
+    },
+    "finishCost" : {
+
+    },
+    "fixTariffCost" : {
+
+    },
+    "fixTariffPrice" : {
+
+    },
+    "fixTariffPriceType" : {
+
+    },
+    "fixTariffTime" : {
+
+    },
     "ID" : {
       "localizations" : {
         "en" : {
@@ -38,6 +104,81 @@
           }
         }
       }
+    },
+    "insuranceIncluded" : {
+
+    },
+    "isActive" : {
+
+    },
+    "isCreated" : {
+
+    },
+    "isInsurance" : {
+
+    },
+    "kasko" : {
+
+    },
+    "name" : {
+
+    },
+    "once" : {
+
+    },
+    "orderSource" : {
+
+    },
+    "parkingCost" : {
+
+    },
+    "parkingNightCost" : {
+
+    },
+    "parkingNightPrice" : {
+
+    },
+    "parkingNightPriceType" : {
+
+    },
+    "parkingNightTime" : {
+
+    },
+    "parkingPrice" : {
+
+    },
+    "parkingPriceType" : {
+
+    },
+    "parkingTime" : {
+
+    },
+    "percent" : {
+
+    },
+    "percentDiscountPrice" : {
+
+    },
+    "programType" : {
+
+    },
+    "properties" : {
+
+    },
+    "riskProfileLevel" : {
+
+    },
+    "riskProfilePoints" : {
+
+    },
+    "status" : {
+
+    },
+    "success" : {
+
+    },
+    "symbol" : {
+
     },
     "tariff mode" : {
       "localizations" : {
@@ -70,6 +211,90 @@
           }
         }
       }
+    },
+    "totalCost" : {
+
+    },
+    "totalCostWithDiscount" : {
+
+    },
+    "transferCost" : {
+
+    },
+    "transferNightCost" : {
+
+    },
+    "transferNightPrice" : {
+
+    },
+    "transferNightPriceType" : {
+
+    },
+    "transferNightTime" : {
+
+    },
+    "transferPrice" : {
+
+    },
+    "transferPriceType" : {
+
+    },
+    "transferTime" : {
+
+    },
+    "type" : {
+
+    },
+    "usageCost" : {
+
+    },
+    "usagePrice" : {
+
+    },
+    "usagePriceType" : {
+
+    },
+    "usageTime" : {
+
+    },
+    "usageWeekendCost" : {
+
+    },
+    "usageWeekendPrice" : {
+
+    },
+    "usageWeekendPriceType" : {
+
+    },
+    "usageWeekendTime" : {
+
+    },
+    "usageWorkdayCost" : {
+
+    },
+    "usageWorkdayPrice" : {
+
+    },
+    "usageWorkdayPriceType" : {
+
+    },
+    "usageWorkdayTime" : {
+
+    },
+    "waitingCost" : {
+
+    },
+    "waitingPrice" : {
+
+    },
+    "waitingPriceType" : {
+
+    },
+    "waitingTime" : {
+
+    },
+    "waitingTimeLeft" : {
+
     },
     "zone expansion" : {
       "localizations" : {
@@ -119,6 +344,9 @@
         }
       }
     },
+    "Валюта" : {
+
+    },
     "Войти" : {
       "localizations" : {
         "en" : {
@@ -152,6 +380,7 @@
       }
     },
     "Город" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -198,6 +427,9 @@
           }
         }
       }
+    },
+    "Достижения" : {
+
     },
     "Загрузка..." : {
       "localizations" : {
@@ -296,6 +528,7 @@
       }
     },
     "Итоговая стоимость" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -391,6 +624,9 @@
         }
       }
     },
+    "Начало" : {
+
+    },
     "Номер" : {
       "localizations" : {
         "en" : {
@@ -408,6 +644,7 @@
       }
     },
     "Основная информация" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -487,6 +724,12 @@
         }
       }
     },
+    "Программа лояльности" : {
+
+    },
+    "Продолжительность" : {
+
+    },
     "Путь" : {
       "localizations" : {
         "en" : {
@@ -499,6 +742,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Путь"
+          }
+        }
+      }
+    },
+    "События" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Events"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "События"
           }
         }
       }
@@ -518,6 +777,9 @@
           }
         }
       }
+    },
+    "Транзакция" : {
+
     },
     "Фамилия" : {
       "localizations" : {
