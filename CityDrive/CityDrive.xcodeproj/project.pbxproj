@@ -199,6 +199,18 @@
 			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
+		B781C75A2A643E5B0072DEE0 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				B79DC48E2A5B079300175413 /* AboutUserView.swift */,
+				B79DC4902A5B085800175413 /* OtherInfoView.swift */,
+				B79DC4922A5B0A3100175413 /* AboutCarView.swift */,
+				B79DC4972A5B127A00175413 /* AboutPathView.swift */,
+				B71129C22A63BFD700E821FE /* AboutEventsView.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
 		B797649A2A607368008B6C7E /* Order */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +248,7 @@
 		B7A369612A3C69D400B31121 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B781C75A2A643E5B0072DEE0 /* Order */,
 				B76860962A3D90940010D590 /* Auth */,
 				B7A369662A3C718100B31121 /* Components */,
 				B768608E2A3CE9010010D590 /* SettingView.swift */,
@@ -251,11 +264,6 @@
 				B7A369672A3C719200B31121 /* Pin.swift */,
 				B768608C2A3C8B5C0010D590 /* MyLocationButton.swift */,
 				B76860A22A3DB5D20010D590 /* GreenButton.swift */,
-				B79DC48E2A5B079300175413 /* AboutUserView.swift */,
-				B79DC4902A5B085800175413 /* OtherInfoView.swift */,
-				B79DC4922A5B0A3100175413 /* AboutCarView.swift */,
-				B79DC4972A5B127A00175413 /* AboutPathView.swift */,
-				B71129C22A63BFD700E821FE /* AboutEventsView.swift */,
 				B77E07EC2A6430A700B3DBAC /* LocationCellView.swift */,
 			);
 			path = Components;
