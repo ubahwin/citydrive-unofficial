@@ -244,8 +244,6 @@ class OrdersViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self.order = order
-                    self.reverseGeocodeStart()
-                    self.reverseGeocodeFinish()
                 }
             }
         }
@@ -293,36 +291,5 @@ class OrdersViewModel: ObservableObject {
         }
         page = 0
         loadOrderList()
-    }
-    
-    func reverseGeocodeStart() {
-        let geocoder = CLGeocoder()
-        
-        geocoder.reverseGeocodeLocation(CLLocation(latitude: order?.path.start.lat ?? 0, longitude: order?.path.start.lon ?? 0)) { (placemarks, error) in
-            if let error = error {
-                print("Ошибка геокодирования для начальной точки: \(error.localizedDescription)")
-                return
-            }
-            
-            if let placemark = placemarks?.first {
-                let address = "\(placemark.thoroughfare ?? ""), \(placemark.locality ?? ""), \(placemark.administrativeArea ?? "")"
-                self.startAddress = address
-            }
-        }
-    }
-    func reverseGeocodeFinish() {
-        let geocoder = CLGeocoder()
-        
-        geocoder.reverseGeocodeLocation(CLLocation(latitude: order?.path.finish.lat ?? 0, longitude: order?.path.finish.lon ?? 0)) { (placemarks, error) in
-            if let error = error {
-                print("Ошибка геокодирования для конечной точки: \(error.localizedDescription)")
-                return
-            }
-            
-            if let placemark = placemarks?.first {
-                let address = "\(placemark.thoroughfare ?? ""), \(placemark.locality ?? ""), \(placemark.administrativeArea ?? "")"
-                self.finishAddress = address
-            }
-        }
     }
 }
