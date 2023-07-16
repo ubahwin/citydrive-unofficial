@@ -32,8 +32,8 @@ struct OrderDetailsView: View {
                     HStack {
                         Text("Итого")
                         Spacer()
-                        Text(orderVM.order?.totalCost.costToString() ?? "").bold()
-                    }
+                        Text(orderVM.order?.totalCost.costToString() ?? "")
+                    }.bold()
                     if orderVM.order?.bonusCancellationAmount != 0 {
                         HStack {
                             Text("Число списанных бонусов")
@@ -53,6 +53,12 @@ struct OrderDetailsView: View {
                 Section {
                     NavigationLink(destination: { AboutPathView(path: orderVM.order?.path, orderVM: orderVM) }) {
                         Text("Путь")
+                    }
+                }
+                
+                Section {
+                    NavigationLink(destination: { AboutEventsView(events: orderVM.order?.events) }) {
+                        Text("События")
                     }
                 }
                 

@@ -31,29 +31,28 @@ class OrdersViewModel: ObservableObject {
         networkManager.getOrder(id: id) { response, error in
             if let orderResponse = response {
                 let events = orderResponse.events?.compactMap { event in
+                    let lat = event.lat
+                    let lon = event.lon
+                    let userLat = event.userLat
+                    let userLon = event.userLon
                     if
                         let state = event.state,
                         let name = event.name,
                         let status = event.status,
                         let time = event.time,
-                        let lat = event.lat,
-                        let lon = event.lon,
-                        let isPassive = event.isPassive,
                         let cost = event.cost,
-                        let duration = event.duration,
-                        let userLat = event.userLat,
-                        let userLon = event.userLon {
-                        return EventOrder(state: state,
+                        let duration = event.duration {
+                        return EventOrder(id: UUID(),
+                                          state: state,
                                           name: name,
                                           status: status,
                                           time: time,
-                                          lat: lat,
-                                          lon: lon,
-                                          isPassive: isPassive,
                                           cost: cost,
                                           duration: duration,
-                                          userLat: userLat,
-                                          userLon: userLon)
+                                          lat: lat ?? 0,
+                                          lon: lon ?? 0,
+                                          userLat: userLat ?? 0,
+                                          userLon: userLon ?? 0)
                     }
                     return nil
                 }

@@ -222,7 +222,6 @@ struct EventResponse: Codable {
     let duration: Double?
     let userLat, userLon: Double?
     let adminID: String?
-    let details: DetailsResponse?
 
     enum CodingKeys: String, CodingKey {
         case state, name, status, time, lat, lon
@@ -231,15 +230,6 @@ struct EventResponse: Codable {
         case userLat = "user_lat"
         case userLon = "user_lon"
         case adminID = "admin_id"
-        case details
-    }
-}
-
-struct DetailsResponse: Codable {
-    let userID: String?
-
-    enum CodingKeys: String, CodingKey {
-        case userID = "user_id"
     }
 }
 

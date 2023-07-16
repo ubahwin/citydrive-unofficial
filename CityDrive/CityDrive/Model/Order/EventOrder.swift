@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct EventOrder {
+struct EventOrder: Identifiable {
+    var id: UUID
     var state, name, status, time: String
-    var lat, lon: Double
-    var isPassive: Bool
     var cost: Int
     var duration: Double
+    var lat, lon: Double
     var userLat, userLon: Double
 }
