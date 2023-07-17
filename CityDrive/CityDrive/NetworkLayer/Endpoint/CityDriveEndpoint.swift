@@ -13,6 +13,7 @@ public enum CityDriveApi {
     case sendSms(phone: String, smsCode: Int)
     case getOrders(page: Int, limit: Int)
     case getOrder(id: String, version: Int)
+    case getCarStatus
 }
 
 extension CityDriveApi: EndpointType {
@@ -31,6 +32,7 @@ extension CityDriveApi: EndpointType {
         case .sendPhone: return "signup"
         case .getOrders: return "orders"
         case .getOrder(let id, _): return "order/" + id + "/details"
+        case .getCarStatus: return "status"
         }
     }
     
@@ -38,8 +40,7 @@ extension CityDriveApi: EndpointType {
         switch self {
         case .sendSms: return .post
         case .sendPhone: return .post
-        case .getOrders: return .get
-        case .getOrder: return .get
+        default: return .get
         }
     }
     
@@ -68,16 +69,26 @@ extension CityDriveApi: EndpointType {
                 urlParameters: urlParameters,
                 additionHeaders: headers
             )
+        case .getCarStatus:
+            return .requestParametersAndHeaders(
+                bodyParameters: body,
+                urlParameters: urlParameters,
+                additionHeaders: headers
+            )
         }
     }
     
     var headers: HTTPHeaders? {
         switch self {
         case .getOrders, .getOrder: return [
-            "User-Agent" : "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)",
-            "Cookie" : "session_id=" + (KeychainWrapper.standard.string(forKey: "sessionID") ?? "") // TODO: sessionID
+            "User-Agent": "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)",
+            "Cookie": "session_id=" + (KeychainWrapper.standard.string(forKey: "sessionID") ?? "")
         ]
-        default: return ["User-Agent" : "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)"]
+        case .getCarStatus: return [
+            "User-Agent": "PostmanRuntime/7.32.3",
+            "Cookie": "session_id=" + (KeychainWrapper.standard.string(forKey: "sessionID") ?? "")
+        ]
+        default: return ["User-Agent": "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)"]
         }
     }
     
@@ -111,7 +122,13 @@ extension CityDriveApi {
             "version" : 20
         ]
         case .getOrder(_, let version): return ["version" : version]
-        default: return ["version" : "20"]
+        case .getCarStatus: return [
+            "lat": 37.4219983,
+            "lon": -122.084,
+            "version" : 20,
+            "session_id": (KeychainWrapper.standard.string(forKey: "sessionID") ?? "")
+        ]
+        default: return ["version" : 20]
         }
     }
 }

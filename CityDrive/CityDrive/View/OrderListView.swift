@@ -22,7 +22,7 @@ struct OrderListView: View {
                             Text(order.amount).bold()
                         }
                         .padding()
-                    }
+                    } 
                 }
                 .navigationTitle("История поездок")
                 if !orderVM.isLastPage() {

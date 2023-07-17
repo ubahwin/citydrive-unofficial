@@ -12,11 +12,14 @@ struct MapView: View {
     @StateObject private var mapVM = MapViewModel()
     
     @Namespace private var locationSpace
-    
+        
     var body: some View {
         Map(scope: locationSpace) {
             ForEach(mapVM.cars) { car in
-                Annotation(car.name, coordinate: car.coordinate) {
+                Annotation(car.model, coordinate: CLLocationCoordinate2D(
+                    latitude: car.lat,
+                    longitude: car.lon)
+                ) {
                     Pin(color: .green)
                 }
             }
@@ -26,7 +29,6 @@ struct MapView: View {
             MapCompass()
             MapPitchButton()
         }
-        
         .overlay(alignment: .bottomTrailing) {
             MapUserLocationButton(scope: locationSpace)
                 .buttonBorderShape(.capsule)
