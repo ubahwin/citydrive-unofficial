@@ -7,12 +7,17 @@
 
 import Foundation
 import MapKit
+import SwiftUI
 
 class MapViewModel: ObservableObject {
     @Published var cars: [Car] = []
-    
-    private var networkManager: NetworkManager
         
+    private var networkManager: NetworkManager
+    
+    // TODO: change in settings
+    @Published var mapStyle: MapStyle = .hybrid
+    var city = "saint_petersburg"
+    
     init() {
         self.networkManager = NetworkManager()
         loadCarStatus()
@@ -25,8 +30,9 @@ class MapViewModel: ObservableObject {
             }
             
             if let statusResponse = response {
-                let cars = response?.cars?.compactMap { car in
+                let cars = statusResponse.cars?.compactMap { car in
                     if
+                        car.areaGroupID == self.city,
                         let carID = car.carID,
                         let id = UUID(uuidString: carID),
                         let lat = car.lat,

@@ -15,12 +15,12 @@ struct Pin: View {
         ZStack {
             Circle()
                 .fill(color)
-                .frame(height: 15)
+                .frame(height: 10)
             Circle()
-                .stroke(lineWidth: 3)
+                .stroke(lineWidth: 2)
                 .fill(.white)
-                .frame(height: 16)
-                .shadow(radius: 3)
+                .frame(height: 10)
+                .shadow(radius: 1)
         }
     }
 }

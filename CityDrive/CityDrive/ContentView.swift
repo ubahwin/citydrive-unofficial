@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
     var body: some View {
@@ -16,7 +17,6 @@ struct ContentView: View {
                         Image(systemName: "map")
                         Text("Карта")
                     }
-                
                 OrderListView()
                     .tabItem {
                         Image(systemName: "list.bullet.clipboard")

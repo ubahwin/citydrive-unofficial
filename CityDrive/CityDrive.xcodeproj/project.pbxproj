@@ -70,6 +70,7 @@
 		B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrderResponse.swift; sourceTree = "<group>"; };
 		B71129C82A63D81000E821FE /* MiddleOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrder.swift; sourceTree = "<group>"; };
 		B73DBF972A597BFE006393B6 /* ShortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortOrder.swift; sourceTree = "<group>"; };
+		B7650ABF2A66CDC000D9B74B /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = CityDrive.app; path = "/Users/ubah/Yandex.Disk.localized/projects/citydrive/CityDrive/build/Debug-iphoneos/CityDrive.app"; sourceTree = "<absolute>"; };
 		B768608E2A3CE9010010D590 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B76860902A3D09230010D590 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		B76860942A3D8FC70010D590 /* OrderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsView.swift; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		B79764A12A60746A008B6C7E /* CarOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarOrder.swift; sourceTree = "<group>"; };
 		B79764A32A607488008B6C7E /* EventOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventOrder.swift; sourceTree = "<group>"; };
 		B79B383D2A647676000E6E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		B79DC48A2A5AA02100175413 /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = CityDrive.app; path = "/Users/ubah/Yandex.Disk.localized/projects/citydrive/CityDrive/build/Debug-iphoneos/CityDrive.app"; sourceTree = "<absolute>"; };
 		B79DC48E2A5B079300175413 /* AboutUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUserView.swift; sourceTree = "<group>"; };
 		B79DC4902A5B085800175413 /* OtherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherInfoView.swift; sourceTree = "<group>"; };
 		B79DC4922A5B0A3100175413 /* AboutCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCarView.swift; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 				B7A44FCD2A573F06003FCBD4 /* SwiftKeychainWrapper */,
 			);
 			productName = CityDrive;
-			productReference = B79DC48A2A5AA02100175413 /* CityDrive.app */;
+			productReference = B7650ABF2A66CDC000D9B74B /* CityDrive.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -592,7 +592,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,7 +623,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

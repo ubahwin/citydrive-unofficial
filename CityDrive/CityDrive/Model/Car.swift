@@ -14,6 +14,10 @@ struct Car: Identifiable {
     var lat: Double
     var lon: Double
     
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: lat, longitude: lon)
+    }
+    
     var img: String
     var model: String
     var number: String

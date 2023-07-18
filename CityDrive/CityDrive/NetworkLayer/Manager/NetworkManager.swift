@@ -196,8 +196,8 @@ class NetworkManager {
                     }
                     do {
                         print(responseData)
-                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                        print(jsonData)
+//                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+//                        print(jsonData)
                         let apiResponse = try JSONDecoder().decode(CarStatusResponse.self, from: responseData)
                         completion(apiResponse, nil)
                     } catch {
