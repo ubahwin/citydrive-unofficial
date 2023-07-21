@@ -16,16 +16,31 @@ struct SettingView: View {
         NavigationStack {
             List {
                 Section("Авторизация") {
-                    if settingVM.logged {
-                        HStack {
-                            Text("Вы вошли как \(settingVM.username)")
-                            Spacer()
-                            Button(action: {
-                                settingVM.exit()
-                            }, label: {
-                                Image(systemName: "rectangle.portrait.and.arrow.forward")
-                                    .foregroundColor(.red)
-                            })
+                    if settingVM.logged ?? false {
+                        NavigationLink(destination: {
+                            UserInfoView(settingVM: settingVM)
+                                .refreshable {
+                                    settingVM.loadUser()
+                                }
+                            }
+                        ) {
+                            HStack {
+                                AsyncImage(url: URL(string: settingVM.user?.avatar ?? "")) { image in
+                                    image
+                                        .resizable()
+                                        .frame(width: 60, height: 60)
+                                        .clipShape(Circle())
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                VStack(alignment: .leading) {
+                                    Text(settingVM.user?.firstName ?? "")
+                                    Text(settingVM.user?.lastName ?? "")
+                                }
+                                .bold()
+                                .padding(5)
+                                Spacer()
+                            }
                         }
                     } else {
                         Button("Войти") {
@@ -33,6 +48,12 @@ struct SettingView: View {
                         }
                     }
                 }
+                Picker("Город", selection: settingVM.$сity) {
+                    Text(City.SPb.title).tag(City.SPb)
+                    Text(City.Moscow.title).tag(City.Moscow)
+                    Text(City.Sochi.title).tag(City.Sochi)
+                }
+                Toggle("Тёмная тема", isOn: settingVM.$isDarkTheme)
             }
             .navigationTitle("Настройки")
         }

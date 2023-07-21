@@ -11,16 +11,24 @@ import SwiftUI
 
 class MapViewModel: ObservableObject {
     @Published var cars: [Car] = []
-        
+    @Published var bonusBalance = ""
+//    @Published var mapRegion: MKCoordinateRegion
+    @Published var city: City = .SPb
     private var networkManager: NetworkManager
     
+    //==========================
+    //
     // TODO: change in settings
-    @Published var mapStyle: MapStyle = .hybrid
-    var city = "saint_petersburg"
-    
+    //
+    @Published var mapStyle: MapStyle = .standard
+    var interactions: MapInteractionModes = [.pan, .zoom]
+    //
+    //==========================
+
     init() {
         self.networkManager = NetworkManager()
         loadCarStatus()
+//        self.mapRegion = MKCoordinateRegion(center: city.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
     }
     
     func loadCarStatus() {
@@ -32,7 +40,7 @@ class MapViewModel: ObservableObject {
             if let statusResponse = response {
                 let cars = statusResponse.cars?.compactMap { car in
                     if
-                        car.areaGroupID == self.city,
+                        car.areaGroupID == self.city.areaGroupID,
                         let carID = car.carID,
                         let id = UUID(uuidString: carID),
                         let lat = car.lat,
@@ -89,6 +97,20 @@ class MapViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.cars = cars
                     }
+                }
+            }
+        }
+    }
+    
+    func loadBonusBalance() {
+        networkManager.getBonusCount { response, error in
+            if let error = error {
+                print(error)
+            }
+            
+            if let bonusBalance = response?.balance {
+                DispatchQueue.main.async {
+                    self.bonusBalance = String(bonusBalance)
                 }
             }
         }

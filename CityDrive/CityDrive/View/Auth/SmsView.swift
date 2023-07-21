@@ -31,7 +31,7 @@ struct SmsView: View {
                         isEntered = success
                         
                         UserDefaults.standard.set(success, forKey: "isLogged")
-                        UserDefaults.standard.set(response?.user.firstName ?? "", forKey: "username")
+//                        UserDefaults.standard.set(response?.user.firstName ?? "", forKey: "username")
                         KeychainWrapper.standard.set(response?.sessionID ?? "", forKey: "sessionID") // token security
                     }
                 }

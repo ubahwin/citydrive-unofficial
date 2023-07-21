@@ -14,6 +14,8 @@ public enum CityDriveApi {
     case getOrders(page: Int, limit: Int)
     case getOrder(id: String, version: Int)
     case getCarStatus
+    case getBonusCount
+    case getUser
 }
 
 extension CityDriveApi: EndpointType {
@@ -33,6 +35,8 @@ extension CityDriveApi: EndpointType {
         case .getOrders: return "orders"
         case .getOrder(let id, _): return "order/" + id + "/details"
         case .getCarStatus: return "status"
+        case .getBonusCount: return "bonus-balance"
+        case .getUser: return "user"
         }
     }
     
@@ -75,17 +79,33 @@ extension CityDriveApi: EndpointType {
                 urlParameters: urlParameters,
                 additionHeaders: headers
             )
+        case .getBonusCount:
+            return .requestParametersAndHeaders(
+                bodyParameters: body,
+                urlParameters: urlParameters,
+                additionHeaders: headers
+            )
+        case .getUser:
+            return .requestParametersAndHeaders(
+                bodyParameters: body,
+                urlParameters: urlParameters,
+                additionHeaders: headers
+            )
         }
     }
     
     var headers: HTTPHeaders? {
         switch self {
-        case .getOrders, .getOrder: return [
+        case .getOrders, .getOrder, .getBonusCount: return [
             "User-Agent": "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)",
             "Cookie": "session_id=" + (KeychainWrapper.standard.string(forKey: "sessionID") ?? "")
         ]
         case .getCarStatus: return [
             "User-Agent": "PostmanRuntime/7.32.3",
+            "Cookie": "session_id=" + (KeychainWrapper.standard.string(forKey: "sessionID") ?? "")
+        ]
+        case .getUser: return [
+            "User-Agent": "carsharing/4.13.1 (Linux; Android 10; Android SDK built for arm64 Build/REL)",
             "Cookie": "session_id=" + (KeychainWrapper.standard.string(forKey: "sessionID") ?? "")
         ]
         default: return ["User-Agent": "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)"]

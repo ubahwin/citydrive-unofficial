@@ -281,6 +281,9 @@
     "usageWorkdayTime" : {
 
     },
+    "user ID" : {
+
+    },
     "waitingCost" : {
 
     },
@@ -364,6 +367,7 @@
       }
     },
     "Вы вошли как %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -379,8 +383,10 @@
         }
       }
     },
+    "Выйти" : {
+
+    },
     "Город" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -692,6 +698,9 @@
         }
       }
     },
+    "Пол" : {
+
+    },
     "Пользователь" : {
       "localizations" : {
         "en" : {
@@ -746,6 +755,9 @@
         }
       }
     },
+    "Реферальный код" : {
+
+    },
     "События" : {
       "localizations" : {
         "en" : {
@@ -777,6 +789,9 @@
           }
         }
       }
+    },
+    "Тёмная тема" : {
+
     },
     "Транзакция" : {
 
