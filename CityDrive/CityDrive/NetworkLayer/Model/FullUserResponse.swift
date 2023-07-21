@@ -62,10 +62,12 @@ struct RatingV2UserResponse: Codable {
 }
 
 struct AchievementUserResponse: Codable {
+    let achievementID: String?
     let localeName: String?
 
     enum CodingKeys: String, CodingKey {
         case localeName = "locale_name"
+        case achievementID = "achievement_id"
     }
 }
 

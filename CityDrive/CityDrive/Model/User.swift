@@ -45,7 +45,8 @@ struct UserRatingV2 {
     var levelX0UpdatedAt: String
 }
 
-struct UserAchievement {
+struct UserAchievement: Identifiable {
+    var id: UUID
     var localeName: String
 }
 

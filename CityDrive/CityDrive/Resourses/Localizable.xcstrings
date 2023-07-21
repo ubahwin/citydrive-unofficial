@@ -23,7 +23,13 @@
     "+7" : {
 
     },
+    "achievements" : {
+
+    },
     "amount" : {
+
+    },
+    "bonus" : {
 
     },
     "bookingTime" : {
@@ -68,6 +74,12 @@
     "data" : {
 
     },
+    "days of levelNext" : {
+
+    },
+    "debt" : {
+
+    },
     "discountPercent" : {
 
     },
@@ -108,6 +120,9 @@
     "insuranceIncluded" : {
 
     },
+    "is risk profile enabled" : {
+
+    },
     "isActive" : {
 
     },
@@ -120,7 +135,19 @@
     "kasko" : {
 
     },
+    "level" : {
+
+    },
+    "levelNextNumber of levelNext" : {
+
+    },
+    "levelX0UpdatedAt" : {
+
+    },
     "name" : {
+
+    },
+    "number of levelNext" : {
 
     },
     "once" : {
@@ -165,13 +192,31 @@
     "properties" : {
 
     },
+    "rating" : {
+
+    },
+    "rating of levelNext" : {
+
+    },
+    "ratingV2" : {
+
+    },
+    "ratingV2Level" : {
+
+    },
     "riskProfileLevel" : {
 
     },
     "riskProfilePoints" : {
 
     },
+    "send push" : {
+
+    },
     "status" : {
+
+    },
+    "subscription status" : {
 
     },
     "success" : {
@@ -242,6 +287,9 @@
     "transferTime" : {
 
     },
+    "trips of levelNext" : {
+
+    },
     "type" : {
 
     },
@@ -279,6 +327,9 @@
 
     },
     "usageWorkdayTime" : {
+
+    },
+    "user corporate role ID" : {
 
     },
     "user ID" : {
@@ -732,6 +783,9 @@
           }
         }
       }
+    },
+    "Привзанная карта" : {
+
     },
     "Программа лояльности" : {
 

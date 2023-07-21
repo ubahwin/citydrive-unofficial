@@ -28,7 +28,7 @@ struct UserInfoView: View {
                 HStack {
                     Text("Пол")
                     Spacer()
-                    Text(settingVM.user?.gender ?? "")
+                    Text(settingVM.user?.gender.title ?? "")
                 }
                 HStack {
                     Text("Телефон")
@@ -53,6 +53,30 @@ struct UserInfoView: View {
                                     .textSelection(.enabled)
                             }
                         }
+                        Section {
+                            HStack {
+                                Text("Привзанная карта")
+                                Spacer()
+                                Text(settingVM.user?.card.number ?? "")
+                                    .textSelection(.enabled)
+                            }
+                        }
+                        
+                        HStack {
+                            Text("bonus")
+                            Spacer()
+                            Text(settingVM.user?.bonus.description ?? "")
+                        }
+                        HStack {
+                            Text("debt")
+                            Spacer()
+                            Text(settingVM.user?.debt.description ?? "")
+                        }
+                        HStack {
+                            Text("is risk profile enabled")
+                            Spacer()
+                            Text(settingVM.user?.isRiskProfileEnabled.description ?? "")
+                        }
                         HStack {
                             Text("user ID")
                             Spacer()
@@ -60,14 +84,82 @@ struct UserInfoView: View {
                                 .textSelection(.enabled)
                         }
                         HStack {
-                            Text("")
+                            Text("user corporate role ID")
                             Spacer()
-                            Text(settingVM.user?.referralCode ?? "")
+                            Text(settingVM.user?.userCorporateRoleID ?? "")
                         }
                         HStack {
-                            Text("")
+                            Text("subscription status")
                             Spacer()
-                            Text(settingVM.user?.referralCode ?? "")
+                            Text(settingVM.user?.subscriptionStatus ?? "")
+                        }
+                        HStack {
+                            Text("send push")
+                            Spacer()
+                            Text(settingVM.user?.sendPush.description ?? "")
+                        }
+                        HStack {
+                            Text("level")
+                            Spacer()
+                            Text(settingVM.user?.level.description ?? "")
+                        }
+                        HStack {
+                            Text("level")
+                            Spacer()
+                            Text(settingVM.user?.rating.description ?? "")
+                        }
+                        
+                        Section("ratingV2") {
+                            HStack {
+                                Text("level")
+                                Spacer()
+                                Text(settingVM.user?.ratingV2.level.description ?? "")
+                            }
+                            HStack {
+                                Text("levelX0UpdatedAt")
+                                Spacer()
+                                Text(settingVM.user?.ratingV2.levelX0UpdatedAt.ISO8601ToDate() ?? Date(), style: .date)
+                            }
+                            HStack {
+                                Text("rating")
+                                Spacer()
+                                Text(settingVM.user?.ratingV2.rating.description ?? "")
+                            }
+                            HStack {
+                                Text("ratingV2Level")
+                                Spacer()
+                                Text(settingVM.user?.ratingV2.ratingV2Level.description ?? "")
+                            }
+                            HStack {
+                                Text("days of levelNext")
+                                Spacer()
+                                Text(settingVM.user?.ratingV2.levelNext.days.description ?? "")
+                            }
+                            HStack {
+                                Text("levelNextNumber of levelNext")
+                                Spacer()
+                                Text(settingVM.user?.ratingV2.levelNext.levelNextNumber.description ?? "")
+                            }
+                            HStack {
+                                Text("number of levelNext")
+                                Spacer()
+                                Text(settingVM.user?.ratingV2.levelNext.number.description ?? "")
+                            }
+                            HStack {
+                                Text("rating of levelNext")
+                                Spacer()
+                                Text(settingVM.user?.ratingV2.levelNext.rating.description ?? "")
+                            }
+                            HStack {
+                                Text("trips of levelNext")
+                                Spacer()
+                                Text(settingVM.user?.ratingV2.levelNext.trips.description ?? "")
+                            }
+                        }
+                        Section("achievements") {
+                            ForEach(settingVM.user?.ratingV2.achievements ?? []) { achievement in
+                                Text(achievement.localeName)
+                            }
                         }
                     }
                 }) {

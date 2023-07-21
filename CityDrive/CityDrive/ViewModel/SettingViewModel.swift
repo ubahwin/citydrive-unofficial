@@ -44,8 +44,11 @@ class SettingViewModel: ObservableObject {
             if let userResponse = response {
                 
                 let achievements = userResponse.ratingV2?.achievements?.compactMap() { achievement in
-                    if let localeName = achievement.localeName {
-                        return UserAchievement(localeName: localeName)
+                    if
+                        let localeName = achievement.localeName,
+                        let achievementID = achievement.achievementID,
+                        let id = UUID(uuidString: achievementID) {
+                        return UserAchievement(id: id, localeName: localeName)
                     }
                     return nil
                 }
