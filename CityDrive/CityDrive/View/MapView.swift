@@ -10,7 +10,7 @@ import MapKit
 
 struct MapView: View {
     @StateObject private var mapVM = MapViewModel()
-    
+    @Environment(\.colorScheme) var colorScheme
     @State private var camera: MapCameraPosition = .userLocation(fallback: .automatic)
     @Namespace private var locationSpace
     
@@ -34,6 +34,18 @@ struct MapView: View {
             
             VStack {
                 HStack {
+                    Button(
+                        action: {
+                            mapVM.loadCarStatus()
+                        },
+                        label: {
+                            Image(systemName: "arrow.clockwise")
+                        }
+                    )
+                    .padding(10)
+                    .background(colorScheme == .dark ? Color(hex: 0x212a2e) : .white)
+                    .foregroundStyle(colorScheme == .dark ? .green : .black)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
                     Spacer()
                     BonusButtonView(mapVM: mapVM)
                 }
@@ -47,7 +59,7 @@ struct MapView: View {
             .padding()
         }
         .mapScope(locationSpace)
-        .mapStyle(mapVM.mapStyle)
+        .mapStyle(mapVM.mapType?.mapStyle ?? MapStyle.standard)
     }
 }
 #Preview {

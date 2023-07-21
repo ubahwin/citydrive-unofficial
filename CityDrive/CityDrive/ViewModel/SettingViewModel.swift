@@ -8,6 +8,7 @@
 import Foundation
 import SwiftKeychainWrapper
 import SwiftUI
+import _MapKit_SwiftUI
 
 class SettingViewModel: ObservableObject {
     private var networkManager: NetworkManager
@@ -18,6 +19,8 @@ class SettingViewModel: ObservableObject {
     
     @AppStorage("isDarkTheme") var isDarkTheme = true
     @AppStorage("selectedCity") var сity: City = .SPb
+    @AppStorage("selectedMapType") var mapType: MapType = .standard
+    @AppStorage("selecteInteractions") var interactions: MapInteractionModes = [.pan, .zoom]
     
     init() {
         self.networkManager = NetworkManager()

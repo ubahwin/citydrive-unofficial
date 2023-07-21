@@ -10,17 +10,19 @@ import MapKit
 import SwiftUI
 
 class MapViewModel: ObservableObject {
+    private var networkManager: NetworkManager
+    
     @Published var cars: [Car] = []
     @Published var bonusBalance = ""
+
 //    @Published var mapRegion: MKCoordinateRegion
-    @Published var city: City = .SPb
-    private var networkManager: NetworkManager
     
     //==========================
     //
     // TODO: change in settings
     //
-    @Published var mapStyle: MapStyle = .standard
+    @AppStorage("selectedCity") var city: City?
+    @AppStorage("selectedMapType") var mapType: MapType?
     var interactions: MapInteractionModes = [.pan, .zoom]
     //
     //==========================
@@ -40,7 +42,7 @@ class MapViewModel: ObservableObject {
             if let statusResponse = response {
                 let cars = statusResponse.cars?.compactMap { car in
                     if
-                        car.areaGroupID == self.city.areaGroupID,
+                        car.areaGroupID == self.city?.areaGroupID,
                         let carID = car.carID,
                         let id = UUID(uuidString: carID),
                         let lat = car.lat,
@@ -115,4 +117,5 @@ class MapViewModel: ObservableObject {
             }
         }
     }
+    
 }

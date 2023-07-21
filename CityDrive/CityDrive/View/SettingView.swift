@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct SettingView: View {
     @StateObject private var settingVM = SettingViewModel()
@@ -48,10 +49,18 @@ struct SettingView: View {
                         }
                     }
                 }
-                Picker("Город", selection: settingVM.$сity) {
-                    Text(City.SPb.title).tag(City.SPb)
-                    Text(City.Moscow.title).tag(City.Moscow)
-                    Text(City.Sochi.title).tag(City.Sochi)
+                
+                Section("Карта") {
+                    Picker("Город", selection: settingVM.$сity) {
+                        Text(City.SPb.title).tag(City.SPb)
+                        Text(City.Moscow.title).tag(City.Moscow)
+                        Text(City.Sochi.title).tag(City.Sochi)
+                    }
+                    Picker("Тип карты", selection: settingVM.$mapType) {
+                        Text(MapType.standard.title).tag(MapType.standard)
+                        Text(MapType.hybrid.title).tag(MapType.hybrid)
+                    }
+                    Text("Действия с картой")
                 }
                 Toggle("Тёмная тема", isOn: settingVM.$isDarkTheme)
             }

@@ -19,11 +19,11 @@ struct BonusButtonView: View {
             },
             label: {
                 HStack {
-                    Text(mapVM.bonusBalance).font(.system(size: 20))
+                    Text(mapVM.bonusBalance)
                     AsyncImage(url: URL(string: "https://api.citydrive.ru/static/img/loyalty/drivebonus_x4.png")) { image in
                         image
                             .resizable()
-                            .frame(width: 35, height: 35)
+                            .frame(width: 25, height: 25)
                     } placeholder: {
                         ProgressView()
                     }
@@ -33,8 +33,7 @@ struct BonusButtonView: View {
         .padding(10)
         .background(colorScheme == .dark ? Color(hex: 0x212a2e) : .white)
         .foregroundStyle(colorScheme == .dark ? .green : .black)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-
+        .clipShape(RoundedRectangle(cornerRadius: 8))
         .onAppear {
             mapVM.loadBonusBalance()
         }
