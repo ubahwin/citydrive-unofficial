@@ -41,11 +41,7 @@ struct AboutCarView: View {
                 }
             }
             Section("Картинка") {
-                VStack {
-                    AsyncImage(url: URL(string: car?.img ?? ""))
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-                }
+                AsyncImage(url: URL(string: car?.img ?? ""))
             }
         }
     }

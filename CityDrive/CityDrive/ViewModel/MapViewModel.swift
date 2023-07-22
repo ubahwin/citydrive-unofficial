@@ -14,9 +14,7 @@ class MapViewModel: ObservableObject {
     
     @Published var cars: [Car] = []
     @Published var bonusBalance = ""
-
-//    @Published var mapRegion: MKCoordinateRegion
-    
+        
     //==========================
     //
     // TODO: change in settings
@@ -30,8 +28,8 @@ class MapViewModel: ObservableObject {
     init() {
         self.networkManager = NetworkManager()
         loadCarStatus()
-//        self.mapRegion = MKCoordinateRegion(center: city.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
     }
+
     
     func loadCarStatus() {
         networkManager.getCarStatus { response, error in
@@ -94,6 +92,7 @@ class MapViewModel: ObservableObject {
                     }
                     return nil
                 }
+                
                 
                 if let cars = cars {
                     DispatchQueue.main.async {

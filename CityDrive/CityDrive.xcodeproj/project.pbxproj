@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		B71129C92A63D81000E821FE /* MiddleOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C82A63D81000E821FE /* MiddleOrder.swift */; };
 		B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DBF972A597BFE006393B6 /* ShortOrder.swift */; };
 		B743CA102A67449500D146CC /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743CA0F2A67449500D146CC /* City.swift */; };
+		B75038502A6C075B00D49D4B /* CarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750384F2A6C075B00D49D4B /* CarView.swift */; };
 		B763DD182A670C74008E20DA /* BonusButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763DD172A670C74008E20DA /* BonusButtonView.swift */; };
 		B763DD1A2A6712B4008E20DA /* BonusBalanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763DD192A6712B4008E20DA /* BonusBalanceResponse.swift */; };
 		B768608F2A3CE9010010D590 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B768608E2A3CE9010010D590 /* SettingView.swift */; };
@@ -79,6 +80,8 @@
 		B71129C82A63D81000E821FE /* MiddleOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrder.swift; sourceTree = "<group>"; };
 		B73DBF972A597BFE006393B6 /* ShortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortOrder.swift; sourceTree = "<group>"; };
 		B743CA0F2A67449500D146CC /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		B750384D2A6BF44900D49D4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CityDrive/Resourses/Info.plist; sourceTree = SOURCE_ROOT; };
+		B750384F2A6C075B00D49D4B /* CarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarView.swift; sourceTree = "<group>"; };
 		B763DD162A670693008E20DA /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B763DD172A670C74008E20DA /* BonusButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusButtonView.swift; sourceTree = "<group>"; };
 		B763DD192A6712B4008E20DA /* BonusBalanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusBalanceResponse.swift; sourceTree = "<group>"; };
@@ -102,7 +105,6 @@
 		B797649F2A607420008B6C7E /* OtherInfoOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherInfoOrder.swift; sourceTree = "<group>"; };
 		B79764A12A60746A008B6C7E /* CarOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarOrder.swift; sourceTree = "<group>"; };
 		B79764A32A607488008B6C7E /* EventOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventOrder.swift; sourceTree = "<group>"; };
-		B79B383D2A647676000E6E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B79DC48E2A5B079300175413 /* AboutUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUserView.swift; sourceTree = "<group>"; };
 		B79DC4902A5B085800175413 /* OtherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherInfoView.swift; sourceTree = "<group>"; };
 		B79DC4922A5B0A3100175413 /* AboutCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCarView.swift; sourceTree = "<group>"; };
@@ -156,7 +158,6 @@
 		B70D4AC62A3B1ABF00C90991 /* CityDrive */ = {
 			isa = PBXGroup;
 			children = (
-				B79B383D2A647676000E6E26 /* Info.plist */,
 				B76860A42A3DB6F90010D590 /* NetworkLayer */,
 				B768609B2A3DB27F0010D590 /* Extensions */,
 				B7A369612A3C69D400B31121 /* View */,
@@ -183,6 +184,7 @@
 				B70D4ACB2A3B1AC100C90991 /* Assets.xcassets */,
 				B70D4ACD2A3B1AC100C90991 /* Preview Content */,
 				B77C11102A483F520042FA54 /* Localizable.xcstrings */,
+				B750384D2A6BF44900D49D4B /* Info.plist */,
 			);
 			path = Resourses;
 			sourceTree = "<group>";
@@ -287,6 +289,7 @@
 				B76860942A3D8FC70010D590 /* OrderDetailsView.swift */,
 				B7B253162A6455A3008DAC5C /* MapView.swift */,
 				B785872E2A6B1F610002689B /* UserInfoView.swift */,
+				B750384F2A6C075B00D49D4B /* CarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -395,7 +398,7 @@
 				};
 			};
 			buildConfigurationList = B70D4ABF2A3B1ABF00C90991 /* Build configuration list for PBXProject "CityDrive" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -478,6 +481,7 @@
 				B797649E2A6073A4008B6C7E /* UserOrder.swift in Sources */,
 				B7CAC3FD2A61D54900E5B271 /* Double.swift in Sources */,
 				B79DC4932A5B0A3100175413 /* AboutCarView.swift in Sources */,
+				B75038502A6C075B00D49D4B /* CarView.swift in Sources */,
 				B77E07ED2A6430A700B3DBAC /* LocationCellView.swift in Sources */,
 				B79764A02A607420008B6C7E /* OtherInfoOrder.swift in Sources */,
 				B768609A2A3DA59D0010D590 /* LoginView.swift in Sources */,
@@ -532,7 +536,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTABILITY = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -548,6 +552,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -596,6 +602,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -605,6 +612,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -626,13 +634,15 @@
 				DEVELOPMENT_TEAM = P47CZ87RVS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CityDrive/Info.plist;
+				INFOPLIST_FILE = CityDrive/Resourses/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CityDrive;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow location access";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Разрешите геопозицию";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -657,13 +667,15 @@
 				DEVELOPMENT_TEAM = P47CZ87RVS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CityDrive/Info.plist;
+				INFOPLIST_FILE = CityDrive/Resourses/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CityDrive;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow location access";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Разрешите геопозицию";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

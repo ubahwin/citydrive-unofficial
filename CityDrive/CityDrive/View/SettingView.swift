@@ -32,7 +32,8 @@ struct SettingView: View {
                                         .frame(width: 60, height: 60)
                                         .clipShape(Circle())
                                 } placeholder: {
-                                    ProgressView()
+                                    Image(systemName: "person")
+                                        .frame(width: 60, height: 60)
                                 }
                                 VStack(alignment: .leading) {
                                     Text(settingVM.user?.firstName ?? "")
