@@ -12,9 +12,10 @@ import SwiftUI
 class MapViewModel: ObservableObject {
     private var networkManager: NetworkManager
     
+    @Published var carsIsLoaded = false
     @Published var cars: [Car] = []
     @Published var bonusBalance = ""
-        
+    
     //==========================
     //
     // TODO: change in settings
@@ -29,14 +30,13 @@ class MapViewModel: ObservableObject {
         self.networkManager = NetworkManager()
         loadCarStatus()
     }
-
     
     func loadCarStatus() {
         networkManager.getCarStatus { response, error in
             if let error = error {
                 print(error)
             }
-            
+
             if let statusResponse = response {
                 let cars = statusResponse.cars?.compactMap { car in
                     if
@@ -93,11 +93,16 @@ class MapViewModel: ObservableObject {
                     return nil
                 }
                 
+//                let mapItems = cars?.compactMap { car in
+//                    let placemark = MKPlacemark(coordinate: car.coordinate)
+//                    let mapItem = MKMapItem(placemark: placemark)
+//                    mapItem.name = car.model
+//                    return mapItem
+//                }
                 
-                if let cars = cars {
-                    DispatchQueue.main.async {
-                        self.cars = cars
-                    }
+                DispatchQueue.main.async {
+                    self.cars = cars ?? []
+                    self.carsIsLoaded = true
                 }
             }
         }
@@ -109,10 +114,8 @@ class MapViewModel: ObservableObject {
                 print(error)
             }
             
-            if let bonusBalance = response?.balance {
-                DispatchQueue.main.async {
-                    self.bonusBalance = String(bonusBalance)
-                }
+            DispatchQueue.main.async {
+                self.bonusBalance = String(response?.balance ?? 0)
             }
         }
     }

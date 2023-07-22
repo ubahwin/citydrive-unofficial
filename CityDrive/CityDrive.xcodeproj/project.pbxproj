@@ -26,6 +26,7 @@
 		B76860A12A3DB40F0010D590 /* SmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76860A02A3DB40F0010D590 /* SmsView.swift */; };
 		B76860A32A3DB5D20010D590 /* GreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76860A22A3DB5D20010D590 /* GreenButton.swift */; };
 		B76860C72A3E33C00010D590 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76860C62A3E33C00010D590 /* Color.swift */; };
+		B77A65A02A6C536000E68B75 /* RefreshMapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77A659F2A6C536000E68B75 /* RefreshMapButtonView.swift */; };
 		B77C11112A483F520042FA54 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B77C11102A483F520042FA54 /* Localizable.xcstrings */; };
 		B77E07ED2A6430A700B3DBAC /* LocationCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E07EC2A6430A700B3DBAC /* LocationCellView.swift */; };
 		B7802B472A653A6F004F31CE /* CarStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7802B462A653A6F004F31CE /* CarStatusResponse.swift */; };
@@ -92,6 +93,7 @@
 		B76860A02A3DB40F0010D590 /* SmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsView.swift; sourceTree = "<group>"; };
 		B76860A22A3DB5D20010D590 /* GreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenButton.swift; sourceTree = "<group>"; };
 		B76860C62A3E33C00010D590 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		B77A659F2A6C536000E68B75 /* RefreshMapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshMapButtonView.swift; sourceTree = "<group>"; };
 		B77C11102A483F520042FA54 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B77E07EC2A6430A700B3DBAC /* LocationCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellView.swift; sourceTree = "<group>"; };
 		B7802B462A653A6F004F31CE /* CarStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarStatusResponse.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				B76860A22A3DB5D20010D590 /* GreenButton.swift */,
 				B77E07EC2A6430A700B3DBAC /* LocationCellView.swift */,
 				B763DD172A670C74008E20DA /* BonusButtonView.swift */,
+				B77A659F2A6C536000E68B75 /* RefreshMapButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				B76860912A3D09230010D590 /* OrderListView.swift in Sources */,
 				B7802B472A653A6F004F31CE /* CarStatusResponse.swift in Sources */,
 				B70D4ACA2A3B1ABF00C90991 /* ContentView.swift in Sources */,
+				B77A65A02A6C536000E68B75 /* RefreshMapButtonView.swift in Sources */,
 				B71129C92A63D81000E821FE /* MiddleOrder.swift in Sources */,
 				B79DC4982A5B127A00175413 /* AboutPathView.swift in Sources */,
 				B7CDD0A42A3F92680034278B /* Router.swift in Sources */,

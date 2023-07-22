@@ -12,10 +12,12 @@ struct MapView: View {
     @StateObject private var mapVM = MapViewModel()
     @Environment(\.colorScheme) var colorScheme
     @State var camera: MapCameraPosition = .userLocation(fallback: .automatic)
+    @Namespace var scope
+    @State var carSelected: MKMapItem?
     
     var body: some View {
         ZStack {
-            Map(position: $camera, interactionModes: mapVM.interactions) {
+            Map(position: $camera, interactionModes: mapVM.interactions, selection: $carSelected, scope: scope) {
                 ForEach(mapVM.cars) { car in
                     Annotation(car.model, coordinate: car.coordinate) {
                         Pin(color: .green)
@@ -33,34 +35,23 @@ struct MapView: View {
             
             VStack {
                 HStack {
-                    VStack(alignment: .leading) {
+                    HStack {
                         BonusButtonView(mapVM: mapVM)
-                        Button(
-                            action: {
-                                mapVM.loadCarStatus()
-                            },
-                            label: {
-                                Image(systemName: "arrow.clockwise")
-                            }
-                        )
-                        .padding(10)
-                        .background(colorScheme == .dark ? Color(hex: 0x212a2e) : .white)
-                        .foregroundStyle(colorScheme == .dark ? .green : .black)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        RefreshMapButtonView(mapVM: mapVM)
                     }
                     Spacer()
                 }
                 Spacer()
+                HStack {
+                    Spacer()
+                    MapUserLocationButton(scope: scope)
+                        .buttonBorderShape(.capsule)
+                }
             }
             .padding()
         }
-        .mapControls {
-            MapCompass()
-            MapPitchButton()
-            MapUserLocationButton()
-                .buttonBorderShape(.capsule)
-        }
         .mapStyle(mapVM.mapType?.mapStyle ?? MapStyle.standard)
+        .mapScope(scope)
     }
 }
 
