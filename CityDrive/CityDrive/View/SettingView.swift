@@ -80,7 +80,7 @@ struct SettingView: View {
                         HStack {
                             Text("Действия с картой")
                             Spacer()
-                            Text("pan").colorMultiply(.gray)
+                            Text(settingVM.selectedInteractions.count.description).colorMultiply(.gray)
                         }
                     })
                 }

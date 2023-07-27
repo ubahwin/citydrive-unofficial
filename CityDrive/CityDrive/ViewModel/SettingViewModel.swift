@@ -15,20 +15,16 @@ class SettingViewModel: ObservableObject {
     
     @Published var logged: Bool?
     @Published var user: User?
-    
-    @AppStorage("isDarkTheme") var isDarkTheme = true
-    @AppStorage("selectedCity") var сity: City = .SPb
-    @AppStorage("selectedMapType") var mapType: MapType = .standard
-    
-    
-    
     @Published var selectedInteractions: [String] {
         didSet {
             UserDefaults.standard.set(selectedInteractions, forKey: "selectedInteractions")
         }
     }
-        
     @State var interactions: [MapInteraction] = MapInteraction.allCases
+    
+    @AppStorage("isDarkTheme") var isDarkTheme = true
+    @AppStorage("selectedCity") var сity: City = .SPb
+    @AppStorage("selectedMapType") var mapType: MapType = .standard
     
     init() {
         self.networkManager = NetworkManager()
