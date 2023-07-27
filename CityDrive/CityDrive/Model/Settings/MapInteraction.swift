@@ -8,7 +8,9 @@
 import Foundation
 import _MapKit_SwiftUI
 
-enum MapInteraction {
+enum MapInteraction: String, CaseIterable, Identifiable, RawRepresentable {
+    var id: String { self.rawValue }
+    
     case pan, zoom, rotate, pitch
     
     var title: String {
@@ -27,5 +29,9 @@ enum MapInteraction {
         case .pitch: return .pitch
         case .rotate: return .rotate
         }
+    }
+    
+    static func fromString(_ value: String) -> MapInteraction? {
+        return MapInteraction(rawValue: value)
     }
 }

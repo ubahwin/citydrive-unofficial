@@ -19,12 +19,22 @@ class SettingViewModel: ObservableObject {
     @AppStorage("isDarkTheme") var isDarkTheme = true
     @AppStorage("selectedCity") var сity: City = .SPb
     @AppStorage("selectedMapType") var mapType: MapType = .standard
-    @AppStorage("selectedInteractions") var selectedInteractions: MapInteractionModes = [.pan, .zoom]
+    
+    
+    
+    @Published var selectedInteractions: [String] {
+        didSet {
+            UserDefaults.standard.set(selectedInteractions, forKey: "selectedInteractions")
+        }
+    }
         
+    @State var interactions: [MapInteraction] = MapInteraction.allCases
+    
     init() {
         self.networkManager = NetworkManager()
         
         logged = UserDefaults.standard.bool(forKey: "isLogged")
+        selectedInteractions = UserDefaults.standard.stringArray(forKey: "selectedInteractions") ?? []
         
         loadUser()
     }
@@ -97,6 +107,5 @@ class SettingViewModel: ObservableObject {
             }
         }
     }
-    
     
 }

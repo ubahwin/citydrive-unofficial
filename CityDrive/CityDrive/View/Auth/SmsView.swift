@@ -11,7 +11,7 @@ import SwiftKeychainWrapper
 struct SmsView: View {
     @State private var smsCode = ""
     @State private var isEntered = false
-            
+    
     var phone: String
     var networkManager: NetworkManager
     
@@ -29,12 +29,10 @@ struct SmsView: View {
                 networkManager.sendSms(phone: phone, smsCode: Int(smsCode) ?? 0) { response, error in // TODO: replace to VM
                     if let success = response?.success {
                         isEntered = success
-                        
                         UserDefaults.standard.set(success, forKey: "isLogged")
                         KeychainWrapper.standard.set(response?.sessionID ?? "", forKey: "sessionID") // token security
                     }
                 }
-                
             }
             .buttonStyle(GreenButton())
             .fullScreenCover(isPresented: $isEntered, content: { ContentView() })

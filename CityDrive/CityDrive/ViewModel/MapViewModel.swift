@@ -22,7 +22,21 @@ class MapViewModel: ObservableObject {
     //
     @AppStorage("selectedCity") var city: City?
     @AppStorage("selectedMapType") var mapType: MapType?
-    var interactions: MapInteractionModes = [.pan, .zoom]
+    
+    var interactions: MapInteractionModes {
+        let stringInteraction = UserDefaults.standard.stringArray(forKey: "selectedInteractions") ?? []
+        
+        let mapInteractions: [MapInteraction] = stringInteraction.compactMap { MapInteraction.fromString($0) }
+        
+        print(mapInteractions)
+        var mapInteractionModes: MapInteractionModes = []
+        
+        for i in mapInteractions {
+            mapInteractionModes.insert(i.mapValue)
+        }
+        print(mapInteractionModes)
+        return mapInteractionModes
+    }
     //
     //==========================
 
