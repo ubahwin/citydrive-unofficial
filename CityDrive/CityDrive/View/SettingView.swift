@@ -25,7 +25,7 @@ struct SettingView: View {
                                 }
                             }
                         ) {
-                            HStack {
+                            HStack { 
                                 AsyncImage(url: URL(string: settingVM.user?.avatar ?? "")) { image in
                                     image
                                         .resizable()
@@ -61,7 +61,13 @@ struct SettingView: View {
                         Text(MapType.standard.title).tag(MapType.standard)
                         Text(MapType.hybrid.title).tag(MapType.hybrid)
                     }
-                    Text("Действия с картой")
+//                    NavigationLink(destination: {
+//                        List {
+//                            ForEach()
+//                        }
+//                    }, label: {
+//                        
+//                    })
                 }
                 Toggle("Тёмная тема", isOn: settingVM.$isDarkTheme)
             }

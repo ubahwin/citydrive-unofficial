@@ -14,14 +14,13 @@ class SettingViewModel: ObservableObject {
     private var networkManager: NetworkManager
     
     @Published var logged: Bool?
-    
     @Published var user: User?
     
     @AppStorage("isDarkTheme") var isDarkTheme = true
     @AppStorage("selectedCity") var сity: City = .SPb
     @AppStorage("selectedMapType") var mapType: MapType = .standard
-    @AppStorage("selecteInteractions") var interactions: MapInteractionModes = [.pan, .zoom]
-    
+    @AppStorage("selectedInteractions") var selectedInteractions: MapInteractionModes = [.pan, .zoom]
+        
     init() {
         self.networkManager = NetworkManager()
         
@@ -98,5 +97,6 @@ class SettingViewModel: ObservableObject {
             }
         }
     }
+    
     
 }
