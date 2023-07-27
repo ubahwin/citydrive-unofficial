@@ -10,12 +10,11 @@ import SwiftUI
 struct BonusButtonView: View {    
     @ObservedObject var mapVM: MapViewModel
     @Environment(\.colorScheme) var colorScheme
-    @State private var openBounsBalanceInfo = false
     
     var body: some View {
         Button(
             action: {
-                openBounsBalanceInfo = true
+                // empty
             },
             label: {
                 HStack {
@@ -36,9 +35,6 @@ struct BonusButtonView: View {
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .onAppear {
             mapVM.loadBonusBalance()
-        }
-        .sheet(isPresented: $openBounsBalanceInfo) {
-            EmptyView()
         }
     }
 }
