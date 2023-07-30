@@ -13,20 +13,25 @@ struct MapView: View {
     @Environment(\.colorScheme) var colorScheme
     @State var camera: MapCameraPosition = .userLocation(fallback: .automatic)
     @Namespace var scope
+    
     @State var carSelected: MKMapItem?
+    @State var openCarDetail = false
     
     var body: some View {
         ZStack {
             Map(position: $camera, interactionModes: mapVM.interactions, selection: $carSelected, scope: scope) {
-                ForEach(mapVM.cars) { car in
-                    Annotation(car.model, coordinate: car.coordinate) {
+                ForEach(mapVM.cars, id: \.self) { car in
+                    
+                    Annotation(car.placemark.name ?? "", coordinate: car.placemark.coordinate) {
                         Pin(color: .green)
-                            .onTapGesture {
-                                withAnimation {
-                                    camera = .region(MKCoordinateRegion(center: car.coordinate, latitudinalMeters: 300, longitudinalMeters: 300))
-                                }
-                            }
+//                            .onTapGesture {
+//                                withAnimation {
+//                                    openCarDetail = true
+//                                    camera = .region(MKCoordinateRegion(center: car.placemark.coordinate, latitudinalMeters: 300, longitudinalMeters: 300))
+//                                }
+//                            }
                     }
+
                 }
                 UserAnnotation() {
                     Pin(color: .blue)
@@ -52,6 +57,19 @@ struct MapView: View {
         }
         .mapStyle(mapVM.mapType?.mapStyle ?? MapStyle.standard)
         .mapScope(scope)
+        .onChange(of: carSelected, { old, new in
+            withAnimation {
+                openCarDetail = new != nil
+                if let coordinate = carSelected?.placemark.coordinate {
+                    camera = .region(MKCoordinateRegion(center: coordinate, latitudinalMeters: 300, longitudinalMeters: 300))
+                }
+            }
+        })
+        .sheet(isPresented: $openCarDetail) {
+            CarView(car: $carSelected)
+                .presentationDetents([.height(250)])
+                .presentationBackgroundInteraction(.enabled(upThrough: .height(250)))
+        }
     }
 }
 

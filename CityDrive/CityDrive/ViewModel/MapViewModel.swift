@@ -13,7 +13,8 @@ class MapViewModel: ObservableObject {
     private var networkManager: NetworkManager
     
     @Published var carsIsLoaded = false
-    @Published var cars: [Car] = []
+//    @Published var cars: [Car] = []
+    @Published var cars: [MKMapItem] = []
     @Published var bonusBalance = ""
     
     //==========================
@@ -57,7 +58,20 @@ class MapViewModel: ObservableObject {
                         let img = car.img,
                         let model = car.model,
                         let number = car.number,
-                        let distance = car.distance {
+                        let distance = car.distance,
+                        let walktime = car.walktime,
+                        let fuel = car.fuel,
+                        let tankVolume = car.tankVolume,
+                        let powerReserve = car.powerReserve,
+                        let seats = car.seats,
+                        let remainPath = car.remainPath,
+                        let hasTransponder = car.hasTransponder,
+                        let boosterSeat = car.boosterSeat,
+                        let babySeat = car.babySeat,
+                        let forSale = car.forSale,
+                        let engineWarnUpAvailable = car.engineWarnUpAvailable,
+                        let isElectric = car.isElectric,
+                        let fuelType = car.fuelType {
                         return Car(
                             id: id,
                             lat: lat,
@@ -65,52 +79,38 @@ class MapViewModel: ObservableObject {
                             img: img,
                             model: model,
                             number: number,
-                            distance: distance,
-                            walktime: 0,
-                            fuel: 0,
-                            tankVolume: 0,
-                            powerReserve: 0,
-                            tankVolumeEmergency: 0,
-                            discount: 0,
-                            transferable: false,
-                            seats: 0,
-                            remainPath: 0,
-                            carFilterID: "",
-                            notAvailable: false,
-                            horn: false,
-                            isElectric: false,
-                            tariffID: "",
-                            chargingLevel: 0,
-                            remainPathElectric: 0,
-                            areaGroupID: "",
-                            engineWarnUpAvailable: false,
-                            carFilterCompany: CarFilterCompany(),
-                            transferringIsAvailable: false,
-                            boosterSeat: false,
-                            babySeat: false,
-                            forSale: false,
-                            eOsagoLink: "",
-                            wrapBrand: "",
-                            fuelType: "",
-                            inTransfer: false,
-                            hasTransponder: false,
-                            transferModeExists: false,
-                            engineWarnUp: false,
-                            wrapBrandLogo: ""
+                            distance: distance, // Int
+                            walktime: walktime,
+                            fuel: fuel,
+                            tankVolume: tankVolume,
+                            seats: seats,
+                            remainPath: remainPath,
+                            powerReserve: powerReserve,
+                            hasTransponder: hasTransponder, // Bool
+                            boosterSeat: boosterSeat,
+                            babySeat: babySeat,
+                            forSale: forSale,
+                            engineWarnUpAvailable: engineWarnUpAvailable,
+                            isElectric: isElectric,
+                            fuelType: fuelType
                         )
                     }
                     return nil
                 }
                 
-//                let mapItems = cars?.compactMap { car in
-//                    let placemark = MKPlacemark(coordinate: car.coordinate)
-//                    let mapItem = MKMapItem(placemark: placemark)
-//                    mapItem.name = car.model
-//                    return mapItem
-//                }
+                let mapItems = cars?.compactMap { car in
+                    let placemark = MKPlacemark(coordinate: car.coordinate)
+                    let mapItem = MKMapItem(placemark: placemark)
+                    mapItem.name = car.model
+                    mapItem.url = URL(string: car.img)
+                    mapItem.phoneNumber = car.number
+                    let other: [String] = [car.distance.description, car.walktime.description, car.fuel.description, car.tankVolume.description, car.fuelType]
+                    mapItem.placemark.accessibilityUserInputLabels = other
+                    return mapItem
+                }
                 
                 DispatchQueue.main.async {
-                    self.cars = cars ?? []
+                    self.cars = mapItems ?? []
                     self.carsIsLoaded = true
                 }
             }

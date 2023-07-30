@@ -13,7 +13,6 @@ struct Car: Identifiable {
     
     var lat: Double
     var lon: Double
-    
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: lat, longitude: lon)
     }
@@ -22,22 +21,7 @@ struct Car: Identifiable {
     var model: String
     var number: String
 
-    var distance, walktime, fuel, tankVolume: Int
-    var powerReserve, tankVolumeEmergency, discount: Int
-    var transferable: Bool
-    var seats, remainPath: Int
-    var carFilterID: String
-    var notAvailable, horn, isElectric: Bool
-    var tariffID: String
-    var chargingLevel, remainPathElectric: Int
-    var areaGroupID: String
-    var engineWarnUpAvailable: Bool
-    var carFilterCompany: CarFilterCompany
-    var transferringIsAvailable, boosterSeat, babySeat, forSale: Bool
-    var eOsagoLink: String
-    var wrapBrand, fuelType: String
-    var inTransfer, hasTransponder, transferModeExists, engineWarnUp: Bool
-    var wrapBrandLogo: String
+    var distance, walktime, fuel, tankVolume, seats, remainPath, powerReserve: Int
+    var hasTransponder, boosterSeat, babySeat, forSale, engineWarnUpAvailable, isElectric: Bool
+    var fuelType: String
 }
-
-struct CarFilterCompany {} 

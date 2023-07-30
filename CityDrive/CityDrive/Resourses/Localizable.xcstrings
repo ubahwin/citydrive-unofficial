@@ -86,6 +86,9 @@
     "discountPrice" : {
 
     },
+    "distance" : {
+
+    },
     "finishCost" : {
 
     },
@@ -154,9 +157,6 @@
 
     },
     "orderSource" : {
-
-    },
-    "pan" : {
 
     },
     "parkingCost" : {
