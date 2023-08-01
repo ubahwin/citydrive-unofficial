@@ -12,16 +12,11 @@ struct Pin: View {
     var color: Color
     
     var body: some View {
-        ZStack {
-            Circle()
-                .fill(color)
-                .frame(height: 15)
-            Circle()
-                .stroke(lineWidth: 3)
-                .fill(.white)
-                .frame(height: 16)
-                .shadow(radius: 3)
-        }
+        Circle()
+            .fill(color)
+            .stroke(Color.white, lineWidth: 2)
+            .frame(height: 10)
+            .shadow(radius: 1)
     }
 }
 

@@ -23,8 +23,17 @@
     "+7" : {
 
     },
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+    "achievements" : {
+
+    },
+>>>>>>> origin/main
     "amount" : {
+
+    },
+    "bonus" : {
 
     },
     "bookingTime" : {
@@ -69,10 +78,19 @@
     "data" : {
 
     },
+    "days of levelNext" : {
+
+    },
+    "debt" : {
+
+    },
     "discountPercent" : {
 
     },
     "discountPrice" : {
+
+    },
+    "distance" : {
 
     },
     "finishCost" : {
@@ -117,6 +135,9 @@
     "insuranceIncluded" : {
 
     },
+    "is risk profile enabled" : {
+
+    },
     "isActive" : {
 
     },
@@ -129,7 +150,19 @@
     "kasko" : {
 
     },
+    "level" : {
+
+    },
+    "levelNextNumber of levelNext" : {
+
+    },
+    "levelX0UpdatedAt" : {
+
+    },
     "name" : {
+
+    },
+    "number of levelNext" : {
 
     },
     "once" : {
@@ -174,13 +207,31 @@
     "properties" : {
 
     },
+    "rating" : {
+
+    },
+    "rating of levelNext" : {
+
+    },
+    "ratingV2" : {
+
+    },
+    "ratingV2Level" : {
+
+    },
     "riskProfileLevel" : {
 
     },
     "riskProfilePoints" : {
 
     },
+    "send push" : {
+
+    },
     "status" : {
+
+    },
+    "subscription status" : {
 
     },
     "success" : {
@@ -260,6 +311,9 @@
     "transferTime" : {
 
     },
+    "trips of levelNext" : {
+
+    },
     "type" : {
 
     },
@@ -297,6 +351,12 @@
 
     },
     "usageWorkdayTime" : {
+
+    },
+    "user corporate role ID" : {
+
+    },
+    "user ID" : {
 
     },
     "waitingCost" : {
@@ -385,6 +445,7 @@
       }
     },
     "Вы вошли как %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -400,8 +461,10 @@
         }
       }
     },
+    "Выйти" : {
+
+    },
     "Город" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -433,6 +496,7 @@
         }
       }
     },
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
     "Действия с картой" : {
@@ -442,6 +506,11 @@
 
     },
 >>>>>>> Stashed changes
+=======
+    "Действия с картой" : {
+
+    },
+>>>>>>> origin/main
     "Дополнительная информация" : {
       "localizations" : {
         "en" : {
@@ -732,6 +801,9 @@
         }
       }
     },
+    "Пол" : {
+
+    },
     "Пользователь" : {
       "localizations" : {
         "en" : {
@@ -765,6 +837,9 @@
         }
       }
     },
+    "Привзанная карта" : {
+
+    },
     "Программа лояльности" : {
 
     },
@@ -783,6 +858,9 @@
           }
         }
       }
+    },
+    "Реферальный код" : {
+
     },
     "События" : {
       "localizations" : {
@@ -816,6 +894,12 @@
           }
         }
       }
+    },
+    "Тёмная тема" : {
+
+    },
+    "Тип карты" : {
+
     },
     "Транзакция" : {
 

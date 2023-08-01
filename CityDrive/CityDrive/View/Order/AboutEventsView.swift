@@ -29,7 +29,7 @@ struct AboutEventsView: View {
                     SimpleCellView(name: "Продолжительность", value: String(event.duration.roundedToTwoDecimalPlaces()) + " сек.")
                     if event.state != "parking" {
                         LocationCellView(
-                            locationName: event.name,
+                            interactionName: event.name,
                             locationLatitude: event.lat,
                             locationLongitude: event.lon,
                             pinColor: .blue)

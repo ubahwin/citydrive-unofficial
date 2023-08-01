@@ -19,6 +19,7 @@ struct AboutCarView: View {
             }
 <<<<<<< Updated upstream
             Section("Картинка") {
+<<<<<<< HEAD
                 VStack {
                     AsyncImage(url: URL(string: car?.img ?? ""))
 //                        .resizable()
@@ -32,6 +33,9 @@ struct AboutCarView: View {
             Section("Фотокарточка") {
                 AsyncImage(url: URL(string: car?.img ?? ""))
 >>>>>>> Stashed changes
+=======
+                AsyncImage(url: URL(string: car?.img ?? ""))
+>>>>>>> origin/main
             }
         }
     }

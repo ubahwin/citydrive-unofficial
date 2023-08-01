@@ -7,24 +7,47 @@
 
 import Foundation
 import MapKit
+import SwiftUI
 
 class MapViewModel: ObservableObject {
-    @Published var cars: [Car] = []
-        
+    private var networkManager: NetworkManager
+    
+    @Published var carsIsLoaded = false
+//    @Published var cars: [Car] = []
+    @Published var cars: [MKMapItem] = []
+    @Published var bonusBalance = ""
+    
+    //==========================
+    //
+    // TODO: change in settings
+    //
+    @AppStorage("selectedCity") var city: City?
+    @AppStorage("selectedMapType") var mapType: MapType?
+    
+    var interactions: MapInteractionModes {
+        let stringInteraction = UserDefaults.standard.stringArray(forKey: "selectedInteractions") ?? []
+        let mapInteractions: [MapInteraction] = stringInteraction.compactMap { MapInteraction.fromString($0) }
+        var mapInteractionModes: MapInteractionModes = []
+        for i in mapInteractions {
+            mapInteractionModes.insert(i.mapValue)
+        }
+        return mapInteractionModes
+    }
+    //
+    //==========================
+
     init() {
-        // for test
-        let cars = [
-            Car(id: UUID(), name: "reno", coordinate: CLLocationCoordinate2D(latitude: 59.901153, longitude: 30.274750)),
-            Car(id: UUID(), name: "nissan", coordinate: CLLocationCoordinate2D(latitude: 59.902153, longitude: 30.214750)),
-            Car(id: UUID(), name: "motiz", coordinate: CLLocationCoordinate2D(latitude: 59.904153, longitude: 30.294750))
-        ]
-        self.cars = cars
+        self.networkManager = NetworkManager()
+        loadCarStatus()
     }
     
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     func goToMyLocation() {
         
 =======
+=======
+>>>>>>> origin/main
     func loadCarStatus() {
         networkManager.getCarStatus { response, error in
             if let error = error {
@@ -87,7 +110,13 @@ class MapViewModel: ObservableObject {
                     let mapItem = MKMapItem(placemark: placemark)
                     mapItem.name = car.model
                     mapItem.url = URL(string: car.img)
+<<<<<<< HEAD
                     mapItem.accessibilityHint = car.number
+=======
+                    mapItem.phoneNumber = car.number
+                    let other: [String] = [car.distance.description, car.walktime.description, car.fuel.description, car.tankVolume.description, car.fuelType]
+                    mapItem.placemark.accessibilityUserInputLabels = other
+>>>>>>> origin/main
                     return mapItem
                 }
                 
@@ -97,6 +126,22 @@ class MapViewModel: ObservableObject {
                 }
             }
         }
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> origin/main
     }
+    
+    func loadBonusBalance() {
+        networkManager.getBonusCount { response, error in
+            if let error = error {
+                print(error)
+            }
+            
+            DispatchQueue.main.async {
+                self.bonusBalance = String(response?.balance ?? 0)
+            }
+        }
+    }
+    
 }

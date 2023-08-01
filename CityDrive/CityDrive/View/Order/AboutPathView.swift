@@ -29,7 +29,7 @@ struct AboutPathView: View {
                 }
 <<<<<<< Updated upstream
                 LocationCellView(
-                    locationName: "",
+                    interactionName: "",
                     locationLatitude: path?.start.lat ?? 0,
                     locationLongitude: path?.start.lon ?? 0,
                     pinColor: .green)
@@ -43,7 +43,7 @@ struct AboutPathView: View {
                     Text(path?.period.finish.ISO8601ToDate() ?? Date(), style: .time)
                 }
                 LocationCellView(
-                    locationName: "",
+                    interactionName: "",
                     locationLatitude: path?.finish.lat ?? 0,
                     locationLongitude: path?.finish.lon ?? 0,
                     pinColor: .purple)

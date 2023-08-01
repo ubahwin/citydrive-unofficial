@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct LocationCellView: View {
-    var locationName: String
+    var interactionName: String
     var locationLatitude: Double
     var locationLongitude: Double
     var pinColor: Color
@@ -18,9 +18,9 @@ struct LocationCellView: View {
     
     var body: some View {
         NavigationLink(destination: {
-            Map {
+            Map(initialPosition: .region(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: locationLatitude, longitude: locationLongitude), latitudinalMeters: 300, longitudinalMeters: 300))) {
                 Annotation(
-                    locationName,
+                    interactionName,
                     coordinate: CLLocationCoordinate2D(
                         latitude: locationLatitude,
                         longitude: locationLongitude),
@@ -34,6 +34,7 @@ struct LocationCellView: View {
                 Pin(color: pinColor)
                 Spacer()
                 Text(address)
+                Spacer()
             }
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -45,8 +46,10 @@ struct LocationCellView: View {
                 }
                 
                 if let placemark = placemarks?.first {
-                    let address = "\(placemark.thoroughfare ?? ""), \(placemark.locality ?? ""), \(placemark.administrativeArea ?? "")"
-                    self.address = address
+                    let thoroughfare = placemark.thoroughfare ?? ""
+                    let locality = placemark.locality ?? ""
+                    
+                    self.address = thoroughfare + ", " + locality
                 }
             }
         }
@@ -54,5 +57,5 @@ struct LocationCellView: View {
 }
 
 #Preview {
-    LocationCellView(locationName: "albatras", locationLatitude: 41.22135245345, locationLongitude: 67.984565, pinColor: .red)
+    LocationCellView(interactionName: "albatras", locationLatitude: 41.22135245345, locationLongitude: 67.984565, pinColor: .red)
 }
