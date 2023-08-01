@@ -6,26 +6,30 @@
 //
 
 import SwiftUI
-import SwiftKeychainWrapper
 
 struct SmsView: View {
+<<<<<<< Updated upstream
     @State private var smsCode = ""
     @State private var isEntered = false
             
     var phone: String
     var networkManager: NetworkManager
+=======
+    @ObservedObject var loginVM: LoginViewModel
+>>>>>>> Stashed changes
     
     var body: some View {
         VStack {
             Spacer()
             Image("logo")
             Spacer()
-            TextField("******", text: $smsCode)
+            TextField("******", text: $loginVM.smsCode)
                 .keyboardType(.phonePad)
                 .multilineTextAlignment(.center)
                 .font(.largeTitle)
             Spacer()
             Button("Войти") {
+<<<<<<< Updated upstream
                 networkManager.sendSms(phone: phone, smsCode: Int(smsCode) ?? 0) { response, error in // TODO: replace to VM
                     if let success = response?.success {
                         isEntered = success
@@ -39,11 +43,17 @@ struct SmsView: View {
             }
             .buttonStyle(GreenButton())
             .fullScreenCover(isPresented: $isEntered, content: { MapView() })
+=======
+                loginVM.enter()
+            }
+            .buttonStyle(GreenButton())
+            .fullScreenCover(isPresented: $loginVM.isEntered, content: { ContentView() })
+>>>>>>> Stashed changes
             Spacer().frame(height: 50)
         }
     }
 }
 
 #Preview {
-    SmsView(phone: "9803532589", networkManager: NetworkManager())
+    SmsView(loginVM: LoginViewModel())
 }

@@ -58,6 +58,7 @@ struct OrderDetailsView: View {
                         Text("Пользователь")
                     }
                 }
+                
                 Section {
                     NavigationLink(destination: { OtherInfoView(otherInfo: orderVM.order?.otherInfo) }) {
                         Text("Дополнительная информация")
@@ -65,6 +66,7 @@ struct OrderDetailsView: View {
                 }
             }
         }
+        .navigationTitle("Детали поездки")
         .onAppear {
             orderVM.loadMiddleOrder(id: orderID)
             orderVM.loadOrder(id: orderID)

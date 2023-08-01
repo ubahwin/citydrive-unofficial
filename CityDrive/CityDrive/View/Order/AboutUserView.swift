@@ -13,37 +13,13 @@ struct AboutUserView: View {
     var body: some View {
         List {
             Section(user?.fullName ?? "") {
-                HStack {
-                    Text("Имя")
-                    Spacer()
-                    Text(user?.firstName ?? "")
-                }
-                HStack {
-                    Text("Фамилия")
-                    Spacer()
-                    Text(user?.lastName ?? "")
-                }
-                HStack {
-                    Text("Отчество")
-                    Spacer()
-                    Text(user?.middleName ?? "")
-                }
-                HStack {
-                    Text("Телефон")
-                    Spacer()
-                    Text(String(user?.phone ?? 0))
-                }
-                HStack {
-                    Text("Почта")
-                    Spacer()
-                    Text(user?.email ?? "")
-                }
-                HStack {
-                    Text("ID")
-                    Spacer()
-                    Text(user?.userID ?? "")
-                        .textSelection(.enabled)
-                }
+                SimpleCellView(name: "Имя", value: user?.lastName)
+                SimpleCellView(name: "Фамилия", value: user?.lastName)
+                SimpleCellView(name: "Отчество", value: user?.middleName)
+                SimpleCellView(name: "Телефон", value: user?.phone)
+                SimpleCellView(name: "Почта", value: user?.email)
+                SimpleCellView(name: "ID", value: user?.userID)
+                    .textSelection(.enabled)
             }
         }
     }

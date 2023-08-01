@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// цвет по HEX
 extension Color {
     init(hex: UInt, alpha: Double = 1) {
         self.init(

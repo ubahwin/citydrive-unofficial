@@ -14,6 +14,11 @@
 		B71129C32A63BFD700E821FE /* AboutEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C22A63BFD700E821FE /* AboutEventsView.swift */; };
 		B71129C72A63D6F700E821FE /* MiddleOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */; };
 		B71129C92A63D81000E821FE /* MiddleOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C82A63D81000E821FE /* MiddleOrder.swift */; };
+<<<<<<< Updated upstream
+=======
+		B72A4A6D2A72D025003D02DA /* MapInteractionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */; };
+		B72AE6B82A76E79C0015B139 /* CityDriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72AE6B72A76E79C0015B139 /* CityDriveTests.swift */; };
+>>>>>>> Stashed changes
 		B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DBF972A597BFE006393B6 /* ShortOrder.swift */; };
 		B768608D2A3C8B5C0010D590 /* MyLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B768608C2A3C8B5C0010D590 /* MyLocationButton.swift */; };
 		B768608F2A3CE9010010D590 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B768608E2A3CE9010010D590 /* SettingView.swift */; };
@@ -41,6 +46,12 @@
 		B7A44FD02A59509F003FCBD4 /* OrderListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A44FCF2A59509F003FCBD4 /* OrderListResponse.swift */; };
 		B7A44FD22A5957C0003FCBD4 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A44FD12A5957C0003FCBD4 /* OrdersViewModel.swift */; };
 		B7A44FD42A595B69003FCBD4 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A44FD32A595B69003FCBD4 /* Order.swift */; };
+<<<<<<< Updated upstream
+=======
+		B7B253172A6455A3008DAC5C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B253162A6455A3008DAC5C /* MapView.swift */; };
+		B7C48E892A799A9A00D68742 /* SimpleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C48E882A799A9A00D68742 /* SimpleCellView.swift */; };
+		B7C48E8B2A79B35000D68742 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C48E8A2A79B35000D68742 /* LoginViewModel.swift */; };
+>>>>>>> Stashed changes
 		B7C99B432A504136004A29A8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C99B422A504136004A29A8 /* SettingViewModel.swift */; };
 		B7CAC3F92A61D40500E5B271 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CAC3F82A61D40500E5B271 /* Int.swift */; };
 		B7CAC3FB2A61D44C00E5B271 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CAC3FA2A61D44C00E5B271 /* String.swift */; };
@@ -60,6 +71,16 @@
 		B7DB05EF2A59BC6900ACE3BC /* OrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB05EE2A59BC6900ACE3BC /* OrderResponse.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B72AE6B92A76E79C0015B139 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B70D4ABC2A3B1ABF00C90991 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B70D4AC32A3B1ABF00C90991;
+			remoteInfo = CityDrive;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		B70D4AC72A3B1ABF00C90991 /* CityDriveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDriveApp.swift; sourceTree = "<group>"; };
 		B70D4AC92A3B1ABF00C90991 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -68,6 +89,12 @@
 		B71129C22A63BFD700E821FE /* AboutEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutEventsView.swift; sourceTree = "<group>"; };
 		B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrderResponse.swift; sourceTree = "<group>"; };
 		B71129C82A63D81000E821FE /* MiddleOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrder.swift; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
+=======
+		B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractionPickerView.swift; sourceTree = "<group>"; };
+		B72AE6B52A76E79C0015B139 /* CityDriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityDriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B72AE6B72A76E79C0015B139 /* CityDriveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDriveTests.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		B73DBF972A597BFE006393B6 /* ShortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortOrder.swift; sourceTree = "<group>"; };
 		B768608C2A3C8B5C0010D590 /* MyLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationButton.swift; sourceTree = "<group>"; };
 		B768608E2A3CE9010010D590 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -95,6 +122,12 @@
 		B7A44FCF2A59509F003FCBD4 /* OrderListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListResponse.swift; sourceTree = "<group>"; };
 		B7A44FD12A5957C0003FCBD4 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
 		B7A44FD32A595B69003FCBD4 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
+=======
+		B7B253162A6455A3008DAC5C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B7C48E882A799A9A00D68742 /* SimpleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCellView.swift; sourceTree = "<group>"; };
+		B7C48E8A2A79B35000D68742 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		B7C99B422A504136004A29A8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		B7CAC3F82A61D40500E5B271 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		B7CAC3FA2A61D44C00E5B271 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -123,6 +156,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B72AE6B22A76E79C0015B139 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -130,7 +170,13 @@
 			isa = PBXGroup;
 			children = (
 				B70D4AC62A3B1ABF00C90991 /* CityDrive */,
+<<<<<<< Updated upstream
 				B79DC48A2A5AA02100175413 /* CityDrive.app */,
+=======
+				B763DD162A670693008E20DA /* CityDrive.app */,
+				B72AE6B52A76E79C0015B139 /* CityDriveTests.xctest */,
+				B72AE6B62A76E79C0015B139 /* CityDriveTests */,
+>>>>>>> Stashed changes
 			);
 			sourceTree = "<group>";
 		};
@@ -165,6 +211,14 @@
 				B77C11102A483F520042FA54 /* Localizable.xcstrings */,
 			);
 			path = Resourses;
+			sourceTree = "<group>";
+		};
+		B72AE6B62A76E79C0015B139 /* CityDriveTests */ = {
+			isa = PBXGroup;
+			children = (
+				B72AE6B72A76E79C0015B139 /* CityDriveTests.swift */,
+			);
+			path = CityDriveTests;
 			sourceTree = "<group>";
 		};
 		B76860962A3D90940010D590 /* Auth */ = {
@@ -231,6 +285,7 @@
 				B7A369622A3C69E500B31121 /* MapViewModel.swift */,
 				B7C99B422A504136004A29A8 /* SettingViewModel.swift */,
 				B7A44FD12A5957C0003FCBD4 /* OrdersViewModel.swift */,
+				B7C48E8A2A79B35000D68742 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -265,6 +320,13 @@
 				B768608C2A3C8B5C0010D590 /* MyLocationButton.swift */,
 				B76860A22A3DB5D20010D590 /* GreenButton.swift */,
 				B77E07EC2A6430A700B3DBAC /* LocationCellView.swift */,
+<<<<<<< Updated upstream
+=======
+				B763DD172A670C74008E20DA /* BonusButtonView.swift */,
+				B77A659F2A6C536000E68B75 /* RefreshMapButtonView.swift */,
+				B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */,
+				B7C48E882A799A9A00D68742 /* SimpleCellView.swift */,
+>>>>>>> Stashed changes
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -342,6 +404,24 @@
 			productReference = B79DC48A2A5AA02100175413 /* CityDrive.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B72AE6B42A76E79C0015B139 /* CityDriveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B72AE6BD2A76E79C0015B139 /* Build configuration list for PBXNativeTarget "CityDriveTests" */;
+			buildPhases = (
+				B72AE6B12A76E79C0015B139 /* Sources */,
+				B72AE6B22A76E79C0015B139 /* Frameworks */,
+				B72AE6B32A76E79C0015B139 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B72AE6BA2A76E79C0015B139 /* PBXTargetDependency */,
+			);
+			name = CityDriveTests;
+			productName = CityDriveTests;
+			productReference = B72AE6B52A76E79C0015B139 /* CityDriveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -354,6 +434,10 @@
 				TargetAttributes = {
 					B70D4AC32A3B1ABF00C90991 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					B72AE6B42A76E79C0015B139 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = B70D4AC32A3B1ABF00C90991;
 					};
 				};
 			};
@@ -375,6 +459,7 @@
 			projectRoot = "";
 			targets = (
 				B70D4AC32A3B1ABF00C90991 /* CityDrive */,
+				B72AE6B42A76E79C0015B139 /* CityDriveTests */,
 			);
 		};
 /* End PBXProject section */
@@ -387,6 +472,13 @@
 				B70D4ACF2A3B1AC100C90991 /* Preview Assets.xcassets in Resources */,
 				B70D4ACC2A3B1AC100C90991 /* Assets.xcassets in Resources */,
 				B77C11112A483F520042FA54 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B72AE6B32A76E79C0015B139 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,12 +525,18 @@
 				B797649E2A6073A4008B6C7E /* UserOrder.swift in Sources */,
 				B7CAC3FD2A61D54900E5B271 /* Double.swift in Sources */,
 				B79DC4932A5B0A3100175413 /* AboutCarView.swift in Sources */,
+<<<<<<< Updated upstream
+=======
+				B75038502A6C075B00D49D4B /* CarView.swift in Sources */,
+				B7C48E8B2A79B35000D68742 /* LoginViewModel.swift in Sources */,
+>>>>>>> Stashed changes
 				B77E07ED2A6430A700B3DBAC /* LocationCellView.swift in Sources */,
 				B79764A02A607420008B6C7E /* OtherInfoOrder.swift in Sources */,
 				B768609A2A3DA59D0010D590 /* LoginView.swift in Sources */,
 				B7CDD0AD2A3F95FB0034278B /* NetworkManager.swift in Sources */,
 				B797649C2A607383008B6C7E /* AboutPathOrder.swift in Sources */,
 				B7A44FD02A59509F003FCBD4 /* OrderListResponse.swift in Sources */,
+				B7C48E892A799A9A00D68742 /* SimpleCellView.swift in Sources */,
 				B7DB05EF2A59BC6900ACE3BC /* OrderResponse.swift in Sources */,
 				B7A369632A3C69E500B31121 /* MapViewModel.swift in Sources */,
 				B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */,
@@ -447,7 +545,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B72AE6B12A76E79C0015B139 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B72AE6B82A76E79C0015B139 /* CityDriveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B72AE6BA2A76E79C0015B139 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B70D4AC32A3B1ABF00C90991 /* CityDrive */;
+			targetProxy = B72AE6B92A76E79C0015B139 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B70D4AD02A3B1AC100C90991 /* Debug */ = {
@@ -629,6 +743,43 @@
 			};
 			name = Release;
 		};
+		B72AE6BB2A76E79C0015B139 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P47CZ87RVS;
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ubahwin.CityDriveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CityDrive.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CityDrive";
+			};
+			name = Debug;
+		};
+		B72AE6BC2A76E79C0015B139 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P47CZ87RVS;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ubahwin.CityDriveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CityDrive.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CityDrive";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -646,6 +797,15 @@
 			buildConfigurations = (
 				B70D4AD32A3B1AC100C90991 /* Debug */,
 				B70D4AD42A3B1AC100C90991 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B72AE6BD2A76E79C0015B139 /* Build configuration list for PBXNativeTarget "CityDriveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B72AE6BB2A76E79C0015B139 /* Debug */,
+				B72AE6BC2A76E79C0015B139 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

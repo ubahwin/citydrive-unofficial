@@ -13,39 +13,25 @@ struct AboutCarView: View {
     var body: some View {
         List {
             Section("Информация") {
-                HStack {
-                    Text("Модель")
-                    Spacer()
-                    Text(car?.model ?? "")
-                }
-                HStack {
-                    Text("Номер")
-                    Spacer()
-                    Text(car?.number ?? "")
-                }
-                HStack {
-                    Text("Значение одометра в начале поездки")
-                    Spacer()
-                    Text(String(car?.odometer.atStart ?? 0))
-                }
-                HStack {
-                    Text("Значение одометра в конце поездки")
-                    Spacer()
-                    Text(String(car?.odometer.atFinish ?? 0))
-                }
-                HStack {
-                    Text("ID")
-                    Spacer()
-                    Text(car?.id ?? "")
-                        .textSelection(.enabled)
-                }
+                SimpleCellView(name: "Модель", value: car?.model)
+                SimpleCellView(name: "Номер", value: car?.number)
+                SimpleCellView(name: "ID", value: car?.id).textSelection(.enabled)
             }
+<<<<<<< Updated upstream
             Section("Картинка") {
                 VStack {
                     AsyncImage(url: URL(string: car?.img ?? ""))
 //                        .resizable()
 //                        .aspectRatio(contentMode: .fit)
                 }
+=======
+            Section("Значения одометра") {
+                SimpleCellView(name: "В начале", value: car?.odometer.atStart)
+                SimpleCellView(name: "В конце", value: car?.odometer.atFinish)
+            }
+            Section("Фотокарточка") {
+                AsyncImage(url: URL(string: car?.img ?? ""))
+>>>>>>> Stashed changes
             }
         }
     }

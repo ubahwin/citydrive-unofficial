@@ -12,448 +12,136 @@ struct OtherInfoView: View {
     
     var body: some View {
         List {
-            HStack {
-                Text("cityName")
-                Spacer()
-                Text(otherInfo?.cityName ?? "")
+            Section {
+                SimpleCellView(name: "Город", value: otherInfo?.cityName)
+                SimpleCellView(name: "Есть ли каско", value: otherInfo?.kasko)
             }
-            HStack {
-                Text("kasko")
-                Spacer()
-                Text(otherInfo?.kasko.description ?? "")
+            Section {
+                SimpleCellView(name: "isActive", value: otherInfo?.isActive)
+                SimpleCellView(name: "orderSource", value: otherInfo?.orderSource)
+                SimpleCellView(name: "tariffMode", value: otherInfo?.tariffMode)
+                SimpleCellView(name: "tariffPackage", value: otherInfo?.tariffPackage)
+                SimpleCellView(name: "zoneExpansion", value: otherInfo?.zoneExpansion)
             }
-            HStack {
-                Text("success")
-                Spacer()
-                Text(otherInfo?.success.description ?? "")
-            }
-            HStack {
-                Text("isActive")
-                Spacer()
-                Text(otherInfo?.isActive.description ?? "")
-            }
-            HStack {
-                Text("orderSource")
-                Spacer()
-                Text(otherInfo?.orderSource ?? "")
-            }
-            HStack {
-                Text("tariff mode")
-                Spacer()
-                Text(otherInfo?.tariffMode ?? "")
-            }
-            HStack {
-                Text("tariff package")
-                Spacer()
-                Text(otherInfo?.tariffPackage ?? "")
-            }
-            HStack {
-                Text("zone expansion")
-                Spacer()
-                Text(otherInfo?.zoneExpansion ?? "")
-            }
+            
             Section("Достижения") {
                 ForEach(otherInfo?.achievements ?? []) { achievement in
                     VStack {
-                        HStack {
-                            Text("type")
-                            Spacer()
-                            Text(achievement.type)
-                        }
-                        HStack {
-                            Text("name")
-                            Spacer()
-                            Text(achievement.name)
-                        }
-                        HStack {
-                            Text("amount")
-                            Spacer()
-                            Text(String(achievement.amount))
-                        }
-                        HStack {
-                            Text("once")
-                            Spacer()
-                            Text(achievement.once.description)
-                        }
-                        HStack {
-                            Text("properties")
-                            Spacer()
-                            Text(achievement.properties)
-                        }
-                        HStack {
-                            Text("isInsurance")
-                            Spacer()
-                            Text(achievement.isInsurance.description)
-                        }
+                        SimpleCellView(name: "type", value: achievement.type)
+                        SimpleCellView(name: "name", value: achievement.name)
+                        SimpleCellView(name: "amount", value: achievement.amount)
+                        SimpleCellView(name: "once", value: achievement.once)
+                        SimpleCellView(name: "properties", value: achievement.properties)
+                        SimpleCellView(name: "isInsurance", value: achievement.isInsurance)
                     }
                 }
             }
             
             Section {
                 VStack {
-                    HStack {
-                        Text("usageTime")
-                        Spacer()
-                        Text(otherInfo?.usageTime.description ?? "")
-                    }
-                    HStack {
-                        Text("usageCost")
-                        Spacer()
-                        Text(otherInfo?.usageCost.description ?? "")
-                    }
-                    HStack {
-                        Text("usagePrice")
-                        Spacer()
-                        Text(otherInfo?.usagePrice.description ?? "")
-                    }
-                    HStack {
-                        Text("usagePriceType")
-                        Spacer()
-                        Text(otherInfo?.usagePriceType ?? "")
-                    }
+                    SimpleCellView(name: "usageTime", value: otherInfo?.usageTime)
+                    SimpleCellView(name: "usageCost", value: otherInfo?.usageCost)
+                    SimpleCellView(name: "usagePrice", value: otherInfo?.usagePrice)
+                    SimpleCellView(name: "usagePriceType", value: otherInfo?.usagePriceType)
                 }
                 VStack {
-                    HStack {
-                        Text("usageWorkdayTime")
-                        Spacer()
-                        Text(otherInfo?.usageWorkdayTime.description ?? "")
-                    }
-                    HStack {
-                        Text("usageWorkdayCost")
-                        Spacer()
-                        Text(otherInfo?.usageWorkdayCost.description ?? "")
-                    }
-                    HStack {
-                        Text("usageWorkdayPrice")
-                        Spacer()
-                        Text(otherInfo?.usageWorkdayPrice.description ?? "")
-                    }
-                    HStack {
-                        Text("usageWorkdayPriceType")
-                        Spacer()
-                        Text(otherInfo?.usageWorkdayPriceType ?? "")
-                    }
+                    SimpleCellView(name: "usageWorkdayTime", value: otherInfo?.usageWorkdayTime)
+                    SimpleCellView(name: "usageWorkdayCost", value: otherInfo?.usageWorkdayCost)
+                    SimpleCellView(name: "usageWorkdayPrice", value: otherInfo?.usageWorkdayPrice)
+                    SimpleCellView(name: "usageWorkdayPriceType", value: otherInfo?.usageWorkdayPriceType)
                 }
                 VStack {
-                    HStack {
-                        Text("usageWeekendTime")
-                        Spacer()
-                        Text(otherInfo?.usageWeekendTime.description ?? "")
-                    }
-                    HStack {
-                        Text("usageWeekendCost")
-                        Spacer()
-                        Text(otherInfo?.usageWeekendCost.description ?? "")
-                    }
-                    HStack {
-                        Text("usageWeekendPrice")
-                        Spacer()
-                        Text(otherInfo?.usageWeekendPrice.description ?? "")
-                    }
-                    HStack {
-                        Text("usageWeekendPriceType")
-                        Spacer()
-                        Text(otherInfo?.usageWeekendPriceType ?? "")
-                    }
+                    SimpleCellView(name: "usageWeekendTime", value: otherInfo?.usageWeekendTime)
+                    SimpleCellView(name: "usageWeekendCost", value: otherInfo?.usageWeekendCost)
+                    SimpleCellView(name: "usageWeekendPrice", value: otherInfo?.usageWeekendPrice)
+                    SimpleCellView(name: "usageWeekendPriceType", value: otherInfo?.usageWeekendPriceType)
                 }
                 VStack {
-                    HStack {
-                        Text("chargingTime")
-                        Spacer()
-                        Text(otherInfo?.chargingTime.description ?? "")
-                    }
-                    HStack {
-                        Text("chargingCost")
-                        Spacer()
-                        Text(otherInfo?.chargingCost.description ?? "")
-                    }
-                    HStack {
-                        Text("chargingPrice")
-                        Spacer()
-                        Text(otherInfo?.chargingPrice.description ?? "")
-                    }
-                    HStack {
-                        Text("chargingPriceType")
-                        Spacer()
-                        Text(otherInfo?.chargingPriceType ?? "")
-                    }
+                    SimpleCellView(name: "chargingTime", value: otherInfo?.chargingTime)
+                    SimpleCellView(name: "chargingCost", value: otherInfo?.chargingCost)
+                    SimpleCellView(name: "chargingPrice", value: otherInfo?.chargingPrice)
+                    SimpleCellView(name: "chargingPriceType", value: otherInfo?.chargingPriceType)
                 }
                 VStack {
-                    HStack {
-                        Text("parkingTime")
-                        Spacer()
-                        Text(otherInfo?.parkingTime.description ?? "")
-                    }
-                    HStack {
-                        Text("parkingCost")
-                        Spacer()
-                        Text(otherInfo?.parkingCost.description ?? "")
-                    }
-                    HStack {
-                        Text("parkingPrice")
-                        Spacer()
-                        Text(otherInfo?.parkingPrice.description ?? "")
-                    }
-                    HStack {
-                        Text("parkingPriceType")
-                        Spacer()
-                        Text(otherInfo?.parkingPriceType ?? "")
-                    }
+                    SimpleCellView(name: "parkingTime", value: otherInfo?.parkingTime)
+                    SimpleCellView(name: "parkingCost", value: otherInfo?.parkingCost)
+                    SimpleCellView(name: "parkingPrice", value: otherInfo?.parkingPrice)
+                    SimpleCellView(name: "parkingPriceType", value: otherInfo?.parkingPriceType)
                 }
                 VStack {
-                    HStack {
-                        Text("parkingNightTime")
-                        Spacer()
-                        Text(otherInfo?.parkingNightTime.description ?? "")
-                    }
-                    HStack {
-                        Text("parkingNightCost")
-                        Spacer()
-                        Text(otherInfo?.parkingNightCost.description ?? "")
-                    }
-                    HStack {
-                        Text("parkingNightPrice")
-                        Spacer()
-                        Text(otherInfo?.parkingNightPrice.description ?? "")
-                    }
-                    HStack {
-                        Text("parkingNightPriceType")
-                        Spacer()
-                        Text(otherInfo?.parkingNightPriceType ?? "")
-                    }
+                    SimpleCellView(name: "parkingNightTime", value: otherInfo?.parkingNightTime)
+                    SimpleCellView(name: "parkingNightCost", value: otherInfo?.parkingNightCost)
+                    SimpleCellView(name: "parkingNightPrice", value: otherInfo?.parkingNightPrice)
+                    SimpleCellView(name: "parkingNightPriceType", value: otherInfo?.parkingNightPriceType)
                 }
                 VStack {
-                    HStack {
-                        Text("transferTime")
-                        Spacer()
-                        Text(otherInfo?.transferTime.description ?? "")
-                    }
-                    HStack {
-                        Text("transferCost")
-                        Spacer()
-                        Text(otherInfo?.transferCost.description ?? "")
-                    }
-                    HStack {
-                        Text("transferPrice")
-                        Spacer()
-                        Text(otherInfo?.transferPrice.description ?? "")
-                    }
-                    HStack {
-                        Text("transferPriceType")
-                        Spacer()
-                        Text(otherInfo?.transferPriceType ?? "")
-                    }
+                    SimpleCellView(name: "transferTime", value: otherInfo?.transferTime)
+                    SimpleCellView(name: "transferCost", value: otherInfo?.transferCost)
+                    SimpleCellView(name: "transferPrice", value: otherInfo?.transferPrice)
+                    SimpleCellView(name: "transferPriceType", value: otherInfo?.transferPriceType)
                 }
                 VStack {
-                    HStack {
-                        Text("transferNightTime")
-                        Spacer()
-                        Text(otherInfo?.transferNightTime.description ?? "")
-                    }
-                    HStack {
-                        Text("transferNightCost")
-                        Spacer()
-                        Text(otherInfo?.transferNightCost.description ?? "")
-                    }
-                    HStack {
-                        Text("transferNightPrice")
-                        Spacer()
-                        Text(otherInfo?.transferNightPrice.description ?? "")
-                    }
-                    HStack {
-                        Text("transferNightPriceType")
-                        Spacer()
-                        Text(otherInfo?.transferNightPriceType ?? "")
-                    }
+                    SimpleCellView(name: "transferNightTime", value: otherInfo?.transferNightTime)
+                    SimpleCellView(name: "transferNightCost", value: otherInfo?.transferNightCost)
+                    SimpleCellView(name: "transferNightPrice", value: otherInfo?.transferNightPrice)
+                    SimpleCellView(name: "transferNightPriceType", value: otherInfo?.transferNightPriceType)
                 }
                 VStack {
-                    HStack {
-                        Text("waitingTime")
-                        Spacer()
-                        Text(otherInfo?.waitingTime.description ?? "")
-                    }
-                    HStack {
-                        Text("waitingCost")
-                        Spacer()
-                        Text(otherInfo?.waitingCost.description ?? "")
-                    }
-                    HStack {
-                        Text("waitingPrice")
-                        Spacer()
-                        Text(otherInfo?.waitingPrice.description ?? "")
-                    }
-                    HStack {
-                        Text("waitingPriceType")
-                        Spacer()
-                        Text(otherInfo?.waitingPriceType ?? "")
-                    }
+                    SimpleCellView(name: "waitingTime", value: otherInfo?.waitingTime)
+                    SimpleCellView(name: "waitingCost", value: otherInfo?.waitingCost)
+                    SimpleCellView(name: "waitingPrice", value: otherInfo?.waitingPrice)
+                    SimpleCellView(name: "waitingPriceType", value: otherInfo?.waitingPriceType)
                 }
                 VStack {
-                    HStack {
-                        Text("fixTariffTime")
-                        Spacer()
-                        Text(otherInfo?.fixTariffTime.description ?? "")
-                    }
-                    HStack {
-                        Text("fixTariffCost")
-                        Spacer()
-                        Text(otherInfo?.fixTariffCost.description ?? "")
-                    }
-                    HStack {
-                        Text("fixTariffPrice")
-                        Spacer()
-                        Text(otherInfo?.fixTariffPrice.description ?? "")
-                    }
-                    HStack {
-                        Text("fixTariffPriceType")
-                        Spacer()
-                        Text(otherInfo?.fixTariffPriceType ?? "")
-                    }
+                    SimpleCellView(name: "fixTariffTime", value: otherInfo?.fixTariffTime)
+                    SimpleCellView(name: "fixTariffCost", value: otherInfo?.fixTariffCost)
+                    SimpleCellView(name: "fixTariffPrice", value: otherInfo?.fixTariffPrice)
+                    SimpleCellView(name: "fixTariffPriceType", value: otherInfo?.fixTariffPriceType)
                 }
                 VStack {
-                    HStack {
-                        Text("bookingTime")
-                        Spacer()
-                        Text(otherInfo?.bookingTime.description ?? "")
-                    }
-                    HStack {
-                        Text("bookingTimeLeft")
-                        Spacer()
-                        Text(otherInfo?.bookingTimeLeft.description ?? "")
-                    }
-                    HStack {
-                        Text("waitingTimeLeft")
-                        Spacer()
-                        Text(otherInfo?.waitingTimeLeft.description ?? "")
-                    }
-                    HStack {
-                        Text("finishCost")
-                        Spacer()
-                        Text(otherInfo?.finishCost.description ?? "")
-                    }
-                    HStack {
-                        Text("insuranceIncluded")
-                        Spacer()
-                        Text(otherInfo?.insuranceIncluded.description ?? "")
-                    }
+                    SimpleCellView(name: "bookingTime", value: otherInfo?.bookingTime)
+                    SimpleCellView(name: "bookingTimeLeft", value: otherInfo?.bookingTimeLeft)
+                    SimpleCellView(name: "waitingTimeLeft", value: otherInfo?.waitingTimeLeft)
+                    SimpleCellView(name: "finishCost", value: otherInfo?.finishCost)
+                    SimpleCellView(name: "insuranceIncluded", value: otherInfo?.insuranceIncluded)
                 }
                 VStack {
-                    HStack {
-                        Text("dailyPriceType")
-                        Spacer()
-                        Text(otherInfo?.dailyPriceType ?? "")
-                    }
-                    HStack {
-                        Text("dailyCost")
-                        Spacer()
-                        Text(otherInfo?.dailyCost.description ?? "")
-                    }
-                    HStack {
-                        Text("dailyTime")
-                        Spacer()
-                        Text(otherInfo?.dailyTime.description ?? "")
-                    }
-                    HStack {
-                        Text("dailyPrice")
-                        Spacer()
-                        Text(otherInfo?.dailyPrice.description ?? "")
-                    }
-                    HStack {
-                        Text("dailyStatus")
-                        Spacer()
-                        Text(otherInfo?.dailyStatus.description ?? "")
-                    }
+                    SimpleCellView(name: "dailyPriceType", value: otherInfo?.dailyPriceType)
+                    SimpleCellView(name: "dailyCost", value: otherInfo?.dailyCost)
+                    SimpleCellView(name: "dailyTime", value: otherInfo?.dailyTime)
+                    SimpleCellView(name: "dailyPrice", value: otherInfo?.dailyPrice)
+                    SimpleCellView(name: "dailyStatus", value: otherInfo?.dailyStatus)
                 }
             }
             
             Section {
-                HStack {
-                    Text("discountPercent")
-                    Spacer()
-                    Text(otherInfo?.discountPercent.description ?? "")
-                }
-                HStack {
-                    Text("discountPrice")
-                    Spacer()
-                    Text(otherInfo?.discountPrice.description ?? "")
-                }
-                HStack {
-                    Text("percentDiscountPrice")
-                    Spacer()
-                    Text(otherInfo?.percentDiscountPrice.description ?? "")
-                }
-                HStack {
-                    Text("totalCost")
-                    Spacer()
-                    Text(otherInfo?.totalCost ?? "")
-                }
-                HStack {
-                    Text("totalCostWithDiscount")
-                    Spacer()
-                    Text(otherInfo?.totalCostWithDiscount.description ?? "")
-                }
+                SimpleCellView(name: "discountPercent", value: otherInfo?.discountPercent)
+                SimpleCellView(name: "discountPrice", value: otherInfo?.discountPrice)
+                SimpleCellView(name: "percentDiscountPrice", value: otherInfo?.percentDiscountPrice)
+                SimpleCellView(name: "totalCost", value: otherInfo?.totalCost)
+                SimpleCellView(name: "totalCostWithDiscount", value: otherInfo?.totalCostWithDiscount)
             }
             
             Section {
-                HStack {
-                    Text("riskProfileLevel")
-                    Spacer()
-                    Text(otherInfo?.riskProfileLevel.description ?? "")
-                }
-                HStack {
-                    Text("riskProfilePoints")
-                    Spacer()
-                    Text(otherInfo?.riskProfilePoints.description ?? "")
-                }
+                SimpleCellView(name: "riskProfileLevel", value: otherInfo?.riskProfileLevel)
+                SimpleCellView(name: "riskProfilePoints", value: otherInfo?.riskProfilePoints)
             }
             
             Section("Валюта") {
-                HStack {
-                    Text("code")
-                    Spacer()
-                    Text(otherInfo?.currency.code ?? "")
-                }
-                HStack {
-                    Text("symbol")
-                    Spacer()
-                    Text(otherInfo?.currency.symbol ?? "")
-                }
+                SimpleCellView(name: "Код", value: otherInfo?.currency.code)
+                SimpleCellView(name: "Символ", value: otherInfo?.currency.symbol)
             }
             
             Section("Транзакция") {
-                HStack {
-                    Text("status")
-                    Spacer()
-                    Text(otherInfo?.transactionInfo.status ?? "")
-                }
-                HStack {
-                    Text("isCreated")
-                    Spacer()
-                    Text(otherInfo?.transactionInfo.isCreated.description ?? "")
-                }
-                HStack {
-                    Text("data")
-                    Spacer()
-                    Text(otherInfo?.transactionInfo.data ?? "")
-                }
+                SimpleCellView(name: "status", value: otherInfo?.transactionInfo.status)
+                SimpleCellView(name: "isCreated", value: otherInfo?.transactionInfo.isCreated)
+                SimpleCellView(name: "data", value: otherInfo?.transactionInfo.data)
             }
             
             Section("Программа лояльности") {
-                HStack {
-                    Text("programType")
-                    Spacer()
-                    Text(otherInfo?.loyaltyProgram.programType ?? "")
-                }
-                HStack {
-                    Text("status")
-                    Spacer()
-                    Text(otherInfo?.loyaltyProgram.status ?? "")
-                }
-                HStack {
-                    Text("percent")
-                    Spacer()
-                    Text(otherInfo?.loyaltyProgram.percent.description ?? "")
-                }
+                SimpleCellView(name: "programType", value: otherInfo?.loyaltyProgram.programType)
+                SimpleCellView(name: "status", value: otherInfo?.loyaltyProgram.status)
+                SimpleCellView(name: "percent", value: otherInfo?.loyaltyProgram.percent)
             }
         }
     }

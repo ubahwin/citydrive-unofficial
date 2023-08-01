@@ -23,6 +23,7 @@
     "+7" : {
 
     },
+<<<<<<< Updated upstream
     "amount" : {
 
     },
@@ -87,9 +88,16 @@
 
     },
     "fixTariffTime" : {
+=======
+    "achievements" : {
+
+    },
+    "distance" : {
+>>>>>>> Stashed changes
 
     },
     "ID" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -105,6 +113,7 @@
         }
       }
     },
+<<<<<<< Updated upstream
     "insuranceIncluded" : {
 
     },
@@ -178,9 +187,16 @@
 
     },
     "symbol" : {
+=======
+    "levelX0UpdatedAt" : {
+
+    },
+    "ratingV2" : {
+>>>>>>> Stashed changes
 
     },
     "tariff mode" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -197,6 +213,7 @@
       }
     },
     "tariff package" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -212,6 +229,7 @@
         }
       }
     },
+<<<<<<< Updated upstream
     "totalCost" : {
 
     },
@@ -296,7 +314,10 @@
     "waitingTimeLeft" : {
 
     },
+=======
+>>>>>>> Stashed changes
     "zone expansion" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -412,6 +433,15 @@
         }
       }
     },
+<<<<<<< Updated upstream
+=======
+    "Действия с картой" : {
+
+    },
+    "Детали поездки" : {
+
+    },
+>>>>>>> Stashed changes
     "Дополнительная информация" : {
       "localizations" : {
         "en" : {
@@ -448,6 +478,7 @@
       }
     },
     "Значение одометра в конце поездки" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -464,6 +495,7 @@
       }
     },
     "Значение одометра в начале поездки" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -479,7 +511,11 @@
         }
       }
     },
+    "Значения одометра" : {
+
+    },
     "Имя" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -561,6 +597,7 @@
       }
     },
     "Картинка" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -593,6 +630,7 @@
       }
     },
     "Модель" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -628,6 +666,7 @@
 
     },
     "Номер" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -677,6 +716,7 @@
       }
     },
     "Отчество" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -709,6 +749,7 @@
       }
     },
     "Почта" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -725,9 +766,6 @@
       }
     },
     "Программа лояльности" : {
-
-    },
-    "Продолжительность" : {
 
     },
     "Путь" : {
@@ -763,6 +801,7 @@
       }
     },
     "Телефон" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -782,6 +821,7 @@
 
     },
     "Фамилия" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -796,6 +836,9 @@
           }
         }
       }
+    },
+    "Фотокарточка" : {
+
     }
   },
   "version" : "1.0"

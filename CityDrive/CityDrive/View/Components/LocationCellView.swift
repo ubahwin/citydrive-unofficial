@@ -13,7 +13,7 @@ struct LocationCellView: View {
     var locationLatitude: Double
     var locationLongitude: Double
     var pinColor: Color
-    
+        
     @State private var address = ""
     
     var body: some View {
@@ -26,7 +26,8 @@ struct LocationCellView: View {
                         longitude: locationLongitude),
                     content: {
                         Pin(color: pinColor)
-                    })
+                    }
+                )
             }
         }) {
             HStack {
@@ -35,10 +36,9 @@ struct LocationCellView: View {
                 Text(address)
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            let geocoder = CLGeocoder()
-            
-            geocoder.reverseGeocodeLocation(CLLocation(latitude: locationLatitude, longitude: locationLongitude)) { (placemarks, error) in
+            CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: locationLatitude, longitude: locationLongitude)) { (placemarks, error) in
                 if let error = error {
                     print("Ошибка геокодирования для начальной точки: \(error.localizedDescription)")
                     return

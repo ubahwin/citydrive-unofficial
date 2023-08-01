@@ -18,19 +18,15 @@ struct AboutEventsView: View {
                         Spacer()
                         Text(event.name)
                         Spacer()
-                    }
-                    .padding()
+                    }.padding()
+                    
                     HStack {
                         Text("Начало")
                         Spacer()
                         Text(event.time.ISO8601ToDate() ?? Date(), style: .date)
                         Text(event.time.ISO8601ToDate() ?? Date(), style: .time)
                     }
-                    HStack {
-                        Text("Продолжительность")
-                        Spacer()
-                        Text(String(event.duration.roundedToTwoDecimalPlaces()) + " сек.")
-                    }
+                    SimpleCellView(name: "Продолжительность", value: String(event.duration.roundedToTwoDecimalPlaces()) + " сек.")
                     if event.state != "parking" {
                         LocationCellView(
                             locationName: event.name,

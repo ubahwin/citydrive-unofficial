@@ -7,6 +7,7 @@
 
 import Foundation
 
+// протокол реализации эндпоинта
 protocol EndpointType {
     var baseURL: URL { get }
     var path: String { get }

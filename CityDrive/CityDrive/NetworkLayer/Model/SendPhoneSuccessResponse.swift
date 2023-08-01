@@ -8,11 +8,11 @@
 import Foundation
 
 struct SendPhoneSuccessResponse: Codable {
-    let step, phone: String?
+    let step: String?
     let success: Bool?
     
     enum CodingKeys: String, CodingKey {
-        case step, phone, success
+        case step, success
     }
     
     init(from decoder: Decoder) throws {

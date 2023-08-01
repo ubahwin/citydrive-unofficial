@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var phone = ""
-    @State private var next = false
-    
-    private var networkManager = NetworkManager()
-        
+    @StateObject var loginVM = LoginViewModel()
+            
     var body: some View {
         NavigationStack {
             VStack {
@@ -22,24 +19,23 @@ struct LoginView: View {
                 HStack {
                     Spacer()
                     Text("+7")
-                    TextField("", text: $phone)
+                    TextField("", text: $loginVM.phone)
                         .keyboardType(.phonePad)
                         .frame(maxWidth: 220)
                     Spacer()
                 }.font(.largeTitle)
                 Spacer()
                 Button("Дальше") {
-                    networkManager.sendPhone(phone: phone) { response, error in
-                        if let success = response?.success {
-                            next = success
-                        }
-                    }
+                    loginVM.sendSmsToPhone()
                 }
                 .buttonStyle(GreenButton())
                 Spacer().frame(height: 50)
             }
         }
-        .fullScreenCover(isPresented: $next, content: { SmsView(phone: phone, networkManager: networkManager) })
+        .onTapGesture {
+            loginVM.hideKeyboard()
+        }
+        .fullScreenCover(isPresented: $loginVM.next, content: { SmsView(loginVM: LoginViewModel()) })
     }
 }
 

@@ -12,12 +12,22 @@ struct AboutPathView: View {
     var path: PathOrder?
                     
     var body: some View {
-        List {
-            Section("Откуда") {
-                HStack {
-                    Text(path?.period.start.ISO8601ToDate() ?? Date(), style: .date)
-                    Text(path?.period.start.ISO8601ToDate() ?? Date(), style: .time)
+        NavigationStack {
+            List {
+                Section("Откуда") {
+                    HStack {
+                        Text(path?.period.start.ISO8601ToDate() ?? Date(), style: .date)
+                        Text(path?.period.start.ISO8601ToDate() ?? Date(), style: .time)
+                    }
+                    LocationCellView(
+                        interactionName: "",
+                        locationLatitude: path?.start.lat ?? 0,
+                        locationLongitude: path?.start.lon ?? 0,
+                        pinColor: .green)
+                    .padding()
+                    .bold()
                 }
+<<<<<<< Updated upstream
                 LocationCellView(
                     locationName: "",
                     locationLatitude: path?.start.lat ?? 0,
@@ -39,8 +49,25 @@ struct AboutPathView: View {
                     pinColor: .purple)
                 .padding()
                 .bold()
+=======
+                
+                Section("Куда") {
+                    HStack {
+                        Text(path?.period.finish.ISO8601ToDate() ?? Date(), style: .date)
+                        Text(path?.period.finish.ISO8601ToDate() ?? Date(), style: .time)
+                    }
+                    LocationCellView(
+                        interactionName: "",
+                        locationLatitude: path?.finish.lat ?? 0,
+                        locationLongitude: path?.finish.lon ?? 0,
+                        pinColor: .purple)
+                    .padding()
+                    .bold()
+                }
+>>>>>>> Stashed changes
             }
         }
+        .navigationTitle("Путь")
     }
 }
 

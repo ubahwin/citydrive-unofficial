@@ -25,73 +25,25 @@ enum Result<String>{
 class NetworkManager {
     let router = Router<CityDriveApi>()
     
-    func sendPhone(phone: String, completion: @escaping (_ success: SendPhoneSuccessResponse?, _ error: String?) -> ()) {
-        router.request(.sendPhone(phone: phone)) { data, response, error in
-            if error != nil {
-                completion(nil, "Please check your network connection.")
-            }
-            
-            if let response = response as? HTTPURLResponse {
-                let result = self.handleNetworkResponse(response)
-                switch result {
-                case .success:
-                    guard let responseData = data else {
-                        completion(nil, NetworkResponse.noData.rawValue)
-                        return
-                    }
-                    do {
-                        print(responseData)
-                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                        print(jsonData)
-                        let apiResponse = try JSONDecoder().decode(SendPhoneSuccessResponse.self, from: responseData)
-                        completion(apiResponse, nil)
-                    } catch {
-                        print(error)
-                        completion(nil, NetworkResponse.unableToDecode.rawValue)
-                    }
-                case .failure(let networkFailureError):
-                    completion(nil, networkFailureError)
-                }
-            }
+    fileprivate func processResponse<T: Decodable>(data: Data?, response: URLResponse?, error: Error?, completion: @escaping (_ success: T?, _ error: String?) -> ()) {
+        if error != nil {
+            completion(nil, "Please check your network connection.")
         }
-    }
-    
-    func sendSms(phone: String, smsCode: Int, completion: @escaping (_ success: SendSmsSuccessResponse?, _ error: String?) -> ()) {
-        router.request(.sendSms(phone: phone, smsCode: smsCode)) { data, response, error in
-            if error != nil {
-                completion(nil, "Please check your network connection.")
-            }
-            
-            if let response = response as? HTTPURLResponse {
-                let result = self.handleNetworkResponse(response)
-                switch result {
-                case .success:
-                    guard let responseData = data else {
-                        completion(nil, NetworkResponse.noData.rawValue)
-                        return
-                    }
-                    do {
-                        print(responseData)
-                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                        print(jsonData)
-                        let apiResponse = try JSONDecoder().decode(SendSmsSuccessResponse.self, from: responseData)
-                        completion(apiResponse, nil)
-                    } catch {
-                        print(error)
-                        completion(nil, NetworkResponse.unableToDecode.rawValue)
-                    }
-                case .failure(let networkFailureError):
-                    completion(nil, networkFailureError)
-                }
-            }
+
+        guard let response = response as? HTTPURLResponse else {
+            completion(nil, NetworkResponse.failed.rawValue)
+            return
         }
-    }
-    
-    func getOrders(page: Int, limit: Int, completion: @escaping (_ success: OrderListResponse?, _ error: String?) -> ()) {
-        router.request(.getOrders(page: page, limit: limit)) { data, response, error in
-            if error != nil {
-                completion(nil, "Please check your network connection.")
+
+        let result = handleNetworkResponse(response)
+
+        switch result {
+        case .success:
+            guard let responseData = data else {
+                completion(nil, NetworkResponse.noData.rawValue)
+                return
             }
+<<<<<<< Updated upstream
             
             if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
@@ -177,6 +129,18 @@ class NetworkManager {
                     completion(nil, networkFailureError)
                 }
             }
+=======
+            do {
+                let apiResponse = try JSONDecoder().decode(T.self, from: responseData)
+                print(apiResponse)
+                completion(apiResponse, nil)
+            } catch {
+                print(error)
+                completion(nil, NetworkResponse.unableToDecode.rawValue)
+            }
+        case .failure(let networkFailureError):
+            completion(nil, networkFailureError)
+>>>>>>> Stashed changes
         }
     }
     
@@ -187,6 +151,54 @@ class NetworkManager {
         case 501...599: return .failure(NetworkResponse.badRequest.rawValue)
         case 600: return .failure(NetworkResponse.outdated.rawValue)
         default: return .failure(NetworkResponse.failed.rawValue)
+        }
+    }
+    
+    func sendPhone(phone: String, completion: @escaping (_ success: SendPhoneSuccessResponse?, _ error: String?) -> ()) {
+        router.request(.sendPhone(phone: phone)) { data, response, error in
+            self.processResponse(data: data, response: response, error: error, completion: completion)
+        }
+    }
+
+    func sendSms(phone: String, smsCode: Int, completion: @escaping (_ success: SendSmsSuccessResponse?, _ error: String?) -> ()) {
+        router.request(.sendSms(phone: phone, smsCode: smsCode)) { data, response, error in
+            self.processResponse(data: data, response: response, error: error, completion: completion)
+        }
+    }
+
+    func getOrders(page: Int, limit: Int, completion: @escaping (_ success: OrderListResponse?, _ error: String?) -> ()) {
+        router.request(.getOrders(page: page, limit: limit)) { data, response, error in
+            self.processResponse(data: data, response: response, error: error, completion: completion)
+        }
+    }
+
+    func getOrder(id: String, completion: @escaping (_ success: OrderResponse?, _ error: String?) -> ()) {
+        router.request(.getOrder(id: id, version: 0)) { data, response, error in
+            self.processResponse(data: data, response: response, error: error, completion: completion)
+        }
+    }
+    
+    func getOrder(id: String, version: Int, completion: @escaping (_ success: MiddleOrderResponse?, _ error: String?) -> ()) {
+        router.request(.getOrder(id: id, version: version)) { data, response, error in
+            self.processResponse(data: data, response: response, error: error, completion: completion)
+        }
+    }
+    
+    func getCarStatus(completion: @escaping (_ success: CarStatusResponse?, _ error: String?) -> ()) {
+        router.request(.getCarStatus) { data, response, error in
+            self.processResponse(data: data, response: response, error: error, completion: completion)
+        }
+    }
+    
+    func getBonusCount(completion: @escaping (_ success: BonusBalanceResponse?, _ error: String?) -> ()) {
+        router.request(.getBonusCount) { data, response, error in
+            self.processResponse(data: data, response: response, error: error, completion: completion)
+        }
+    }
+    
+    func getUser(completion: @escaping (_ success: FullUserResponse?, _ error: String?) -> ()) {
+        router.request(.getUser) { data, response, error in
+            self.processResponse(data: data, response: response, error: error, completion: completion)
         }
     }
 }
