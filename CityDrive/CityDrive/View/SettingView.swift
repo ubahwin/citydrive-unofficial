@@ -6,26 +6,43 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct SettingView: View {
     @StateObject private var settingVM = SettingViewModel()
 
     @State private var openLogin = false
-    
+        
     var body: some View {
         NavigationStack {
             List {
                 Section("Авторизация") {
-                    if settingVM.logged {
-                        HStack {
-                            Text("Вы вошли как \(settingVM.username)")
-                            Spacer()
-                            Button(action: {
-                                settingVM.exit()
-                            }, label: {
-                                Image(systemName: "rectangle.portrait.and.arrow.forward")
-                                    .foregroundColor(.red)
-                            })
+                    if settingVM.logged ?? false {
+                        NavigationLink(destination: {
+                            UserInfoView(settingVM: settingVM)
+                                .refreshable {
+                                    settingVM.loadUser()
+                                }
+                            }
+                        ) {
+                            HStack { 
+                                AsyncImage(url: URL(string: settingVM.user?.avatar ?? "")) { image in
+                                    image
+                                        .resizable()
+                                        .frame(width: 60, height: 60)
+                                        .clipShape(Circle())
+                                } placeholder: {
+                                    Image(systemName: "person")
+                                        .frame(width: 60, height: 60)
+                                }
+                                VStack(alignment: .leading) {
+                                    Text(settingVM.user?.firstName ?? "")
+                                    Text(settingVM.user?.lastName ?? "")
+                                }
+                                .bold()
+                                .padding(5)
+                                Spacer()
+                            }
                         }
                     } else {
                         Button("Войти") {
@@ -33,6 +50,41 @@ struct SettingView: View {
                         }
                     }
                 }
+                
+                Section("Карта") {
+                    Picker("Город", selection: settingVM.$сity) {
+                        Text(City.SPb.title).tag(City.SPb)
+                        Text(City.Moscow.title).tag(City.Moscow)
+                        Text(City.Sochi.title).tag(City.Sochi)
+                    }
+                    Picker("Тип карты", selection: settingVM.$mapType) {
+                        Text(MapType.standard.title).tag(MapType.standard)
+                        Text(MapType.hybrid.title).tag(MapType.hybrid)
+                    }
+                    NavigationLink(destination: {
+                        List {
+                            ForEach(MapInteraction.allCases) { interaction in
+                                MapInteractionPickerView(
+                                    title: interaction.title,
+                                    isSelected: settingVM.selectedInteractions.contains(interaction.rawValue)
+                                ) {
+                                    if settingVM.selectedInteractions.contains(interaction.rawValue) {
+                                        settingVM.selectedInteractions.removeAll(where: { $0 == interaction.rawValue })
+                                    } else {
+                                        settingVM.selectedInteractions.append(interaction.rawValue)
+                                    }
+                                }
+                            }
+                        }
+                    }, label: {
+                        HStack {
+                            Text("Действия с картой")
+                            Spacer()
+                            Text(settingVM.selectedInteractions.count.description).colorMultiply(.gray)
+                        }
+                    })
+                }
+                Toggle("Тёмная тема", isOn: settingVM.$isDarkTheme)
             }
             .navigationTitle("Настройки")
         }

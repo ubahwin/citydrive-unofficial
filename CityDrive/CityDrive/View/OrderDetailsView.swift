@@ -52,10 +52,18 @@ struct OrderDetailsView: View {
                         Text("События")
                     }
                     NavigationLink(destination: { AboutCarView(car: orderVM.order?.car) }) {
-                        Text("Автомобиль")
+                        HStack {
+                            Text("Автомобиль")
+                            Spacer()
+                            Text(orderVM.order?.car.model ?? "").colorMultiply(.gray)
+                        }
                     }
                     NavigationLink(destination: { AboutUserView(user: orderVM.order?.user) }) {
-                        Text("Пользователь")
+                        HStack {
+                            Text("Пользователь")
+                            Spacer()
+                            Text(orderVM.order?.user.firstName ?? "").colorMultiply(.gray)
+                        }
                     }
                 }
                 Section {
