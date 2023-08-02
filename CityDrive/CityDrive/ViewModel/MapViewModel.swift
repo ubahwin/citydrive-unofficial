@@ -41,13 +41,6 @@ class MapViewModel: ObservableObject {
         loadCarStatus()
     }
     
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    func goToMyLocation() {
-        
-=======
-=======
->>>>>>> origin/main
     func loadCarStatus() {
         networkManager.getCarStatus { response, error in
             if let error = error {
@@ -110,13 +103,6 @@ class MapViewModel: ObservableObject {
                     let mapItem = MKMapItem(placemark: placemark)
                     mapItem.name = car.model
                     mapItem.url = URL(string: car.img)
-<<<<<<< HEAD
-                    mapItem.accessibilityHint = car.number
-=======
-                    mapItem.phoneNumber = car.number
-                    let other: [String] = [car.distance.description, car.walktime.description, car.fuel.description, car.tankVolume.description, car.fuelType]
-                    mapItem.placemark.accessibilityUserInputLabels = other
->>>>>>> origin/main
                     return mapItem
                 }
                 
@@ -126,10 +112,6 @@ class MapViewModel: ObservableObject {
                 }
             }
         }
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> origin/main
     }
     
     func loadBonusBalance() {

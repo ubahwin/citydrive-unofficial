@@ -35,7 +35,7 @@ struct LoginView: View {
         .onTapGesture {
             loginVM.hideKeyboard()
         }
-        .fullScreenCover(isPresented: $loginVM.next, content: { SmsView(loginVM: LoginViewModel()) })
+        .fullScreenCover(isPresented: $loginVM.next, content: { SmsView(loginVM: loginVM) })
     }
 }
 

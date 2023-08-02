@@ -17,25 +17,12 @@ struct AboutCarView: View {
                 SimpleCellView(name: "Номер", value: car?.number)
                 SimpleCellView(name: "ID", value: car?.id).textSelection(.enabled)
             }
-<<<<<<< Updated upstream
-            Section("Картинка") {
-<<<<<<< HEAD
-                VStack {
-                    AsyncImage(url: URL(string: car?.img ?? ""))
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-                }
-=======
             Section("Значения одометра") {
                 SimpleCellView(name: "В начале", value: car?.odometer.atStart)
                 SimpleCellView(name: "В конце", value: car?.odometer.atFinish)
             }
             Section("Фотокарточка") {
                 AsyncImage(url: URL(string: car?.img ?? ""))
->>>>>>> Stashed changes
-=======
-                AsyncImage(url: URL(string: car?.img ?? ""))
->>>>>>> origin/main
             }
         }
     }

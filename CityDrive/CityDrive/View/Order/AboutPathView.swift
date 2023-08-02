@@ -27,29 +27,6 @@ struct AboutPathView: View {
                     .padding()
                     .bold()
                 }
-<<<<<<< Updated upstream
-                LocationCellView(
-                    interactionName: "",
-                    locationLatitude: path?.start.lat ?? 0,
-                    locationLongitude: path?.start.lon ?? 0,
-                    pinColor: .green)
-                .padding()
-                .bold()
-            }
-            
-            Section("Куда") {
-                HStack {
-                    Text(path?.period.finish.ISO8601ToDate() ?? Date(), style: .date)
-                    Text(path?.period.finish.ISO8601ToDate() ?? Date(), style: .time)
-                }
-                LocationCellView(
-                    interactionName: "",
-                    locationLatitude: path?.finish.lat ?? 0,
-                    locationLongitude: path?.finish.lon ?? 0,
-                    pinColor: .purple)
-                .padding()
-                .bold()
-=======
                 
                 Section("Куда") {
                     HStack {
@@ -64,7 +41,6 @@ struct AboutPathView: View {
                     .padding()
                     .bold()
                 }
->>>>>>> Stashed changes
             }
         }
         .navigationTitle("Путь")

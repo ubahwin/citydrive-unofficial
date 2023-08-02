@@ -5,895 +5,94 @@
 
     },
     "******" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "******"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "******"
-          }
-        }
-      }
+
     },
     "+7" : {
 
     },
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-    "achievements" : {
-
-    },
->>>>>>> origin/main
-    "amount" : {
-
-    },
-    "bonus" : {
-
-    },
-    "bookingTime" : {
-
-    },
-    "bookingTimeLeft" : {
-
-    },
-    "chargingCost" : {
-
-    },
-    "chargingPrice" : {
-
-    },
-    "chargingPriceType" : {
-
-    },
-    "chargingTime" : {
-
-    },
-    "cityName" : {
-
-    },
-    "code" : {
-
-    },
-    "dailyCost" : {
-
-    },
-    "dailyPrice" : {
-
-    },
-    "dailyPriceType" : {
-
-    },
-    "dailyStatus" : {
-
-    },
-    "dailyTime" : {
-
-    },
-    "data" : {
-
-    },
-    "days of levelNext" : {
-
-    },
-    "debt" : {
-
-    },
-    "discountPercent" : {
-
-    },
-    "discountPrice" : {
-
-    },
-    "distance" : {
-
-    },
-    "finishCost" : {
-
-    },
-    "fixTariffCost" : {
-
-    },
-    "fixTariffPrice" : {
-
-    },
-    "fixTariffPriceType" : {
-
-    },
-    "fixTariffTime" : {
-=======
     "achievements" : {
 
     },
     "distance" : {
->>>>>>> Stashed changes
-
-    },
-    "ID" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ID"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ID"
-          }
-        }
-      }
-    },
-<<<<<<< Updated upstream
-    "insuranceIncluded" : {
-
-    },
-    "is risk profile enabled" : {
-
-    },
-    "isActive" : {
-
-    },
-    "isCreated" : {
-
-    },
-    "isInsurance" : {
-
-    },
-    "kasko" : {
-
-    },
-    "level" : {
-
-    },
-    "levelNextNumber of levelNext" : {
 
     },
     "levelX0UpdatedAt" : {
 
     },
-    "name" : {
-
-    },
-    "number of levelNext" : {
-
-    },
-    "once" : {
-
-    },
-    "orderSource" : {
-
-    },
-    "parkingCost" : {
-
-    },
-    "parkingNightCost" : {
-
-    },
-    "parkingNightPrice" : {
-
-    },
-    "parkingNightPriceType" : {
-
-    },
-    "parkingNightTime" : {
-
-    },
-    "parkingPrice" : {
-
-    },
-    "parkingPriceType" : {
-
-    },
-    "parkingTime" : {
-
-    },
-    "percent" : {
-
-    },
-    "percentDiscountPrice" : {
-
-    },
-    "programType" : {
-
-    },
-    "properties" : {
-
-    },
-    "rating" : {
-
-    },
-    "rating of levelNext" : {
-
-    },
     "ratingV2" : {
 
-    },
-    "ratingV2Level" : {
-
-    },
-    "riskProfileLevel" : {
-
-    },
-    "riskProfilePoints" : {
-
-    },
-    "send push" : {
-
-    },
-    "status" : {
-
-    },
-    "subscription status" : {
-
-    },
-    "success" : {
-
-    },
-    "symbol" : {
-=======
-    "levelX0UpdatedAt" : {
-
-    },
-    "ratingV2" : {
->>>>>>> Stashed changes
-
-    },
-    "tariff mode" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "tariff mode"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "tariff mode"
-          }
-        }
-      }
-    },
-    "tariff package" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "tariff package"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "tariff package"
-          }
-        }
-      }
-    },
-<<<<<<< Updated upstream
-    "totalCost" : {
-
-    },
-    "totalCostWithDiscount" : {
-
-    },
-    "transferCost" : {
-
-    },
-    "transferNightCost" : {
-
-    },
-    "transferNightPrice" : {
-
-    },
-    "transferNightPriceType" : {
-
-    },
-    "transferNightTime" : {
-
-    },
-    "transferPrice" : {
-
-    },
-    "transferPriceType" : {
-
-    },
-    "transferTime" : {
-
-    },
-    "trips of levelNext" : {
-
-    },
-    "type" : {
-
-    },
-    "usageCost" : {
-
-    },
-    "usagePrice" : {
-
-    },
-    "usagePriceType" : {
-
-    },
-    "usageTime" : {
-
-    },
-    "usageWeekendCost" : {
-
-    },
-    "usageWeekendPrice" : {
-
-    },
-    "usageWeekendPriceType" : {
-
-    },
-    "usageWeekendTime" : {
-
-    },
-    "usageWorkdayCost" : {
-
-    },
-    "usageWorkdayPrice" : {
-
-    },
-    "usageWorkdayPriceType" : {
-
-    },
-    "usageWorkdayTime" : {
-
-    },
-    "user corporate role ID" : {
-
-    },
-    "user ID" : {
-
-    },
-    "waitingCost" : {
-
-    },
-    "waitingPrice" : {
-
-    },
-    "waitingPriceType" : {
-
-    },
-    "waitingTime" : {
-
-    },
-    "waitingTimeLeft" : {
-
-    },
-=======
->>>>>>> Stashed changes
-    "zone expansion" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "zone expansion"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "zone expansion"
-          }
-        }
-      }
     },
     "Автомобиль" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Car"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Автомобиль"
-          }
-        }
-      }
+
     },
     "Авторизация" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Authorization"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Авторизация"
-          }
-        }
-      }
+
     },
     "Валюта" : {
 
     },
     "Войти" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Login"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Войти"
-          }
-        }
-      }
-    },
-    "Вы вошли как %@" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You login as %@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Вы вошли как %@"
-          }
-        }
-      }
+
     },
     "Выйти" : {
 
     },
     "Город" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "City"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Город"
-          }
-        }
-      }
+
     },
     "Дальше" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Next"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Дальше"
-          }
-        }
-      }
+
     },
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
     "Действия с картой" : {
 
     },
     "Детали поездки" : {
 
     },
->>>>>>> Stashed changes
-=======
-    "Действия с картой" : {
-
-    },
->>>>>>> origin/main
     "Дополнительная информация" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Other info"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Дополнительная информация"
-          }
-        }
-      }
+
     },
     "Достижения" : {
 
     },
     "Загрузка..." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Loading..."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Загрузка..."
-          }
-        }
-      }
-    },
-    "Значение одометра в конце поездки" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Value odometer at start"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Значение одометра в конце поездки"
-          }
-        }
-      }
-    },
-    "Значение одометра в начале поездки" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Value odometer at finish"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Значение одометра в начале поездки"
-          }
-        }
-      }
+
     },
     "Значения одометра" : {
 
     },
-    "Имя" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Name"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Имя"
-          }
-        }
-      }
-    },
     "Информация" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Info"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Информация"
-          }
-        }
-      }
+
     },
     "История поездок" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Orders"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "История поездок"
-          }
-        }
-      }
-    },
-    "Итоговая стоимость" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Total cost"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Итоговая стоимость"
-          }
-        }
-      }
+
     },
     "Карта" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Map"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Карта"
-          }
-        }
-      }
-    },
-    "Картинка" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Image"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Картинка"
-          }
-        }
-      }
+
     },
     "Куда" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Finish"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Куда"
-          }
-        }
-      }
-    },
-    "Модель" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Car model"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Модель"
-          }
-        }
-      }
+
     },
     "Настройки" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Settings"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Настройки"
-          }
-        }
-      }
+
     },
     "Начало" : {
 
     },
-    "Номер" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Number"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Номер"
-          }
-        }
-      }
-    },
-    "Основная информация" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "General info"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Основная информация"
-          }
-        }
-      }
-    },
     "Откуда" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Откуда"
-          }
-        }
-      }
-    },
-    "Отчество" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Middle name"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отчество"
-          }
-        }
-      }
-    },
-    "Пол" : {
 
     },
     "Пользователь" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "User"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Пользователь"
-          }
-        }
-      }
-    },
-    "Почта" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Email"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Почта"
-          }
-        }
-      }
-    },
-    "Привзанная карта" : {
 
     },
     "Программа лояльности" : {
 
     },
     "Путь" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Path"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Путь"
-          }
-        }
-      }
-    },
-    "Реферальный код" : {
 
     },
     "События" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Events"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "События"
-          }
-        }
-      }
-    },
-    "Телефон" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Phone"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Телефон"
-          }
-        }
-      }
+
     },
     "Тёмная тема" : {
 
@@ -903,23 +102,6 @@
     },
     "Транзакция" : {
 
-    },
-    "Фамилия" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Last name"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Фамилия"
-          }
-        }
-      }
     },
     "Фотокарточка" : {
 
