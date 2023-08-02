@@ -49,8 +49,13 @@ CityDrive
 └── ...                   <- Extensions and Resourses
 ```
 
-## Технологии
+## Технологии и инструменты
 
 - [SwiftUI](https://developer.apple.com/xcode/swiftui/)
+- [MapKit](https://developer.apple.com/documentation/mapkit/mapkit_for_swiftui)
 - [Сетевой слой](https://habr.com/ru/articles/443514/)
 - [Безопасность токена](https://github.com/jrendel/SwiftKeychainWrapper)
+
+- [Postman](https://www.postman.com/)
+- [Proxyman](https://proxyman.io/)
+- [SSL Pinning](https://gist.github.com/UbahWin/fd4ccec403e41de3918df2f863bd8e91)
