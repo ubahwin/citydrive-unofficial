@@ -27,6 +27,9 @@ struct SmsView: View {
             .fullScreenCover(isPresented: $loginVM.isEntered, content: { ContentView() })
             Spacer().frame(height: 50)
         }
+        .onTapGesture {
+            loginVM.hideKeyboard()
+        }
     }
 }
 

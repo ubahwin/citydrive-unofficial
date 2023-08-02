@@ -12,30 +12,42 @@ struct LoginView: View {
             
     var body: some View {
         NavigationStack {
-            VStack {
-                Spacer()
-                Image("logo")
-                Spacer()
-                HStack {
+            ZStack {
+                VStack {
                     Spacer()
-                    Text("+7")
-                    TextField("", text: $loginVM.phone)
-                        .keyboardType(.phonePad)
-                        .frame(maxWidth: 220)
+                    Image("logo")
                     Spacer()
-                }.font(.largeTitle)
-                Spacer()
-                Button("Дальше") {
-                    loginVM.sendSmsToPhone()
+                    HStack {
+                        Spacer()
+                        Text("+7")
+                        TextField("", text: $loginVM.phone)
+                            .keyboardType(.phonePad)
+                            .frame(maxWidth: 220)
+                        Spacer()
+                    }.font(.largeTitle)
+                    Spacer()
+                    Button("Дальше") {
+                        loginVM.sendSmsToPhone()
+                    }
+                    .buttonStyle(GreenButton())
+                    Spacer().frame(height: 30)
+                    Button(action: {
+                        loginVM.signInVK()
+                    }, label: {
+                        HStack {
+                            Text("Войти через")
+                            Image("vk")
+                        }
+                    })
+                    Spacer().frame(height: 20)
                 }
-                .buttonStyle(GreenButton())
-                Spacer().frame(height: 50)
             }
         }
         .onTapGesture {
             loginVM.hideKeyboard()
         }
         .fullScreenCover(isPresented: $loginVM.next, content: { SmsView(loginVM: loginVM) })
+        .fullScreenCover(isPresented: $loginVM.isEntered, content: { ContentView() })
     }
 }
 

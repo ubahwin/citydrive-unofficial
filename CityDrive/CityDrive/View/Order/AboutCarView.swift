@@ -22,7 +22,11 @@ struct AboutCarView: View {
                 SimpleCellView(name: "В конце", value: car?.odometer.atFinish)
             }
             Section("Фотокарточка") {
-                AsyncImage(url: URL(string: car?.img ?? ""))
+                AsyncImage(url: URL(string: car?.img ?? "")) { image in // img
+                    image
+                } placeholder: {
+                    Image(systemName: "car")
+                }
             }
         }
     }

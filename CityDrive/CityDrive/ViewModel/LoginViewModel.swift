@@ -46,4 +46,8 @@ class LoginViewModel: ObservableObject {
             }
         }
     }
+    
+    func signInVK() {
+        
+    }
 }

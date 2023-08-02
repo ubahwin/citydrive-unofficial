@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SendSmsSuccessResponse: Codable {
+struct SessionIDResponse: Codable {
     let sessionID: String?
     let success: Bool?
     

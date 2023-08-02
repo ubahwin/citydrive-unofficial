@@ -72,7 +72,7 @@
 		B7CDD0A92A3F94C80034278B /* CityDriveEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CDD0A82A3F94C80034278B /* CityDriveEndpoint.swift */; };
 		B7CDD0AD2A3F95FB0034278B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CDD0AC2A3F95FB0034278B /* NetworkManager.swift */; };
 		B7CDD0B22A46FCFA0034278B /* SendPhoneSuccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CDD0B12A46FCF90034278B /* SendPhoneSuccessResponse.swift */; };
-		B7CDD0B42A4704EB0034278B /* SendSmsSuccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CDD0B32A4704EB0034278B /* SendSmsSuccessResponse.swift */; };
+		B7CDD0B42A4704EB0034278B /* SessionIDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CDD0B32A4704EB0034278B /* SessionIDResponse.swift */; };
 		B7DB05EF2A59BC6900ACE3BC /* OrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB05EE2A59BC6900ACE3BC /* OrderResponse.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,14 +95,12 @@
 		B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrderResponse.swift; sourceTree = "<group>"; };
 		B71129C82A63D81000E821FE /* MiddleOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrder.swift; sourceTree = "<group>"; };
 		B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractionPickerView.swift; sourceTree = "<group>"; };
-		B72AE6B52A76E79C0015B139 /* CityDriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CityDriveTests.xctest; path = "/Users/ubah/Desktop/citydrive-unofficial/CityDrive/build/Debug-iphoneos/CityDriveTests.xctest"; sourceTree = "<absolute>"; };
 		B72AE6B72A76E79C0015B139 /* CityDriveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDriveTests.swift; sourceTree = "<group>"; };
 		B73DBF972A597BFE006393B6 /* ShortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortOrder.swift; sourceTree = "<group>"; };
 		B743CA0F2A67449500D146CC /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		B750384F2A6C075B00D49D4B /* CarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarView.swift; sourceTree = "<group>"; };
 		B75D01942A79CFEC0036861A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B75D01962A79D0530036861A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B763DD162A670693008E20DA /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = CityDrive.app; path = "/Users/ubah/Desktop/citydrive-unofficial/CityDrive/build/Debug-iphoneos/CityDrive.app"; sourceTree = "<absolute>"; };
 		B763DD172A670C74008E20DA /* BonusButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusButtonView.swift; sourceTree = "<group>"; };
 		B763DD192A6712B4008E20DA /* BonusBalanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusBalanceResponse.swift; sourceTree = "<group>"; };
 		B76678782A72E2F20023ADD3 /* MapInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteraction.swift; sourceTree = "<group>"; };
@@ -137,6 +135,8 @@
 		B7A44FD12A5957C0003FCBD4 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
 		B7A44FD32A595B69003FCBD4 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		B7B253162A6455A3008DAC5C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B7C23FED2A7A6EFB007855DE /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7C23FEE2A7A6EFB007855DE /* CityDriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityDriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C48E882A799A9A00D68742 /* SimpleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCellView.swift; sourceTree = "<group>"; };
 		B7C48E8A2A79B35000D68742 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B7C99B422A504136004A29A8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 		B7CDD0A82A3F94C80034278B /* CityDriveEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDriveEndpoint.swift; sourceTree = "<group>"; };
 		B7CDD0AC2A3F95FB0034278B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B7CDD0B12A46FCF90034278B /* SendPhoneSuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPhoneSuccessResponse.swift; sourceTree = "<group>"; };
-		B7CDD0B32A4704EB0034278B /* SendSmsSuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSmsSuccessResponse.swift; sourceTree = "<group>"; };
+		B7CDD0B32A4704EB0034278B /* SessionIDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionIDResponse.swift; sourceTree = "<group>"; };
 		B7DB05EE2A59BC6900ACE3BC /* OrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +182,8 @@
 			children = (
 				B70D4AC62A3B1ABF00C90991 /* CityDrive */,
 				B72AE6B62A76E79C0015B139 /* CityDriveTests */,
+				B7C23FED2A7A6EFB007855DE /* CityDrive.app */,
+				B7C23FEE2A7A6EFB007855DE /* CityDriveTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -352,7 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				B7CDD0B12A46FCF90034278B /* SendPhoneSuccessResponse.swift */,
-				B7CDD0B32A4704EB0034278B /* SendSmsSuccessResponse.swift */,
+				B7CDD0B32A4704EB0034278B /* SessionIDResponse.swift */,
 				B7A44FCF2A59509F003FCBD4 /* OrderListResponse.swift */,
 				B7DB05EE2A59BC6900ACE3BC /* OrderResponse.swift */,
 				B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */,
@@ -422,7 +424,7 @@
 				B7A44FCD2A573F06003FCBD4 /* SwiftKeychainWrapper */,
 			);
 			productName = CityDrive;
-			productReference = B763DD162A670693008E20DA /* CityDrive.app */;
+			productReference = B7C23FED2A7A6EFB007855DE /* CityDrive.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B72AE6B42A76E79C0015B139 /* CityDriveTests */ = {
@@ -440,7 +442,7 @@
 			);
 			name = CityDriveTests;
 			productName = CityDriveTests;
-			productReference = B72AE6B52A76E79C0015B139 /* CityDriveTests.xctest */;
+			productReference = B7C23FEE2A7A6EFB007855DE /* CityDriveTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -521,7 +523,7 @@
 				B7CAC3F92A61D40500E5B271 /* Int.swift in Sources */,
 				B785872F2A6B1F610002689B /* UserInfoView.swift in Sources */,
 				B79DC4912A5B085800175413 /* OtherInfoView.swift in Sources */,
-				B7CDD0B42A4704EB0034278B /* SendSmsSuccessResponse.swift in Sources */,
+				B7CDD0B42A4704EB0034278B /* SessionIDResponse.swift in Sources */,
 				B79DC48F2A5B079300175413 /* AboutUserView.swift in Sources */,
 				B72A4A6D2A72D025003D02DA /* MapInteractionPickerView.swift in Sources */,
 				B7A369682A3C719200B31121 /* Pin.swift in Sources */,

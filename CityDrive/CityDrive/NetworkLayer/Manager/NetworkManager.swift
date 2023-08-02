@@ -72,12 +72,18 @@ class NetworkManager {
         }
     }
 
-    func sendSms(phone: String, smsCode: Int, completion: @escaping (_ success: SendSmsSuccessResponse?, _ error: String?) -> ()) {
+    func sendSms(phone: String, smsCode: Int, completion: @escaping (_ success: SessionIDResponse?, _ error: String?) -> ()) {
         router.request(.sendSms(phone: phone, smsCode: smsCode)) { data, response, error in
             self.processResponse(data: data, response: response, error: error, completion: completion)
         }
     }
 
+    func sendTokenVK(token: String, uuid: String, completion: @escaping (_ success: SessionIDResponse?, _ error: String?) -> ()) {
+        router.request(.sendTokenVK(token: token, uuid: uuid)) { data, response, error in
+            self.processResponse(data: data, response: response, error: error, completion: completion)
+        }
+    }
+    
     func getOrders(page: Int, limit: Int, completion: @escaping (_ success: OrderListResponse?, _ error: String?) -> ()) {
         router.request(.getOrders(page: page, limit: limit)) { data, response, error in
             self.processResponse(data: data, response: response, error: error, completion: completion)

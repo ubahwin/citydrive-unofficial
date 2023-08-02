@@ -16,6 +16,9 @@ public enum CityDriveApi {
     // отправить полученную смс для получения session_id
     case sendSms(phone: String, smsCode: Int)
     
+    // отправить токен ВК для получения session_id
+    case sendTokenVK(token: String, uuid: String)
+    
     // запросить список поездок, где limit количество поездок, а page страница размером в limit поездок
     case getOrders(page: Int, limit: Int)
     
@@ -42,6 +45,7 @@ extension CityDriveApi: EndpointType {
         switch self {
         case .sendSms: return "signup/code"
         case .sendPhone: return "signup"
+        case .sendTokenVK: return "signup/vk-connect"
         case .getOrders: return "orders"
         case .getOrder(let id, _): return "order/" + id + "/details"
         case .getCarStatus: return "status"
@@ -53,10 +57,7 @@ extension CityDriveApi: EndpointType {
     var httpMethod: HTTPMethod {
         switch self {
         // только для входа требуется POST запрос
-        case .sendSms: return .post
-        case .sendPhone: return .post
-        case .getOrders: return .get
-        case .getOrder: return .get
+        case .sendSms, .sendPhone, .sendTokenVK: return .post
             
         default: return .get
         }
@@ -107,6 +108,10 @@ extension CityDriveApi: EndpointType {
             "vendor_id": "86bdb8236b314b96",
             "phone": phone,
             "phone_code": "7"
+        ]
+        case .sendTokenVK(let token, let uuid): return [
+            "vk_token": token,
+            "uuid": uuid
         ]
         default: return nil
         }
