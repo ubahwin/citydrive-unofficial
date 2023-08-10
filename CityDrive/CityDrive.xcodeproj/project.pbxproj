@@ -15,6 +15,7 @@
 		B71129C72A63D6F700E821FE /* MiddleOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */; };
 		B71129C92A63D81000E821FE /* MiddleOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C82A63D81000E821FE /* MiddleOrder.swift */; };
 		B72056272A851C2A003D1372 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72056262A851C2A003D1372 /* Avatar.swift */; };
+		B72056292A852DC0003D1372 /* BonusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72056282A852DC0003D1372 /* BonusImage.swift */; };
 		B72A4A6D2A72D025003D02DA /* MapInteractionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */; };
 		B72AE6B82A76E79C0015B139 /* CityDriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72AE6B72A76E79C0015B139 /* CityDriveTests.swift */; };
 		B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DBF972A597BFE006393B6 /* ShortOrder.swift */; };
@@ -98,6 +99,7 @@
 		B72056242A850AE4003D1372 /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72056252A850AE4003D1372 /* CityDriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityDriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72056262A851C2A003D1372 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		B72056282A852DC0003D1372 /* BonusImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusImage.swift; sourceTree = "<group>"; };
 		B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractionPickerView.swift; sourceTree = "<group>"; };
 		B72AE6B72A76E79C0015B139 /* CityDriveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDriveTests.swift; sourceTree = "<group>"; };
 		B73DBF972A597BFE006393B6 /* ShortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortOrder.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				B77A659F2A6C536000E68B75 /* RefreshMapButtonView.swift */,
 				B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */,
 				B72056262A851C2A003D1372 /* Avatar.swift */,
+				B72056282A852DC0003D1372 /* BonusImage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				B71129C32A63BFD700E821FE /* AboutEventsView.swift in Sources */,
 				B76860912A3D09230010D590 /* OrderListView.swift in Sources */,
 				B7802B472A653A6F004F31CE /* CarStatusResponse.swift in Sources */,
+				B72056292A852DC0003D1372 /* BonusImage.swift in Sources */,
 				B70D4ACA2A3B1ABF00C90991 /* ContentView.swift in Sources */,
 				B77A65A02A6C536000E68B75 /* RefreshMapButtonView.swift in Sources */,
 				B71129C92A63D81000E821FE /* MiddleOrder.swift in Sources */,

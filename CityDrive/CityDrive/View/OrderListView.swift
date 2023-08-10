@@ -48,9 +48,6 @@ struct OrderListView: View {
                 orderVM.refresh()
             }
         }
-        .onAppear {
-            orderVM.loadOrderList()
-        }
     }
 }
 

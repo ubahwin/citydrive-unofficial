@@ -13,9 +13,6 @@ class OrdersViewModel: ObservableObject {
     @Published var order: Order?
     @Published var middleOrder: MiddleOrder?
     
-    @Published var startAddress = ""
-    @Published var finishAddress = ""
-    
     private var networkManager: NetworkManager
         
     private var totalCount = 0

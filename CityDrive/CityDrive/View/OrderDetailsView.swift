@@ -21,23 +21,8 @@ struct OrderDetailsView: View {
                         HStack {
                             Text(row.rowLeft.text)
                             Spacer()
-                            if row.rowRight.iconURL != "" {
-                                AsyncImage(url: URL(string: row.rowRight.iconURL)) { image in
-                                    image
-                                        .resizable()
-                                        .frame(width: 20, height: 20)
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                            }
-                            if row.rowLeft.iconURL != "" {
-                                AsyncImage(url: URL(string: row.rowLeft.iconURL)) { image in
-                                    image
-                                        .resizable()
-                                        .frame(width: 20, height: 20)
-                                } placeholder: {
-                                    ProgressView()
-                                }
+                            if row.rowRight.iconURL != "" || row.rowLeft.iconURL != "" {
+                                BonusImage()
                             }
                             Text(row.rowRight.text)
                         }
@@ -83,5 +68,5 @@ struct OrderDetailsView: View {
 }
 
 #Preview {
-    OrderDetailsView(orderID: "e915e318-d8bd-4505-9a03-16167322e2e9", orderVM: OrdersViewModel())
+    OrderDetailsView(orderID: "", orderVM: OrdersViewModel())
 }

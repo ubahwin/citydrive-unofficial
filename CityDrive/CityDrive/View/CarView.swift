@@ -26,16 +26,17 @@ struct CarView: View {
             } placeholder: {
                 Image(systemName: "car")
             }            
-            NavigationLink("Дополнительная информация", destination: {
-                List {
-                    HStack {
-                        Text("distance")
-                        Spacer()
-                        Text(car?.placemark.title ?? "")
-                    }
-                }
-            })
-        }.padding()
+//            NavigationLink("Дополнительная информация", destination: {
+//                List {
+//                    HStack {
+//                        Text("distance")
+//                        Spacer()
+//                        Text(car?.placemark.title ?? "")
+//                    }
+//                }
+//            })
+        }
+        .padding()
     }
 }
 

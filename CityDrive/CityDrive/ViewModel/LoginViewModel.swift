@@ -51,7 +51,5 @@ class LoginViewModel: ObservableObject {
         if let url = URL(string: "https://oauth.vk.com/authorize?client_id=51722134&redirect_uri=https://citydrive-unofficial.ru/auth/vk-connect&scope=12&display=mobile"), UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         }
-        
-    // "https://api.vk.com/method/auth.exchangeSilentAuthToken?v=5.131&token=2OD86ABdLal72MAXOd8C&access_token=2c03e2072c03e2072c03e207492f16d62b22c032c03e20748c85b97abd8cd2e415c6fe3&uuid=uuid"
     }
 }
