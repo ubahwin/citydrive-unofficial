@@ -14,6 +14,7 @@
 		B71129C32A63BFD700E821FE /* AboutEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C22A63BFD700E821FE /* AboutEventsView.swift */; };
 		B71129C72A63D6F700E821FE /* MiddleOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */; };
 		B71129C92A63D81000E821FE /* MiddleOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C82A63D81000E821FE /* MiddleOrder.swift */; };
+		B72056272A851C2A003D1372 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72056262A851C2A003D1372 /* Avatar.swift */; };
 		B72A4A6D2A72D025003D02DA /* MapInteractionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */; };
 		B72AE6B82A76E79C0015B139 /* CityDriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72AE6B72A76E79C0015B139 /* CityDriveTests.swift */; };
 		B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DBF972A597BFE006393B6 /* ShortOrder.swift */; };
@@ -94,6 +95,9 @@
 		B71129C22A63BFD700E821FE /* AboutEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutEventsView.swift; sourceTree = "<group>"; };
 		B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrderResponse.swift; sourceTree = "<group>"; };
 		B71129C82A63D81000E821FE /* MiddleOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrder.swift; sourceTree = "<group>"; };
+		B72056242A850AE4003D1372 /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B72056252A850AE4003D1372 /* CityDriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityDriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B72056262A851C2A003D1372 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractionPickerView.swift; sourceTree = "<group>"; };
 		B72AE6B72A76E79C0015B139 /* CityDriveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDriveTests.swift; sourceTree = "<group>"; };
 		B73DBF972A597BFE006393B6 /* ShortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortOrder.swift; sourceTree = "<group>"; };
@@ -135,8 +139,6 @@
 		B7A44FD12A5957C0003FCBD4 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
 		B7A44FD32A595B69003FCBD4 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		B7B253162A6455A3008DAC5C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		B7C23FED2A7A6EFB007855DE /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7C23FEE2A7A6EFB007855DE /* CityDriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityDriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C48E882A799A9A00D68742 /* SimpleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCellView.swift; sourceTree = "<group>"; };
 		B7C48E8A2A79B35000D68742 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B7C99B422A504136004A29A8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		B7CDD0B12A46FCF90034278B /* SendPhoneSuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPhoneSuccessResponse.swift; sourceTree = "<group>"; };
 		B7CDD0B32A4704EB0034278B /* SessionIDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionIDResponse.swift; sourceTree = "<group>"; };
 		B7DB05EE2A59BC6900ACE3BC /* OrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResponse.swift; sourceTree = "<group>"; };
+		B7F5815F2A7D9FC400DFB3C8 /* SwiftyVK.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; name = SwiftyVK.xcworkspace; path = Carthage/Checkouts/SwiftyVK/SwiftyVK.xcworkspace; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,8 +185,9 @@
 			children = (
 				B70D4AC62A3B1ABF00C90991 /* CityDrive */,
 				B72AE6B62A76E79C0015B139 /* CityDriveTests */,
-				B7C23FED2A7A6EFB007855DE /* CityDrive.app */,
-				B7C23FEE2A7A6EFB007855DE /* CityDriveTests.xctest */,
+				B7F5815E2A7D9FC400DFB3C8 /* Frameworks */,
+				B72056242A850AE4003D1372 /* CityDrive.app */,
+				B72056252A850AE4003D1372 /* CityDriveTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -346,6 +350,7 @@
 				B763DD172A670C74008E20DA /* BonusButtonView.swift */,
 				B77A659F2A6C536000E68B75 /* RefreshMapButtonView.swift */,
 				B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */,
+				B72056262A851C2A003D1372 /* Avatar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -404,6 +409,14 @@
 			path = Endpoint;
 			sourceTree = "<group>";
 		};
+		B7F5815E2A7D9FC400DFB3C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7F5815F2A7D9FC400DFB3C8 /* SwiftyVK.xcworkspace */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -424,7 +437,7 @@
 				B7A44FCD2A573F06003FCBD4 /* SwiftKeychainWrapper */,
 			);
 			productName = CityDrive;
-			productReference = B7C23FED2A7A6EFB007855DE /* CityDrive.app */;
+			productReference = B72056242A850AE4003D1372 /* CityDrive.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B72AE6B42A76E79C0015B139 /* CityDriveTests */ = {
@@ -442,7 +455,7 @@
 			);
 			name = CityDriveTests;
 			productName = CityDriveTests;
-			productReference = B7C23FEE2A7A6EFB007855DE /* CityDriveTests.xctest */;
+			productReference = B72056252A850AE4003D1372 /* CityDriveTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -518,6 +531,7 @@
 				B76860A32A3DB5D20010D590 /* GreenButton.swift in Sources */,
 				B7CAC3FB2A61D44C00E5B271 /* String.swift in Sources */,
 				B7CDD0A72A3F92680034278B /* NetworkRouter.swift in Sources */,
+				B72056272A851C2A003D1372 /* Avatar.swift in Sources */,
 				B71129C72A63D6F700E821FE /* MiddleOrderResponse.swift in Sources */,
 				B763DD1A2A6712B4008E20DA /* BonusBalanceResponse.swift in Sources */,
 				B7CAC3F92A61D40500E5B271 /* Int.swift in Sources */,
@@ -735,7 +749,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = CityDrive;
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Разрешите геопозицию";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Разрешите геопозицию";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow geoposition";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -770,7 +784,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = CityDrive;
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Разрешите геопозицию";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Разрешите геопозицию";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow geoposition";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

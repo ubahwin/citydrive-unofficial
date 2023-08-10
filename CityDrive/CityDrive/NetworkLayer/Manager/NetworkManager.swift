@@ -17,7 +17,7 @@ enum NetworkResponse: String {
     case unableToDecode = "We could not decode the response."
 }
 
-enum Result<String>{
+enum Result<String> { // TODO: potom
     case success
     case failure(String)
 }

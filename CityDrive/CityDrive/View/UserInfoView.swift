@@ -67,7 +67,7 @@ struct UserInfoView: View {
                     Text("Дополнительная информация")
                 }
             }
-            
+                        
             Button("Выйти") {
                 settingVM.exit()
                 dismiss()

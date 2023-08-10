@@ -16,38 +16,29 @@ struct SettingView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Авторизация") {
-                    if settingVM.logged ?? false {
-                        NavigationLink(destination: {
-                            UserInfoView(settingVM: settingVM)
-                                .refreshable {
-                                    settingVM.loadUser()
-                                }
+                if settingVM.logged ?? false {
+                    NavigationLink(destination: {
+                        UserInfoView(settingVM: settingVM)
+                    }) {
+                        HStack {
+                            AsyncImage(url: URL(string: settingVM.user?.avatar ?? "")) { image in
+                                Avatar(image: image)
+                            } placeholder: {
+                                Avatar()
                             }
-                        ) {
-                            HStack { 
-                                AsyncImage(url: URL(string: settingVM.user?.avatar ?? "")) { image in
-                                    image
-                                        .resizable()
-                                        .frame(width: 60, height: 60)
-                                        .clipShape(Circle())
-                                } placeholder: {
-                                    Image(systemName: "person")
-                                        .frame(width: 60, height: 60)
-                                }
-                                VStack(alignment: .leading) {
-                                    Text(settingVM.user?.firstName ?? "")
-                                    Text(settingVM.user?.lastName ?? "")
-                                }
-                                .bold()
-                                .padding(5)
-                                Spacer()
+                            VStack(alignment: .leading) {
+                                Text(settingVM.user?.firstName ?? "")
+                                Text(settingVM.user?.lastName ?? "")
                             }
+                            .redacted(reason: settingVM.user == nil ? .placeholder : [])
+                            .bold()
+                            .padding(5)
+                            Spacer()
                         }
-                    } else {
-                        Button("Войти") {
-                            openLogin = true
-                        }
+                    }
+                } else {
+                    Button("Войти") {
+                        openLogin = true
                     }
                 }
                 
@@ -61,28 +52,7 @@ struct SettingView: View {
                         Text(MapType.standard.title).tag(MapType.standard)
                         Text(MapType.hybrid.title).tag(MapType.hybrid)
                     }
-                    NavigationLink(destination: {
-                        List {
-                            ForEach(MapInteraction.allCases) { interaction in
-                                MapInteractionPickerView(
-                                    title: interaction.title,
-                                    isSelected: settingVM.selectedInteractions.contains(interaction.rawValue)
-                                ) {
-                                    if settingVM.selectedInteractions.contains(interaction.rawValue) {
-                                        settingVM.selectedInteractions.removeAll(where: { $0 == interaction.rawValue })
-                                    } else {
-                                        settingVM.selectedInteractions.append(interaction.rawValue)
-                                    }
-                                }
-                            }
-                        }
-                    }, label: {
-                        HStack {
-                            Text("Действия с картой")
-                            Spacer()
-                            Text(settingVM.selectedInteractions.count.description).colorMultiply(.gray)
-                        }
-                    })
+                    MapInteractions(settingVM: settingVM)
                 }
                 Toggle("Тёмная тема", isOn: settingVM.$isDarkTheme)
             }

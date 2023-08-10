@@ -22,7 +22,6 @@ struct ContentView: View {
                         Image(systemName: "list.bullet.clipboard")
                         Text("История поездок")
                     }
-                
                 SettingView()
                     .tabItem {
                         Image(systemName: "gear")

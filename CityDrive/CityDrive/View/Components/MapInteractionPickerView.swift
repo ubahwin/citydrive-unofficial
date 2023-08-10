@@ -7,6 +7,35 @@
 
 import SwiftUI
 
+struct MapInteractions: View {
+    @ObservedObject var settingVM: SettingViewModel
+    
+    var body: some View {
+        NavigationLink(destination: {
+            List {
+                ForEach(MapInteraction.allCases) { interaction in
+                    MapInteractionPickerView(
+                        title: interaction.title,
+                        isSelected: settingVM.selectedInteractions.contains(interaction.rawValue)
+                    ) {
+                        if settingVM.selectedInteractions.contains(interaction.rawValue) {
+                            settingVM.selectedInteractions.removeAll(where: { $0 == interaction.rawValue })
+                        } else {
+                            settingVM.selectedInteractions.append(interaction.rawValue)
+                        }
+                    }
+                }
+            }
+        }, label: {
+            HStack {
+                Text("Действия с картой")
+                Spacer()
+                Text(settingVM.selectedInteractions.count.description).colorMultiply(.gray)
+            }
+        })
+    }
+}
+
 struct MapInteractionPickerView: View {
     var title: String
     var isSelected: Bool

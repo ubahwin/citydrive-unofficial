@@ -16,7 +16,7 @@ struct MapView: View {
 
     @State var carSelected: MKMapItem?
     @State var openCarDetail = false
-    
+        
     var body: some View {
         ZStack {
             Map(position: $camera, interactionModes: mapVM.interactions, selection: $carSelected, scope: scope) {

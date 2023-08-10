@@ -17,7 +17,6 @@ struct CarView: View {
                 Text(car?.name ?? "").font(.title) // model
                 Spacer()
                 Text(car?.accessibilityHint ?? "") // number
-
                     .padding(5)
                     .background(.gray)
                     .clipShape(.buttonBorder)

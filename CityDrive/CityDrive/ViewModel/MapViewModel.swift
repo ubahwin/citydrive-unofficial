@@ -13,28 +13,21 @@ class MapViewModel: ObservableObject {
     private var networkManager: NetworkManager
     
     @Published var carsIsLoaded = false
-//    @Published var cars: [Car] = []
     @Published var cars: [MKMapItem] = []
     @Published var bonusBalance = ""
     
-    //==========================
-    //
-    // TODO: change in settings
-    //
+    // Settings
     @AppStorage("selectedCity") var city: City?
     @AppStorage("selectedMapType") var mapType: MapType?
-    
     var interactions: MapInteractionModes {
         let stringInteraction = UserDefaults.standard.stringArray(forKey: "selectedInteractions") ?? []
         let mapInteractions: [MapInteraction] = stringInteraction.compactMap { MapInteraction.fromString($0) }
         var mapInteractionModes: MapInteractionModes = []
-        for i in mapInteractions {
-            mapInteractionModes.insert(i.mapValue)
+        for interaction in mapInteractions {
+            mapInteractionModes.insert(interaction.mapValue)
         }
         return mapInteractionModes
     }
-    //
-    //==========================
 
     init() {
         self.networkManager = NetworkManager()
@@ -102,6 +95,7 @@ class MapViewModel: ObservableObject {
                     let placemark = MKPlacemark(coordinate: car.coordinate)
                     let mapItem = MKMapItem(placemark: placemark)
                     mapItem.name = car.model
+                    mapItem.accessibilityHint = car.number
                     mapItem.url = URL(string: car.img)
                     return mapItem
                 }
