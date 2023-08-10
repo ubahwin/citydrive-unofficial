@@ -35,6 +35,7 @@ struct SettingView: View {
                             .padding(5)
                             Spacer()
                         }
+                        .allowsHitTesting(settingVM.user == nil)
                     }
                 } else {
                     Button("Войти") {
