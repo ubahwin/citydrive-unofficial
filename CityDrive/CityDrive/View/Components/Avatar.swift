@@ -9,11 +9,11 @@ import SwiftUI
 
 struct Avatar: View {
     var image: Image?
-    
+
     init(image: Image? = nil) {
         self.image = image
     }
-    
+
     var body: some View {
         if image != nil {
             image!

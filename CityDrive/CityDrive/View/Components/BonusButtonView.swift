@@ -10,7 +10,7 @@ import SwiftUI
 struct BonusButtonView: View {
     @ObservedObject var mapVM: MapViewModel
     @Environment(\.colorScheme) var colorScheme
-        
+
     var body: some View {
         VStack {
             Button(

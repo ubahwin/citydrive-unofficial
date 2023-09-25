@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SmsView: View {
     @ObservedObject var loginVM: LoginViewModel
-    
+
     var body: some View {
         VStack {
             Spacer()

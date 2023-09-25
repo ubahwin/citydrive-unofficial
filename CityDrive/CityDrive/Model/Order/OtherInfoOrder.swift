@@ -19,42 +19,42 @@ struct OtherInfoOrder {
     var tariffPackage, zoneExpansion, tariffMode: String
     var success: Bool
     var isActive: Bool
-    
+
     var usageTime, usageCost, usagePrice: Int
     var usagePriceType: String
-    
+
     var usageWorkdayTime, usageWorkdayCost, usageWorkdayPrice: Int
     var usageWorkdayPriceType: String
-    
+
     var usageWeekendTime, usageWeekendCost, usageWeekendPrice: Int
     var usageWeekendPriceType: String
-    
+
     var chargingTime, chargingCost, chargingPrice: Int
     var chargingPriceType: String
-    
+
     var parkingTime, parkingCost, parkingPrice: Int
     var parkingPriceType: String
-    
+
     var parkingNightTime, parkingNightCost, parkingNightPrice: Int
     var parkingNightPriceType: String
-    
+
     var transferTime, transferCost, transferPrice: Int
     var transferPriceType: String
-    
+
     var transferNightTime, transferNightCost, transferNightPrice: Int
     var transferNightPriceType: String
-    
+
     var waitingTime, waitingCost, waitingPrice: Int
     var waitingPriceType: String
-    
+
     var fixTariffTime, fixTariffCost, fixTariffPrice: Int
     var fixTariffPriceType: String
-    
+
     var bookingTime, bookingTimeLeft, waitingTimeLeft, finishCost: Int
     var insuranceIncluded: Bool
-    
+
     var riskProfileLevel, riskProfilePoints: Int
-    
+
     var dailyPriceType: String
     var dailyCost, dailyTime, dailyPrice: Int
     var dailyStatus: Bool

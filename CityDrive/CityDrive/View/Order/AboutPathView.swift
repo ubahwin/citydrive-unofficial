@@ -10,7 +10,7 @@ import MapKit
 
 struct AboutPathView: View {
     var path: PathOrder?
-                    
+
     var body: some View {
         NavigationStack {
             List {
@@ -27,7 +27,7 @@ struct AboutPathView: View {
                     .padding()
                     .bold()
                 }
-                
+
                 Section("Куда") {
                     HStack {
                         Text(path?.period.finish.ISO8601ToDate() ?? Date(), style: .date)

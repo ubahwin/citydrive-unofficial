@@ -10,7 +10,7 @@ import MapKit
 
 struct Pin: View {
     var color: Color
-    
+
     var body: some View {
         Circle()
             .fill(color)

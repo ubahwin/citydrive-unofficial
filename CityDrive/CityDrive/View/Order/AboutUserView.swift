@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AboutUserView: View {
     var user: UserOrder?
-    
+
     var body: some View {
         List {
             Section(user?.fullName ?? "") {

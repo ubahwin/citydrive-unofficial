@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MapInteractions: View {
     @ObservedObject var settingVM: SettingViewModel
-    
+
     var body: some View {
         NavigationLink(destination: {
             List {
@@ -40,7 +40,7 @@ struct MapInteractionPickerView: View {
     var title: String
     var isSelected: Bool
     var action: () -> Void
-    
+
     var body: some View {
         Button(action: self.action) {
             HStack {

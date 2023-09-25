@@ -12,7 +12,7 @@ struct SettingView: View {
     @StateObject private var settingVM = SettingViewModel()
 
     @State private var openLogin = false
-        
+
     var body: some View {
         NavigationStack {
             List {
@@ -42,12 +42,12 @@ struct SettingView: View {
                         openLogin = true
                     }
                 }
-                
+
                 Section("Карта") {
                     Picker("Город", selection: settingVM.$сity) {
-                        Text(City.SPb.title).tag(City.SPb)
-                        Text(City.Moscow.title).tag(City.Moscow)
-                        Text(City.Sochi.title).tag(City.Sochi)
+                        Text(City.spb.title).tag(City.spb)
+                        Text(City.moscow.title).tag(City.moscow)
+                        Text(City.sochi.title).tag(City.sochi)
                     }
                     Picker("Тип карты", selection: settingVM.$mapType) {
                         Text(MapType.standard.title).tag(MapType.standard)

@@ -24,8 +24,13 @@ enum Result<String> { // TODO: potom
 
 class NetworkManager {
     let router = Router<CityDriveApi>()
-    
-    fileprivate func processResponse<T: Decodable>(data: Data?, response: URLResponse?, error: Error?, completion: @escaping (_ success: T?, _ error: String?) -> ()) {
+
+    fileprivate func processResponse<T: Decodable>(
+        data: Data?,
+        response: URLResponse?,
+        error: Error?,
+        completion: @escaping (_ success: T?, _ error: String?) -> Void
+    ) {
         if error != nil {
             completion(nil, "Please check your network connection.")
         }
@@ -55,8 +60,8 @@ class NetworkManager {
             completion(nil, networkFailureError)
         }
     }
-    
-    fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
+
+    fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String> {
         switch response.statusCode {
         case 200...299: return .success
         case 401...500: return .failure(NetworkResponse.authenticationError.rawValue)
@@ -65,56 +70,84 @@ class NetworkManager {
         default: return .failure(NetworkResponse.failed.rawValue)
         }
     }
-    
-    func sendPhone(phone: String, completion: @escaping (_ success: SendPhoneSuccessResponse?, _ error: String?) -> ()) {
+
+    func sendPhone(
+        phone: String,
+        completion: @escaping (_ success: SendPhoneSuccessResponse?, _ error: String?) -> Void
+    ) {
         router.request(.sendPhone(phone: phone)) { data, response, error in
             self.processResponse(data: data, response: response, error: error, completion: completion)
         }
     }
 
-    func sendSms(phone: String, smsCode: Int, completion: @escaping (_ success: SessionIDResponse?, _ error: String?) -> ()) {
+    func sendSms(
+        phone: String,
+        smsCode: Int,
+        completion: @escaping (_ success: SessionIDResponse?, _ error: String?) -> Void
+    ) {
         router.request(.sendSms(phone: phone, smsCode: smsCode)) { data, response, error in
             self.processResponse(data: data, response: response, error: error, completion: completion)
         }
     }
 
-    func sendTokenVK(token: String, uuid: String, completion: @escaping (_ success: SessionIDResponse?, _ error: String?) -> ()) {
+    func sendTokenVK(
+        token: String,
+        uuid: String,
+        completion: @escaping (_ success: SessionIDResponse?, _ error: String?) -> Void
+    ) {
         router.request(.sendTokenVK(token: token, uuid: uuid)) { data, response, error in
             self.processResponse(data: data, response: response, error: error, completion: completion)
         }
     }
-    
-    func getOrders(page: Int, limit: Int, completion: @escaping (_ success: OrderListResponse?, _ error: String?) -> ()) {
+
+    func getOrders(
+        page: Int,
+        limit: Int,
+        completion: @escaping (_ success: OrderListResponse?, _ error: String?) -> Void
+    ) {
         router.request(.getOrders(page: page, limit: limit)) { data, response, error in
             self.processResponse(data: data, response: response, error: error, completion: completion)
         }
     }
 
-    func getOrder(id: String, completion: @escaping (_ success: OrderResponse?, _ error: String?) -> ()) {
+    func getOrder(
+        id: String,
+        completion: @escaping (_ success: OrderResponse?, _ error: String?) -> Void
+    ) {
         router.request(.getOrder(id: id, version: 0)) { data, response, error in
             self.processResponse(data: data, response: response, error: error, completion: completion)
         }
     }
-    
-    func getOrder(id: String, version: Int, completion: @escaping (_ success: MiddleOrderResponse?, _ error: String?) -> ()) {
+
+    func getOrder(
+        id: String,
+        version: Int,
+        completion: @escaping (_ success: MiddleOrderResponse?, _ error: String?) -> Void
+    ) {
         router.request(.getOrder(id: id, version: version)) { data, response, error in
             self.processResponse(data: data, response: response, error: error, completion: completion)
         }
     }
-    
-    func getCarStatus(completion: @escaping (_ success: CarStatusResponse?, _ error: String?) -> ()) {
+
+    func getCarStatus(
+        completion: @escaping (_ success: CarStatusResponse?, _ error: String?) -> Void
+    ) {
         router.request(.getCarStatus) { data, response, error in
             self.processResponse(data: data, response: response, error: error, completion: completion)
         }
     }
-    
-    func getBonusCount(completion: @escaping (_ success: BonusBalanceResponse?, _ error: String?) -> ()) {
+
+    func getBonusCount(
+        completion: @escaping (_ success: BonusBalanceResponse?, _ error: String?) -> Void
+    ) {
         router.request(.getBonusCount) { data, response, error in
             self.processResponse(data: data, response: response, error: error, completion: completion)
         }
     }
-    
-    func getUser(completion: @escaping (_ success: FullUserResponse?, _ error: String?) -> ()) {
+
+    func getUser(
+        completion: @escaping (_ success: FullUserResponse?, _ error: String?) -> Void
+    ) {
         router.request(.getUser) { data, response, error in
             self.processResponse(data: data, response: response, error: error, completion: completion)
         }

@@ -97,13 +97,13 @@
 		B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrderResponse.swift; sourceTree = "<group>"; };
 		B71129C82A63D81000E821FE /* MiddleOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrder.swift; sourceTree = "<group>"; };
 		B72056242A850AE4003D1372 /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B72056252A850AE4003D1372 /* CityDriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityDriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B72056262A851C2A003D1372 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		B72056282A852DC0003D1372 /* BonusImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusImage.swift; sourceTree = "<group>"; };
 		B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractionPickerView.swift; sourceTree = "<group>"; };
 		B72AE6B72A76E79C0015B139 /* CityDriveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDriveTests.swift; sourceTree = "<group>"; };
 		B73DBF972A597BFE006393B6 /* ShortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortOrder.swift; sourceTree = "<group>"; };
 		B743CA0F2A67449500D146CC /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		B7465B272A8833DB001B22E5 /* CityDriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityDriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B750384F2A6C075B00D49D4B /* CarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarView.swift; sourceTree = "<group>"; };
 		B75D01942A79CFEC0036861A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B75D01962A79D0530036861A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -160,7 +160,6 @@
 		B7CDD0B12A46FCF90034278B /* SendPhoneSuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPhoneSuccessResponse.swift; sourceTree = "<group>"; };
 		B7CDD0B32A4704EB0034278B /* SessionIDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionIDResponse.swift; sourceTree = "<group>"; };
 		B7DB05EE2A59BC6900ACE3BC /* OrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResponse.swift; sourceTree = "<group>"; };
-		B7F5815F2A7D9FC400DFB3C8 /* SwiftyVK.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; name = SwiftyVK.xcworkspace; path = Carthage/Checkouts/SwiftyVK/SwiftyVK.xcworkspace; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,9 +186,8 @@
 			children = (
 				B70D4AC62A3B1ABF00C90991 /* CityDrive */,
 				B72AE6B62A76E79C0015B139 /* CityDriveTests */,
-				B7F5815E2A7D9FC400DFB3C8 /* Frameworks */,
 				B72056242A850AE4003D1372 /* CityDrive.app */,
-				B72056252A850AE4003D1372 /* CityDriveTests.xctest */,
+				B7465B272A8833DB001B22E5 /* CityDriveTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -412,14 +410,6 @@
 			path = Endpoint;
 			sourceTree = "<group>";
 		};
-		B7F5815E2A7D9FC400DFB3C8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B7F5815F2A7D9FC400DFB3C8 /* SwiftyVK.xcworkspace */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -430,6 +420,7 @@
 				B70D4AC02A3B1ABF00C90991 /* Sources */,
 				B70D4AC12A3B1ABF00C90991 /* Frameworks */,
 				B70D4AC22A3B1ABF00C90991 /* Resources */,
+				B75AE1D92AC1D18100DDFAB5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -457,8 +448,10 @@
 				B72AE6BA2A76E79C0015B139 /* PBXTargetDependency */,
 			);
 			name = CityDriveTests;
+			packageProductDependencies = (
+			);
 			productName = CityDriveTests;
-			productReference = B72056252A850AE4003D1372 /* CityDriveTests.xctest */;
+			productReference = B7465B272A8833DB001B22E5 /* CityDriveTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -522,6 +515,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B75AE1D92AC1D18100DDFAB5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint >/dev/null; then\n  swiftlint --strict --config ../.swiftlint.yml\nelse\n  echo \"error: SwiftLint does not exist\"\n  exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B70D4AC02A3B1ABF00C90991 /* Sources */ = {
@@ -651,8 +664,8 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -717,7 +730,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = NO;
+				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -748,9 +761,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CityDrive/Resourses/Preview Content\"";
 				DEVELOPMENT_TEAM = P47CZ87RVS;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CityDrive/Resourses/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CityDrive;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Разрешите геопозицию";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow geoposition";
@@ -783,9 +801,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CityDrive/Resourses/Preview Content\"";
 				DEVELOPMENT_TEAM = P47CZ87RVS;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CityDrive/Resourses/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CityDrive;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Разрешите геопозицию";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow geoposition";

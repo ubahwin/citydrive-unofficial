@@ -10,7 +10,7 @@ import SwiftUI
 struct RefreshMapButtonView: View {
     @ObservedObject var mapVM: MapViewModel
     @Environment(\.colorScheme) var colorScheme
-    
+
     var body: some View {
         Button(
             action: {

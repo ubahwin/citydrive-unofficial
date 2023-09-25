@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AboutEventsView: View {
     var events: [EventOrder]?
-    
+
     var body: some View {
         List {
             ForEach(events ?? []) { event in
@@ -19,14 +19,17 @@ struct AboutEventsView: View {
                         Text(event.name)
                         Spacer()
                     }.padding()
-                    
+
                     HStack {
                         Text("Начало")
                         Spacer()
                         Text(event.time.ISO8601ToDate() ?? Date(), style: .date)
                         Text(event.time.ISO8601ToDate() ?? Date(), style: .time)
                     }
-                    SimpleCellView(name: "Продолжительность", value: String(event.duration.roundedToTwoDecimalPlaces()) + " сек.")
+                    SimpleCellView(
+                        name: "Продолжительность",
+                        value: String(event.duration.roundedToTwoDecimalPlaces()) + " сек."
+                    )
                     if event.state != "parking" {
                         LocationCellView(
                             interactionName: event.name,

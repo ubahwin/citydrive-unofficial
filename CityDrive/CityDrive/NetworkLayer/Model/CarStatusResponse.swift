@@ -14,7 +14,7 @@ struct CarStatusResponse: Codable {
     let preorderCars: [CarResponse]?
     let areaGroupDefaut: String?
     let discounts: DiscountsResponse?
-    
+
     let cars: [CarResponse]?
 
     enum CodingKeys: String, CodingKey {

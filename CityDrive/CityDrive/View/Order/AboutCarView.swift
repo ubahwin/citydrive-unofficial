@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AboutCarView: View {
     var car: CarOrder?
-    
+
     var body: some View {
         List {
             Section("Информация") {
@@ -33,5 +33,13 @@ struct AboutCarView: View {
 }
 
 #Preview {
-    AboutCarView(car: CarOrder(id: "ads", number: "ads", model: "asd", img: "qw", odometer: Odometer(atStart: 21, atFinish: 423)))
+    AboutCarView(
+        car: CarOrder(
+            id: "ads",
+            number: "ads",
+            model: "asd",
+            img: "qw",
+            odometer: Odometer(atStart: 21, atFinish: 423)
+        )
+    )
 }

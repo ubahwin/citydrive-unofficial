@@ -11,12 +11,12 @@ import SwiftUI
 
 class MapViewModel: ObservableObject {
     private var networkManager: NetworkManager
-    
+
     @Published var carsIsLoaded = false
     @Published var cars: [MKMapItem] = []
     @Published var bonusBalance = ""
-    
-    // Settings
+
+    // Настройки
     @AppStorage("selectedCity") var city: City?
     @AppStorage("selectedMapType") var mapType: MapType?
     var interactions: MapInteractionModes {
@@ -33,11 +33,13 @@ class MapViewModel: ObservableObject {
         self.networkManager = NetworkManager()
         loadCarStatus()
     }
-    
+
+    // swiftlint:disable function_body_length
     func loadCarStatus() {
         networkManager.getCarStatus { response, error in
             if let error = error {
-                print(error)
+                print(error) // TODO: logging
+                return
             }
 
             if let statusResponse = response {
@@ -90,7 +92,7 @@ class MapViewModel: ObservableObject {
                     }
                     return nil
                 }
-                
+
                 let mapItems = cars?.compactMap { car in
                     let placemark = MKPlacemark(coordinate: car.coordinate)
                     let mapItem = MKMapItem(placemark: placemark)
@@ -99,7 +101,7 @@ class MapViewModel: ObservableObject {
                     mapItem.url = URL(string: car.img)
                     return mapItem
                 }
-                
+
                 DispatchQueue.main.async {
                     self.cars = mapItems ?? []
                     self.carsIsLoaded = true
@@ -107,17 +109,18 @@ class MapViewModel: ObservableObject {
             }
         }
     }
-    
+    // swiftlint:enable function_body_length
+
     func loadBonusBalance() {
         networkManager.getBonusCount { response, error in
             if let error = error {
-                print(error)
+                print(error) // TODO: logging
+                return
             }
-            
+
             DispatchQueue.main.async {
                 self.bonusBalance = String(response?.balance ?? 0)
             }
         }
     }
-    
 }

@@ -16,7 +16,7 @@ struct MapView: View {
 
     @State var carSelected: MKMapItem?
     @State var openCarDetail = false
-        
+
     var body: some View {
         ZStack {
             Map(position: $camera, interactionModes: mapVM.interactions, selection: $carSelected, scope: scope) {
@@ -25,11 +25,11 @@ struct MapView: View {
                         Pin(color: .green)
                     }
                 }
-                UserAnnotation() {
+                UserAnnotation {
                     Pin(color: .blue)
                 }
             }
-            
+
             VStack {
                 HStack {
                     HStack {
@@ -49,14 +49,16 @@ struct MapView: View {
         }
         .mapStyle(mapVM.mapType?.mapStyle ?? MapStyle.standard)
         .mapScope(scope)
-        .onChange(of: carSelected) { old, new in
-            withAnimation {
-                openCarDetail = new != nil
-                if let coordinate = carSelected?.placemark.coordinate {
-                    camera = .region(MKCoordinateRegion(center: coordinate, latitudinalMeters: 200, longitudinalMeters: 200))
-                }
-            }
-        }
+//        .onChange(of: carSelected) { old, new in
+//            withAnimation {
+//                openCarDetail = new != nil
+//                if let coordinate = carSelected?.placemark.coordinate {
+//                    camera = .region(
+//        MKCoordinateRegion(center: coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+//        )
+//                }
+//            }
+//        }
         .sheet(isPresented: $openCarDetail) {
             CarView(car: $carSelected)
                 .presentationDetents([.height(260)])

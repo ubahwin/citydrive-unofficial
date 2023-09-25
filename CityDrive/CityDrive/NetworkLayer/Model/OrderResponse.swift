@@ -13,33 +13,33 @@ struct OrderResponse: Codable {
     let carImgSide: String?
     let cityName: String?
     let carOdometer: CarOdometerResponse?
-    
+
     let timezoneOffset: Int?
-    
+
     let events: [EventResponse]?
-    
+
     let achievements: [AchievementResponse]?
-    
+
     let check: CheckResponse?
-    
+
     let transactionInfo: TransactionInfoResponse?
-    
+
     let isActive: Bool?
-    
+
     let period: PeriodResponse?
     let path: PathResponse?
-    
+
     let kasko: Bool?
-    
+
     let currency: CurrencyResponse?
-    
+
     let tariffPackage, zoneExpansion: String?
     let tariffMode: String?
-    
+
     let user: UserResponse?
-    
+
     let billingTransactionInfo: BillingTransactionInfoResponse?
-    
+
     let loyaltyProgram: LoyaltyProgramResponse?
     let orderSource: String?
     let success: Bool?
@@ -311,7 +311,7 @@ extension CheckResponse {
     var totalCostString: String {
         return String(format: "%.2f", totalCostDouble).replacingOccurrences(of: ".", with: ",")
     }
-    
+
     var totalCostDouble: Double {
         return Double(totalCost ?? 0) / 100.0
     }

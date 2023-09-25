@@ -10,7 +10,7 @@ import MapKit
 
 struct CarView: View {
     @Binding var car: MKMapItem?
-    
+
     var body: some View {
         NavigationStack {
             HStack {
@@ -25,16 +25,7 @@ struct CarView: View {
                 image
             } placeholder: {
                 Image(systemName: "car")
-            }            
-//            NavigationLink("Дополнительная информация", destination: {
-//                List {
-//                    HStack {
-//                        Text("distance")
-//                        Spacer()
-//                        Text(car?.placemark.title ?? "")
-//                    }
-//                }
-//            })
+            }
         }
         .padding()
     }

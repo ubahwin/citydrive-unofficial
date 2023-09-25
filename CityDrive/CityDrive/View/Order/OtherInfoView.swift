@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OtherInfoView: View {
     var otherInfo: OtherInfoOrder?
-    
+
     var body: some View {
         List {
             Section {
@@ -23,7 +23,7 @@ struct OtherInfoView: View {
                 SimpleCellView(name: "tariffPackage", value: otherInfo?.tariffPackage)
                 SimpleCellView(name: "zoneExpansion", value: otherInfo?.zoneExpansion)
             }
-            
+
             Section("Достижения") {
                 ForEach(otherInfo?.achievements ?? []) { achievement in
                     VStack {
@@ -36,7 +36,7 @@ struct OtherInfoView: View {
                     }
                 }
             }
-            
+
             Section {
                 VStack {
                     SimpleCellView(name: "usageTime", value: otherInfo?.usageTime)
@@ -113,7 +113,7 @@ struct OtherInfoView: View {
                     SimpleCellView(name: "dailyStatus", value: otherInfo?.dailyStatus)
                 }
             }
-            
+
             Section {
                 SimpleCellView(name: "discountPercent", value: otherInfo?.discountPercent)
                 SimpleCellView(name: "discountPrice", value: otherInfo?.discountPrice)
@@ -121,23 +121,23 @@ struct OtherInfoView: View {
                 SimpleCellView(name: "totalCost", value: otherInfo?.totalCost)
                 SimpleCellView(name: "totalCostWithDiscount", value: otherInfo?.totalCostWithDiscount)
             }
-            
+
             Section {
                 SimpleCellView(name: "riskProfileLevel", value: otherInfo?.riskProfileLevel)
                 SimpleCellView(name: "riskProfilePoints", value: otherInfo?.riskProfilePoints)
             }
-            
+
             Section("Валюта") {
                 SimpleCellView(name: "Код", value: otherInfo?.currency.code)
                 SimpleCellView(name: "Символ", value: otherInfo?.currency.symbol)
             }
-            
+
             Section("Транзакция") {
                 SimpleCellView(name: "status", value: otherInfo?.transactionInfo.status)
                 SimpleCellView(name: "isCreated", value: otherInfo?.transactionInfo.isCreated)
                 SimpleCellView(name: "data", value: otherInfo?.transactionInfo.data)
             }
-            
+
             Section("Программа лояльности") {
                 SimpleCellView(name: "programType", value: otherInfo?.loyaltyProgram.programType)
                 SimpleCellView(name: "status", value: otherInfo?.loyaltyProgram.status)

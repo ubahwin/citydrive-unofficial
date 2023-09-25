@@ -10,9 +10,9 @@ import MapKit
 
 struct OrderDetailsView: View {
     var orderID: String
-    
+
     @ObservedObject var orderVM: OrdersViewModel
-    
+
     var body: some View {
         NavigationStack {
             List {
@@ -28,7 +28,7 @@ struct OrderDetailsView: View {
                         }
                     }
                 }
-                
+
                 Section {
                     NavigationLink(destination: { AboutPathView(path: orderVM.order?.path) }) {
                         Text("Путь")
@@ -51,7 +51,7 @@ struct OrderDetailsView: View {
                         }
                     }
                 }
-                
+
                 Section {
                     NavigationLink(destination: { OtherInfoView(otherInfo: orderVM.order?.otherInfo) }) {
                         Text("Дополнительная информация")

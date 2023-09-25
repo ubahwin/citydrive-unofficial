@@ -12,7 +12,7 @@ import _MapKit_SwiftUI
 
 class SettingViewModel: ObservableObject {
     private var networkManager: NetworkManager
-    
+
     @Published var logged: Bool?
     @Published var user: User?
     @Published var selectedInteractions: [String] {
@@ -21,20 +21,20 @@ class SettingViewModel: ObservableObject {
         }
     }
     @State var interactions: [MapInteraction] = MapInteraction.allCases
-    
+
     @AppStorage("isDarkTheme") var isDarkTheme = true
-    @AppStorage("selectedCity") var сity: City = .SPb
+    @AppStorage("selectedCity") var сity: City = .spb
     @AppStorage("selectedMapType") var mapType: MapType = .standard
-    
+
     init() {
         self.networkManager = NetworkManager()
-        
+
         logged = UserDefaults.standard.bool(forKey: "isLogged")
         selectedInteractions = UserDefaults.standard.stringArray(forKey: "selectedInteractions") ?? []
-        
+
         loadUser()
     }
-    
+
     func exit() {
         withAnimation {
             logged = false
@@ -43,16 +43,17 @@ class SettingViewModel: ObservableObject {
         UserDefaults.standard.set("", forKey: "username")
         KeychainWrapper.standard.set("", forKey: "sessionID")
     }
-    
+
+    // swiftlint:disable function_body_length
     func loadUser() {
         networkManager.getUser { response, error in
             if let error = error {
-                print(error)
+                print(error) // TODO: logging
+                return
             }
-            
+
             if let userResponse = response {
-                
-                let achievements = userResponse.ratingV2?.achievements?.compactMap() { achievement in
+                let achievements = userResponse.ratingV2?.achievements?.compactMap { achievement in
                     if
                         let localeName = achievement.localeName,
                         let achievementID = achievement.achievementID,
@@ -61,7 +62,7 @@ class SettingViewModel: ObservableObject {
                     }
                     return nil
                 }
-                                
+
                 let user = User(
                     userID: userResponse.userID ?? "",
                     firstName: userResponse.firstName ?? "",
@@ -97,12 +98,12 @@ class SettingViewModel: ObservableObject {
                         number: userResponse.card?.number ?? ""
                     )
                 )
-                
+
                 DispatchQueue.main.async {
                     self.user = user
                 }
             }
         }
     }
-    
+    // swiftlint:enable function_body_length
 }

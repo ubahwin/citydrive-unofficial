@@ -25,7 +25,7 @@ struct User {
 
 enum UserGender {
     case male, female
-    
+
     var title: String {
         switch self {
         case .female: return "Женщина"

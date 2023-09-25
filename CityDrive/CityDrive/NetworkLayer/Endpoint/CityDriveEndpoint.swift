@@ -9,28 +9,29 @@ import Foundation
 import SwiftKeychainWrapper
 
 public enum CityDriveApi {
-    
+
     // отправить смс на телефон
     case sendPhone(phone: String)
-    
+
     // отправить полученную смс для получения session_id
     case sendSms(phone: String, smsCode: Int)
-    
+
     // отправить токен ВК для получения session_id
     case sendTokenVK(token: String, uuid: String)
-    
+
     // запросить список поездок, где limit количество поездок, а page страница размером в limit поездок
     case getOrders(page: Int, limit: Int)
-    
-    // запросить поездку по id, version определяет количество информации (0 – больше информации, 20 – та, что приходит на офиц. клиент)
+
+    // запросить поездку по id, version определяет количество информации 
+    // (0 – больше информации, 20 – та, что приходит на офиц. клиент)
     case getOrder(id: String, version: Int)
-    
+
     // запросить текущие местоположения автомобилей
     case getCarStatus
-    
+
     // запросить количество бонусов
     case getBonusCount
-    
+
     // запросить данные о пользователе
     case getUser
 }
@@ -40,7 +41,7 @@ extension CityDriveApi: EndpointType {
         guard let url = URL(string: "https://api.citydrive.ru/") else { fatalError("baseURL could not be configured.")}
         return url
     }
-    
+
     var path: String {
         switch self {
         case .sendSms: return "signup/code"
@@ -53,16 +54,16 @@ extension CityDriveApi: EndpointType {
         case .getUser: return "user"
         }
     }
-    
+
     var httpMethod: HTTPMethod {
         switch self {
         // только для входа требуется POST запрос
         case .sendSms, .sendPhone, .sendTokenVK: return .post
-            
+
         default: return .get
         }
     }
-    
+
     var task: HTTPTask {
          return .requestParametersAndHeaders(
             bodyParameters: body,
@@ -70,7 +71,7 @@ extension CityDriveApi: EndpointType {
             additionHeaders: headers
         )
     }
-    
+
     var headers: HTTPHeaders? {
         switch self {
         case .getOrders, .getOrder, .getBonusCount: return [
@@ -90,7 +91,7 @@ extension CityDriveApi: EndpointType {
         default: return ["User-Agent": "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)"]
         }
     }
-    
+
     var body: Parameters? {
         switch self {
         // параметры только при входе
@@ -122,18 +123,18 @@ extension CityDriveApi {
     var urlParameters: Parameters? {
         switch self {
         case .getOrders(let page, let limit): return [
-            "type" : "user",
-            "limit" : limit,
-            "page" : page,
-            "version" : 20
+            "type": "user",
+            "limit": limit,
+            "page": page,
+            "version": 20
         ]
-        case .getOrder(_, let version): return ["version" : version]
+        case .getOrder(_, let version): return ["version": version]
         case .getCarStatus: return [
             // нужны координаты, но зачем...
             "lat": 0,
             "lon": 0
         ]
-        default: return ["version" : 20]
+        default: return ["version": 20]
         }
     }
 }

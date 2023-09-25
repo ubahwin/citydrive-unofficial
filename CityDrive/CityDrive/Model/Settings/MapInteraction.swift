@@ -10,9 +10,9 @@ import _MapKit_SwiftUI
 
 enum MapInteraction: String, CaseIterable, Identifiable, RawRepresentable {
     var id: String { self.rawValue }
-    
+
     case pan, zoom, rotate, pitch
-    
+
     var title: String {
         switch self {
         case .pan: return "Панорамирование"
@@ -21,7 +21,7 @@ enum MapInteraction: String, CaseIterable, Identifiable, RawRepresentable {
         case .rotate: return "Вращение"
         }
     }
-    
+
     var mapValue: MapInteractionModes {
         switch self {
         case .pan: return .pan
@@ -30,7 +30,7 @@ enum MapInteraction: String, CaseIterable, Identifiable, RawRepresentable {
         case .rotate: return .rotate
         }
     }
-    
+
     static func fromString(_ value: String) -> MapInteraction? {
         return MapInteraction(rawValue: value)
     }

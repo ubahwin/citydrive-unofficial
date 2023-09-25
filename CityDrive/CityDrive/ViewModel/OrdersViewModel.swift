@@ -8,26 +8,31 @@
 import MapKit
 import SwiftUI
 
+// swiftlint:disable type_body_length
 class OrdersViewModel: ObservableObject {
     @Published var orders: [ShortOrder] = []
     @Published var order: Order?
     @Published var middleOrder: MiddleOrder?
-    
+
     private var networkManager: NetworkManager
-        
+
     private var totalCount = 0
     private var page = 0
     private let limit = 15
-    
+
     init() {
         self.networkManager = NetworkManager()
         loadOrderList()
     }
-    
+
     func loadMiddleOrder(id: String) {
         networkManager.getOrder(id: id, version: 20) { response, error in
+            if let error = error {
+                print(error) // TODO: logging
+                return
+            }
+
             if let orderResponse = response {
-                
                 let rows = orderResponse.details?.rows?.compactMap { row in
                     if
                         let rowLeft = row.rowLeft,
@@ -49,7 +54,7 @@ class OrdersViewModel: ObservableObject {
                     }
                     return nil
                 }
-                
+
                 let order = MiddleOrder(
                     locationStart: Location(
                         timestamp: orderResponse.locationStart?.timestamp ?? "",
@@ -73,9 +78,15 @@ class OrdersViewModel: ObservableObject {
             }
         }
     }
-    
+
+    // swiftlint:disable function_body_length
     func loadOrder(id: String) {
         networkManager.getOrder(id: id) { response, error in
+            if let error = error {
+                print(error) // TODO: logging
+                return
+            }
+
             if let orderResponse = response {
                 let events = orderResponse.events?.compactMap { event in
                     let lat = event.lat
@@ -103,7 +114,7 @@ class OrdersViewModel: ObservableObject {
                     }
                     return nil
                 }
-                
+
                 let achievements = orderResponse.achievements?.compactMap { achievement in
                     let properties = achievement.properties
                     let isInsurance = achievement.isInsurance
@@ -158,7 +169,10 @@ class OrdersViewModel: ObservableObject {
                                     email: orderResponse.user?.email ?? "",
                                     phone: orderResponse.user?.phone ?? 0),
                     otherInfo: OtherInfoOrder(
-                        currency: Currency(code: orderResponse.currency?.currencyCode ?? "", symbol: orderResponse.currency?.currencySymbol ?? ""),
+                        currency: Currency(
+                            code: orderResponse.currency?.currencyCode ?? "",
+                            symbol: orderResponse.currency?.currencySymbol ?? ""
+                        ),
                         kasko: orderResponse.kasko ?? false,
                         orderSource: orderResponse.orderSource ?? "",
                         loyaltyProgram: LoyaltyProgram(
@@ -238,26 +252,31 @@ class OrdersViewModel: ObservableObject {
                         totalCostWithDiscount: orderResponse.check?.totalCostWithDiscount ?? 0
                     )
                 )
-                
                 DispatchQueue.main.async {
                     self.order = order
                 }
             }
         }
     }
-    
+    // swiftlint:enable function_body_length
+
     func loadOrderList() {
         page += 1
 
         networkManager.getOrders(page: page, limit: limit) { response, error in
+            if let error = error {
+                print(error) // TODO: logging
+                return
+            }
+
             self.totalCount = response?.count ?? 0
-            
+
             let orders = response?.orders?.compactMap { orderResponse in
                 if
                     let orderID = orderResponse.orderID,
                     let startedAt = orderResponse.startedAt?.ISO8601ToDate(),
                     let amount = orderResponse.amount,
-                    
+
                     let orderUUID = UUID(uuidString: orderID) {
                         return ShortOrder(
                             id: orderUUID,
@@ -267,7 +286,7 @@ class OrdersViewModel: ObservableObject {
                     }
                 return nil
             }
-            
+
             if let orders = orders {
                 DispatchQueue.main.async {
                     withAnimation {
@@ -277,11 +296,11 @@ class OrdersViewModel: ObservableObject {
             }
         }
     }
-    
+
     func isLastPage() -> Bool {
         return page * limit >= totalCount
     }
-    
+
     func refresh() {
         withAnimation {
             self.orders = []
@@ -290,3 +309,4 @@ class OrdersViewModel: ObservableObject {
         loadOrderList()
     }
 }
+// swiftlint:enable type_body_length

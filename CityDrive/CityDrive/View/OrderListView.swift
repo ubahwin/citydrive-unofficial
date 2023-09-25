@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OrderListView: View {
     @StateObject private var orderVM = OrdersViewModel()
-    
+
     var body: some View {
         NavigationStack {
             Form {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var loginVM = LoginViewModel()
-    
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -33,7 +33,7 @@ struct LoginView: View {
                     Spacer().frame(height: 30)
 
                     Button(action: {
-                        loginVM.signInVK()
+//                        loginVM.signInVK()
                     }, label: {
                         HStack {
                             Text("Войти через")
@@ -42,7 +42,7 @@ struct LoginView: View {
                                 .frame(width: 25, height: 25)
                         }
                     })
-                    
+
                     Spacer().frame(height: 20)
                 }
             }
