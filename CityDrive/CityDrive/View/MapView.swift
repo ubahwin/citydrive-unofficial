@@ -19,17 +19,18 @@ struct MapView: View {
 
     var body: some View {
         ZStack {
-            Map(position: $camera, interactionModes: mapVM.interactions, selection: $carSelected, scope: scope) {
-                ForEach(mapVM.cars, id: \.self) { car in
-                    Annotation(car.placemark.name ?? "", coordinate: car.placemark.coordinate) {
-                        Pin(color: .green)
-                    }
-                }
-                UserAnnotation {
-                    Pin(color: .blue)
-                }
-            }
-
+// =================КАРТА – ЛАГУЧИЙ КРИНЖ==================
+//            Map(position: $camera, interactionModes: mapVM.interactions, selection: $carSelected, scope: scope) {
+//                ForEach(mapVM.cars, id: \.self) { car in
+//                    Annotation(car.placemark.name ?? "", coordinate: car.placemark.coordinate) {
+//                        Pin(color: .green)
+//                    }
+//                }
+//                UserAnnotation {
+//                    Pin(color: .blue)
+//                }
+//            }
+// ========================================================
             VStack {
                 HStack {
                     HStack {
@@ -49,16 +50,16 @@ struct MapView: View {
         }
         .mapStyle(mapVM.mapType?.mapStyle ?? MapStyle.standard)
         .mapScope(scope)
-//        .onChange(of: carSelected) { old, new in
-//            withAnimation {
-//                openCarDetail = new != nil
-//                if let coordinate = carSelected?.placemark.coordinate {
-//                    camera = .region(
-//        MKCoordinateRegion(center: coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
-//        )
-//                }
-//            }
-//        }
+        .onChange(of: carSelected) { _, new in
+            withAnimation {
+                openCarDetail = new != nil
+                if let coordinate = carSelected?.placemark.coordinate {
+                    camera = .region(
+        MKCoordinateRegion(center: coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+        )
+                }
+            }
+        }
         .sheet(isPresented: $openCarDetail) {
             CarView(car: $carSelected)
                 .presentationDetents([.height(260)])

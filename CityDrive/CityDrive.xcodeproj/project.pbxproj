@@ -21,6 +21,8 @@
 		B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DBF972A597BFE006393B6 /* ShortOrder.swift */; };
 		B743CA102A67449500D146CC /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743CA0F2A67449500D146CC /* City.swift */; };
 		B75038502A6C075B00D49D4B /* CarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750384F2A6C075B00D49D4B /* CarView.swift */; };
+		B75AE1DC2AC202C100DDFAB5 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75AE1DB2AC202C100DDFAB5 /* RepositoryProtocol.swift */; };
+		B75AE1DE2AC21D4F00DDFAB5 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75AE1DD2AC21D4F00DDFAB5 /* UserDefaultsRepository.swift */; };
 		B75D01952A79CFEC0036861A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B75D01942A79CFEC0036861A /* Localizable.xcstrings */; };
 		B763DD182A670C74008E20DA /* BonusButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763DD172A670C74008E20DA /* BonusButtonView.swift */; };
 		B763DD1A2A6712B4008E20DA /* BonusBalanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763DD192A6712B4008E20DA /* BonusBalanceResponse.swift */; };
@@ -105,6 +107,8 @@
 		B743CA0F2A67449500D146CC /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		B7465B272A8833DB001B22E5 /* CityDriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityDriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B750384F2A6C075B00D49D4B /* CarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarView.swift; sourceTree = "<group>"; };
+		B75AE1DB2AC202C100DDFAB5 /* RepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProtocol.swift; sourceTree = "<group>"; };
+		B75AE1DD2AC21D4F00DDFAB5 /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		B75D01942A79CFEC0036861A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B75D01962A79D0530036861A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B763DD172A670C74008E20DA /* BonusButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusButtonView.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		B70D4AC62A3B1ABF00C90991 /* CityDrive */ = {
 			isa = PBXGroup;
 			children = (
+				B75AE1DA2AC202AB00DDFAB5 /* Repository */,
 				B76860A42A3DB6F90010D590 /* NetworkLayer */,
 				B768609B2A3DB27F0010D590 /* Extensions */,
 				B7A369612A3C69D400B31121 /* View */,
@@ -231,6 +236,15 @@
 				B72AE6B72A76E79C0015B139 /* CityDriveTests.swift */,
 			);
 			path = CityDriveTests;
+			sourceTree = "<group>";
+		};
+		B75AE1DA2AC202AB00DDFAB5 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B75AE1DB2AC202C100DDFAB5 /* RepositoryProtocol.swift */,
+				B75AE1DD2AC21D4F00DDFAB5 /* UserDefaultsRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		B76860962A3D90940010D590 /* Auth */ = {
@@ -598,8 +612,10 @@
 				B768609A2A3DA59D0010D590 /* LoginView.swift in Sources */,
 				B7CDD0AD2A3F95FB0034278B /* NetworkManager.swift in Sources */,
 				B797649C2A607383008B6C7E /* AboutPathOrder.swift in Sources */,
+				B75AE1DE2AC21D4F00DDFAB5 /* UserDefaultsRepository.swift in Sources */,
 				B7A44FD02A59509F003FCBD4 /* OrderListResponse.swift in Sources */,
 				B7C48E892A799A9A00D68742 /* SimpleCellView.swift in Sources */,
+				B75AE1DC2AC202C100DDFAB5 /* RepositoryProtocol.swift in Sources */,
 				B7DB05EF2A59BC6900ACE3BC /* OrderResponse.swift in Sources */,
 				B7A369632A3C69E500B31121 /* MapViewModel.swift in Sources */,
 				B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */,
