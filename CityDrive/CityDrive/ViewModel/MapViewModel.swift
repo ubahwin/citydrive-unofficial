@@ -3,7 +3,7 @@ import MapKit
 import SwiftUI
 
 class MapViewModel: ObservableObject {
-    private var networkManager: NetworkManager
+    private let networkManager: NetworkManager
 
     @Published var carsIsLoaded = false
     @Published var cars: [MKMapItem] = []

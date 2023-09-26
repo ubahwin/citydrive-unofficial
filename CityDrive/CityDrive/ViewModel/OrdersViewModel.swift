@@ -7,7 +7,7 @@ class OrdersViewModel: ObservableObject {
     @Published var order: Order?
     @Published var middleOrder: MiddleOrder?
 
-    private var networkManager: NetworkManager
+    private let networkManager: NetworkManager
 
     private var totalCount = 0
     private var page = 0

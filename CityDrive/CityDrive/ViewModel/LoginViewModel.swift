@@ -8,7 +8,7 @@ class LoginViewModel: ObservableObject {
     @Published var isEntered = false
     @Published var next = false
 
-    private var networkManager: NetworkManager
+    private let networkManager: NetworkManager
 
     init() {
         networkManager = NetworkManager()

@@ -4,7 +4,7 @@ import SwiftUI
 import _MapKit_SwiftUI
 
 class SettingViewModel: ObservableObject {
-    private var networkManager: NetworkManager
+    private let networkManager: NetworkManager
 
     @Published var logged: Bool?
     @Published var user: User?
