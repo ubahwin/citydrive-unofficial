@@ -35,10 +35,10 @@ struct AboutCarView: View {
 #Preview {
     AboutCarView(
         car: CarOrder(
-            id: "ads",
-            number: "ads",
-            model: "asd",
-            img: "qw",
+            id: "1",
+            number: "2",
+            model: "m513as",
+            img: "img",
             odometer: Odometer(atStart: 21, atFinish: 423)
         )
     )

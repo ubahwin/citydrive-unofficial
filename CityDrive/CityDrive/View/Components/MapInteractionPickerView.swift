@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MapInteractions: View {
+struct MapInteractionsView: View {
     @ObservedObject var settingVM: SettingViewModel
 
     var body: some View {

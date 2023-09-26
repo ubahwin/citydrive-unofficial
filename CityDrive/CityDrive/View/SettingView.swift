@@ -53,7 +53,7 @@ struct SettingView: View {
                         Text(MapType.standard.title).tag(MapType.standard)
                         Text(MapType.hybrid.title).tag(MapType.hybrid)
                     }
-                    MapInteractions(settingVM: settingVM)
+                    MapInteractionsView(settingVM: settingVM)
                 }
                 Toggle("Тёмная тема", isOn: settingVM.$isDarkTheme)
             }

@@ -40,7 +40,6 @@ class SettingViewModel: ObservableObject {
             logged = false
         }
         UserDefaults.standard.set(false, forKey: "isLogged")
-        UserDefaults.standard.set("", forKey: "username")
         KeychainWrapper.standard.set("", forKey: "sessionID")
     }
 
