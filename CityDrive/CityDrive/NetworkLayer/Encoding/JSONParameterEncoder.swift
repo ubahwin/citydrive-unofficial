@@ -1,10 +1,3 @@
-//
-//  JSONParameterEncoder.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 17.06.2023.
-//
-
 import Foundation
 
 public struct JSONParameterEncoder: ParameterEncoding {

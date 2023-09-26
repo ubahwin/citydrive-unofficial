@@ -1,10 +1,3 @@
-//
-//  MapView.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 16.07.2023.
-//
-
 import SwiftUI
 import MapKit
 

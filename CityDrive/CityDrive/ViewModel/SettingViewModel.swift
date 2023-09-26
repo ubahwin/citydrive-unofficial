@@ -1,10 +1,3 @@
-//
-//  SettingViewModel.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 01.07.2023.
-//
-
 import Foundation
 import SwiftKeychainWrapper
 import SwiftUI

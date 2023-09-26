@@ -1,10 +1,3 @@
-//
-//  OrderListView.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 17.06.2023.
-//
-
 import SwiftUI
 
 struct OrderListView: View {

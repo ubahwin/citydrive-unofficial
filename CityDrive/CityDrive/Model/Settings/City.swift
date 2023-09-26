@@ -1,10 +1,3 @@
-//
-//  City.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 19.07.2023.
-//
-
 import Foundation
 import MapKit
 

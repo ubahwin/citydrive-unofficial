@@ -1,10 +1,3 @@
-//
-//  UserInfoView.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 21.07.2023.
-//
-
 import SwiftUI
 
 struct UserInfoView: View {

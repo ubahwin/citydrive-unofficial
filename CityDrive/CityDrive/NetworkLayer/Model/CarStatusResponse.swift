@@ -1,10 +1,3 @@
-//
-//  CarStatusResponse.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 17.07.2023.
-//
-
 import Foundation
 
 struct CarStatusResponse: Codable {

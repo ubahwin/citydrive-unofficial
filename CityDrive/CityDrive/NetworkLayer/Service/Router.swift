@@ -1,10 +1,3 @@
-//
-//  Router.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 17.06.2023.
-//
-
 import Foundation
 
 class Router<Endpoint: EndpointType>: NetworkRouter {

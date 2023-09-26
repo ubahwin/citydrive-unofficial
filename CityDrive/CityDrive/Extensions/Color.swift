@@ -1,10 +1,3 @@
-//
-//  Color.swift
-//  StudySchedule
-//
-//  Created by Иван Вдовин on 31.05.2023.
-//
-
 import Foundation
 import SwiftUI
 

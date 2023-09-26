@@ -1,10 +1,3 @@
-//
-//  DataEndpoint.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 18.06.2023.
-//
-
 import Foundation
 import SwiftKeychainWrapper
 

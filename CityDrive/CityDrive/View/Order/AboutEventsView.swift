@@ -1,10 +1,3 @@
-//
-//  AboutEventsView.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 16.07.2023.
-//
-
 import SwiftUI
 
 struct AboutEventsView: View {

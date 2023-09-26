@@ -1,10 +1,3 @@
-//
-//  AboutPathView.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 09.07.2023.
-//
-
 import SwiftUI
 import MapKit
 

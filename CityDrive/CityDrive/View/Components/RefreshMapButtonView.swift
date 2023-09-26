@@ -1,10 +1,3 @@
-//
-//  RefreshMapButtonView.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 22.07.2023.
-//
-
 import SwiftUI
 
 struct RefreshMapButtonView: View {

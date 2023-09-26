@@ -1,10 +1,3 @@
-//
-//  LoginViewModel.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 02.08.2023.
-//
-
 import SwiftUI
 import SwiftKeychainWrapper
 

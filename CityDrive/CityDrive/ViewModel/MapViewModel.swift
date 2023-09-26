@@ -1,10 +1,3 @@
-//
-//  MapViewModel.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 16.06.2023.
-//
-
 import Foundation
 import MapKit
 import SwiftUI

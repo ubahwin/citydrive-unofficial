@@ -1,10 +1,3 @@
-//
-//  MiddleOrderResponse.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 16.07.2023.
-//
-
 import Foundation
 
 struct MiddleOrderResponse: Codable {

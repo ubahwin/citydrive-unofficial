@@ -1,10 +1,3 @@
-//
-//  BonusImage.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 10.08.2023.
-//
-
 import SwiftUI
 
 struct BonusImage: View {

@@ -1,10 +1,3 @@
-//
-//  SimpleCellView.swift
-//  CityDrive
-//
-//  Created by Иван Вдовин on 01.08.2023.
-//
-
 import SwiftUI
 
 struct SimpleCellView: View {
