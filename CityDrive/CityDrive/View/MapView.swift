@@ -13,16 +13,21 @@ struct MapView: View {
     var body: some View {
         ZStack {
 // =================КАРТА – ЛАГУЧИЙ КРИНЖ==================
-//            Map(position: $camera, interactionModes: mapVM.interactions, selection: $carSelected, scope: scope) {
-//                ForEach(mapVM.cars, id: \.self) { car in
-//                    Annotation(car.placemark.name ?? "", coordinate: car.placemark.coordinate) {
-//                        Pin(color: .green)
-//                    }
-//                }
-//                UserAnnotation {
-//                    Pin(color: .blue)
-//                }
-//            }
+            Map(
+                position: $camera,
+                interactionModes: mapVM.interactions,
+                selection: $carSelected,
+                scope: scope
+            ) {
+                ForEach(mapVM.cars, id: \.self) { car in
+                    Annotation("", coordinate: car.placemark.coordinate) {
+                        Pin(color: .green)
+                    }
+                }
+                UserAnnotation {
+                    Pin(color: .blue)
+                }
+            }
 // ========================================================
             VStack {
                 HStack {

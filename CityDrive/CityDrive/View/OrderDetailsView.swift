@@ -9,8 +9,8 @@ struct OrderDetailsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section(orderVM.middleOrder?.details.title ?? "") {
-                    ForEach(orderVM.middleOrder?.details.rows ?? []) { row in
+                Section(orderVM.currentMiddleOrder?.details.title ?? "") {
+                    ForEach(orderVM.currentMiddleOrder?.details.rows ?? []) { row in
                         HStack {
                             Text(row.rowLeft.text)
                             Spacer()
@@ -23,30 +23,30 @@ struct OrderDetailsView: View {
                 }
 
                 Section {
-                    NavigationLink(destination: { AboutPathView(path: orderVM.order?.path) }) {
+                    NavigationLink(destination: { AboutPathView(path: orderVM.currentOrder?.path) }) {
                         Text("Путь")
                     }
-                    NavigationLink(destination: { AboutEventsView(events: orderVM.order?.events) }) {
+                    NavigationLink(destination: { AboutEventsView(events: orderVM.currentOrder?.events) }) {
                         Text("События")
                     }
-                    NavigationLink(destination: { AboutCarView(car: orderVM.order?.car) }) {
+                    NavigationLink(destination: { AboutCarView(car: orderVM.currentOrder?.car) }) {
                         HStack {
                             Text("Автомобиль")
                             Spacer()
-                            Text(orderVM.order?.car.model ?? "").colorMultiply(.gray)
+                            Text(orderVM.currentOrder?.car.model ?? "").colorMultiply(.gray)
                         }
                     }
-                    NavigationLink(destination: { AboutUserView(user: orderVM.order?.user) }) {
+                    NavigationLink(destination: { AboutUserView(user: orderVM.currentOrder?.user) }) {
                         HStack {
                             Text("Пользователь")
                             Spacer()
-                            Text(orderVM.order?.user.firstName ?? "").colorMultiply(.gray)
+                            Text(orderVM.currentOrder?.user.firstName ?? "").colorMultiply(.gray)
                         }
                     }
                 }
 
                 Section {
-                    NavigationLink(destination: { OtherInfoView(otherInfo: orderVM.order?.otherInfo) }) {
+                    NavigationLink(destination: { OtherInfoView(otherInfo: orderVM.currentOrder?.otherInfo) }) {
                         Text("Дополнительная информация")
                     }
                 }

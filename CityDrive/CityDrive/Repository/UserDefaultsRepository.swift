@@ -23,10 +23,10 @@ class UserDefaultsRepository: RepositoryProtocol {
     }
 
     func update(entity: UserSettings) {
-        //
+
     }
 
     func delete(entity: UserSettings) {
-        //
+
     }
 }
