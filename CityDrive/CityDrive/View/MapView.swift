@@ -2,10 +2,10 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    let HEIGHT_SHEET = 260
-    let LAT_REGION = 200
-    let LON_REGION = 200
-    
+    let heightSheet = 260
+    let latRegion = 200
+    let lonRegion = 200
+
     @StateObject private var mapVM = MapViewModel()
     @Environment(\.colorScheme) var colorScheme
     @State var camera: MapCameraPosition = .userLocation(fallback: .automatic)
@@ -57,15 +57,19 @@ struct MapView: View {
                 openCarDetail = new != nil
                 if let coordinate = carSelected?.placemark.coordinate {
                     camera = .region(
-                        MKCoordinateRegion(center: coordinate, latitudinalMeters: CLLocationDistance(LAT_REGION), longitudinalMeters: CLLocationDistance(LON_REGION))
+                        MKCoordinateRegion(
+                            center: coordinate,
+                            latitudinalMeters: CLLocationDistance(latRegion),
+                            longitudinalMeters: CLLocationDistance(lonRegion)
+                        )
         )
                 }
             }
         }
         .sheet(isPresented: $openCarDetail) {
             CarView(car: $carSelected)
-                .presentationDetents([.height(CGFloat(HEIGHT_SHEET))])
-                .presentationBackgroundInteraction(.enabled(upThrough: .height(CGFloat(HEIGHT_SHEET))))
+                .presentationDetents([.height(CGFloat(heightSheet))])
+                .presentationBackgroundInteraction(.enabled(upThrough: .height(CGFloat(heightSheet))))
         }
     }
 }
