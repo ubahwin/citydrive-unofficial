@@ -9,7 +9,7 @@ struct RefreshMapButtonView: View {
             action: {
                 withAnimation {
                     mapVM.carsIsLoaded = false
-                    mapVM.loadCarStatus()
+                    mapVM.loadCarsStatus()
                 }
             },
             label: {
