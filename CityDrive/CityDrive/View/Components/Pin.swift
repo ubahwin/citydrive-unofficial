@@ -3,13 +3,17 @@ import MapKit
 
 struct Pin: View {
     var color: Color
+    var frameHeight: CGFloat = 10
+    var lineWidth: CGFloat = 2
+    var shadowRadius: CGFloat = 1
+    var strokeColor = Color.white
 
     var body: some View {
         Circle()
             .fill(color)
-            .stroke(Color.white, lineWidth: 2)
-            .frame(height: 10)
-            .shadow(radius: 1)
+            .stroke(strokeColor, lineWidth: lineWidth)
+            .frame(height: frameHeight)
+            .shadow(radius: shadowRadius)
     }
 }
 
