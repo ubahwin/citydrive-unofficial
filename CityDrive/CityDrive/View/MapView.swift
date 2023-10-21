@@ -1,79 +1,90 @@
 import SwiftUI
 import MapKit
 
-struct MapView: View {
-    let heightSheet = 260
-    let latRegion = 200
-    let lonRegion = 200
-
+struct MapView: UIViewRepresentable {
     @StateObject private var mapVM = MapViewModel()
-    @Environment(\.colorScheme) var colorScheme
-    @State var camera: MapCameraPosition = .userLocation(fallback: .automatic)
-    @Namespace var scope
 
-    @State var carSelected: MKMapItem?
-    @State var openCarDetail = false
+    class Coordinator: NSObject, MKMapViewDelegate {
+        var parent: MapView
+        @ObservedObject var mapVM: MapViewModel
 
-    var body: some View {
-        ZStack {
-// =================КАРТА – ЛАГУЧИЙ КРИНЖ==================
-            Map(
-                position: $camera,
-                interactionModes: mapVM.interactions,
-                selection: $carSelected,
-                scope: scope
-            ) {
-                ForEach(mapVM.cars, id: \.self) { car in
-                    Annotation("", coordinate: car.placemark.coordinate) {
-                        Pin(color: .green)
-                    }
-                }
-                UserAnnotation {
-                    Pin(color: .blue)
-                }
-            }
-// ========================================================
-            VStack {
-                HStack {
-                    HStack {
-                        BonusButtonView(mapVM: mapVM)
-                        RefreshMapButtonView(mapVM: mapVM)
-                    }
-                    Spacer()
-                }
-                Spacer()
-                HStack {
-                    Spacer()
-                    MapUserLocationButton(scope: scope)
-                        .buttonBorderShape(.capsule)
-                }
-            }
-            .padding()
+        init(parent: MapView, mapVM: MapViewModel) {
+            self.parent = parent
+            self.mapVM = mapVM
         }
-        .mapStyle(mapVM.mapType?.mapStyle ?? MapStyle.standard)
-        .mapScope(scope)
-        .onChange(of: carSelected) { _, new in
-            withAnimation {
-                openCarDetail = new != nil
-                if let coordinate = carSelected?.placemark.coordinate {
-                    camera = .region(
-                        MKCoordinateRegion(
-                            center: coordinate,
-                            latitudinalMeters: CLLocationDistance(latRegion),
-                            longitudinalMeters: CLLocationDistance(lonRegion)
-                        )
-        )
-                }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(parent: self, mapVM: mapVM)
+    }
+
+    func makeUIView(context: Context) -> MKMapView {
+        let mapView = MKMapView()
+        mapView.delegate = context.coordinator
+        return mapView
+    }
+
+    func updateUIView(_ mapView: MKMapView, context: Context) {
+        if mapView.annotations.isEmpty {
+            for car in mapVM.allCars {
+                let annotationCoordinate = CLLocationCoordinate2D(latitude: car.lat, longitude: car.lon)
+                let annotation = PinAnnotation(coordinate: annotationCoordinate, title: car.model)
+                mapView.addAnnotation(annotation)
             }
-        }
-        .sheet(isPresented: $openCarDetail) {
-            CarView(car: $carSelected)
-                .presentationDetents([.height(CGFloat(heightSheet))])
-                .presentationBackgroundInteraction(.enabled(upThrough: .height(CGFloat(heightSheet))))
+
+            print("update")
         }
     }
 }
 
-#Preview {
-    MapView()
+class PinAnnotation: NSObject, MKAnnotation {
+    var coordinate: CLLocationCoordinate2D
+    var title: String?
+
+    init(coordinate: CLLocationCoordinate2D, title: String?) {
+        self.coordinate = coordinate
+        self.title = title
+        super.init()
+    }
 }
+
+// =================КАРТА – ЛАГУЧИЙ КРИНЖ==================
+//        ZStack {
+//            Map(
+//                position: $camera,
+//                interactionModes: mapVM.interactions,
+//                selection: $carSelected,
+//                scope: scope
+//            ) {
+//                ForEach(mapVM.currentCars) { car in
+//                    Annotation("", coordinate: car.coordinate) {
+//                        Pin(color: .green)
+//                    }
+//                }
+//                UserAnnotation {
+//                    Pin(color: .blue)
+//                }
+//            }
+//            VStack {
+//                HStack {
+//                    HStack {
+//                        BonusButtonView(mapVM: mapVM)
+//                        RefreshMapButtonView(mapVM: mapVM)
+//                    }
+//                    Spacer()
+//                }
+//                Spacer()
+//                HStack {
+//                    Spacer()
+//                    MapUserLocationButton(scope: scope)
+//                        .buttonBorderShape(.capsule)
+//                }
+//            }
+//            .padding()
+//        }
+//        .mapStyle(mapVM.mapType?.mapStyle ?? MapStyle.standard)
+//        .mapScope(scope)
+//        .onMapCameraChange(frequency: MapCameraUpdateFrequency.onEnd) {
+//            mapVM.updateCurrentCars()
+//        }
+// ========================================================
