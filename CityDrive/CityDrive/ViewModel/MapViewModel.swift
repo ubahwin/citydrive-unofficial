@@ -6,7 +6,8 @@ class MapViewModel: ObservableObject {
     private let networkManager: NetworkManager
 
     @Published var carsIsLoaded = false
-    @Published var cars: [MKMapItem] = []
+    @Published var allCars: [Car] = []
+    @Published var currentCars: [Car] = []
     @Published var bonusBalance = ""
 
     // Настройки
@@ -24,10 +25,10 @@ class MapViewModel: ObservableObject {
 
     init() {
         self.networkManager = NetworkManager()
-        loadCarStatus()
+        loadCarsStatus()
     }
 
-    func loadCarStatus() {
+    func loadCarsStatus() {
         networkManager.getCarStatus { response, error in
             if let error = error {
                 print(error) // TODO: logging
@@ -41,18 +42,8 @@ class MapViewModel: ObservableObject {
                     let car = carResponse.mapToCars()
                     cars.append(car)
                 }
-
-                let mapItems = cars.compactMap { car in
-                    let placemark = MKPlacemark(coordinate: car.coordinate)
-                    let mapItem = MKMapItem(placemark: placemark)
-                    mapItem.name = car.model
-                    mapItem.accessibilityHint = car.number
-                    mapItem.url = URL(string: car.img)
-                    return mapItem
-                }
-
                 DispatchQueue.main.async {
-                    self.cars = mapItems
+                    self.allCars = cars
                     self.carsIsLoaded = true
                 }
             }
