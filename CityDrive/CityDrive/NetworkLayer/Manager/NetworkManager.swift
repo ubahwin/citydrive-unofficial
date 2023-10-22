@@ -24,8 +24,9 @@ class NetworkManager {
         error: Error?,
         completion: @escaping (_ success: T?, _ error: String?) -> Void
     ) {
-        if error != nil {
-            completion(nil, "Please check your network connection.")
+        if let error = error {
+            completion(nil, "Please check your network connection. \(error.localizedDescription)")
+            return
         }
 
         guard let response = response as? HTTPURLResponse else {
@@ -41,10 +42,12 @@ class NetworkManager {
                 completion(nil, NetworkResponse.noData.rawValue)
                 return
             }
+
             do {
                 let apiResponse = try JSONDecoder().decode(T.self, from: responseData)
                 completion(apiResponse, nil)
-            } catch {
+            } catch let error {
+                print("Error in decode for: \(T.self)\nError: \(error)")
                 completion(nil, NetworkResponse.unableToDecode.rawValue)
             }
         case .failure(let networkFailureError):
@@ -101,16 +104,16 @@ class NetworkManager {
         }
     }
 
-    func getOrder(
+    func getLargeOrder(
         id: String,
-        completion: @escaping (_ success: OrderResponse?, _ error: String?) -> Void
+        completion: @escaping (_ success: LargeOrderResponse?, _ error: String?) -> Void
     ) {
         router.request(.getOrder(id: id, version: 0)) { data, response, error in
             self.processResponse(data: data, response: response, error: error, completion: completion)
         }
     }
 
-    func getOrder(
+    func getMiddleOrder(
         id: String,
         version: Int,
         completion: @escaping (_ success: MiddleOrderResponse?, _ error: String?) -> Void
