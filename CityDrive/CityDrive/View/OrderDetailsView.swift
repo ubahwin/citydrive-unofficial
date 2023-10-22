@@ -14,7 +14,7 @@ struct OrderDetailsView: View {
                         HStack {
                             Text(row.rowLeft.text)
                             Spacer()
-                            if row.rowRight.iconURL != "" || row.rowLeft.iconURL != "" {
+                            if orderVM.orderHasBonusesReceipt(row: row) {
                                 BonusImage()
                             }
                             Text(row.rowRight.text)
@@ -55,7 +55,7 @@ struct OrderDetailsView: View {
         .navigationTitle("Детали поездки")
         .onAppear {
             orderVM.loadMiddleOrder(id: orderID)
-            orderVM.loadOrder(id: orderID)
+            orderVM.loadLargeOrder(id: orderID)
         }
     }
 }
