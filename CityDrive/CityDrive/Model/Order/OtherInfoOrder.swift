@@ -71,8 +71,13 @@ struct AchievementOrder: Identifiable {
     var type, name: String
     var amount: Int
     var once: Bool
-    var properties: String
+    var properties: AchievementPropertyOrder
     var isInsurance: Bool
+}
+
+struct AchievementPropertyOrder {
+    var urentComboTariffID: String
+    var currency: Int
 }
 
 struct TransactionInfo {

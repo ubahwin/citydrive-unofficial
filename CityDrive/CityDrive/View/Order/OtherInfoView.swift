@@ -24,7 +24,11 @@ struct OtherInfoView: View {
                         SimpleCellView(name: "name", value: achievement.name)
                         SimpleCellView(name: "amount", value: achievement.amount)
                         SimpleCellView(name: "once", value: achievement.once)
-                        SimpleCellView(name: "properties", value: achievement.properties)
+                        SimpleCellView(name: "properties currency", value: achievement.properties.currency)
+                        SimpleCellView(
+                            name: "properties urentComboTariffID",
+                            value: achievement.properties.urentComboTariffID
+                        )
                         SimpleCellView(name: "isInsurance", value: achievement.isInsurance)
                     }
                 }

@@ -1,6 +1,6 @@
 import Foundation
 
-struct Order {
+struct LargeOrder {
     // Стоимость за использование
     var usageCost: Double
     // Итого
@@ -19,9 +19,9 @@ struct Order {
     var otherInfo: OtherInfoOrder
 }
 
-extension OrderResponse {
+extension LargeOrderResponse {
     // swiftlint:disable function_body_length
-    func mapToOrder() -> Order {
+    func mapToOrder() -> LargeOrder {
         let events = self.events?.compactMap { event in
             let lat = event.lat
             let lon = event.lon
@@ -51,7 +51,10 @@ extension OrderResponse {
         }
 
         let achievements = self.achievements?.compactMap { achievement in
-            let properties = achievement.properties
+            let properties = AchievementPropertyOrder(
+                urentComboTariffID: achievement.properties?.urentComboTariffID ?? "",
+                currency: achievement.properties?.currency ?? 0
+            )
             let isInsurance = achievement.isInsurance
             if
                 let type = achievement.type,
@@ -63,13 +66,13 @@ extension OrderResponse {
                                         name: name,
                                         amount: amount,
                                         once: once,
-                                        properties: properties ?? "",
+                                        properties: properties,
                                         isInsurance: isInsurance ?? false)
             }
             return nil
         }
 
-        let order = Order(
+        let order = LargeOrder(
             usageCost: self.check?.usageCost?.costToDouble() ?? 0,
             totalCost: self.check?.totalCostWithDiscount?.costToDouble() ?? 0,
             parkingCost: self.check?.parkingCost?.costToDouble() ?? 0,

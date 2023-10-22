@@ -1,6 +1,6 @@
 import Foundation
 
-struct OrderResponse: Codable {
+struct LargeOrderResponse: Codable {
     let carID, carNumber, carModel: String?
     let carImg: String?
     let carImgSide: String?
@@ -65,13 +65,23 @@ struct AchievementResponse: Codable {
     let achievementID, type, name: String?
     let amount: Int?
     let once: Bool?
-    let properties: String?
+    let properties: AchievementPropertyResponse?
     let isInsurance: Bool?
 
     enum CodingKeys: String, CodingKey {
         case achievementID = "achievement_id"
         case type, name, amount, once, properties
         case isInsurance = "is_insurance"
+    }
+}
+
+struct AchievementPropertyResponse: Codable {
+    let urentComboTariffID: String?
+    let currency: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case urentComboTariffID = "urent_combo_tariff_id"
+        case currency
     }
 }
 
