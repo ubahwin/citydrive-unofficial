@@ -6,8 +6,7 @@ class MapViewModel: ObservableObject {
     private let networkManager: NetworkManager
 
     @Published var carsIsLoaded = false
-    @Published var allCars: [Car] = []
-    @Published var currentCars: [Car] = []
+    @Published var cars: [Car] = []
     @Published var bonusBalance = ""
 
     // Настройки
@@ -43,7 +42,7 @@ class MapViewModel: ObservableObject {
                     cars.append(car)
                 }
                 DispatchQueue.main.async {
-                    self.allCars = cars
+                    self.cars = cars
                     self.carsIsLoaded = true
                 }
             }

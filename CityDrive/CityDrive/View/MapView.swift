@@ -26,29 +26,40 @@ struct MapView: UIViewRepresentable {
 
     func updateUIView(_ mapView: MKMapView, context: Context) {
         if mapView.annotations.isEmpty {
-            for car in mapVM.allCars {
-                let annotationCoordinate = CLLocationCoordinate2D(latitude: car.lat, longitude: car.lon)
-                let annotation = PinAnnotation(coordinate: annotationCoordinate, title: car.model)
-                mapView.addAnnotation(annotation)
-            }
-
+            updateCars(mapView)
             print("update")
+        }
+
+        if !mapVM.carsIsLoaded {
+            mapView.removeAnnotations(mapView.annotations)
+            print("remove")
+        }
+    }
+
+    func updateCars(_ mapView: MKMapView) {
+        for car in mapVM.cars {
+            let pin = MKPointAnnotation()
+            pin.coordinate = car.coordinate
+            pin.title = car.model
+            mapView.addAnnotation(pin)
         }
     }
 }
 
-class PinAnnotation: NSObject, MKAnnotation {
+class CustomAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String?
+    var image: UIImage?
 
-    init(coordinate: CLLocationCoordinate2D, title: String?) {
+    init(coordinate: CLLocationCoordinate2D, title: String?, image: UIImage?) {
         self.coordinate = coordinate
         self.title = title
+        self.image = image
         super.init()
     }
 }
 
-// =================КАРТА – ЛАГУЧИЙ КРИНЖ==================
+// ================== SwiftUI (iOS 17) ==== КАРТА – ЛАГУЧИЙ КРИНЖ ==================
 //        ZStack {
 //            Map(
 //                position: $camera,

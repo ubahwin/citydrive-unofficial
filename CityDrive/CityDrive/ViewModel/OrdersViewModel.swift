@@ -3,7 +3,7 @@ import SwiftUI
 
 class OrdersViewModel: ObservableObject {
     @Published var orders: [ShortOrder] = []
-    @Published var currentOrder: Order?
+    @Published var currentOrder: LargeOrder?
     @Published var currentMiddleOrder: MiddleOrder?
 
     private let networkManager: NetworkManager
@@ -17,8 +17,15 @@ class OrdersViewModel: ObservableObject {
         loadOrderList()
     }
 
+    func orderHasBonusesReceipt(row: Row) -> Bool {
+        if row.rowRight.iconURL != "" || row.rowLeft.iconURL != "" {
+            return true
+        }
+        return false
+    }
+
     func loadMiddleOrder(id: String) {
-        networkManager.getOrder(id: id, version: 20) { response, error in
+        networkManager.getMiddleOrder(id: id, version: 20) { response, error in
             if let error = error {
                 print(error) // TODO: logging
                 return
@@ -34,14 +41,14 @@ class OrdersViewModel: ObservableObject {
         }
     }
 
-    func loadOrder(id: String) {
-        networkManager.getOrder(id: id) { response, error in
+    func loadLargeOrder(id: String) {
+        networkManager.getLargeOrder(id: id) { response, error in
             if let error = error {
                 print(error) // TODO: logging
                 return
             }
 
-            if let orderResponse: OrderResponse = response {
+            if let orderResponse: LargeOrderResponse = response {
                 let order = orderResponse.mapToOrder()
 
                 DispatchQueue.main.async {
