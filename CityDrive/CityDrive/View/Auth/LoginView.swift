@@ -25,16 +25,16 @@ struct LoginView: View {
                     .buttonStyle(GreenButton())
                     Spacer().frame(height: 30)
 
-                    Button(action: {
+//                    Button(action: {
 //                        loginVM.signInVK()
-                    }, label: {
-                        HStack {
-                            Text("Войти через")
-                            Image("vk")
-                                .resizable()
-                                .frame(width: 25, height: 25)
-                        }
-                    })
+//                    }, label: {
+//                        HStack {
+//                            Text("Войти через")
+//                            Image("vk")
+//                                .resizable()
+//                                .frame(width: 25, height: 25)
+//                        }
+//                    })
 
                     Spacer().frame(height: 20)
                 }
