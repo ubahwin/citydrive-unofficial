@@ -2,8 +2,8 @@ import SwiftUI
 
 @main
 struct CityDriveApp: App {
-    private var isLogged = UserDefaults.standard.bool(forKey: "isLogged")
-    @AppStorage("isDarkTheme") var isDarkTheme: Bool?
+    @AppStorage(Settings.isLogged) private var isLogged: Bool = false
+    @AppStorage(Settings.isDarkMode) private var isDarkMode: Bool = true
 
     var body: some Scene {
         WindowGroup {
@@ -11,7 +11,7 @@ struct CityDriveApp: App {
                 LoginView()
             } else {
                 ContentView()
-                    .preferredColorScheme(isDarkTheme ?? true ? .dark : .light)
+                    .preferredColorScheme(isDarkMode ? .dark : .light)
             }
         }
     }

@@ -66,20 +66,22 @@ extension CityDriveApi: EndpointType {
     }
 
     var headers: HTTPHeaders? {
+        let sessionID: String = Settings.sessionID
+
         switch self {
         case .getOrders, .getOrder, .getBonusCount: return [
             "User-Agent": "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)",
-            "Cookie": "session_id=" + (KeychainWrapper.standard.string(forKey: "sessionID") ?? "")
+            "Cookie": "session_id=" + sessionID
         ]
         case .getCarStatus: return [
             // статус можно получить почему-то только с такого User-Agent (Postman) -_-
             "User-Agent": "PostmanRuntime/7.32.3",
-            "Cookie": "session_id=" + (KeychainWrapper.standard.string(forKey: "sessionID") ?? "")
+            "Cookie": "session_id=" + sessionID
         ]
         case .getUser: return [
             // данные о пользователе можно получить почему-то только с такого User-Agent -_-
             "User-Agent": "carsharing/4.13.1 (Linux; Android 10; Android SDK built for arm64 Build/REL)",
-            "Cookie": "session_id=" + (KeychainWrapper.standard.string(forKey: "sessionID") ?? "")
+            "Cookie": "session_id=" + sessionID
         ]
         default: return ["User-Agent": "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)"]
         }

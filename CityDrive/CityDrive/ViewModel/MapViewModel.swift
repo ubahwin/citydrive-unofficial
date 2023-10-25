@@ -5,22 +5,15 @@ import SwiftUI
 class MapViewModel: ObservableObject {
     private let networkManager: NetworkManager
 
-    @Published var carsIsLoaded = false
     @Published var cars: [Car] = []
+
+    @Published var mapIsUpdate = false
+    @Published var carsIsLoaded = false
     @Published var bonusBalance = ""
 
     // Настройки
-    @AppStorage("selectedCity") var city: City?
-    @AppStorage("selectedMapType") var mapType: MapType?
-    var interactions: MapInteractionModes {
-        let stringInteraction = UserDefaults.standard.stringArray(forKey: "selectedInteractions") ?? []
-        let mapInteractions: [MapInteraction] = stringInteraction.compactMap { MapInteraction.fromString($0) }
-        var mapInteractionModes: MapInteractionModes = []
-        for interaction in mapInteractions {
-            mapInteractionModes.insert(interaction.mapValue)
-        }
-        return mapInteractionModes
-    }
+    @AppStorage(Settings.city) var city: City?
+    @AppStorage(Settings.mapType) var mapType: MapType?
 
     init() {
         self.networkManager = NetworkManager()
@@ -44,6 +37,7 @@ class MapViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self.cars = cars
                     self.carsIsLoaded = true
+                    self.mapIsUpdate = false
                 }
             }
         }

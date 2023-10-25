@@ -9,7 +9,7 @@ struct SettingView: View {
     var body: some View {
         NavigationStack {
             List {
-                if settingVM.logged ?? false {
+                if settingVM.isLogged {
                     NavigationLink(destination: {
                         UserInfoView(settingVM: settingVM)
                     }) {
@@ -37,7 +37,7 @@ struct SettingView: View {
                 }
 
                 Section("Карта") {
-                    Picker("Город", selection: settingVM.$сity) {
+                    Picker("Город", selection: settingVM.$city) {
                         Text(City.spb.title).tag(City.spb)
                         Text(City.moscow.title).tag(City.moscow)
                         Text(City.sochi.title).tag(City.sochi)
@@ -48,11 +48,13 @@ struct SettingView: View {
                     }
                     MapInteractionsView(settingVM: settingVM)
                 }
-                Toggle("Тёмная тема", isOn: settingVM.$isDarkTheme)
+                Toggle("Тёмная тема", isOn: settingVM.$isDarkMode)
             }
             .navigationTitle("Настройки")
         }
-        .fullScreenCover(isPresented: $openLogin, content: { LoginView() })
+        .fullScreenCover(isPresented: $openLogin) {
+            LoginView()
+        }
     }
 }
 

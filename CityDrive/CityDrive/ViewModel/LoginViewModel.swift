@@ -8,6 +8,8 @@ class LoginViewModel: ObservableObject {
     @Published var isEntered = false
     @Published var next = false
 
+    @AppStorage(Settings.isLogged) var isLogged: Bool?
+
     private let networkManager: NetworkManager
 
     init() {
@@ -44,8 +46,9 @@ class LoginViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self.isEntered = success
                 }
-                UserDefaults.standard.set(success, forKey: "isLogged")
-                KeychainWrapper.standard.set(response?.sessionID ?? "", forKey: "sessionID") // token security
+
+                self.isLogged = true
+                Settings.sessionID = response?.sessionID ?? ""
             }
         }
     }
