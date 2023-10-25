@@ -14,14 +14,13 @@
 		B71129C32A63BFD700E821FE /* AboutEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C22A63BFD700E821FE /* AboutEventsView.swift */; };
 		B71129C72A63D6F700E821FE /* MiddleOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */; };
 		B71129C92A63D81000E821FE /* MiddleOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71129C82A63D81000E821FE /* MiddleOrder.swift */; };
+		B71E3BC42AE56B7F00DBE6AF /* ImperativeMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71E3BC32AE56B7F00DBE6AF /* ImperativeMapView.swift */; };
 		B72056272A851C2A003D1372 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72056262A851C2A003D1372 /* Avatar.swift */; };
 		B72056292A852DC0003D1372 /* BonusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72056282A852DC0003D1372 /* BonusImage.swift */; };
 		B72A4A6D2A72D025003D02DA /* MapInteractionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */; };
 		B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DBF972A597BFE006393B6 /* ShortOrder.swift */; };
 		B743CA102A67449500D146CC /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743CA0F2A67449500D146CC /* City.swift */; };
 		B75038502A6C075B00D49D4B /* CarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750384F2A6C075B00D49D4B /* CarView.swift */; };
-		B75AE1DC2AC202C100DDFAB5 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75AE1DB2AC202C100DDFAB5 /* RepositoryProtocol.swift */; };
-		B75AE1DE2AC21D4F00DDFAB5 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75AE1DD2AC21D4F00DDFAB5 /* UserDefaultsRepository.swift */; };
 		B75D01952A79CFEC0036861A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B75D01942A79CFEC0036861A /* Localizable.xcstrings */; };
 		B763DD182A670C74008E20DA /* BonusButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763DD172A670C74008E20DA /* BonusButtonView.swift */; };
 		B763DD1A2A6712B4008E20DA /* BonusBalanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763DD192A6712B4008E20DA /* BonusBalanceResponse.swift */; };
@@ -77,7 +76,7 @@
 		B7CDD0B22A46FCFA0034278B /* SendPhoneSuccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CDD0B12A46FCF90034278B /* SendPhoneSuccessResponse.swift */; };
 		B7CDD0B42A4704EB0034278B /* SessionIDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CDD0B32A4704EB0034278B /* SessionIDResponse.swift */; };
 		B7DB05EF2A59BC6900ACE3BC /* LargeOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB05EE2A59BC6900ACE3BC /* LargeOrderResponse.swift */; };
-		B7FD44DD2AC221D20006B1AA /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FD44DC2AC221D20006B1AA /* UserSettings.swift */; };
+		B7E12E912AE96039003FA578 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E12E902AE96039003FA578 /* Settings.swift */; };
 		B7FD44DF2AC223C20006B1AA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FD44DE2AC223C20006B1AA /* Theme.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,15 +88,14 @@
 		B71129C22A63BFD700E821FE /* AboutEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutEventsView.swift; sourceTree = "<group>"; };
 		B71129C62A63D6F700E821FE /* MiddleOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrderResponse.swift; sourceTree = "<group>"; };
 		B71129C82A63D81000E821FE /* MiddleOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleOrder.swift; sourceTree = "<group>"; };
-		B72056242A850AE4003D1372 /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B71E3BC32AE56B7F00DBE6AF /* ImperativeMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImperativeMapView.swift; sourceTree = "<group>"; };
+		B72056242A850AE4003D1372 /* CityDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = CityDrive.app; path = "/Users/ubah/Yandex.Disk.localized/projects/citydrive-unofficial/CityDrive/build/Debug-iphoneos/CityDrive.app"; sourceTree = "<absolute>"; };
 		B72056262A851C2A003D1372 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		B72056282A852DC0003D1372 /* BonusImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusImage.swift; sourceTree = "<group>"; };
 		B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractionPickerView.swift; sourceTree = "<group>"; };
 		B73DBF972A597BFE006393B6 /* ShortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortOrder.swift; sourceTree = "<group>"; };
 		B743CA0F2A67449500D146CC /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		B750384F2A6C075B00D49D4B /* CarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarView.swift; sourceTree = "<group>"; };
-		B75AE1DB2AC202C100DDFAB5 /* RepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProtocol.swift; sourceTree = "<group>"; };
-		B75AE1DD2AC21D4F00DDFAB5 /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		B75D01942A79CFEC0036861A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B75D01962A79D0530036861A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B763DD172A670C74008E20DA /* BonusButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusButtonView.swift; sourceTree = "<group>"; };
@@ -153,7 +151,7 @@
 		B7CDD0B12A46FCF90034278B /* SendPhoneSuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPhoneSuccessResponse.swift; sourceTree = "<group>"; };
 		B7CDD0B32A4704EB0034278B /* SessionIDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionIDResponse.swift; sourceTree = "<group>"; };
 		B7DB05EE2A59BC6900ACE3BC /* LargeOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeOrderResponse.swift; sourceTree = "<group>"; };
-		B7FD44DC2AC221D20006B1AA /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		B7E12E902AE96039003FA578 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B7FD44DE2AC223C20006B1AA /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,14 +171,12 @@
 			isa = PBXGroup;
 			children = (
 				B70D4AC62A3B1ABF00C90991 /* CityDrive */,
-				B72056242A850AE4003D1372 /* CityDrive.app */,
 			);
 			sourceTree = "<group>";
 		};
 		B70D4AC62A3B1ABF00C90991 /* CityDrive */ = {
 			isa = PBXGroup;
 			children = (
-				B75AE1DA2AC202AB00DDFAB5 /* Repository */,
 				B76860A42A3DB6F90010D590 /* NetworkLayer */,
 				B768609B2A3DB27F0010D590 /* Extensions */,
 				B7A369612A3C69D400B31121 /* View */,
@@ -189,6 +185,7 @@
 				B70D4AC72A3B1ABF00C90991 /* CityDriveApp.swift */,
 				B70D4AC92A3B1ABF00C90991 /* ContentView.swift */,
 				B70D4AD52A3B1AFF00C90991 /* Resourses */,
+				B7E12E902AE96039003FA578 /* Settings.swift */,
 			);
 			path = CityDrive;
 			sourceTree = "<group>";
@@ -210,16 +207,6 @@
 				B75D01962A79D0530036861A /* Info.plist */,
 			);
 			path = Resourses;
-			sourceTree = "<group>";
-		};
-		B75AE1DA2AC202AB00DDFAB5 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				B7FD44DB2AC221C00006B1AA /* Entity */,
-				B75AE1DB2AC202C100DDFAB5 /* RepositoryProtocol.swift */,
-				B75AE1DD2AC21D4F00DDFAB5 /* UserDefaultsRepository.swift */,
-			);
-			path = Repository;
 			sourceTree = "<group>";
 		};
 		B76860962A3D90940010D590 /* Auth */ = {
@@ -326,6 +313,7 @@
 				B7B253162A6455A3008DAC5C /* MapView.swift */,
 				B785872E2A6B1F610002689B /* UserInfoView.swift */,
 				B750384F2A6C075B00D49D4B /* CarView.swift */,
+				B71E3BC32AE56B7F00DBE6AF /* ImperativeMapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -398,14 +386,6 @@
 				B7CDD0A82A3F94C80034278B /* CityDriveEndpoint.swift */,
 			);
 			path = Endpoint;
-			sourceTree = "<group>";
-		};
-		B7FD44DB2AC221C00006B1AA /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				B7FD44DC2AC221D20006B1AA /* UserSettings.swift */,
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,7 +521,6 @@
 				B7CDD0B22A46FCFA0034278B /* SendPhoneSuccessResponse.swift in Sources */,
 				B76678792A72E2F20023ADD3 /* MapInteraction.swift in Sources */,
 				B763DD182A670C74008E20DA /* BonusButtonView.swift in Sources */,
-				B7FD44DD2AC221D20006B1AA /* UserSettings.swift in Sources */,
 				B76860952A3D8FC70010D590 /* OrderDetailsView.swift in Sources */,
 				B743CA102A67449500D146CC /* City.swift in Sources */,
 				B76860A12A3DB40F0010D590 /* SmsView.swift in Sources */,
@@ -552,6 +531,7 @@
 				B7CDD09D2A3F92390034278B /* URLParameterEncoder.swift in Sources */,
 				B7A44FD22A5957C0003FCBD4 /* OrdersViewModel.swift in Sources */,
 				B7A369652A3C6A1200B31121 /* Car.swift in Sources */,
+				B71E3BC42AE56B7F00DBE6AF /* ImperativeMapView.swift in Sources */,
 				B7CDD0A52A3F92680034278B /* HTTPTask.swift in Sources */,
 				B7CDD0A92A3F94C80034278B /* CityDriveEndpoint.swift in Sources */,
 				B79764A22A60746A008B6C7E /* CarOrder.swift in Sources */,
@@ -561,15 +541,14 @@
 				B75038502A6C075B00D49D4B /* CarView.swift in Sources */,
 				B7C48E8B2A79B35000D68742 /* LoginViewModel.swift in Sources */,
 				B75038502A6C075B00D49D4B /* CarView.swift in Sources */,
+				B7E12E912AE96039003FA578 /* Settings.swift in Sources */,
 				B77E07ED2A6430A700B3DBAC /* LocationCellView.swift in Sources */,
 				B79764A02A607420008B6C7E /* OtherInfoOrder.swift in Sources */,
 				B768609A2A3DA59D0010D590 /* LoginView.swift in Sources */,
 				B7CDD0AD2A3F95FB0034278B /* NetworkManager.swift in Sources */,
 				B797649C2A607383008B6C7E /* AboutPathOrder.swift in Sources */,
-				B75AE1DE2AC21D4F00DDFAB5 /* UserDefaultsRepository.swift in Sources */,
 				B7A44FD02A59509F003FCBD4 /* OrderListResponse.swift in Sources */,
 				B7C48E892A799A9A00D68742 /* SimpleCellView.swift in Sources */,
-				B75AE1DC2AC202C100DDFAB5 /* RepositoryProtocol.swift in Sources */,
 				B7DB05EF2A59BC6900ACE3BC /* LargeOrderResponse.swift in Sources */,
 				B7A369632A3C69E500B31121 /* MapViewModel.swift in Sources */,
 				B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */,

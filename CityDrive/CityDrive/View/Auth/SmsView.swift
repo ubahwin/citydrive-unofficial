@@ -17,7 +17,9 @@ struct SmsView: View {
                 loginVM.enter()
             }
             .buttonStyle(GreenButton())
-            .fullScreenCover(isPresented: $loginVM.isEntered, content: { ContentView() })
+            .fullScreenCover(isPresented: $loginVM.isEntered) {
+                ContentView()
+            }
             Spacer().frame(height: 50)
         }
         .onTapGesture {
