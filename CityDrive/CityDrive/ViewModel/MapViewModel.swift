@@ -34,13 +34,16 @@ class MapViewModel: ObservableObject {
                     let car = carResponse.mapToCars()
                     cars.append(car)
                 }
-                DispatchQueue.main.async {
-                    self.cars = cars
-                    self.carsIsLoaded = true
-                    self.mapIsUpdate = false
-                }
+
+                self.updateCars(cars: cars)
             }
         }
+    }
+
+    func updateCars(cars: [Car]) {
+        self.cars = cars
+        self.carsIsLoaded = true
+        self.mapIsUpdate = false
     }
 
     func loadBonusBalance() {
