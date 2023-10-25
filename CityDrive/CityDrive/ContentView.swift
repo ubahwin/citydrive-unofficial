@@ -6,7 +6,6 @@ struct ContentView: View {
         TabView {
             Group {
                 MapView()
-                    .ignoresSafeArea()
                     .tabItem {
                         Image(systemName: "map")
                         Text("Карта")
