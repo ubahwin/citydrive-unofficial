@@ -6,25 +6,17 @@ struct MapInteractionsView: View {
     var body: some View {
         NavigationLink(destination: {
             List {
-                ForEach(MapInteraction.allCases) { interaction in
+                ForEach(0..<4) { number in
                     MapInteractionPickerView(
-                        title: interaction.title,
-                        isSelected: settingVM.selectedInteractions.contains(interaction.rawValue)
+                        title: number.description,
+                        isSelected: false
                     ) {
-                        if settingVM.selectedInteractions.contains(interaction.rawValue) {
-                            settingVM.selectedInteractions.removeAll(where: { $0 == interaction.rawValue })
-                        } else {
-                            settingVM.selectedInteractions.append(interaction.rawValue)
-                        }
+                        print("nothing")
                     }
                 }
             }
         }, label: {
-            HStack {
-                Text("Действия с картой")
-                Spacer()
-                Text(settingVM.selectedInteractions.count.description).colorMultiply(.gray)
-            }
+            Text("Действия с картой")
         })
     }
 }
