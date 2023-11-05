@@ -20,7 +20,7 @@ struct Car: Identifiable {
 }
 
 extension CarResponse {
-    func mapToCars() -> Car {
+    func mapToCar() -> Car {
         let carID = self.carID ?? ""
         let id = UUID(uuidString: carID) ?? UUID()
         let lat = self.lat ?? 0
