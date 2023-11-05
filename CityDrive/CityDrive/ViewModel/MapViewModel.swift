@@ -5,7 +5,11 @@ import SwiftUI
 class MapViewModel: ObservableObject {
     private let networkManager: NetworkManager
 
-    @Published var cars: [Car] = []
+    @Published var cars: [Car] = [] {
+        willSet {
+            print(self.cars)
+        }
+    }
 
     @Published var mapIsUpdate = false
     @Published var carsIsLoaded = false
@@ -31,7 +35,7 @@ class MapViewModel: ObservableObject {
                 var cars = [Car]()
 
                 for carResponse in carsResponse where carResponse.areaGroupID == self.city?.areaGroupID {
-                    let car = carResponse.mapToCars()
+                    let car = carResponse.mapToCar()
                     cars.append(car)
                 }
 
