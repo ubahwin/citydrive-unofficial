@@ -65,14 +65,3 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.showsUserTrackingButton = true
     }
 }
-
-//    // TODO: do custom user location button with:
-//    func goToUserLocation(_ mapView: MKMapView) {
-//        if let userLocation = mapView.userLocation.location {
-//            let region = MKCoordinateRegion(
-//                center: userLocation.coordinate,
-//                span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
-//            )
-//            mapView.setRegion(region, animated: true)
-//        }
-//    }
