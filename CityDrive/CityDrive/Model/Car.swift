@@ -4,11 +4,7 @@ import MapKit
 struct Car: Identifiable {
     var id: UUID
 
-    var lat: Double
-    var lon: Double
-    var coordinate: CLLocationCoordinate2D {
-        return CLLocationCoordinate2D(latitude: lat, longitude: lon)
-    }
+    var location: Point
 
     var img: String
     var model: String
@@ -45,8 +41,7 @@ extension CarResponse {
 
         return Car(
             id: id,
-            lat: lat,
-            lon: lon,
+            location: Point(latitude: lat, longitude: lon),
             img: img,
             model: model,
             number: number,
