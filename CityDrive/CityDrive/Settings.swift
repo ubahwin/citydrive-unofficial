@@ -15,4 +15,19 @@ struct Settings {
             KeychainWrapper.standard.set(newValue, forKey: "sessionID")
         }
     }
+
+    static var greenArea: GreenArea? {
+        get {
+            if let savedData = UserDefaults.standard.data(forKey: "greenArea"),
+               let greenArea = try? JSONDecoder().decode(GreenArea.self, from: savedData) {
+                return greenArea
+            }
+            return nil
+        }
+        set {
+            if let encodedData = try? JSONEncoder().encode(newValue) {
+                UserDefaults.standard.set(encodedData, forKey: "greenArea")
+            }
+        }
+    }
 }
