@@ -2,20 +2,28 @@ import Foundation
 import SwiftUI
 
 struct AppColor {
-    static func baseGreen() -> Color {
+    static func green() -> Color {
         return Color(hex: 0x2fc25d)
     }
 
-    static func baseGreen() -> UIColor {
+    static func green() -> UIColor {
         return UIColor(hex: 0x2fc25d)
     }
 
-    static func basePurple() -> Color {
+    static func purple() -> Color {
         return Color(hex: 0x8526ff)
     }
 
-    static func basePurple() -> UIColor {
+    static func purple() -> UIColor {
         return UIColor(hex: 0x8526ff)
+    }
+
+    static func red() -> Color {
+        return Color(hex: 0xf53c2c)
+    }
+
+    static func red() -> UIColor {
+        return UIColor(hex: 0xf53c2c)
     }
 }
 

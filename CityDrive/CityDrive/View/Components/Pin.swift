@@ -2,7 +2,7 @@ import SwiftUI
 import MapKit
 
 struct Pin: View {
-    var color: Color = AppColor.baseGreen()
+    var color: Color = AppColor.green()
     var frameHeight: CGFloat = 10
     var lineWidth: CGFloat = 2
     var shadowRadius: CGFloat = 1
@@ -21,17 +21,21 @@ class ImperativeMapPin: NSObject, Identifiable, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var image: UIImage?
-    var height: CGFloat = 20
-    var color: UIColor = AppColor.baseGreen()
+    var color: UIColor
 
-    init(title: String? = nil, coordinate: CLLocationCoordinate2D) {
-        let pin = UIImage(named: "pin")?.resizePin(height: height)
-        self.image = pin
-        self.title = title
+    init(
+        coordinate: CLLocationCoordinate2D,
+        title: String? = nil,
+        image: UIImage? = nil,
+        color: UIColor = AppColor.green()
+    ) {
         self.coordinate = coordinate
+        self.title = title
+        self.image = image
+        self.color = color
     }
 }
 
 #Preview {
-    Pin(color: AppColor.baseGreen())
+    Pin(color: AppColor.green())
 }

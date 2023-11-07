@@ -16,7 +16,7 @@ struct AboutPathView: View {
                         interactionName: "",
                         locationLatitude: path?.start.lat ?? 0,
                         locationLongitude: path?.start.lon ?? 0,
-                        pinColor: AppColor.baseGreen())
+                        pinColor: AppColor.green())
                     .padding()
                     .bold()
                 }
@@ -30,7 +30,7 @@ struct AboutPathView: View {
                         interactionName: "",
                         locationLatitude: path?.finish.lat ?? 0,
                         locationLongitude: path?.finish.lon ?? 0,
-                        pinColor: .purple)
+                        pinColor: AppColor.purple())
                     .padding()
                     .bold()
                 }
