@@ -19,7 +19,7 @@ struct BonusButtonView: View {
             )
             .padding(10)
             .background(colorScheme == .dark ? .black : .white)
-            .foregroundStyle(colorScheme == .dark ? .green : .black)
+            .foregroundStyle(colorScheme == .dark ? AppColor.baseGreen() : .black)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .onAppear {
                 mapVM.loadBonusBalance()
