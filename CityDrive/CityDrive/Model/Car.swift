@@ -10,6 +10,7 @@ struct Car: Identifiable {
     var model: String
     var number: String
 
+    var transferable: Bool
     var distance, walktime, fuel, tankVolume, seats, remainPath, powerReserve: Int
     var hasTransponder, boosterSeat, babySeat, forSale, engineWarnUpAvailable, isElectric: Bool
     var fuelType: String
@@ -38,6 +39,7 @@ extension CarResponse {
         let engineWarnUpAvailable = self.engineWarnUpAvailable ?? false
         let isElectric = self.isElectric ?? false
         let fuelType = self.fuelType ?? ""
+        let transferable = self.transferable ?? false
 
         return Car(
             id: id,
@@ -45,6 +47,7 @@ extension CarResponse {
             img: img,
             model: model,
             number: number,
+            transferable: transferable,
             distance: distance,
             walktime: walktime,
             fuel: fuel,
