@@ -5,13 +5,9 @@ import SwiftUI
 class MapViewModel: ObservableObject {
     private let networkManager: NetworkManager
 
-    @Published var cars: [Car] = [] {
-        willSet {
-            print(self.cars)
-        }
-    }
+    @Published var cars: [Car] = []
+    @Published var greenArea: GreenArea? = Settings.greenArea
 
-    @Published var mapIsUpdate = false
     @Published var carsIsLoaded = false
     @Published var bonusBalance = ""
 
@@ -22,6 +18,25 @@ class MapViewModel: ObservableObject {
     init() {
         self.networkManager = NetworkManager()
         loadCarsStatus()
+        loadGreenArea()
+    }
+
+    func loadGreenArea() {
+        networkManager.getGreenArea { response, error in
+            if let error = error {
+                print(error) // TODO: logging
+                return
+            }
+
+            guard let greenAreaResponse: GreenAreaResponse = response else { return }
+
+            let greenArea: GreenArea = greenAreaResponse.mapToGreenArea()
+
+            DispatchQueue.main.async {
+                self.greenArea = greenArea
+                Settings.greenArea = greenArea
+            }
+        }
     }
 
     func loadCarsStatus() {
@@ -31,23 +46,21 @@ class MapViewModel: ObservableObject {
                 return
             }
 
-            if let carsResponse: [CarResponse] = response?.cars {
-                var cars = [Car]()
+            guard let carsResponse: [CarResponse] = response?.cars else { return }
 
-                for carResponse in carsResponse where carResponse.areaGroupID == self.city?.areaGroupID {
-                    let car = carResponse.mapToCar()
-                    cars.append(car)
-                }
+            var cars = [Car]()
+            let curCity = self.city?.areaGroupID
 
-                self.updateCars(cars: cars)
+            for carResponse in carsResponse where carResponse.areaGroupID == curCity {
+                let car = carResponse.mapToCar()
+                cars.append(car)
+            }
+
+            DispatchQueue.main.async {
+                self.cars = cars
+                self.carsIsLoaded = true
             }
         }
-    }
-
-    func updateCars(cars: [Car]) {
-        self.cars = cars
-        self.carsIsLoaded = true
-        self.mapIsUpdate = false
     }
 
     func loadBonusBalance() {

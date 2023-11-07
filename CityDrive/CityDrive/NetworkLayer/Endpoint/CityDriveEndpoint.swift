@@ -2,31 +2,33 @@ import Foundation
 import SwiftKeychainWrapper
 
 public enum CityDriveApi {
-
-    // отправить смс на телефон
+    /// Отправить смс на телефон
     case sendPhone(phone: String)
 
-    // отправить полученную смс для получения session_id
+    /// Отправить полученную смс для получения session_id
     case sendSms(phone: String, smsCode: Int)
 
-    // отправить токен ВК для получения session_id
+    /// Отправить токен ВК для получения session_id
     case sendTokenVK(token: String, uuid: String)
 
-    // запросить список поездок, где limit количество поездок, а page страница размером в limit поездок
+    /// Запросить список поездок, где limit количество поездок, а page страница размером в limit поездок
     case getOrders(page: Int, limit: Int)
 
-    // запросить поездку по id, version определяет количество информации 
-    // (0 – больше информации, 20 – та, что приходит на офиц. клиент)
+    /// Запросить поездку по id, version определяет количество информации
+    /// (0 – больше информации, 20 – та, что приходит на офиц. клиент)
     case getOrder(id: String, version: Int)
 
-    // запросить текущие местоположения автомобилей
+    /// Запросить текущие местоположения автомобилей
     case getCarStatus
 
-    // запросить количество бонусов
+    /// Запросить количество бонусов
     case getBonusCount
 
-    // запросить данные о пользователе
+    /// Запросить данные о пользователе
     case getUser
+
+    /// Запросить зеленую зопу завершения поездок
+    case getGreenArea
 }
 
 extension CityDriveApi: EndpointType {
@@ -45,6 +47,7 @@ extension CityDriveApi: EndpointType {
         case .getCarStatus: return "status"
         case .getBonusCount: return "bonus-balance"
         case .getUser: return "user"
+        case .getGreenArea: return "info"
         }
     }
 
@@ -129,6 +132,7 @@ extension CityDriveApi {
             "lat": 0,
             "lon": 0
         ]
+        case .getGreenArea: return ["version": 2]
         default: return ["version": 20]
         }
     }

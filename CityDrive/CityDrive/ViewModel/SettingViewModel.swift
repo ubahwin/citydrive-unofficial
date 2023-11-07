@@ -15,8 +15,6 @@ class SettingViewModel: ObservableObject {
     init() {
         self.networkManager = NetworkManager()
 
-        print(isLogged, isDarkMode, mapType, city)
-
         loadUser()
     }
 

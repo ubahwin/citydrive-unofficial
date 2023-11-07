@@ -22,11 +22,14 @@ enum City: String, CaseIterable, Identifiable {
         }
     }
 
-    var coordinate: CLLocationCoordinate2D {
+    var location: Point {
         switch self {
-        case .moscow: return CLLocationCoordinate2D(latitude: 55.75222, longitude: 37.61556)
-        case .sochi: return CLLocationCoordinate2D(latitude: 59.93863, longitude: 30.31413)
-        case .spb: return CLLocationCoordinate2D(latitude: 43.59917, longitude: 39.72569)
+        case .moscow:
+            return Point(latitude: 55.75222, longitude: 37.61556)
+        case .spb:
+            return Point(latitude: 43.59917, longitude: 39.72569)
+        case .sochi:
+            return Point(latitude: 59.93863, longitude: 30.31413)
         }
     }
 }

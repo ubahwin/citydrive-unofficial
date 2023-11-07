@@ -23,7 +23,7 @@ struct ContentView: View {
             }
             .toolbarBackground(.visible, for: .tabBar)
         }
-        .accentColor(.green)
+        .accentColor(AppColor.baseGreen())
     }
 }
 
