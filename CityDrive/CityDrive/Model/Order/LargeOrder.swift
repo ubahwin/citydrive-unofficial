@@ -1,15 +1,15 @@
 import Foundation
 
 struct LargeOrder {
-    // Стоимость за использование
+    /// Стоимость за использование
     var usageCost: Double
-    // Итого
+    /// Итого
     var totalCost: Double
     var parkingCost: Double
 
-    // Число списанных бонусов
+    /// Число списанных бонусов
     var bonusCancellationAmount: Double?
-    // Число начисленных бонусов
+    /// Число начисленных бонусов
     var bonusAccrualAmount: Double?
 
     var car: CarOrder
