@@ -44,8 +44,14 @@ class MapViewController: UIViewController {
         mapView.removeAnnotations(mapView.annotations)
 
         for car in mapVM.cars {
-            let pin = ImperativeMapPin(coordinate: car.location.coordinate)
+            let image = car.transferable ? UIImage(named: "red-pin") : UIImage(named: "green-pin")
+            let pin = ImperativeMapPin(
+                coordinate: car.location.coordinate,
+                image: image?.resizePin(height: 20)
+            )
+
             pin.title = car.model
+
             mapView.addAnnotation(pin)
         }
     }
@@ -100,19 +106,13 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let polygon = overlay as? MKPolygon {
             let renderer = MKPolygonRenderer(polygon: polygon)
-            renderer.strokeColor = AppColor.baseGreen()
+            renderer.strokeColor = AppColor.green()
             renderer.lineWidth = 5.0
-            renderer.fillColor = AppColor.baseGreen().withAlphaComponent(0.06)
+            renderer.fillColor = AppColor.green().withAlphaComponent(0.06)
             return renderer
         }
         return MKOverlayRenderer()
     }
 }
 
-extension MapViewController: CLLocationManagerDelegate {
-//    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-//        guard let userCoordinate = userLocation.location?.coordinate else { return }
-//        let region = MKCoordinateRegion(center: userCoordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-//        mapView.setRegion(region, animated: true)
-//    }
-}
+extension MapViewController: CLLocationManagerDelegate { }

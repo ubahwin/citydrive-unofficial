@@ -20,7 +20,6 @@
 		B72A4A6D2A72D025003D02DA /* MapInteractionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */; };
 		B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DBF972A597BFE006393B6 /* ShortOrder.swift */; };
 		B743CA102A67449500D146CC /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743CA0F2A67449500D146CC /* City.swift */; };
-		B75038502A6C075B00D49D4B /* CarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750384F2A6C075B00D49D4B /* CarView.swift */; };
 		B759794B2AF80FA8006D45FC /* GreenAreaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759794A2AF80FA8006D45FC /* GreenAreaResponse.swift */; };
 		B759794E2AF81805006D45FC /* GreenArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759794D2AF81805006D45FC /* GreenArea.swift */; };
 		B75D01952A79CFEC0036861A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B75D01942A79CFEC0036861A /* Localizable.xcstrings */; };
@@ -98,7 +97,6 @@
 		B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractionPickerView.swift; sourceTree = "<group>"; };
 		B73DBF972A597BFE006393B6 /* ShortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortOrder.swift; sourceTree = "<group>"; };
 		B743CA0F2A67449500D146CC /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
-		B750384F2A6C075B00D49D4B /* CarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarView.swift; sourceTree = "<group>"; };
 		B759794A2AF80FA8006D45FC /* GreenAreaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenAreaResponse.swift; sourceTree = "<group>"; };
 		B759794D2AF81805006D45FC /* GreenArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenArea.swift; sourceTree = "<group>"; };
 		B75D01942A79CFEC0036861A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -191,10 +189,10 @@
 				B7A369612A3C69D400B31121 /* View */,
 				B7A369602A3C69CA00B31121 /* Model */,
 				B7A3695F2A3C69C300B31121 /* ViewModel */,
-				B70D4AC72A3B1ABF00C90991 /* CityDriveApp.swift */,
-				B70D4AC92A3B1ABF00C90991 /* ContentView.swift */,
 				B70D4AD52A3B1AFF00C90991 /* Resourses */,
 				B7E12E902AE96039003FA578 /* Settings.swift */,
+				B70D4AC72A3B1ABF00C90991 /* CityDriveApp.swift */,
+				B70D4AC92A3B1ABF00C90991 /* ContentView.swift */,
 			);
 			path = CityDrive;
 			sourceTree = "<group>";
@@ -303,10 +301,10 @@
 		B7A369602A3C69CA00B31121 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B759794D2AF81805006D45FC /* GreenArea.swift */,
 				B78587302A6B3F2E0002689B /* Settings */,
 				B797649A2A607368008B6C7E /* Order */,
 				B7A369642A3C6A1200B31121 /* Car.swift */,
+				B759794D2AF81805006D45FC /* GreenArea.swift */,
 				B78587282A6AF16F0002689B /* User.swift */,
 				B7F880862AF9431200D2EF2D /* Point.swift */,
 			);
@@ -324,7 +322,6 @@
 				B76860942A3D8FC70010D590 /* OrderDetailsView.swift */,
 				B7B253162A6455A3008DAC5C /* MapView.swift */,
 				B785872E2A6B1F610002689B /* UserInfoView.swift */,
-				B750384F2A6C075B00D49D4B /* CarView.swift */,
 				B71E3BC32AE56B7F00DBE6AF /* ImperativeMapView.swift */,
 			);
 			path = View;
@@ -554,9 +551,7 @@
 				B797649E2A6073A4008B6C7E /* UserOrder.swift in Sources */,
 				B7CAC3FD2A61D54900E5B271 /* Double.swift in Sources */,
 				B79DC4932A5B0A3100175413 /* AboutCarView.swift in Sources */,
-				B75038502A6C075B00D49D4B /* CarView.swift in Sources */,
 				B7C48E8B2A79B35000D68742 /* LoginViewModel.swift in Sources */,
-				B75038502A6C075B00D49D4B /* CarView.swift in Sources */,
 				B7E12E912AE96039003FA578 /* Settings.swift in Sources */,
 				B77E07ED2A6430A700B3DBAC /* LocationCellView.swift in Sources */,
 				B79764A02A607420008B6C7E /* OtherInfoOrder.swift in Sources */,

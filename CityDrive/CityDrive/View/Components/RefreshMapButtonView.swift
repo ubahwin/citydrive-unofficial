@@ -24,7 +24,7 @@ struct RefreshMapButtonView: View {
         )
         .padding(10)
         .background(colorScheme == .dark ? .black : .white)
-        .foregroundStyle(colorScheme == .dark ? AppColor.baseGreen() : .black)
+        .foregroundStyle(colorScheme == .dark ? AppColor.green() : .black)
         .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }
