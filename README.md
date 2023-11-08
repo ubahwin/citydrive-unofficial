@@ -10,15 +10,13 @@
 Данное приложение не несёт цели навредить репутации и информационной безопасности сервиса СитиДрайв. По первой же просьбе представителей каршеринга приложение будет убрано из публичного доступа.
 
 <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; column-gap: 24px; row-gap: 20px;">
-  <span><img src="img/0.1.png" style="width:200px;"></span>
-  <span><img src="img/1.png" style="width:200px;"></span>
-  <span><img src="img/2.png" style="width:200px;"></span>
-  <span><img src="img/3.png" style="width:200px;"></span>
-  <span><img src="img/4.png" style="width:200px;"></span>
-  <span><img src="img/5.png" style="width:200px;"></span>
-  <span><img src="img/6.png" style="width:200px;"></span>
-  <span><img src="img/7.png" style="width:200px;"></span>
-  <span><img src="img/8.png" style="width:200px;"></span>
+  <img src="img/1.jpg" style="width:200px;">
+  <img src="img/2.jpg" style="width:200px;">
+  <img src="img/3.jpg" style="width:200px;">
+  <img src="img/4.jpg" style="width:200px;">
+  <img src="img/5.jpg" style="width:200px;">
+  <img src="img/6.jpg" style="width:200px;">
+  <img src="img/7.jpg" style="width:200px;">
 </div>
 
 ## Структура проекта
