@@ -40,11 +40,9 @@ struct LoginView: View {
                 }
             }
         }
-        .onTapGesture {
-            loginVM.hideKeyboard()
-        }
-        .fullScreenCover(isPresented: $loginVM.next, content: { SmsView(loginVM: loginVM) })
-        .fullScreenCover(isPresented: $loginVM.isEntered, content: { ContentView() })
+        .onTapGesture { loginVM.hideKeyboard() }
+        .fullScreenCover(isPresented: $loginVM.next) { SmsView(loginVM: loginVM) }
+        .fullScreenCover(isPresented: $loginVM.isEntered) { ContentView() }
     }
 }
 
