@@ -17,22 +17,31 @@ struct Pin: View {
     }
 }
 
+class UserAnnotationView: MKAnnotationView {
+    override var annotation: MKAnnotation? {
+        willSet {
+            if newValue is MKUserLocation {
+                canShowCallout = true
+                calloutOffset = CGPoint(x: -5, y: 5)
+                image = UIImage.drawPin(color: AppColor.purple()).resizePin(height: 30)
+            }
+        }
+    }
+}
+
 class ImperativeMapPin: NSObject, Identifiable, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var image: UIImage?
-    var color: UIColor
 
     init(
         coordinate: CLLocationCoordinate2D,
         title: String? = nil,
-        image: UIImage? = nil,
         color: UIColor = AppColor.green()
     ) {
         self.coordinate = coordinate
         self.title = title
-        self.image = image
-        self.color = color
+        self.image = UIImage.drawPin(color: color).resizePin(height: 25)
     }
 }
 
