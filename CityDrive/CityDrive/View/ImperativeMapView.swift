@@ -20,6 +20,7 @@ struct ImperativeMapView: UIViewControllerRepresentable {
 class MapViewController: UIViewController {
     var mapVM: MapViewModel!
 
+    var bottomPanel: UIView!
     var mapView: MKMapView!
     var locationManager: CLLocationManager!
 
@@ -30,6 +31,15 @@ class MapViewController: UIViewController {
 
         mapSetup()
         createSink()
+
+        bottomPanel = UIView(frame: CGRect(
+            x: 0,
+            y: view.bounds.height - 100,
+            width: view.bounds.width,
+            height: 100)
+        )
+        bottomPanel.backgroundColor = UIColor.lightGray
+        view.addSubview(bottomPanel)
 
         view = mapView
     }
@@ -44,13 +54,13 @@ class MapViewController: UIViewController {
         mapView.removeAnnotations(mapView.annotations)
 
         for car in mapVM.cars {
-            let image = car.transferable ? UIImage(named: "red-pin") : UIImage(named: "green-pin")
+            let color: UIColor = car.transferable ? AppColor.red() : AppColor.green()
+
             let pin = ImperativeMapPin(
                 coordinate: car.location.coordinate,
-                image: image?.resizePin(height: 20)
+                title: car.model,
+                color: color
             )
-
-            pin.title = car.model
 
             mapView.addAnnotation(pin)
         }
@@ -88,19 +98,24 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         mapView.showsUserLocation = true
         mapView.showsScale = true
-        mapView.showsUserTrackingButton = true
+//        mapView.showsUserTrackingButton = true
     }
 }
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let annotation = annotation as? ImperativeMapPin else { return nil }
+        if let annotation = annotation as? ImperativeMapPin {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "ImperativeMapPin")
 
-        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "ImperativeMapPin")
-        annotationView.image = annotation.image
-        annotationView.canShowCallout = true
+            annotationView.image = annotation.image
+            annotationView.canShowCallout = true
 
-        return annotationView
+            return annotationView
+        }
+        if annotation is MKUserLocation {
+            return UserAnnotationView(annotation: annotation, reuseIdentifier: "customUserAnnotation")
+        }
+        return nil
     }
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -108,10 +123,26 @@ extension MapViewController: MKMapViewDelegate {
             let renderer = MKPolygonRenderer(polygon: polygon)
             renderer.strokeColor = AppColor.green()
             renderer.lineWidth = 5.0
-            renderer.fillColor = AppColor.green().withAlphaComponent(0.06)
+            renderer.fillColor = AppColor.green().withAlphaComponent(0.05)
             return renderer
         }
         return MKOverlayRenderer()
+    }
+
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let annotation = view.annotation as? MKPointAnnotation {
+            let bottomPanelLabel = UILabel(frame: CGRect(
+                x: 0,
+                y: 0,
+                width: bottomPanel.bounds.width,
+                height: bottomPanel.bounds.height)
+            )
+            bottomPanelLabel.text = annotation.title ?? "Нет названия"
+            bottomPanelLabel.textAlignment = .center
+            bottomPanel.addSubview(bottomPanelLabel)
+
+            bottomPanel.isHidden = false
+        }
     }
 }
 
