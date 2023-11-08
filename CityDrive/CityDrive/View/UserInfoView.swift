@@ -3,7 +3,7 @@ import SwiftUI
 struct UserInfoView: View {
     @ObservedObject var settingVM: SettingViewModel
 
-    @Environment(\.dismiss) var dismiss
+    @State private var openLogin = false
 
     var body: some View {
         List {
@@ -87,10 +87,11 @@ struct UserInfoView: View {
 
             Button("Выйти") {
                 settingVM.exit()
-                dismiss()
+                openLogin = true
             }
             .foregroundStyle(.red)
         }
+        .fullScreenCover(isPresented: $openLogin) { LoginView() }
     }
 }
 

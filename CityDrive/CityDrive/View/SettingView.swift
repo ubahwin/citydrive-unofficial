@@ -4,36 +4,28 @@ import MapKit
 struct SettingView: View {
     @StateObject private var settingVM = SettingViewModel()
 
-    @State private var openLogin = false
-
     var body: some View {
         NavigationStack {
             List {
-                if settingVM.isLogged {
-                    NavigationLink(destination: {
-                        UserInfoView(settingVM: settingVM)
-                    }) {
-                        HStack {
-                            AsyncImage(url: URL(string: settingVM.user?.avatar ?? "")) { image in
-                                Avatar(image: image)
-                            } placeholder: {
-                                Avatar()
-                            }
-                            VStack(alignment: .leading) {
-                                Text(settingVM.user?.firstName ?? "")
-                                Text(settingVM.user?.lastName ?? "")
-                            }
-                            .redacted(reason: settingVM.user == nil ? .placeholder : [])
-                            .bold()
-                            .padding(5)
-                            Spacer()
+                NavigationLink(destination: {
+                    UserInfoView(settingVM: settingVM)
+                }) {
+                    HStack {
+                        AsyncImage(url: URL(string: settingVM.user?.avatar ?? "")) { image in
+                            Avatar(image: image)
+                        } placeholder: {
+                            Avatar()
                         }
-                        .allowsHitTesting(settingVM.user == nil)
+                        VStack(alignment: .leading) {
+                            Text(settingVM.user?.firstName ?? "")
+                            Text(settingVM.user?.lastName ?? "")
+                        }
+                        .redacted(reason: settingVM.user == nil ? .placeholder : [])
+                        .bold()
+                        .padding(5)
+                        Spacer()
                     }
-                } else {
-                    Button("Войти") {
-                        openLogin = true
-                    }
+                    .allowsHitTesting(settingVM.user == nil)
                 }
 
                 Section("Карта") {
@@ -51,9 +43,6 @@ struct SettingView: View {
                 Toggle("Тёмная тема", isOn: settingVM.$isDarkMode)
             }
             .navigationTitle("Настройки")
-        }
-        .fullScreenCover(isPresented: $openLogin) {
-            LoginView()
         }
     }
 }
