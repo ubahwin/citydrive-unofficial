@@ -3,6 +3,7 @@ import SwiftUI
 import MapKit
 import Combine
 
+// MARK: Representable to UIKit
 struct ImperativeMapView: UIViewControllerRepresentable {
     @ObservedObject var mapVM: MapViewModel
 
@@ -17,12 +18,13 @@ struct ImperativeMapView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: MapViewController, context: Context) {}
 }
 
+// MARK: ViewController with map
 class MapViewController: UIViewController {
     var mapVM: MapViewModel!
 
-    var bottomPanel: UIView!
     var mapView: MKMapView!
     var locationManager: CLLocationManager!
+    private var currentUserLocationIsLoad: Bool = false
 
     private var cancellables: Set<AnyCancellable> = []
 
@@ -32,16 +34,7 @@ class MapViewController: UIViewController {
         mapSetup()
         createSink()
 
-        bottomPanel = UIView(frame: CGRect(
-            x: 0,
-            y: view.bounds.height - 100,
-            width: view.bounds.width,
-            height: 100)
-        )
-        bottomPanel.backgroundColor = UIColor.lightGray
-        view.addSubview(bottomPanel)
-
-        view = mapView
+        self.view = mapView
     }
 
     func renderGreenArea(area: Area) {
@@ -54,14 +47,7 @@ class MapViewController: UIViewController {
         mapView.removeAnnotations(mapView.annotations)
 
         for car in mapVM.cars {
-            let color: UIColor = car.transferable ? AppColor.red() : AppColor.green()
-
-            let pin = ImperativeMapPin(
-                coordinate: car.location.coordinate,
-                title: car.model,
-                color: color
-            )
-
+            let pin = ImperativeMapPin(car: car)
             mapView.addAnnotation(pin)
         }
     }
@@ -77,7 +63,6 @@ class MapViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { _ in
                 self.updateCars()
-                self.goToUser()
             }
             .store(in: &cancellables)
         mapVM.$greenArea
@@ -96,19 +81,33 @@ class MapViewController: UIViewController {
         locationManager.startUpdatingLocation()
 
         mapView.delegate = self
-        mapView.showsUserLocation = true
         mapView.showsScale = true
-//        mapView.showsUserTrackingButton = true
+        mapView.showsUserLocation = true
+        mapView.showsUserTrackingButton = true
+
+        updateMapInteractions()
+        updateMapType()
+    }
+
+    func updateMapType() {
+        let mapType = mapVM.mapType?.mapType
+        mapView.mapType = mapType ?? .standard
+    }
+
+    func updateMapInteractions() {
+        mapView.isZoomEnabled = true
+        mapView.isPitchEnabled = true
+        mapView.isRotateEnabled = true
     }
 }
 
+// MARK: MKMapViewDelegate
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? ImperativeMapPin {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "ImperativeMapPin")
 
             annotationView.image = annotation.image
-            annotationView.canShowCallout = true
 
             return annotationView
         }
@@ -130,20 +129,27 @@ extension MapViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let annotation = view.annotation as? MKPointAnnotation {
-            let bottomPanelLabel = UILabel(frame: CGRect(
-                x: 0,
-                y: 0,
-                width: bottomPanel.bounds.width,
-                height: bottomPanel.bounds.height)
-            )
-            bottomPanelLabel.text = annotation.title ?? "Нет названия"
-            bottomPanelLabel.textAlignment = .center
-            bottomPanel.addSubview(bottomPanelLabel)
-
-            bottomPanel.isHidden = false
+        if let annotationCar = view.annotation as? ImperativeMapPin {
+            mapVM.openCarDetail = true
+            mapVM.setCurrentCar(id: annotationCar.id)
         }
     }
 }
 
-extension MapViewController: CLLocationManagerDelegate { }
+// MARK: CLLocationManagerDelegate
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last, !currentUserLocationIsLoad {
+            let initialLocation = CLLocationCoordinate2D(
+                latitude: location.coordinate.latitude,
+                longitude: location.coordinate.longitude
+            )
+            let region = MKCoordinateRegion(
+                center: initialLocation,
+                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            )
+            mapView.setRegion(region, animated: true)
+            currentUserLocationIsLoad = true
+        }
+    }
+}

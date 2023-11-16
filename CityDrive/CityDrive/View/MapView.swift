@@ -20,5 +20,10 @@ struct MapView: View {
             }
             .padding()
         }
+        .sheet(isPresented: $mapVM.openCarDetail) {
+            CarView(mapVM: mapVM)
+                .presentationDetents([.height(300)])
+                .presentationBackgroundInteraction(.enabled(upThrough: .height(300)))
+        }
     }
 }

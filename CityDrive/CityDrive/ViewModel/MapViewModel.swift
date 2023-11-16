@@ -8,8 +8,12 @@ class MapViewModel: ObservableObject {
     @Published var cars: [Car] = []
     @Published var greenArea: GreenArea? = Settings.greenArea
 
+    @Published var mapIsUpdate = false
     @Published var carsIsLoaded = false
     @Published var bonusBalance = ""
+
+    @Published var currentCar: Car?
+    @Published var openCarDetail = false
 
     // Настройки
     @AppStorage(Settings.city) var city: City?
@@ -74,5 +78,9 @@ class MapViewModel: ObservableObject {
                 self.bonusBalance = String(response?.balance ?? 0)
             }
         }
+    }
+
+    func setCurrentCar(id: UUID) {
+        self.currentCar = cars.first(where: { $0.id == id })
     }
 }
