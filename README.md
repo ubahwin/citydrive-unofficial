@@ -1,7 +1,7 @@
 # Неофициальный клиент CityDrive
 
 <div align="center">
-    <img src="img/icon.png" alt="AppIcon" height="150">
+    <img src="img/image_selfie.png" alt="AppIcon" height="200">
 </div>
 
 ![](https://img.shields.io/badge/iOS-17%2B-green?logo=apple)
