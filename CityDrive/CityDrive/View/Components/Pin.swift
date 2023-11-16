@@ -30,17 +30,15 @@ class UserAnnotationView: MKAnnotationView {
 }
 
 class ImperativeMapPin: NSObject, Identifiable, MKAnnotation {
+    var id: UUID
     var coordinate: CLLocationCoordinate2D
-    var title: String?
     var image: UIImage?
 
-    init(
-        coordinate: CLLocationCoordinate2D,
-        title: String? = nil,
-        color: UIColor = AppColor.green()
-    ) {
-        self.coordinate = coordinate
-        self.title = title
+    init(car: Car) {
+        self.id = car.id
+        self.coordinate = car.location.coordinate
+
+        let color: UIColor = car.transferable ? AppColor.red() : AppColor.green()
         self.image = UIImage.drawPin(color: color).resizePin(height: 25)
     }
 }

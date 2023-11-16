@@ -23,8 +23,4 @@ enum MapInteraction: String, CaseIterable, Identifiable, RawRepresentable {
         case .rotate: return .rotate
         }
     }
-
-    static func fromString(_ value: String) -> MapInteraction? {
-        return MapInteraction(rawValue: value)
-    }
 }
