@@ -41,9 +41,8 @@ extension UIImage {
         )
 
         context?.setShadow(
-            offset: CGSize(width: shadowOffset, height: shadowOffset),
-            blur: 0.2,
-            color: UIColor.gray.cgColor
+            offset: CGSize(width: shadowOffset - 2, height: shadowOffset - 2),
+            blur: 2
         )
         context?.setFillColor(UIColor.white.cgColor)
         context?.fillEllipse(in: whiteCircleRect)
