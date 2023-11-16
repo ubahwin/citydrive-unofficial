@@ -6,9 +6,9 @@ struct MapInteractionsView: View {
     var body: some View {
         NavigationLink(destination: {
             List {
-                ForEach(0..<4) { number in
+                ForEach(MapInteraction.allCases) { interaction in
                     MapInteractionPickerView(
-                        title: number.description,
+                        title: interaction.title,
                         isSelected: false
                     ) {
                         print("nothing")

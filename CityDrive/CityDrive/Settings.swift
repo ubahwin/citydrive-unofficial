@@ -30,4 +30,17 @@ struct Settings {
             }
         }
     }
+
+    static var selectedInteractions: [MapInteraction] {
+        get {
+            if let savedInteractions = UserDefaults.standard.value(forKey: "mapInteractions") as? [String] {
+                return savedInteractions.compactMap { MapInteraction(rawValue: $0) }
+            }
+            return []
+        }
+        set {
+            let interactionsToSave = newValue.map { $0.rawValue }
+            UserDefaults.standard.set(interactionsToSave, forKey: "mapInteractions")
+        }
+    }
 }
