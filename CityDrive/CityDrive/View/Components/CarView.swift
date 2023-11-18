@@ -5,6 +5,15 @@ struct CarView: View {
     @ObservedObject var mapVM: MapViewModel
 
     var body: some View {
-        Text(mapVM.currentCar?.model ?? "Tesla")
+        VStack {
+            HStack {
+                AsyncImage(url: mapVM.currentCar?.img) { image in
+                    image
+                } placeholder: {
+                    Image(systemName: "car")
+                }
+            }
+            Text(mapVM.currentCar?.model ?? "")
+        }
     }
 }
