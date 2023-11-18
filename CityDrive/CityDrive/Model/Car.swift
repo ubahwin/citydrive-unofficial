@@ -6,7 +6,7 @@ struct Car: Identifiable {
 
     var location: Point
 
-    var img: String
+    var img: URL
     var model: String
     var number: String
 
@@ -22,7 +22,7 @@ extension CarResponse {
         let id = UUID(uuidString: carID) ?? UUID()
         let lat = self.lat ?? 0
         let lon = self.lon ?? 0
-        let img = self.img ?? ""
+        let img = URL(string: self.img ?? "")!
         let model = self.model ?? ""
         let number = self.number ?? ""
         let distance = self.distance ?? 0
