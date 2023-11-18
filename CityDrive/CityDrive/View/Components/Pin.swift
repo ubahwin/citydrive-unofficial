@@ -1,5 +1,6 @@
 import SwiftUI
 import MapKit
+import CoreMotion
 
 struct Pin: View {
     var color: Color = AppColor.green()
@@ -21,9 +22,8 @@ class UserAnnotationView: MKAnnotationView {
     override var annotation: MKAnnotation? {
         willSet {
             if newValue is MKUserLocation {
-                canShowCallout = true
                 calloutOffset = CGPoint(x: -5, y: 5)
-                image = UIImage.drawPin(color: AppColor.purple()).resizePin(height: 30)
+                image = UIImage(named: "position")?.resizePin(height: 35)
             }
         }
     }
