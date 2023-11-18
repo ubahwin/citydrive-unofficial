@@ -79,9 +79,9 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        locationManager.startUpdatingHeading()
 
         mapView.delegate = self
-        mapView.showsScale = true
         mapView.showsUserLocation = true
         mapView.showsUserTrackingButton = true
 
@@ -97,7 +97,7 @@ class MapViewController: UIViewController {
     func updateMapInteractions() {
         mapView.isZoomEnabled = true
         mapView.isPitchEnabled = true
-        mapView.isRotateEnabled = true
+        mapView.isRotateEnabled = false
     }
 }
 
@@ -106,13 +106,16 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? ImperativeMapPin {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "ImperativeMapPin")
-
             annotationView.image = annotation.image
-
             return annotationView
         }
         if annotation is MKUserLocation {
-            return UserAnnotationView(annotation: annotation, reuseIdentifier: "customUserAnnotation")
+            let userAnnotationView = UserAnnotationView(
+                annotation: annotation,
+                reuseIdentifier: "customUserAnnotation"
+            )
+            userAnnotationView.transform = CGAffineTransform(rotationAngle: 0)
+            return userAnnotationView
         }
         return nil
     }
@@ -128,11 +131,12 @@ extension MapViewController: MKMapViewDelegate {
         return MKOverlayRenderer()
     }
 
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let annotationCar = view.annotation as? ImperativeMapPin {
+    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+        if let annotationCar = annotation as? ImperativeMapPin {
             mapVM.openCarDetail = true
             mapVM.setCurrentCar(id: annotationCar.id)
         }
+        mapView.deselectAnnotation(annotation, animated: true)
     }
 }
 
@@ -150,6 +154,14 @@ extension MapViewController: CLLocationManagerDelegate {
             )
             mapView.setRegion(region, animated: true)
             currentUserLocationIsLoad = true
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        if let userAnnotationView = mapView.view(for: mapView.userLocation) as? UserAnnotationView {
+            userAnnotationView.transform = CGAffineTransform(
+                rotationAngle: CGFloat(newHeading.trueHeading * .pi / 180.0)
+            )
         }
     }
 }
