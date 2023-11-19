@@ -73,6 +73,12 @@ class MapViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
+        mapVM.$goToUser
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+                self.goToUser()
+            }
+            .store(in: &cancellables)
     }
 
     func mapSetup() {
@@ -83,7 +89,6 @@ class MapViewController: UIViewController {
 
         mapView.delegate = self
         mapView.showsUserLocation = true
-        mapView.showsUserTrackingButton = true
 
         updateMapInteractions()
         updateMapType()
@@ -112,9 +117,8 @@ extension MapViewController: MKMapViewDelegate {
         if annotation is MKUserLocation {
             let userAnnotationView = UserAnnotationView(
                 annotation: annotation,
-                reuseIdentifier: "customUserAnnotation"
+                reuseIdentifier: "UserAnnotationView"
             )
-            userAnnotationView.transform = CGAffineTransform(rotationAngle: 0)
             return userAnnotationView
         }
         return nil
@@ -160,7 +164,7 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         if let userAnnotationView = mapView.view(for: mapView.userLocation) as? UserAnnotationView {
             userAnnotationView.transform = CGAffineTransform(
-                rotationAngle: CGFloat(newHeading.trueHeading * .pi / 180.0)
+                rotationAngle: newHeading.trueHeading * .pi / 180
             )
         }
     }

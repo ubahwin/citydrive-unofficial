@@ -8,6 +8,9 @@ struct MapView: View {
         ZStack {
             ImperativeMapView(mapVM: mapVM)
                 .ignoresSafeArea()
+                .onTapGesture {
+                    mapVM.openCarDetail = false
+                }
             VStack {
                 HStack {
                     HStack {
@@ -15,6 +18,7 @@ struct MapView: View {
                         RefreshMapButtonView(mapVM: mapVM)
                     }
                     Spacer()
+                    UserLocationButtonView(goToUser: $mapVM.goToUser)
                 }
                 Spacer()
             }

@@ -7,13 +7,15 @@ class MapViewModel: ObservableObject {
 
     @Published var cars: [Car] = []
     @Published var greenArea: GreenArea? = Settings.greenArea
+    @Published var bonusBalance = ""
 
     @Published var mapIsUpdate = false
     @Published var carsIsLoaded = false
-    @Published var bonusBalance = ""
 
     @Published var currentCar: Car?
     @Published var openCarDetail = false
+
+    @Published var goToUser = false
 
     // Настройки
     @AppStorage(Settings.city) var city: City?

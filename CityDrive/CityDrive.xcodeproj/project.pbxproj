@@ -81,6 +81,7 @@
 		B7E12E912AE96039003FA578 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E12E902AE96039003FA578 /* Settings.swift */; };
 		B7F880872AF9431200D2EF2D /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F880862AF9431200D2EF2D /* Point.swift */; };
 		B7F880892AF9F4C200D2EF2D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F880882AF9F4C200D2EF2D /* Image.swift */; };
+		B7F928482B09ECC100E49761 /* UserLocationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F928472B09ECC100E49761 /* UserLocationButtonView.swift */; };
 		B7FD44DF2AC223C20006B1AA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FD44DE2AC223C20006B1AA /* Theme.swift */; };
 /* End PBXBuildFile section */
 
@@ -160,6 +161,7 @@
 		B7E12E902AE96039003FA578 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B7F880862AF9431200D2EF2D /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		B7F880882AF9F4C200D2EF2D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		B7F928472B09ECC100E49761 /* UserLocationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationButtonView.swift; sourceTree = "<group>"; };
 		B7FD44DE2AC223C20006B1AA /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -342,6 +344,7 @@
 				B72056262A851C2A003D1372 /* Avatar.swift */,
 				B72056282A852DC0003D1372 /* BonusImage.swift */,
 				B7CA63172B063B0B00C77B4E /* CarView.swift */,
+				B7F928472B09ECC100E49761 /* UserLocationButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				B7CAC3F92A61D40500E5B271 /* Int.swift in Sources */,
 				B785872F2A6B1F610002689B /* UserInfoView.swift in Sources */,
 				B79DC4912A5B085800175413 /* OtherInfoView.swift in Sources */,
+				B7F928482B09ECC100E49761 /* UserLocationButtonView.swift in Sources */,
 				B7CDD0B42A4704EB0034278B /* SessionIDResponse.swift in Sources */,
 				B79DC48F2A5B079300175413 /* AboutUserView.swift in Sources */,
 				B72A4A6D2A72D025003D02DA /* MapInteractionPickerView.swift in Sources */,
