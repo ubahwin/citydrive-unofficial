@@ -47,14 +47,21 @@ class MapViewController: UIViewController {
         mapView.removeAnnotations(mapView.annotations)
 
         for car in mapVM.cars {
-            let pin = ImperativeMapPin(car: car)
+            let pin = ImperativeMapPin(
+                id: car.id,
+                coordinate: car.location.coordinate,
+                transferable: car.transferable
+            )
             mapView.addAnnotation(pin)
         }
     }
 
     func goToUser() {
         guard let userCoordinate = mapView.userLocation.location?.coordinate else { return }
-        let region = MKCoordinateRegion(center: userCoordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        let region = MKCoordinateRegion(
+            center: userCoordinate,
+            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        )
         mapView.setRegion(region, animated: true)
     }
 
@@ -77,6 +84,14 @@ class MapViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { _ in
                 self.goToUser()
+            }
+            .store(in: &cancellables)
+        mapVM.$openCarDetail
+            .receive(on: DispatchQueue.main)
+            .sink { flag in
+                if !flag {
+                    self.mapView.deselectAnnotation(nil, animated: false)
+                }
             }
             .store(in: &cancellables)
     }
@@ -135,12 +150,22 @@ extension MapViewController: MKMapViewDelegate {
         return MKOverlayRenderer()
     }
 
-    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
-        if let annotationCar = annotation as? ImperativeMapPin {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if view.annotation is ImperativeMapPin {
             mapVM.openCarDetail = true
-            mapVM.setCurrentCar(id: annotationCar.id)
+            mapVM.setCurrentCar(coordinate: view.annotation!.coordinate)
+
+            view.layer.removeAllAnimations()
+            view.image = UIImage.pinBigCar.resizePin(height: 45, width: 30)
+            view.centerOffset.y -= 20
         }
-        mapView.deselectAnnotation(annotation, animated: true)
+    }
+
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        if let customAnnotation = view.annotation as? ImperativeMapPin {
+            view.image = customAnnotation.image
+            view.centerOffset.y += 20
+        }
     }
 }
 
