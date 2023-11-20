@@ -46,20 +46,44 @@ class MapViewController: UIViewController {
     func updateCars() {
         mapView.removeAnnotations(mapView.annotations)
 
+        var carAnnotations = [ImperativeMapPin]()
+
         for car in mapVM.cars {
             let pin = ImperativeMapPin(
                 id: car.id,
                 coordinate: car.location.coordinate,
                 transferable: car.transferable
             )
-            mapView.addAnnotation(pin)
+            carAnnotations.append(pin)
         }
+
+        mapView.addAnnotations(carAnnotations)
     }
 
     func goToUser() {
         guard let userCoordinate = mapView.userLocation.location?.coordinate else { return }
+        goTo(coordinate: userCoordinate)
+    }
+
+    func goTo(
+        coordinate: CLLocationCoordinate2D,
+        offsetLat: CLLocationDegrees? = nil,
+        offsetLon: CLLocationDegrees? = nil
+    ) {
+        var lat = coordinate.latitude
+        var lon = coordinate.longitude
+
+        if let offset = offsetLat {
+            lat += offset
+        }
+        if let offset = offsetLon {
+            lon += offset
+        }
+
+        let сenter = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+
         let region = MKCoordinateRegion(
-            center: userCoordinate,
+            center: сenter,
             span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         )
         mapView.setRegion(region, animated: true)
@@ -123,6 +147,7 @@ class MapViewController: UIViewController {
 
 // MARK: MKMapViewDelegate
 extension MapViewController: MKMapViewDelegate {
+    // MARK: view for annotation
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? ImperativeMapPin {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "ImperativeMapPin")
@@ -139,6 +164,7 @@ extension MapViewController: MKMapViewDelegate {
         return nil
     }
 
+    // MARK: renderer poligon
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let polygon = overlay as? MKPolygon {
             let renderer = MKPolygonRenderer(polygon: polygon)
@@ -150,20 +176,24 @@ extension MapViewController: MKMapViewDelegate {
         return MKOverlayRenderer()
     }
 
+    // MARK: did select annotation
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if view.annotation is ImperativeMapPin {
-            mapVM.openCarDetail = true
-            mapVM.setCurrentCar(coordinate: view.annotation!.coordinate)
+        if let annotation = view.annotation as? ImperativeMapPin {
+            goTo(coordinate: annotation.coordinate, offsetLat: -0.002)
 
-            view.layer.removeAllAnimations()
-            view.image = UIImage.pinBigCar.resizePin(height: 45, width: 30)
+            mapVM.openCarDetail = true
+            mapVM.setCurrentCar(id: annotation.id)
+
+            let image = annotation.transferable ? UIImage.pinBigGiveaway : UIImage.pinBigCar
+            view.image = image.resizePin(height: 50, width: 30)
             view.centerOffset.y -= 20
         }
     }
 
+    // MARK: did deselect annotation
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        if let customAnnotation = view.annotation as? ImperativeMapPin {
-            view.image = customAnnotation.image
+        if let annotation = view.annotation as? ImperativeMapPin {
+            view.image = annotation.image
             view.centerOffset.y += 20
         }
     }
@@ -171,6 +201,7 @@ extension MapViewController: MKMapViewDelegate {
 
 // MARK: CLLocationManagerDelegate
 extension MapViewController: CLLocationManagerDelegate {
+    // MARK: start map position -> user
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last, !currentUserLocationIsLoad {
             let initialLocation = CLLocationCoordinate2D(
@@ -186,6 +217,7 @@ extension MapViewController: CLLocationManagerDelegate {
         }
     }
 
+    // MARK: rotate phone
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         if let userAnnotationView = mapView.view(for: mapView.userLocation) as? UserAnnotationView {
             userAnnotationView.transform = CGAffineTransform(

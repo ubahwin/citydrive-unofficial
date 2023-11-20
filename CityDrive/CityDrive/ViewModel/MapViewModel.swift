@@ -82,8 +82,8 @@ class MapViewModel: ObservableObject {
         }
     }
 
-    func setCurrentCar(coordinate: CLLocationCoordinate2D) {
-        self.currentCar = cars.first(where: { $0.location.coordinate == coordinate })
+    func setCurrentCar(id: UUID) {
+        self.currentCar = cars.first(where: { $0.id == id })
     }
 }
 

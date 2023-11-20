@@ -220,6 +220,27 @@
 			path = Resourses;
 			sourceTree = "<group>";
 		};
+		B72DB8532B0B43FB000172BA /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				B72DB8542B0B441C000172BA /* Components */,
+				B71E3BC32AE56B7F00DBE6AF /* ImperativeMapView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		B72DB8542B0B441C000172BA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B7F928472B09ECC100E49761 /* UserLocationButtonView.swift */,
+				B763DD172A670C74008E20DA /* BonusButtonView.swift */,
+				B77A659F2A6C536000E68B75 /* RefreshMapButtonView.swift */,
+				B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */,
+				B7A369672A3C719200B31121 /* Pin.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		B76860962A3D90940010D590 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +277,7 @@
 		B781C75A2A643E5B0072DEE0 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				B76860942A3D8FC70010D590 /* OrderDetailsView.swift */,
 				B79DC48E2A5B079300175413 /* AboutUserView.swift */,
 				B79DC4902A5B085800175413 /* OtherInfoView.swift */,
 				B79DC4922A5B0A3100175413 /* AboutCarView.swift */,
@@ -318,15 +340,14 @@
 		B7A369612A3C69D400B31121 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B72DB8532B0B43FB000172BA /* Map */,
 				B781C75A2A643E5B0072DEE0 /* Order */,
 				B76860962A3D90940010D590 /* Auth */,
 				B7A369662A3C718100B31121 /* Components */,
 				B768608E2A3CE9010010D590 /* SettingView.swift */,
 				B76860902A3D09230010D590 /* OrderListView.swift */,
-				B76860942A3D8FC70010D590 /* OrderDetailsView.swift */,
 				B7B253162A6455A3008DAC5C /* MapView.swift */,
 				B785872E2A6B1F610002689B /* UserInfoView.swift */,
-				B71E3BC32AE56B7F00DBE6AF /* ImperativeMapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,17 +355,12 @@
 		B7A369662A3C718100B31121 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B7A369672A3C719200B31121 /* Pin.swift */,
 				B76860A22A3DB5D20010D590 /* GreenButton.swift */,
 				B77E07EC2A6430A700B3DBAC /* LocationCellView.swift */,
 				B7C48E882A799A9A00D68742 /* SimpleCellView.swift */,
-				B763DD172A670C74008E20DA /* BonusButtonView.swift */,
-				B77A659F2A6C536000E68B75 /* RefreshMapButtonView.swift */,
-				B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */,
 				B72056262A851C2A003D1372 /* Avatar.swift */,
 				B72056282A852DC0003D1372 /* BonusImage.swift */,
 				B7CA63172B063B0B00C77B4E /* CarView.swift */,
-				B7F928472B09ECC100E49761 /* UserLocationButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
