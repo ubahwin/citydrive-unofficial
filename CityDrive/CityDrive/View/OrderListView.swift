@@ -21,7 +21,7 @@ struct OrderListView: View {
                 List(orderVM.orders) { order in
                     NavigationLink(destination: OrderDetailsView(orderID: order.id.uuidString, orderVM: orderVM)) {
                         HStack {
-                            Text(order.startedAt, style: .date)
+                            Text(order.date)
                             Text(order.startedAt, style: .time)
                             Spacer()
                             Text(order.amount).bold()
