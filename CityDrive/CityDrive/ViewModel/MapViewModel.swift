@@ -13,6 +13,10 @@ class MapViewModel: ObservableObject {
     @Published var carsIsLoaded = false
 
     @Published var currentCar: Car?
+    @Published var currentCarWalktime: Int?
+    @Published var routeToCurCar: MKRoute?
+    @Published var currentCarAnnotation: MKAnnotationView?
+    @Published var drawRoad = false
     @Published var openCarDetail = false
 
     @Published var goToUser = false
@@ -82,13 +86,13 @@ class MapViewModel: ObservableObject {
         }
     }
 
+    func bookingCar() { }
+
+    func drawRoadToCurrentCar() {
+        drawRoad.toggle()
+    }
+
     func setCurrentCar(id: UUID) {
         self.currentCar = cars.first(where: { $0.id == id })
-    }
-}
-
-extension CLLocationCoordinate2D: Equatable {
-    public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
-        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
 }
