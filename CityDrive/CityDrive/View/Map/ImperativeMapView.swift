@@ -84,7 +84,7 @@ class MapViewController: UIViewController {
 
         let region = MKCoordinateRegion(
             center: сenter,
-            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         )
         mapView.setRegion(region, animated: true)
     }
@@ -112,9 +112,20 @@ class MapViewController: UIViewController {
             .store(in: &cancellables)
         mapVM.$openCarDetail
             .receive(on: DispatchQueue.main)
-            .sink { flag in
+            .sink { [self] flag in
                 if !flag {
-                    self.mapView.deselectAnnotation(nil, animated: false)
+                    getAwayFromCurCar()
+                }
+            }
+            .store(in: &cancellables)
+        mapVM.$drawRoad
+            .receive(on: DispatchQueue.main)
+            .sink { [self] flag in
+                if flag {
+                    drawRoad(route: mapVM.routeToCurCar)
+                } else {
+                    removeRoad(route: mapVM.routeToCurCar)
+                    changePinTappedCar(view: mapVM.currentCarAnnotation)
                 }
             }
             .store(in: &cancellables)
@@ -142,6 +153,66 @@ class MapViewController: UIViewController {
         mapView.isZoomEnabled = true
         mapView.isPitchEnabled = true
         mapView.isRotateEnabled = false
+    }
+
+    func calculateWalkingTime(from user: Point) {
+        guard let destination = mapVM.currentCar?.location.coordinate else {
+            return
+        }
+
+        let request = MKDirections.Request()
+
+        let sourcePlacemark = MKPlacemark(coordinate: user.coordinate, addressDictionary: nil)
+        request.source = MKMapItem(placemark: sourcePlacemark)
+
+        let destinationPlacemark = MKPlacemark(coordinate: destination, addressDictionary: nil)
+        request.destination = MKMapItem(placemark: destinationPlacemark)
+        request.transportType = .walking
+        let directions = MKDirections(request: request)
+
+        directions.calculate { [self] (response, _) in
+            guard let response = response else { return }
+
+            let ETA = response.routes[0].expectedTravelTime
+            let minutes = Int(ETA / 60)
+
+            mapVM.currentCarWalktime = minutes
+            mapVM.routeToCurCar = response.routes[0]
+        }
+    }
+
+    func drawRoad(route: MKRoute?) {
+        guard let route = route else { return }
+
+        mapView.addOverlay(route.polyline, level: .aboveRoads)
+
+        if let endCoordinate = route.steps.first?.polyline.coordinate {
+            let startCoordinate = route.polyline.coordinate
+            goToTwoPoints(
+                point1: Point(coordinate: startCoordinate),
+                point2: Point(coordinate: endCoordinate)
+            )
+        }
+
+        mapVM.currentCarAnnotation?.image = UIImage.pinGotoCar.resizePin(height: 50, width: 30)
+    }
+
+    func getAwayFromCurCar() {
+        removeRoad(route: mapVM.routeToCurCar)
+        mapView.deselectAnnotation(nil, animated: false)
+    }
+
+    func removeRoad(route: MKRoute?) {
+        guard let line = route?.polyline else {
+            return
+        }
+        mapView.removeOverlay(line)
+    }
+
+    func goToTwoPoints(point1: Point, point2: Point) {
+        // TODO: Доделать реализацию перемещения между двумя точками картиночку красиву
+//        let region = MKCoordinateRegion(center: center, span: span)
+//        mapView.setRegion(region, animated: true)
     }
 }
 
@@ -173,19 +244,24 @@ extension MapViewController: MKMapViewDelegate {
             renderer.fillColor = AppColor.green().withAlphaComponent(0.05)
             return renderer
         }
-        return MKOverlayRenderer()
+
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = AppColor.purple()
+        renderer.lineWidth = 3.0
+        return renderer
     }
 
     // MARK: did select annotation
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation as? ImperativeMapPin {
-            goTo(coordinate: annotation.coordinate, offsetLat: -0.002)
+            goTo(coordinate: annotation.coordinate, offsetLat: -0.001)
 
+            mapVM.currentCarAnnotation = view
             mapVM.openCarDetail = true
             mapVM.setCurrentCar(id: annotation.id)
+            calculateWalkingTime(from: Point(coordinate: mapView.userLocation.coordinate))
 
-            let image = annotation.transferable ? UIImage.pinBigGiveaway : UIImage.pinBigCar
-            view.image = image.resizePin(height: 50, width: 30)
+            changePinTappedCar(view: view)
             view.centerOffset.y -= 20
         }
     }
@@ -195,6 +271,13 @@ extension MapViewController: MKMapViewDelegate {
         if let annotation = view.annotation as? ImperativeMapPin {
             view.image = annotation.image
             view.centerOffset.y += 20
+        }
+    }
+
+    func changePinTappedCar(view: MKAnnotationView?) {
+        if let annotation = view?.annotation as? ImperativeMapPin {
+            let image = annotation.transferable ? UIImage.pinBigGiveaway : UIImage.pinBigCar
+            view?.image = image.resizePin(height: 50, width: 30)
         }
     }
 }
