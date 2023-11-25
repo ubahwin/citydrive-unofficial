@@ -4,6 +4,13 @@ struct ShortOrder: Identifiable {
     var id: UUID
     var startedAt: Date
     var amount: String
+
+    var date: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+
+        return dateFormatter.string(from: startedAt)
+    }
 }
 
 extension OrderListResponse {
