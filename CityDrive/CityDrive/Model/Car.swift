@@ -1,17 +1,23 @@
 import Foundation
 import MapKit
 
-struct Car: Identifiable {
+struct Car: Identifiable, Equatable {
     var id: UUID
 
     var location: Point
 
     var img: URL
     var model: String
-    var number: String
+    var number: CarNumber
 
     var transferable: Bool
-    var distance, walktime, fuel, tankVolume, seats, remainPath, powerReserve: Int
+
+    var powerReserveMeters: Int
+    var powerReserveKilometers: Int {
+        return powerReserveMeters / 1000
+    }
+
+    var seats, remainPath: Int
     var hasTransponder, boosterSeat, babySeat, forSale, engineWarnUpAvailable, isElectric: Bool
     var fuelType: String
 }
@@ -25,10 +31,6 @@ extension CarResponse {
         let img = URL(string: self.img ?? "")!
         let model = self.model ?? ""
         let number = self.number ?? ""
-        let distance = self.distance ?? 0
-        let walktime = self.walktime ?? 0
-        let fuel = self.fuel ?? 0
-        let tankVolume = self.tankVolume ?? 0
         let powerReserve = self.powerReserve ?? 0
         let seats = self.seats ?? 0
         let remainPath = self.remainPath ?? 0
@@ -46,15 +48,11 @@ extension CarResponse {
             location: Point(latitude: lat, longitude: lon),
             img: img,
             model: model,
-            number: number,
+            number: CarNumber(number: number),
             transferable: transferable,
-            distance: distance,
-            walktime: walktime,
-            fuel: fuel,
-            tankVolume: tankVolume,
+            powerReserveMeters: powerReserve,
             seats: seats,
             remainPath: remainPath,
-            powerReserve: powerReserve,
             hasTransponder: hasTransponder,
             boosterSeat: boosterSeat,
             babySeat: babySeat,
