@@ -41,6 +41,7 @@ struct CarView: View {
 
 struct CarInfoView: View {
     @ObservedObject var mapVM: MapViewModel
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         ZStack {
@@ -88,7 +89,7 @@ struct CarInfoView: View {
                                 } label: {
                                     Image(systemName: "chevron.forward")
                                         .imageScale(.small)
-                                        .foregroundStyle(.black)
+                                        .foregroundStyle(colorScheme == .dark ? .white : .black)
                                 }
                             }
                             HStack {
