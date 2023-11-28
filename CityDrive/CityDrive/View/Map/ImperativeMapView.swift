@@ -45,6 +45,7 @@ class MapViewController: UIViewController {
 
     func updateCars() {
         mapView.removeAnnotations(mapView.annotations)
+        mapVM.openCarDetail = false
 
         var carAnnotations = [ImperativeMapPin]()
 
@@ -254,11 +255,12 @@ extension MapViewController: MKMapViewDelegate {
     // MARK: did select annotation
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation as? ImperativeMapPin {
+            mapVM.openCarDetail = true
+            mapVM.setCurrentCar(id: annotation.id)
+
             goTo(coordinate: annotation.coordinate, offsetLat: -0.001)
 
             mapVM.currentCarAnnotation = view
-            mapVM.openCarDetail = true
-            mapVM.setCurrentCar(id: annotation.id)
             calculateWalkingTime(from: Point(coordinate: mapView.userLocation.coordinate))
 
             changePinTappedCar(view: view)
@@ -297,6 +299,10 @@ extension MapViewController: CLLocationManagerDelegate {
             )
             mapView.setRegion(region, animated: true)
             currentUserLocationIsLoad = true
+
+            if mapVM.city == nil {
+                mapVM.city = .spb
+            }
         }
     }
 
@@ -307,5 +313,9 @@ extension MapViewController: CLLocationManagerDelegate {
                 rotationAngle: newHeading.trueHeading * .pi / 180
             )
         }
+    }
+
+    func currentCity() {
+
     }
 }
