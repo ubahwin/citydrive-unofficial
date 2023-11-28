@@ -12,7 +12,7 @@ struct UserLocationButtonView: View {
                 label: { Image(systemName: "location.fill") }
             )
             .padding(10)
-            .background(colorScheme == .dark ? Color(UIColor.systemBackground) : .white)
+            .background(colorScheme == .dark ? .black : .white)
             .foregroundStyle(colorScheme == .dark ? AppColor.green() : .black)
             .clipShape(RoundedRectangle(cornerRadius: 8))
         }

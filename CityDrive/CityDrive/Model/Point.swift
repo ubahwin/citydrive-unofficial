@@ -9,6 +9,10 @@ struct Point: Codable, Equatable {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 
+    var location: CLLocation {
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
+
     init(coordinate: CLLocationCoordinate2D) {
         self.latitude = coordinate.latitude
         self.longitude = coordinate.longitude

@@ -44,8 +44,9 @@ class MapViewController: UIViewController {
     }
 
     func updateCars() {
-        mapView.removeAnnotations(mapView.annotations)
         mapVM.openCarDetail = false
+
+        mapView.removeAnnotations(mapView.annotations)
 
         for (id, car) in mapVM.cars {
             mapView.addAnnotation(ImperativeMapPin(
@@ -283,7 +284,7 @@ extension MapViewController: MKMapViewDelegate {
 extension MapViewController: CLLocationManagerDelegate {
     // MARK: start map position -> user
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last, !currentUserLocationIsLoad {
+        if let location: CLLocation = locations.last, !currentUserLocationIsLoad {
             let initialLocation = CLLocationCoordinate2D(
                 latitude: location.coordinate.latitude,
                 longitude: location.coordinate.longitude
@@ -295,9 +296,7 @@ extension MapViewController: CLLocationManagerDelegate {
             mapView.setRegion(region, animated: true)
             currentUserLocationIsLoad = true
 
-            if mapVM.city == nil {
-                mapVM.city = .spb
-            }
+            mapVM.city = City.nearestCity(with: location)
         }
     }
 
@@ -308,9 +307,5 @@ extension MapViewController: CLLocationManagerDelegate {
                 rotationAngle: newHeading.trueHeading * .pi / 180
             )
         }
-    }
-
-    func currentCity() {
-
     }
 }

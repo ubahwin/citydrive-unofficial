@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct OrderListView: View {
-    @StateObject private var orderVM = OrdersViewModel()
+    @ObservedObject var orderVM: OrdersViewModel
 
     var body: some View {
         NavigationStack {
@@ -45,5 +45,5 @@ struct OrderListView: View {
 }
 
 #Preview {
-    OrderListView()
+    OrderListView(orderVM: OrdersViewModel())
 }

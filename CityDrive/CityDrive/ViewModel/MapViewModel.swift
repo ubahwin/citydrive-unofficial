@@ -9,7 +9,7 @@ class MapViewModel: ObservableObject {
     @Published var greenArea: GreenArea? = Settings.greenArea
     @Published var bonusBalance = ""
 
-    @Published var mapIsUpdate = false
+    @Published var mapIsLoad = false
     @Published var carsIsLoaded = false
 
     @Published var currentCar: Car?
@@ -75,6 +75,7 @@ class MapViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.cars = carsByArea
                 self.carsIsLoaded = true
+                self.mapIsLoad = true
             }
         }
     }

@@ -1,4 +1,5 @@
 import XCTest
+import MapKit
 @testable import CityDrive
 
 final class CityDriveTests: XCTestCase {
@@ -67,5 +68,17 @@ final class CityDriveTests: XCTestCase {
         mapVM.setCurrentCar(id: cars.first!.id)
 
         XCTAssert(mapVM.currentCar == cars.first)
+    }
+
+    func test_City_nearestCitySpb() {
+        let myLocation = CLLocation(latitude: 59.894210, longitude: 30.297850)
+
+        XCTAssert(City.nearestCity(with: myLocation) == .spb)
+    }
+
+    func test_City_nearestCityMoscow() {
+        let myLocation = CLLocation(latitude: 56.028283, longitude: 39.485681)
+
+        XCTAssert(City.nearestCity(with: myLocation) == .moscow)
     }
 }
