@@ -22,7 +22,7 @@ class MapViewModel: ObservableObject {
     @Published var goToUser = false
 
     // Настройки
-    @AppStorage(Settings.city) var city: City = .spb
+    @AppStorage(Settings.city) var city: City?
     @AppStorage(Settings.mapType) var mapType: MapType?
 
     init() {
@@ -50,6 +50,8 @@ class MapViewModel: ObservableObject {
     }
 
     func loadCarsStatus() {
+        guard let currentCity = self.city?.areaGroupID else { return }
+
         self.carsIsLoaded = false
 
         networkManager.getCarStatus { response, error in
@@ -62,7 +64,7 @@ class MapViewModel: ObservableObject {
 
             var cars = [Car]()
 
-            for carResponse in carsResponse where carResponse.areaGroupID == self.city.areaGroupID {
+            for carResponse in carsResponse where carResponse.areaGroupID == currentCity {
                 let car = carResponse.mapToCar()
                 cars.append(car)
             }
