@@ -50,6 +50,8 @@ class MapViewModel: ObservableObject {
     }
 
     func loadCarsStatus() {
+        self.carsIsLoaded = false
+
         networkManager.getCarStatus { response, error in
             if let error = error {
                 print(error) // TODO: logging
