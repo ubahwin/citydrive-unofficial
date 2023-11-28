@@ -8,7 +8,6 @@ struct RefreshMapButtonView: View {
         Button(
             action: {
                 withAnimation {
-                    mapVM.carsIsLoaded = false
                     mapVM.loadCarsStatus()
                 }
             },
@@ -23,7 +22,7 @@ struct RefreshMapButtonView: View {
             }
         )
         .padding(10)
-        .background(colorScheme == .dark ? .black : .white)
+        .background(colorScheme == .dark ? Color(UIColor.systemBackground) : .white)
         .foregroundStyle(colorScheme == .dark ? AppColor.green() : .black)
         .clipShape(RoundedRectangle(cornerRadius: 8))
     }

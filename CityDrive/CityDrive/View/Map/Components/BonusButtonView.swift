@@ -20,7 +20,7 @@ struct BonusButtonView: View {
                 }
             )
             .padding(10)
-            .background(colorScheme == .dark ? .black : .white)
+            .background(colorScheme == .dark ? Color(UIColor.systemBackground) : .white)
             .foregroundStyle(colorScheme == .dark ? AppColor.green() : .black)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .onAppear {
