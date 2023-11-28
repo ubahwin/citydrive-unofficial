@@ -3,6 +3,44 @@ import SwiftUI
 
 struct CarView: View {
     @ObservedObject var mapVM: MapViewModel
+    @Environment(\.colorScheme) var colorScheme
+
+    var body: some View {
+        if mapVM.currentCar?.transferable ?? false {
+            ZStack(alignment: .bottom) {
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(.red)
+                VStack {
+                    Text("Вне зоны завершения аренды")
+                        .font(.footnote)
+                        .foregroundStyle(.white)
+                        .opacity(0.8)
+                        .padding()
+                    Spacer()
+                }
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(colorScheme == .dark ? Color(UIColor.systemBackground) : .white)
+                    .frame(height: 300)
+                VStack {
+                    Spacer(minLength: 60)
+                    CarInfoView(mapVM: mapVM)
+                        .presentationDetents([.height(345)])
+                        .presentationBackgroundInteraction(.enabled(upThrough: .height(345)))
+                        .presentationCornerRadius(15)
+                        .frame(maxHeight: 320)
+                }
+            }
+        } else {
+            CarInfoView(mapVM: mapVM)
+                .presentationDetents([.height(300)])
+                .presentationBackgroundInteraction(.enabled(upThrough: .height(300)))
+                .presentationCornerRadius(15)
+        }
+    }
+}
+
+struct CarInfoView: View {
+    @ObservedObject var mapVM: MapViewModel
 
     var body: some View {
         ZStack {
