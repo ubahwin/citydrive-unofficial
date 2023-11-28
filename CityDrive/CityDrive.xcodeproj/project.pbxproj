@@ -17,7 +17,6 @@
 		B71E3BC42AE56B7F00DBE6AF /* ImperativeMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71E3BC32AE56B7F00DBE6AF /* ImperativeMapView.swift */; };
 		B72056272A851C2A003D1372 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72056262A851C2A003D1372 /* Avatar.swift */; };
 		B72056292A852DC0003D1372 /* BonusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72056282A852DC0003D1372 /* BonusImage.swift */; };
-		B72A4A6D2A72D025003D02DA /* MapInteractionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */; };
 		B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DBF972A597BFE006393B6 /* ShortOrder.swift */; };
 		B743CA102A67449500D146CC /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743CA0F2A67449500D146CC /* City.swift */; };
 		B744C98B2B0CB32E00BEAB2F /* CarNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744C98A2B0CB32E00BEAB2F /* CarNumberView.swift */; };
@@ -109,7 +108,6 @@
 		B71E3BC32AE56B7F00DBE6AF /* ImperativeMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImperativeMapView.swift; sourceTree = "<group>"; };
 		B72056262A851C2A003D1372 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		B72056282A852DC0003D1372 /* BonusImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusImage.swift; sourceTree = "<group>"; };
-		B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractionPickerView.swift; sourceTree = "<group>"; };
 		B73DBF972A597BFE006393B6 /* ShortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortOrder.swift; sourceTree = "<group>"; };
 		B743CA0F2A67449500D146CC /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		B744C98A2B0CB32E00BEAB2F /* CarNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarNumberView.swift; sourceTree = "<group>"; };
@@ -261,7 +259,6 @@
 				B7F928472B09ECC100E49761 /* UserLocationButtonView.swift */,
 				B763DD172A670C74008E20DA /* BonusButtonView.swift */,
 				B77A659F2A6C536000E68B75 /* RefreshMapButtonView.swift */,
-				B72A4A6C2A72D025003D02DA /* MapInteractionPickerView.swift */,
 				B7A369672A3C719200B31121 /* Pin.swift */,
 			);
 			path = Components;
@@ -603,7 +600,6 @@
 				B7F928482B09ECC100E49761 /* UserLocationButtonView.swift in Sources */,
 				B7CDD0B42A4704EB0034278B /* SessionIDResponse.swift in Sources */,
 				B79DC48F2A5B079300175413 /* AboutUserView.swift in Sources */,
-				B72A4A6D2A72D025003D02DA /* MapInteractionPickerView.swift in Sources */,
 				B7A369682A3C719200B31121 /* Pin.swift in Sources */,
 				B7CDD0A62A3F92680034278B /* HTTPMethod.swift in Sources */,
 				B7CDD0A32A3F92680034278B /* EndpointType.swift in Sources */,
