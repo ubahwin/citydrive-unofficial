@@ -5,7 +5,7 @@ struct CarView: View {
     @ObservedObject var mapVM: MapViewModel
 
     var body: some View {
-        NavigationStack {
+        ZStack {
             VStack {
                 Spacer()
                 VStack {
@@ -16,7 +16,6 @@ struct CarView: View {
                         Spacer()
                         CarNumberView(number: mapVM.currentCar?.number)
                     }
-
                     HStack {
                         AsyncImage(url: mapVM.currentCar?.img) { image in
                             image
@@ -39,7 +38,7 @@ struct CarView: View {
                                     .frame(minWidth: 1, maxWidth: 20)
                                 if let walktime = mapVM.currentCarWalktime {
                                     if walktime == 0 {
-                                        Text("<1 мин")
+                                        Text("Меньше минуты")
                                     } else if walktime > 60 {
                                         Text("Слишком долго")
                                     } else {
@@ -47,7 +46,7 @@ struct CarView: View {
                                     }
                                 }
                                 Button {
-                                    mapVM.drawRoadToCurrentCar()
+                                    mapVM.drawRoad.toggle()
                                 } label: {
                                     Image(systemName: "chevron.forward")
                                         .imageScale(.small)
@@ -93,6 +92,7 @@ struct CarView: View {
                         Text("Забронировать")
                     }
                 }
+                .font(.footnote)
                 .buttonStyle(GreenButton(fixHeight: 50))
             }
         }
