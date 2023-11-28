@@ -4,11 +4,13 @@ struct BonusButtonView: View {
     @ObservedObject var mapVM: MapViewModel
     @Environment(\.colorScheme) var colorScheme
 
+    @State private var openBonusInfo = false
+
     var body: some View {
         VStack {
             Button(
                 action: {
-                    // empty
+                    openBonusInfo = true
                 },
                 label: {
                     HStack {
@@ -24,6 +26,9 @@ struct BonusButtonView: View {
             .onAppear {
                 mapVM.loadBonusBalance()
             }
+        }
+        .sheet(isPresented: $openBonusInfo) {
+            Text("Тут инфа про бонусы")
         }
     }
 }
