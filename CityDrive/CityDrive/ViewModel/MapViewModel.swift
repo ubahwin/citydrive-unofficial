@@ -22,7 +22,7 @@ class MapViewModel: ObservableObject {
     @Published var goToUser = false
 
     // Настройки
-    @AppStorage(Settings.city) var city: City?
+    @AppStorage(Settings.city) var city: City = .spb
     @AppStorage(Settings.mapType) var mapType: MapType?
 
     init() {
@@ -61,9 +61,8 @@ class MapViewModel: ObservableObject {
             guard let carsResponse: [CarResponse] = response?.cars else { return }
 
             var cars = [Car]()
-            let curCity = self.city?.areaGroupID
 
-            for carResponse in carsResponse where carResponse.areaGroupID == curCity {
+            for carResponse in carsResponse where carResponse.areaGroupID == self.city.areaGroupID {
                 let car = carResponse.mapToCar()
                 cars.append(car)
             }
