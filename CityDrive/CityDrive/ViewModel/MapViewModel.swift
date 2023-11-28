@@ -9,7 +9,7 @@ class MapViewModel: ObservableObject {
     @Published var greenArea: GreenArea? = Settings.greenArea
     @Published var bonusBalance = ""
 
-    @Published var mapIsUpdate = false
+    @Published var mapIsLoad = false
     @Published var carsIsLoaded = false
 
     @Published var currentCar: Car?
@@ -62,16 +62,16 @@ class MapViewModel: ObservableObject {
 
             guard let carsResponse: [CarResponse] = response?.cars else { return }
 
-            var cars = [Car]()
+            var newCars = [Car]()
 
             for carResponse in carsResponse where carResponse.areaGroupID == currentCity {
-                let car = carResponse.mapToCar()
-                cars.append(car)
+                newCars.append(carResponse.mapToCar())
             }
 
             DispatchQueue.main.async {
-                self.cars = cars
+                self.cars = newCars
                 self.carsIsLoaded = true
+                self.mapIsLoad = true
             }
         }
     }
