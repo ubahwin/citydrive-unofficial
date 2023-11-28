@@ -47,18 +47,13 @@ class MapViewController: UIViewController {
         mapView.removeAnnotations(mapView.annotations)
         mapVM.openCarDetail = false
 
-        var carAnnotations = [ImperativeMapPin]()
-
-        for car in mapVM.cars {
-            let pin = ImperativeMapPin(
-                id: car.id,
+        for (id, car) in mapVM.cars {
+            mapView.addAnnotation(ImperativeMapPin(
+                id: id,
                 coordinate: car.location.coordinate,
                 transferable: car.transferable
-            )
-            carAnnotations.append(pin)
+            ))
         }
-
-        mapView.addAnnotations(carAnnotations)
     }
 
     func goToUser() {
