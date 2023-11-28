@@ -13,7 +13,7 @@ struct UserLocationButtonView: View {
             )
             .padding(10)
             .background(colorScheme == .dark ? .black : .white)
-            .foregroundStyle(AppColor.green())
+            .foregroundStyle(colorScheme == .dark ? AppColor.green() : .black)
             .clipShape(RoundedRectangle(cornerRadius: 8))
         }
     }
