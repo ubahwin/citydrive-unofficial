@@ -19,7 +19,7 @@ struct CarView: View {
                     Spacer()
                 }
                 RoundedRectangle(cornerRadius: 15)
-                    .fill(colorScheme == .dark ? Color(UIColor.systemBackground) : .white)
+                    .fill(colorScheme == .dark ? .black : .white)
                     .frame(height: 300)
                 VStack {
                     Spacer(minLength: 60)
