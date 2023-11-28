@@ -2,7 +2,7 @@ import SwiftUI
 import MapKit
 
 struct SettingView: View {
-    @StateObject private var settingVM = SettingViewModel()
+    @ObservedObject var settingVM: SettingViewModel
 
     var body: some View {
         NavigationStack {
@@ -48,5 +48,5 @@ struct SettingView: View {
 }
 
 #Preview {
-    SettingView()
+    SettingView(settingVM: SettingViewModel())
 }

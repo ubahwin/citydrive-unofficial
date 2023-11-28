@@ -2,9 +2,9 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @StateObject var mapVM = MapViewModel()
+    @ObservedObject var mapVM: MapViewModel
     @State private var timer = Timer.publish(
-        every: 20,
+        every: 30,
         on: .main,
         in: .common
     ).autoconnect()
@@ -40,5 +40,5 @@ struct MapView: View {
 }
 
 #Preview {
-    MapView()
+    MapView(mapVM: MapViewModel())
 }
