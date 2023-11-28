@@ -88,10 +88,6 @@ class MapViewModel: ObservableObject {
 
     func bookingCar() { }
 
-    func drawRoadToCurrentCar() {
-        drawRoad.toggle()
-    }
-
     func setCurrentCar(id: UUID) {
         self.currentCar = cars.first(where: { $0.id == id })
     }
