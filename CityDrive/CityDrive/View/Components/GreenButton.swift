@@ -10,10 +10,12 @@ struct GreenButton: ButtonStyle {
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .foregroundStyle(.white)
             .padding()
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+            .brightness(configuration.isPressed ? -0.1: 0)
     }
 }
 
 #Preview {
-    Button("asfd") { }
+    Button("Example") { }
         .buttonStyle(GreenButton(fixHeight: 50))
 }
