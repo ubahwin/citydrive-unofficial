@@ -4,11 +4,11 @@ struct CarStatusResponse: Codable {
     let insuranceKasko, insuranceLife: Int?
     let selfieUpload, showDestinationPoint, selectedAllCars, mailruComboTariff: Bool?
     let directPassDefault, directPassAllowed: Bool?
-    let preorderCars: [CarResponse]?
+    let preorderCars: [UUID: CarResponse]?
     let areaGroupDefaut: String?
     let discounts: DiscountsResponse?
 
-    let cars: [CarResponse]?
+    let cars: [UUID: CarResponse]?
 
     enum CodingKeys: String, CodingKey {
         case insuranceKasko = "insurance_kasko"
@@ -23,6 +23,47 @@ struct CarStatusResponse: Codable {
         case preorderCars = "preorder_cars"
         case areaGroupDefaut = "area_group_defaut"
         case discounts
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        insuranceKasko = try container.decodeIfPresent(Int.self, forKey: .insuranceKasko)
+        insuranceLife = try container.decodeIfPresent(Int.self, forKey: .insuranceLife)
+        selfieUpload = try container.decodeIfPresent(Bool.self, forKey: .selfieUpload)
+        showDestinationPoint = try container.decodeIfPresent(Bool.self, forKey: .showDestinationPoint)
+        selectedAllCars = try container.decodeIfPresent(Bool.self, forKey: .selectedAllCars)
+        mailruComboTariff = try container.decodeIfPresent(Bool.self, forKey: .mailruComboTariff)
+        directPassDefault = try container.decodeIfPresent(Bool.self, forKey: .directPassDefault)
+        directPassAllowed = try container.decodeIfPresent(Bool.self, forKey: .directPassAllowed)
+        areaGroupDefaut = try container.decodeIfPresent(String.self, forKey: .areaGroupDefaut)
+        discounts = try container.decodeIfPresent(DiscountsResponse.self, forKey: .discounts)
+
+        var carsDict = [UUID: CarResponse]()
+        var carsContainer = try container.nestedUnkeyedContainer(forKey: .cars)
+
+        var preorderCarsDict = [UUID: CarResponse]()
+        var preorderCarsContainer = try container.nestedUnkeyedContainer(forKey: .cars)
+
+        while !preorderCarsContainer.isAtEnd {
+            let carResponse = try preorderCarsContainer.decode(CarResponse.self)
+
+            if let carID = carResponse.carID, let uuid = UUID(uuidString: carID) {
+                preorderCarsDict[uuid] = carResponse
+            }
+        }
+
+        preorderCars = preorderCarsDict
+
+        while !carsContainer.isAtEnd {
+            let carResponse = try carsContainer.decode(CarResponse.self)
+
+            if let carID = carResponse.carID, let uuid = UUID(uuidString: carID) {
+                carsDict[uuid] = carResponse
+            }
+        }
+
+        cars = carsDict
     }
 }
 

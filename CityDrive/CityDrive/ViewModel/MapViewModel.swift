@@ -5,7 +5,7 @@ import SwiftUI
 class MapViewModel: ObservableObject {
     private let networkManager: NetworkManager
 
-    @Published var cars: [Car] = []
+    @Published var cars: [UUID: Car] = [:]
     @Published var greenArea: GreenArea? = Settings.greenArea
     @Published var bonusBalance = ""
 
@@ -59,17 +59,15 @@ class MapViewModel: ObservableObject {
                 print(error) // TODO: logging
                 return
             }
+            guard let carsDict = response?.cars else { return }
 
-            guard let carsResponse: [CarResponse] = response?.cars else { return }
-
-            var newCars = [Car]()
-
-            for carResponse in carsResponse where carResponse.areaGroupID == currentCity {
-                newCars.append(carResponse.mapToCar())
+            var carsByArea = [UUID: Car]()
+            for (id, carResponse) in carsDict where carResponse.areaGroupID != currentCity {
+                carsByArea[id] = carResponse.mapToCar()
             }
 
             DispatchQueue.main.async {
-                self.cars = newCars
+                self.cars = carsByArea
                 self.carsIsLoaded = true
                 self.mapIsLoad = true
             }
@@ -92,6 +90,6 @@ class MapViewModel: ObservableObject {
     func bookingCar() { }
 
     func setCurrentCar(id: UUID) {
-        self.currentCar = cars.first(where: { $0.id == id })
+        self.currentCar = cars[id]
     }
 }
