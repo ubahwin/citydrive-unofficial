@@ -59,17 +59,11 @@ class MapViewModel: ObservableObject {
                 print(error) // TODO: logging
                 return
             }
+            guard let carsDict = response?.cars else { return }
 
             var carsByArea = [UUID: Car]()
-
-            if let carsDict = response?.cars {
-                for (id, carResponse) in carsDict {
-                    if carResponse.areaGroupID != currentCity {
-                        continue
-                    }
-
-                    carsByArea[id] = carResponse.mapToCar()
-                }
+            for (id, carResponse) in carsDict where carResponse.areaGroupID != currentCity {
+                carsByArea[id] = carResponse.mapToCar()
             }
 
             DispatchQueue.main.async {
