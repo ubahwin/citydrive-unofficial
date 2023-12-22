@@ -18,6 +18,7 @@
 		B72056272A851C2A003D1372 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72056262A851C2A003D1372 /* Avatar.swift */; };
 		B72056292A852DC0003D1372 /* BonusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72056282A852DC0003D1372 /* BonusImage.swift */; };
 		B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DBF972A597BFE006393B6 /* ShortOrder.swift */; };
+		B740B0232B3604CE000BD173 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740B0222B3604CE000BD173 /* Logo.swift */; };
 		B743CA102A67449500D146CC /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743CA0F2A67449500D146CC /* City.swift */; };
 		B744C98B2B0CB32E00BEAB2F /* CarNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744C98A2B0CB32E00BEAB2F /* CarNumberView.swift */; };
 		B744C98F2B0CBF2600BEAB2F /* CarNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744C98E2B0CBF2600BEAB2F /* CarNumber.swift */; };
@@ -34,7 +35,6 @@
 		B76860A12A3DB40F0010D590 /* SmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76860A02A3DB40F0010D590 /* SmsView.swift */; };
 		B76860A32A3DB5D20010D590 /* GreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76860A22A3DB5D20010D590 /* GreenButton.swift */; };
 		B76860C72A3E33C00010D590 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76860C62A3E33C00010D590 /* Color.swift */; };
-		B77A65A02A6C536000E68B75 /* RefreshMapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77A659F2A6C536000E68B75 /* RefreshMapButtonView.swift */; };
 		B77E07ED2A6430A700B3DBAC /* LocationCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E07EC2A6430A700B3DBAC /* LocationCellView.swift */; };
 		B7802B472A653A6F004F31CE /* CarStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7802B462A653A6F004F31CE /* CarStatusResponse.swift */; };
 		B78587292A6AF16F0002689B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78587282A6AF16F0002689B /* User.swift */; };
@@ -110,6 +110,7 @@
 		B72056262A851C2A003D1372 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		B72056282A852DC0003D1372 /* BonusImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusImage.swift; sourceTree = "<group>"; };
 		B73DBF972A597BFE006393B6 /* ShortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortOrder.swift; sourceTree = "<group>"; };
+		B740B0222B3604CE000BD173 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 		B743CA0F2A67449500D146CC /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		B744C98A2B0CB32E00BEAB2F /* CarNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarNumberView.swift; sourceTree = "<group>"; };
 		B744C98E2B0CBF2600BEAB2F /* CarNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarNumber.swift; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		B76860A02A3DB40F0010D590 /* SmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsView.swift; sourceTree = "<group>"; };
 		B76860A22A3DB5D20010D590 /* GreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenButton.swift; sourceTree = "<group>"; };
 		B76860C62A3E33C00010D590 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		B77A659F2A6C536000E68B75 /* RefreshMapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshMapButtonView.swift; sourceTree = "<group>"; };
 		B77E07EC2A6430A700B3DBAC /* LocationCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellView.swift; sourceTree = "<group>"; };
 		B7802B462A653A6F004F31CE /* CarStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarStatusResponse.swift; sourceTree = "<group>"; };
 		B78587282A6AF16F0002689B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -260,7 +260,6 @@
 			children = (
 				B7F928472B09ECC100E49761 /* UserLocationButtonView.swift */,
 				B763DD172A670C74008E20DA /* BonusButtonView.swift */,
-				B77A659F2A6C536000E68B75 /* RefreshMapButtonView.swift */,
 				B7A369672A3C719200B31121 /* Pin.swift */,
 			);
 			path = Components;
@@ -389,6 +388,7 @@
 				B72056282A852DC0003D1372 /* BonusImage.swift */,
 				B7CA63172B063B0B00C77B4E /* CarView.swift */,
 				B744C98A2B0CB32E00BEAB2F /* CarNumberView.swift */,
+				B740B0222B3604CE000BD173 /* Logo.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -614,7 +614,6 @@
 				B7802B472A653A6F004F31CE /* CarStatusResponse.swift in Sources */,
 				B72056292A852DC0003D1372 /* BonusImage.swift in Sources */,
 				B70D4ACA2A3B1ABF00C90991 /* ContentView.swift in Sources */,
-				B77A65A02A6C536000E68B75 /* RefreshMapButtonView.swift in Sources */,
 				B71129C92A63D81000E821FE /* MiddleOrder.swift in Sources */,
 				B79DC4982A5B127A00175413 /* AboutPathView.swift in Sources */,
 				B7CDD0A42A3F92680034278B /* Router.swift in Sources */,
@@ -634,6 +633,7 @@
 				B7CDD09D2A3F92390034278B /* URLParameterEncoder.swift in Sources */,
 				B7A44FD22A5957C0003FCBD4 /* OrdersViewModel.swift in Sources */,
 				B7CA63182B063B0B00C77B4E /* CarView.swift in Sources */,
+				B740B0232B3604CE000BD173 /* Logo.swift in Sources */,
 				B7A369652A3C6A1200B31121 /* Car.swift in Sources */,
 				B71E3BC42AE56B7F00DBE6AF /* ImperativeMapView.swift in Sources */,
 				B7CDD0A52A3F92680034278B /* HTTPTask.swift in Sources */,

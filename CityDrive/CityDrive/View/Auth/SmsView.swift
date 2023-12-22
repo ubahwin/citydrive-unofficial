@@ -2,19 +2,20 @@ import SwiftUI
 
 struct SmsView: View {
     @ObservedObject var loginVM: LoginViewModel
+    @State private var smsCode = ""
 
     var body: some View {
         VStack {
             Spacer()
-            Image("logo")
+            Logo()
             Spacer()
-            TextField("******", text: $loginVM.smsCode)
+            TextField("******", text: $smsCode)
                 .keyboardType(.phonePad)
                 .multilineTextAlignment(.center)
                 .font(.largeTitle)
             Spacer()
             Button("Войти") {
-                loginVM.enter()
+                loginVM.enter(with: smsCode)
             }
             .buttonStyle(GreenButton())
             .fullScreenCover(isPresented: $loginVM.isEntered) {
