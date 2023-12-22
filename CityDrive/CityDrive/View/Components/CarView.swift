@@ -20,20 +20,20 @@ struct CarView: View {
                 }
                 RoundedRectangle(cornerRadius: 15)
                     .fill(colorScheme == .dark ? .black : .white)
-                    .frame(height: 300)
+                    .frame(height: 255)
                 VStack {
                     Spacer(minLength: 60)
                     CarInfoView(mapVM: mapVM)
-                        .presentationDetents([.height(345)])
-                        .presentationBackgroundInteraction(.enabled(upThrough: .height(345)))
+                        .presentationDetents([.height(300)])
+                        .presentationBackgroundInteraction(.enabled(upThrough: .height(300)))
                         .presentationCornerRadius(15)
-                        .frame(maxHeight: 320)
+                        .frame(maxHeight: 275)
                 }
             }
         } else {
             CarInfoView(mapVM: mapVM)
-                .presentationDetents([.height(300)])
-                .presentationBackgroundInteraction(.enabled(upThrough: .height(300)))
+                .presentationDetents([.height(255)])
+                .presentationBackgroundInteraction(.enabled(upThrough: .height(255)))
                 .presentationCornerRadius(15)
         }
     }
@@ -117,22 +117,7 @@ struct CarInfoView: View {
                     .padding(.horizontal)
                 }
                 .padding()
-                Spacer(minLength: 10)
-                Button {
-                    mapVM.bookingCar()
-                } label: {
-                    if mapVM.currentCar?.transferable ?? false {
-                        VStack(spacing: -1) {
-                            Text("Забронировать")
-                            Text("без права отмены")
-                                .opacity(0.6)
-                        }
-                    } else {
-                        Text("Забронировать")
-                    }
-                }
-                .font(.footnote)
-                .buttonStyle(GreenButton(fixHeight: 50))
+                Spacer()
             }
         }
     }
