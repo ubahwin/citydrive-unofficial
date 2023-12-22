@@ -20,7 +20,12 @@ struct MapView: View {
                 HStack {
                     HStack {
                         BonusButtonView(mapVM: mapVM)
-                        RefreshMapButtonView(mapVM: mapVM)
+                        if !mapVM.carsIsLoaded {
+                            ProgressView()
+                                .dynamicTypeSize(.accessibility1)
+                                .shadow(radius: 10)
+                                .padding(.horizontal)
+                        }
                     }
                     Spacer()
                     UserLocationButtonView(goToUser: $mapVM.goToUser)
