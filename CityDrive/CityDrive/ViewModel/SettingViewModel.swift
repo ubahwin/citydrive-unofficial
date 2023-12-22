@@ -8,8 +8,8 @@ class SettingViewModel: ObservableObject {
     @Published var user: User?
 
     @AppStorage(Settings.isLogged) var isLogged: Bool = false
-    @AppStorage(Settings.mapType) var mapType: MapType = .hybrid
-    @AppStorage(Settings.city) var city: City = .spb
+    @AppStorage(Settings.mapType) var mapType: MapType = .standard
+    @AppStorage(Settings.city) var city: City = .moscow
     @AppStorage(Settings.isDarkMode) var isDarkMode: Bool = true
 
     init() {

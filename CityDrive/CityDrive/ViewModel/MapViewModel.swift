@@ -22,8 +22,8 @@ class MapViewModel: ObservableObject {
     @Published var goToUser = false
 
     // Настройки
-    @AppStorage(Settings.city) var city: City?
-    @AppStorage(Settings.mapType) var mapType: MapType?
+    @AppStorage(Settings.city) var city: City = .moscow
+    @AppStorage(Settings.mapType) var mapType: MapType = .standard
 
     init() {
         self.networkManager = NetworkManager()
@@ -50,7 +50,7 @@ class MapViewModel: ObservableObject {
     }
 
     func loadCarsStatus() {
-        guard let currentCity = self.city?.areaGroupID else { return }
+        let currentCity = self.city.areaGroupID
 
         self.carsIsLoaded = false
 
@@ -62,7 +62,7 @@ class MapViewModel: ObservableObject {
             guard let carsDict = response?.cars else { return }
 
             var carsByArea = [UUID: Car]()
-            for (id, carResponse) in carsDict where carResponse.areaGroupID != currentCity {
+            for (id, carResponse) in carsDict where carResponse.areaGroupID == currentCity {
                 carsByArea[id] = carResponse.mapToCar()
             }
 

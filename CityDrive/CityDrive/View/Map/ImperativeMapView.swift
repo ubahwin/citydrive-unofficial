@@ -142,8 +142,8 @@ class MapViewController: UIViewController {
     }
 
     func updateMapType() {
-        let mapType = mapVM.mapType?.mapType
-        mapView.mapType = mapType ?? .standard
+        let mapType = mapVM.mapType.mapType
+        mapView.mapType = mapType
     }
 
     func updateMapInteractions() {
@@ -296,7 +296,7 @@ extension MapViewController: CLLocationManagerDelegate {
             mapView.setRegion(region, animated: true)
             currentUserLocationIsLoad = true
 
-            mapVM.city = City.nearestCity(with: location)
+//            mapVM.city = City.nearestCity(with: location)
         }
     }
 
