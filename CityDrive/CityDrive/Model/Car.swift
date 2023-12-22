@@ -28,7 +28,7 @@ extension CarResponse {
         let id = UUID(uuidString: carID) ?? UUID()
         let lat = self.lat ?? 0
         let lon = self.lon ?? 0
-        let img = URL(string: self.img ?? "")!
+        let img = URL(string: (self.img ?? "") + "_face_x3.png")!
         let model = self.model ?? ""
         let number = self.number ?? ""
         let powerReserve = self.powerReserve ?? 0
