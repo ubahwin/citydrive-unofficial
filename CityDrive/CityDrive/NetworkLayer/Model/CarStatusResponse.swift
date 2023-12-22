@@ -91,7 +91,7 @@ struct CarResponse: Codable {
 
     enum CodingKeys: String, CodingKey {
         case carID = "car_id"
-        case img
+        case img = "img_side"
         case model, number, lat, lon, distance, walktime, fuel
         case tankVolume = "tank_volume"
         case powerReserve = "power_reserve"
