@@ -11,6 +11,7 @@ class SettingViewModel: ObservableObject {
     @AppStorage(Settings.mapType) var mapType: MapType = .standard
     @AppStorage(Settings.city) var city: City = .moscow
     @AppStorage(Settings.isDarkMode) var isDarkMode: Bool = true
+    @AppStorage(Settings.paybackPercent) var paybackPercent: Int = 20
 
     init() {
         self.networkManager = NetworkManager()

@@ -39,6 +39,12 @@ struct SettingView: View {
                             Text(MapType.hybrid.title).tag(MapType.hybrid)
                         }
                     }
+                    Section("payback") {
+                        Stepper(
+                            "Текущий процент: \(settingVM.paybackPercent.description)",
+                            value: settingVM.$paybackPercent, in: 0...100
+                        )
+                    }
                     Toggle("Тёмная тема", isOn: settingVM.$isDarkMode)
                 }
             }

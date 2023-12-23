@@ -45,6 +45,20 @@ struct OrderDetailsView: View {
                     }
                 }
 
+                Section("payback") {
+                    SimpleCellView(
+                        name: "С каждого по",
+                        value: "\(orderVM.duty) ₽"
+                    )
+                    Stepper(
+                        "Кол-во людей: \(orderVM.peopleCount)",
+                        value: $orderVM.peopleCount, in: 2...5
+                    )
+                    .onChange(of: orderVM.peopleCount) {
+                        orderVM.calculateDuty()
+                    }
+                }
+
                 Section {
                     NavigationLink(destination: { OtherInfoView(otherInfo: orderVM.currentOrder?.otherInfo) }) {
                         Text("Дополнительная информация")

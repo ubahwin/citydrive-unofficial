@@ -1,7 +1,7 @@
 import Foundation
 import MapKit
 
-struct Car: Identifiable, Equatable {
+struct Car: Identifiable {
     var id: UUID
 
     var location: Point
@@ -20,6 +20,16 @@ struct Car: Identifiable, Equatable {
     var seats, remainPath: Int
     var hasTransponder, boosterSeat, babySeat, forSale, engineWarnUpAvailable, isElectric: Bool
     var fuelType: String
+}
+
+extension Car: Equatable, Comparable, Hashable {
+    static func < (lhs: Car, rhs: Car) -> Bool {
+        return lhs.id < rhs.id
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        return hasher.combine(id)
+    }
 }
 
 extension CarResponse {

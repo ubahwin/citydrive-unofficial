@@ -6,6 +6,7 @@ struct Settings {
     static var mapType = "mapType"
     static var city = "city"
     static var isDarkMode = "isDarkMode"
+    static var paybackPercent = "paybackPercent"
 
     static var sessionID: String {
         get {

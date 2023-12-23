@@ -6,15 +6,24 @@ class OrdersViewModel: ObservableObject {
     @Published var currentOrder: LargeOrder?
     @Published var currentMiddleOrder: MiddleOrder?
 
-    private let networkManager: NetworkManager
+    @AppStorage(Settings.paybackPercent) private var percent: Int = 20
+    @Published var amount: Double = 0
+    @Published var duty: Double = 0
+    @Published var peopleCount: Int = 2
+
+    private let networkManager = NetworkManager()
 
     private var totalCount = 0
     private var page = 0
     private let limit = 15
 
     init() {
-        self.networkManager = NetworkManager()
         loadOrderList()
+    }
+
+    func calculateDuty() {
+        let duty = amount / Double(peopleCount) * (1.0 + (Double(percent) / (100.0 * Double(peopleCount))))
+        self.duty = duty.roundedToTwoDecimalPlaces()
     }
 
     func orderHasBonusesReceipt(row: Row) -> Bool {
@@ -52,6 +61,8 @@ class OrdersViewModel: ObservableObject {
                 let order = orderResponse.mapToOrder()
 
                 DispatchQueue.main.async {
+                    self.amount = order.totalCost
+                    self.calculateDuty()
                     self.currentOrder = order
                 }
             }
