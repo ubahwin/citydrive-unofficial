@@ -10,6 +10,7 @@ struct BonusButtonView: View {
         VStack {
             Button(
                 action: {
+                    mapVM.openCarDetail = false
                     openBonusInfo = true
                 },
                 label: {

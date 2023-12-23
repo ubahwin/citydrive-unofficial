@@ -10,10 +10,12 @@ struct AboutCarView: View {
                 SimpleCellView(name: "Номер", value: car?.number)
                 SimpleCellView(name: "ID", value: car?.id).textSelection(.enabled)
             }
+
             Section("Значения одометра") {
                 SimpleCellView(name: "В начале", value: car?.odometer.atStart)
                 SimpleCellView(name: "В конце", value: car?.odometer.atFinish)
             }
+
             Section("Фотокарточка") {
                 AsyncImage(url: URL(string: car?.img ?? "")) { image in // img
                     image

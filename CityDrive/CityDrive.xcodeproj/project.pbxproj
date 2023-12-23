@@ -19,6 +19,7 @@
 		B72056292A852DC0003D1372 /* BonusImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72056282A852DC0003D1372 /* BonusImage.swift */; };
 		B73DBF982A597BFE006393B6 /* ShortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DBF972A597BFE006393B6 /* ShortOrder.swift */; };
 		B740B0232B3604CE000BD173 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740B0222B3604CE000BD173 /* Logo.swift */; };
+		B740B0252B36DFE9000BD173 /* Payback.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740B0242B36DFE9000BD173 /* Payback.swift */; };
 		B743CA102A67449500D146CC /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743CA0F2A67449500D146CC /* City.swift */; };
 		B744C98B2B0CB32E00BEAB2F /* CarNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744C98A2B0CB32E00BEAB2F /* CarNumberView.swift */; };
 		B744C98F2B0CBF2600BEAB2F /* CarNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744C98E2B0CBF2600BEAB2F /* CarNumber.swift */; };
@@ -111,6 +112,7 @@
 		B72056282A852DC0003D1372 /* BonusImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusImage.swift; sourceTree = "<group>"; };
 		B73DBF972A597BFE006393B6 /* ShortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortOrder.swift; sourceTree = "<group>"; };
 		B740B0222B3604CE000BD173 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		B740B0242B36DFE9000BD173 /* Payback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payback.swift; sourceTree = "<group>"; };
 		B743CA0F2A67449500D146CC /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		B744C98A2B0CB32E00BEAB2F /* CarNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarNumberView.swift; sourceTree = "<group>"; };
 		B744C98E2B0CBF2600BEAB2F /* CarNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarNumber.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				B7E12E902AE96039003FA578 /* Settings.swift */,
 				B70D4AC72A3B1ABF00C90991 /* CityDriveApp.swift */,
 				B70D4AC92A3B1ABF00C90991 /* ContentView.swift */,
+				B740B0242B36DFE9000BD173 /* Payback.swift */,
 			);
 			path = CityDrive;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				B785872D2A6B13FE0002689B /* ErrorResponse.swift in Sources */,
 				B785872B2A6AF1A20002689B /* FullUserResponse.swift in Sources */,
 				B7A44FD42A595B69003FCBD4 /* LargeOrder.swift in Sources */,
+				B740B0252B36DFE9000BD173 /* Payback.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
