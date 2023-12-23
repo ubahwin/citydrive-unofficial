@@ -7,6 +7,7 @@ class OrdersViewModel: ObservableObject {
     @Published var currentMiddleOrder: MiddleOrder?
 
     @AppStorage(Settings.paybackPercent) private var percent: Int = 20
+    @AppStorage(Settings.isDriverDiscont) var isDriverDiscont = false
     @Published var amount: Double = 0
     @Published var duty: Double = 0
     @Published var peopleCount: Int = 2
@@ -22,7 +23,12 @@ class OrdersViewModel: ObservableObject {
     }
 
     func calculateDuty() {
-        let duty = amount / Double(peopleCount) * (1.0 + (Double(percent) / (100.0 * Double(peopleCount))))
+        var duty = amount / Double(peopleCount)
+
+        if isDriverDiscont {
+            duty += (duty * Double(percent)) / 100
+        }
+
         self.duty = duty.roundedToTwoDecimalPlaces()
     }
 

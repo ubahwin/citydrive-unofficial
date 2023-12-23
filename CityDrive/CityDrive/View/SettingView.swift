@@ -39,12 +39,16 @@ struct SettingView: View {
                             Text(MapType.hybrid.title).tag(MapType.hybrid)
                         }
                     }
-                    Section("payback") {
-                        Stepper(
-                            "Текущий процент: \(settingVM.paybackPercent.description)",
-                            value: settingVM.$paybackPercent, in: 0...100
-                        )
-                    }
+                    Section(content: {
+                        Toggle("Водитель платит меньше", isOn: settingVM.$isDriverDiscont)
+                        if settingVM.isDriverDiscont {
+                            Stepper(value: settingVM.$paybackPercent) {
+                                Text("Процент: \(settingVM.paybackPercent)")
+                            }
+                        }
+                    }, footer: {
+                        Text("Из доли водителя вычтется процент и распределится между остальными участниками поездки.")
+                    })
                     Toggle("Тёмная тема", isOn: settingVM.$isDarkMode)
                 }
             }

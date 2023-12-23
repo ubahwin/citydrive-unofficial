@@ -23,6 +23,20 @@ struct OrderDetailsView: View {
                 }
 
                 Section {
+                    SimpleCellView(
+                        name: "С каждого по",
+                        value: "\(orderVM.duty) ₽"
+                    )
+                    Stepper(
+                        "Кол-во людей: \(orderVM.peopleCount)",
+                        value: $orderVM.peopleCount, in: 2...5
+                    )
+                    .onChange(of: orderVM.peopleCount) {
+                        orderVM.calculateDuty()
+                    }
+                }
+
+                Section {
                     NavigationLink(destination: { AboutPathView(path: orderVM.currentOrder?.path) }) {
                         Text("Путь")
                     }
@@ -42,20 +56,6 @@ struct OrderDetailsView: View {
                             Spacer()
                             Text(orderVM.currentOrder?.user.firstName ?? "").colorMultiply(.gray)
                         }
-                    }
-                }
-
-                Section("payback") {
-                    SimpleCellView(
-                        name: "С каждого по",
-                        value: "\(orderVM.duty) ₽"
-                    )
-                    Stepper(
-                        "Кол-во людей: \(orderVM.peopleCount)",
-                        value: $orderVM.peopleCount, in: 2...5
-                    )
-                    .onChange(of: orderVM.peopleCount) {
-                        orderVM.calculateDuty()
                     }
                 }
 

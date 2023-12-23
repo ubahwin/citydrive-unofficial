@@ -12,6 +12,7 @@ class SettingViewModel: ObservableObject {
     @AppStorage(Settings.city) var city: City = .moscow
     @AppStorage(Settings.isDarkMode) var isDarkMode: Bool = true
     @AppStorage(Settings.paybackPercent) var paybackPercent: Int = 20
+    @AppStorage(Settings.isDriverDiscont) var isDriverDiscont = false
 
     init() {
         self.networkManager = NetworkManager()
