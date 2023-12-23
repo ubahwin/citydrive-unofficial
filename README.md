@@ -7,16 +7,55 @@
 ![](https://img.shields.io/badge/iOS-17%2B-green?logo=apple)
 ![](https://img.shields.io/badge/Swift%205.9-FA7343?style=flat&logo=swift&logoColor=white)
 
-Данное приложение не несёт цели навредить репутации и информационной безопасности сервиса СитиДрайв. По первой же просьбе представителей каршеринга приложение будет убрано из публичного доступа.
+> Данное приложение не несёт цели навредить репутации и информационной безопасности сервиса СитиДрайв. По первой же просьбе представителей каршеринга приложение будет убрано из публичного доступа.
+
+## Приложение
+
+Более удобная версия клиента, по сравнению с оригинальным СитиДрайв
+* Нет бургер-меню – используется таббар
+* Цвета соответствуют [brendbook](https://vc.ru/citydrive/320352-keys-sitidrayv-kak-brendu-s-mnogoletney-istoriey-za-mesyac-obnovit-aydentiku-i-dizayn-vseh-poverhnostey) СитиДрайв
+
+#### Вход
 
 <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; column-gap: 24px; row-gap: 20px;">
-  <img src="img/1.jpg" style="width:200px;">
-  <img src="img/2.jpg" style="width:200px;">
-  <img src="img/3.jpg" style="width:200px;">
-  <img src="img/4.jpg" style="width:200px;">
-  <img src="img/5.jpg" style="width:200px;">
-  <img src="img/6.jpg" style="width:200px;">
-  <img src="img/7.jpg" style="width:200px;">
+  <img src="img/0.png" style="width:200px;">
+  <img src="img/0.1.png" style="width:200px;">
+</div>
+
+#### История поездок
+
+* Вынесена, а не спрятана, как в оригинале
+* Возможность более подробно изучить каждую поездку – все события, всё про автомобиль, рейтинг и тд
+* Сумму с поездки можно разделить с помощью встроенного [Payback](https://github.com/ubahwin/payback), процент можно менять в настройках
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; column-gap: 24px; row-gap: 20px;">
+  <img src="img/2.png" style="width:200px;">
+  <img src="img/2.1.png" style="width:200px;">
+</div>
+
+#### Карта
+
+* Карта не от 2gis, а от Apple
+* Можно проложить маршрут до автомобиля прямо на карте, не переходя в другие приложения
+* Плашка с информацией об автомобиле и красивый гос. номер
+* Пины соответствуют пинам в оригинальном СитиДрайв
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; column-gap: 24px; row-gap: 20px;">
+  <img src="img/1.png" style="width:200px;">
+  <img src="img/1.1.png" style="width:200px;">
+</div>
+
+#### Настройки
+
+* Есть темная тема
+* Возможность выбора города, где показывать автомобили
+* Тип карты: со спутника или стандарт
+* Настройка процента Payback
+* Информация о пользователе и выход из аккаунта
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; column-gap: 24px; row-gap: 20px;">
+  <img src="img/3.png" style="width:200px;">
+  <img src="img/3.1.png" style="width:200px;">
 </div>
 
 ## Структура проекта
