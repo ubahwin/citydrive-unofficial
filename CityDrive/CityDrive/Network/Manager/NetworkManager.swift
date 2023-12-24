@@ -153,4 +153,12 @@ class NetworkManager {
             self.processResponse(data: data, response: response, error: error, completion: completion)
         }
     }
+
+    func getMapCities(
+        completion: @escaping (_ success: MapCitiesResponse?, _ error: String?) -> Void
+    ) {
+        router.request(.getGreenArea) { data, response, error in
+            self.processResponse(data: data, response: response, error: error, completion: completion)
+        }
+    }
 }
