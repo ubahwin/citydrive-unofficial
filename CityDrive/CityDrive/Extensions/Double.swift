@@ -1,7 +1,7 @@
 import Foundation
 
 extension Double {
-    func costToString() -> String {
+    var costToString: String {
         return String(format: "%.2f", self).replacingOccurrences(of: ".", with: ",") + " ₽"
     }
 
