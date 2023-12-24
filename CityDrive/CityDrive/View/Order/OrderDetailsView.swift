@@ -25,7 +25,7 @@ struct OrderDetailsView: View {
                 Section {
                     SimpleCellView(
                         name: "С каждого по",
-                        value: "\(orderVM.duty) ₽"
+                        value: "\(orderVM.duty.costToString)"
                     )
                     Stepper(
                         "Кол-во людей: \(orderVM.peopleCount)",

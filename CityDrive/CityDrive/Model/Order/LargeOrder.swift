@@ -73,9 +73,9 @@ extension LargeOrderResponse {
         }
 
         let order = LargeOrder(
-            usageCost: self.check?.usageCost?.costToDouble() ?? 0,
-            totalCost: self.check?.totalCostWithDiscount?.costToDouble() ?? 0,
-            parkingCost: self.check?.parkingCost?.costToDouble() ?? 0,
+            usageCost: self.check?.usageCost?.costToDouble ?? 0,
+            totalCost: self.check?.totalCostWithDiscount?.costToDouble ?? 0,
+            parkingCost: self.check?.parkingCost?.costToDouble ?? 0,
             bonusCancellationAmount: 0,
             bonusAccrualAmount: 0,
             car: CarOrder(

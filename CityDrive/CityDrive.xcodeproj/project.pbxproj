@@ -23,6 +23,8 @@
 		B744C98B2B0CB32E00BEAB2F /* CarNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744C98A2B0CB32E00BEAB2F /* CarNumberView.swift */; };
 		B744C98F2B0CBF2600BEAB2F /* CarNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744C98E2B0CBF2600BEAB2F /* CarNumber.swift */; };
 		B7559D142B3866B500AD8021 /* MapCitiesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7559D132B3866B500AD8021 /* MapCitiesResponse.swift */; };
+		B7559D162B386EB900AD8021 /* CarTariffResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7559D152B386EB900AD8021 /* CarTariffResponse.swift */; };
+		B7559D182B386F3C00AD8021 /* Tariff.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7559D172B386F3C00AD8021 /* Tariff.swift */; };
 		B759794B2AF80FA8006D45FC /* GreenAreaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759794A2AF80FA8006D45FC /* GreenAreaResponse.swift */; };
 		B759794E2AF81805006D45FC /* GreenArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B759794D2AF81805006D45FC /* GreenArea.swift */; };
 		B75D01952A79CFEC0036861A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B75D01942A79CFEC0036861A /* Localizable.xcstrings */; };
@@ -116,6 +118,8 @@
 		B744C98A2B0CB32E00BEAB2F /* CarNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarNumberView.swift; sourceTree = "<group>"; };
 		B744C98E2B0CBF2600BEAB2F /* CarNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarNumber.swift; sourceTree = "<group>"; };
 		B7559D132B3866B500AD8021 /* MapCitiesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCitiesResponse.swift; sourceTree = "<group>"; };
+		B7559D152B386EB900AD8021 /* CarTariffResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTariffResponse.swift; sourceTree = "<group>"; };
+		B7559D172B386F3C00AD8021 /* Tariff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tariff.swift; sourceTree = "<group>"; };
 		B759794A2AF80FA8006D45FC /* GreenAreaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenAreaResponse.swift; sourceTree = "<group>"; };
 		B759794D2AF81805006D45FC /* GreenArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenArea.swift; sourceTree = "<group>"; };
 		B75D01942A79CFEC0036861A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -360,6 +364,7 @@
 				B78587282A6AF16F0002689B /* User.swift */,
 				B7F880862AF9431200D2EF2D /* Point.swift */,
 				B744C98E2B0CBF2600BEAB2F /* CarNumber.swift */,
+				B7559D172B386F3C00AD8021 /* Tariff.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 				B785872C2A6B13FE0002689B /* ErrorResponse.swift */,
 				B759794A2AF80FA8006D45FC /* GreenAreaResponse.swift */,
 				B7559D132B3866B500AD8021 /* MapCitiesResponse.swift */,
+				B7559D152B386EB900AD8021 /* CarTariffResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -603,6 +609,7 @@
 				B763DD1A2A6712B4008E20DA /* BonusBalanceResponse.swift in Sources */,
 				B7CAC3F92A61D40500E5B271 /* Int.swift in Sources */,
 				B785872F2A6B1F610002689B /* UserInfoView.swift in Sources */,
+				B7559D162B386EB900AD8021 /* CarTariffResponse.swift in Sources */,
 				B79DC4912A5B085800175413 /* OtherInfoView.swift in Sources */,
 				B7F928482B09ECC100E49761 /* UserLocationButtonView.swift in Sources */,
 				B7CDD0B42A4704EB0034278B /* SessionIDResponse.swift in Sources */,
@@ -652,6 +659,7 @@
 				B79764A02A607420008B6C7E /* OtherInfoOrder.swift in Sources */,
 				B768609A2A3DA59D0010D590 /* LoginView.swift in Sources */,
 				B759794B2AF80FA8006D45FC /* GreenAreaResponse.swift in Sources */,
+				B7559D182B386F3C00AD8021 /* Tariff.swift in Sources */,
 				B7CDD0AD2A3F95FB0034278B /* NetworkManager.swift in Sources */,
 				B797649C2A607383008B6C7E /* AboutPathOrder.swift in Sources */,
 				B7A44FD02A59509F003FCBD4 /* OrderListResponse.swift in Sources */,

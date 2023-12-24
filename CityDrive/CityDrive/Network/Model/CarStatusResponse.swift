@@ -39,11 +39,8 @@ struct CarStatusResponse: Codable {
         areaGroupDefaut = try container.decodeIfPresent(String.self, forKey: .areaGroupDefaut)
         discounts = try container.decodeIfPresent(DiscountsResponse.self, forKey: .discounts)
 
-        var carsDict = [UUID: CarResponse]()
-        var carsContainer = try container.nestedUnkeyedContainer(forKey: .cars)
-
         var preorderCarsDict = [UUID: CarResponse]()
-        var preorderCarsContainer = try container.nestedUnkeyedContainer(forKey: .cars)
+        var preorderCarsContainer = try container.nestedUnkeyedContainer(forKey: .preorderCars)
 
         while !preorderCarsContainer.isAtEnd {
             let carResponse = try preorderCarsContainer.decode(CarResponse.self)
@@ -54,6 +51,9 @@ struct CarStatusResponse: Codable {
         }
 
         preorderCars = preorderCarsDict
+
+        var carsDict = [UUID: CarResponse]()
+        var carsContainer = try container.nestedUnkeyedContainer(forKey: .cars)
 
         while !carsContainer.isAtEnd {
             let carResponse = try carsContainer.decode(CarResponse.self)
