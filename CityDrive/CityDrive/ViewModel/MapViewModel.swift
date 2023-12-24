@@ -3,7 +3,7 @@ import MapKit
 import SwiftUI
 
 class MapViewModel: ObservableObject {
-    private let networkManager: NetworkManager
+    private let networkManager = NetworkManager()
 
     @Published var cars: [UUID: Car] = [:]
     @Published var greenArea: GreenArea? = Settings.greenArea
@@ -26,7 +26,6 @@ class MapViewModel: ObservableObject {
     @AppStorage(Settings.mapType) var mapType: MapType = .standard
 
     init() {
-        self.networkManager = NetworkManager()
         loadCarsStatus()
         loadGreenArea()
     }
@@ -86,8 +85,6 @@ class MapViewModel: ObservableObject {
             }
         }
     }
-
-    func bookingCar() { }
 
     func setCurrentCar(id: UUID) {
         self.currentCar = cars[id]
