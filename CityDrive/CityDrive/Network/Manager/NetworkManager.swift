@@ -21,6 +21,7 @@ class NetworkManager {
         data: Data?,
         response: URLResponse?,
         error: Error?,
+        printResponse: Bool = false,
         completion: @escaping (_ success: T?, _ error: String?) -> Void
     ) {
         if let error = error {
@@ -44,6 +45,9 @@ class NetworkManager {
 
             do {
                 let apiResponse = try JSONDecoder().decode(T.self, from: responseData)
+                if printResponse {
+                    print(apiResponse)
+                }
                 completion(apiResponse, nil)
             } catch let error {
                 print("Error in decode for: \(T.self)\nError: \(error)")
@@ -157,8 +161,22 @@ class NetworkManager {
     func getMapCities(
         completion: @escaping (_ success: MapCitiesResponse?, _ error: String?) -> Void
     ) {
-        router.request(.getGreenArea) { data, response, error in
+        router.request(.getMapCities) { data, response, error in
             self.processResponse(data: data, response: response, error: error, completion: completion)
+        }
+    }
+
+    func getCarTariff(
+        id: String,
+        completion: @escaping (_ success: CarTariffResponse?, _ error: String?) -> Void
+    ) {
+        router.request(.getCarTariff(id: id)) { data, response, error in
+            self.processResponse(
+                data: data,
+                response: response,
+                error: error,
+                completion: completion
+            )
         }
     }
 }

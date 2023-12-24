@@ -32,6 +32,9 @@ public enum CityDriveApi {
 
     /// Запросить  координаты городов
     case getMapCities
+
+    /// Запросить текущий тариф на авто
+    case getCarTariff(id: String)
 }
 
 extension CityDriveApi: EndpointType {
@@ -52,6 +55,7 @@ extension CityDriveApi: EndpointType {
         case .getUser: return "user"
         case .getGreenArea: return "info"
         case .getMapCities: return "map/cities"
+        case .getCarTariff(let id): return "cars/" + id + "/tariff-packages"
         }
     }
 
@@ -80,7 +84,7 @@ extension CityDriveApi: EndpointType {
             "User-Agent": "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)",
             "Cookie": "session_id=" + sessionID
         ]
-        case .getCarStatus: return [
+        case .getCarStatus, .getCarTariff: return [
             // статус можно получить почему-то только с такого User-Agent (Postman) -_-
             "User-Agent": "PostmanRuntime/7.32.3",
             "Cookie": "session_id=" + sessionID
@@ -131,7 +135,7 @@ extension CityDriveApi {
             "version": 20
         ]
         case .getOrder(_, let version): return ["version": version]
-        case .getCarStatus, .getMapCities: return [
+        case .getCarStatus, .getMapCities, .getCarTariff: return [
             // нужны координаты, скорее всего для метрик,
             // но я отправляю нули ;)
             "lat": 0,

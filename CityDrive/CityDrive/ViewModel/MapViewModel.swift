@@ -13,6 +13,7 @@ class MapViewModel: ObservableObject {
     @Published var carsIsLoaded = false
 
     @Published var currentCar: Car?
+    @Published var currentCarTariff: Tariff?
     @Published var currentCarWalktime: Int?
     @Published var routeToCurCar: MKRoute?
     @Published var currentCarAnnotation: MKAnnotationView?
@@ -86,7 +87,25 @@ class MapViewModel: ObservableObject {
         }
     }
 
+    func loadCarTariff(for carID: UUID) {
+        networkManager.getCarTariff(id: carID.uuidString) { response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+
+            guard let tariff = response?.tariff else { return }
+
+            let currentCarTariff = tariff.mapToTariff
+
+            DispatchQueue.main.async {
+                self.currentCarTariff = currentCarTariff
+            }
+        }
+    }
+
     func setCurrentCar(id: UUID) {
         self.currentCar = cars[id]
+        loadCarTariff(for: id)
     }
 }

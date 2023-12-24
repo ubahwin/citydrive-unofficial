@@ -115,6 +115,31 @@ struct CarInfoView: View {
                         .font(.footnote)
                     }
                     .padding(.horizontal)
+                    Rectangle()
+                        .frame(height: 1)
+                        .foregroundStyle(.gray)
+                    VStack {
+                        HStack {
+                            Text("Использование")
+                            Spacer()
+                            Text("\(mapVM.currentCarTariff?.usage.costToString ?? "") в мин")
+                        }
+                        .padding(.horizontal)
+                        HStack {
+                            Text("Парковка")
+                            Spacer()
+                            Text("\(mapVM.currentCarTariff?.parking.costToString ?? "") в мин")
+                        }
+                        .padding(.horizontal)
+                        .font(.footnote)
+                        HStack {
+                            Text("Передача")
+                            Spacer()
+                            Text("\(mapVM.currentCarTariff?.transfer.costToString ?? "") в мин")
+                        }
+                        .padding(.horizontal)
+                        .font(.footnote)
+                    }
                 }
                 .padding()
                 Spacer()
