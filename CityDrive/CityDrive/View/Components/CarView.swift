@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import TipKit
 
 struct CarView: View {
     @ObservedObject var mapVM: MapViewModel
@@ -42,109 +43,114 @@ struct CarView: View {
 struct CarInfoView: View {
     @ObservedObject var mapVM: MapViewModel
     @Environment(\.colorScheme) var colorScheme
+    @State var openTariffInfo = false
 
     var body: some View {
-        ZStack {
-            VStack {
+        VStack {
+            HStack {
+                Text(mapVM.currentCar?.model ?? "")
+                    .font(.title3)
+                    .bold()
+                    .frame(minWidth: 100)
                 Spacer()
-                VStack {
+                CarNumberView(number: mapVM.currentCar?.number)
+                Spacer()
+                ZStack {
                     HStack {
-                        Text(mapVM.currentCar?.model ?? "")
-                            .font(.title3)
+                        Text(mapVM.currentCarTariff?.usage.costToString ?? "12,23 P")
                             .bold()
-                        Spacer()
-                        CarNumberView(number: mapVM.currentCar?.number)
-                    }
-                    HStack {
-                        AsyncImage(url: mapVM.currentCar?.img) { image in
-                            image
-                                .resizable()
-                                .scaledToFit()
-                        } placeholder: {
-                            Image("illustration")
-                                .resizable()
-                                .scaledToFit()
+                        Button {
+                            openTariffInfo.toggle()
+                        } label: {
+                            Image(systemName: "info.circle")
+                                .foregroundStyle(colorScheme == .dark ? .white : .black)
+                                .opacity(0.5)
                         }
-                        Spacer()
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Image(systemName: "fuelpump.fill")
-                                    .frame(minWidth: 1, maxWidth: 20)
-                                Text("\(mapVM.currentCar?.powerReserveKilometers ?? 0) км")
-                            }
-                            HStack {
-                                Image(systemName: "figure.walk")
-                                    .frame(minWidth: 1, maxWidth: 20)
-                                if let walktime = mapVM.currentCarWalktime {
-                                    if walktime == 0 {
-                                        Text("Меньше минуты")
-                                    } else if walktime > 60 {
-                                        Text("Слишком долго")
-                                    } else {
-                                        Text("\(walktime) мин")
-                                    }
-                                }
-                                Button {
-                                    mapVM.drawRoad.toggle()
-                                } label: {
-                                    Image(systemName: "chevron.forward")
-                                        .imageScale(.small)
-                                        .foregroundStyle(colorScheme == .dark ? .white : .black)
-                                }
-                            }
-                            HStack {
-                                Image(systemName: "figure.seated.seatbelt")
-                                    .frame(minWidth: 1, maxWidth: 20)
-                                Text("\(mapVM.currentCar?.seats ?? 0) мест")
-                            }
-                            if mapVM.currentCar?.hasTransponder ?? false {
-                                HStack {
-                                    Image(systemName: "road.lanes")
-                                        .frame(minWidth: 1, maxWidth: 20)
-                                    Text("Транспондер")
-                                }
-                            }
-                            if mapVM.currentCar?.isElectric ?? false {
-                                HStack {
-                                    Image(systemName: "bolt.fill")
-                                        .frame(minWidth: 1, maxWidth: 20)
-                                    Text("Электрокарш")
-                                }
-                            }
-                        }
-                        .font(.footnote)
-                    }
-                    .padding(.horizontal)
-                    Rectangle()
-                        .frame(height: 1)
-                        .foregroundStyle(.gray)
-                    VStack {
-                        HStack {
-                            Text("Использование")
-                            Spacer()
-                            Text("\(mapVM.currentCarTariff?.usage.costToString ?? "") в мин")
-                        }
-                        .padding(.horizontal)
-                        HStack {
-                            Text("Парковка")
-                            Spacer()
-                            Text("\(mapVM.currentCarTariff?.parking.costToString ?? "") в мин")
-                        }
-                        .padding(.horizontal)
-                        .font(.footnote)
-                        HStack {
-                            Text("Передача")
-                            Spacer()
-                            Text("\(mapVM.currentCarTariff?.transfer.costToString ?? "") в мин")
-                        }
-                        .padding(.horizontal)
-                        .font(.footnote)
                     }
                 }
-                .padding()
-                Spacer()
+                .alert(isPresented: $openTariffInfo) {
+                    Alert(
+                        title: Text("Тариф"),
+                        message: Text(
+                            // swiftlint:disable line_length
+                            "Использование: \(mapVM.currentCarTariff?.usage.costToString ?? "")/мин\nПарковка: \(mapVM.currentCarTariff?.parking.costToString ?? "")/мин\nПередача: \(mapVM.currentCarTariff?.transfer.costToString ?? "")/мин"
+                            // swiftlint:enable line_length
+                        ),
+                        dismissButton: .default(Text("Хорошо"))
+                    )
+                }
+                .font(.callout)
             }
+            HStack {
+                AsyncImage(url: mapVM.currentCar?.img) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                } placeholder: {
+                    Image("illustration")
+                        .resizable()
+                        .scaledToFit()
+                }
+                Spacer()
+                VStack(alignment: .leading, spacing: 3) {
+                    HStack {
+                        Image(systemName: "fuelpump.fill")
+                            .frame(minWidth: 1, maxWidth: 20)
+                        Text("\(mapVM.currentCar?.powerReserveKilometers ?? 0) км")
+                    }
+                    .opacity(0.9)
+
+                    HStack {
+                        Image(systemName: "figure.walk")
+                            .frame(minWidth: 1, maxWidth: 20)
+                        if let walktime = mapVM.currentCarWalktime {
+                            if walktime == 0 {
+                                Text("Меньше минуты")
+                            } else if walktime > 60 {
+                                Text("Слишком долго")
+                            } else {
+                                Text("\(walktime) мин")
+                            }
+                        }
+                        Button {
+                            mapVM.drawRoad.toggle()
+                        } label: {
+                            Image(systemName: "chevron.forward")
+                                .imageScale(.small)
+                                .foregroundStyle(colorScheme == .dark ? .white : .black)
+                        }
+                    }
+                    .opacity(0.9)
+
+                    HStack {
+                        Image(systemName: "figure.seated.seatbelt")
+                            .frame(minWidth: 1, maxWidth: 20)
+                        Text("\(mapVM.currentCar?.seats ?? 0) мест")
+                    }
+                    .opacity(0.9)
+
+                    if mapVM.currentCar?.hasTransponder ?? false {
+                        HStack {
+                            Image(systemName: "road.lanes")
+                                .frame(minWidth: 1, maxWidth: 20)
+                            Text("Транспондер")
+                        }
+                        .opacity(0.9)
+                    }
+                    if mapVM.currentCar?.isElectric ?? false {
+                        HStack {
+                            Image(systemName: "bolt.fill")
+                                .frame(minWidth: 1, maxWidth: 20)
+                            Text("Электрокарш")
+                        }
+                        .opacity(0.9)
+                    }
+                }
+                .font(.footnote)
+            }
+            .padding(.horizontal)
         }
+        .padding()
     }
 }
 
