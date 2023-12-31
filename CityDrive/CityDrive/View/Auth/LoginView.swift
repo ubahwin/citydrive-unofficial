@@ -43,7 +43,6 @@ struct LoginView: View {
         }
         .onTapGesture { loginVM.hideKeyboard() }
         .fullScreenCover(isPresented: $loginVM.next) { SmsView(loginVM: loginVM) }
-        .fullScreenCover(isPresented: $loginVM.isEntered) { ContentView() }
     }
 }
 

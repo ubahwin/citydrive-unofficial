@@ -2,7 +2,6 @@ import SwiftUI
 import SwiftKeychainWrapper
 
 class LoginViewModel: ObservableObject {
-    @Published var isEntered = false
     @Published var next = false
     private var phone = ""
 
@@ -41,13 +40,11 @@ class LoginViewModel: ObservableObject {
                 return
             }
 
-            if let success = response?.success {
+            if let success = response?.success, success {
                 DispatchQueue.main.async {
-                    self.isEntered = success
+                    self.isLogged = true
+                    Settings.sessionID = response?.sessionID ?? ""
                 }
-
-                self.isLogged = true
-                Settings.sessionID = response?.sessionID ?? ""
             }
         }
     }
