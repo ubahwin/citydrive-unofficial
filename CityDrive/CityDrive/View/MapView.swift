@@ -34,12 +34,14 @@ struct MapView: View {
             }
             .padding()
             .shadow(radius: 15)
-        }
-        .sheet(isPresented: $mapVM.openCarDetail) {
-            CarView(mapVM: mapVM)
+            if mapVM.openCarDetail {
+                CarView(mapVM: mapVM)
+            }
         }
         .onReceive(timer) { _ in
-            mapVM.loadCarsStatus()
+            if !mapVM.openCarDetail {
+                mapVM.loadCarsStatus()
+            }
         }
     }
 }

@@ -1,160 +1,101 @@
 import Foundation
 import SwiftUI
-import TipKit
 
 struct CarView: View {
     @ObservedObject var mapVM: MapViewModel
     @Environment(\.colorScheme) var colorScheme
 
+    @State var bottomPanelIsFull = false
+
+    var outOfZone: Bool {
+        return mapVM.currentCar?.transferable ?? false
+    }
+
     var body: some View {
-        if mapVM.currentCar?.transferable ?? false {
-            ZStack(alignment: .bottom) {
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(.red)
-                VStack {
-                    Text("Вне зоны завершения аренды")
-                        .font(.footnote)
-                        .foregroundStyle(.white)
-                        .opacity(0.8)
-                        .padding()
-                    Spacer()
-                }
-                RoundedRectangle(cornerRadius: 15)
+        BottomCarSheetView(
+            isFull: $bottomPanelIsFull,
+            isOpen: $mapVM.openCarDetail,
+            outOfZone: outOfZone
+        ) {
+            ZStack {
+                Rectangle()
                     .fill(colorScheme == .dark ? .black : .white)
-                    .frame(height: 255)
+                    .clipShape(.rect(cornerRadius: 15))
                 VStack {
-                    Spacer(minLength: 60)
-                    CarInfoView(mapVM: mapVM)
-                        .presentationDetents([.height(300)])
-                        .presentationBackgroundInteraction(.enabled(upThrough: .height(300)))
-                        .presentationCornerRadius(15)
-                        .frame(maxHeight: 275)
+                    VStack {
+                        CarCardView(
+                            mapVM: mapVM,
+                            modelInFull: $bottomPanelIsFull
+                        )
+                        HStack {
+                            GreenFrame {
+                                VStack {
+                                    if bottomPanelIsFull {
+                                        Text("Поминутный")
+                                    }
+                                    Text("\(mapVM.currentCarTariff?.usage.costToString ?? "")/мин")
+                                        .bold()
+                                    Spacer()
+                                    VStack(alignment: .leading) {
+                                        HStack {
+                                            Text("Парковка:")
+                                            Text("\(mapVM.currentCarTariff?.parking.costToString ?? "")/мин")
+                                        }
+                                        HStack {
+                                            Text("Передача:")
+                                            Text("\(mapVM.currentCarTariff?.transfer.costToString ?? "")/мин")
+                                        }
+                                    }
+                                    .font(.footnote)
+                                    .foregroundStyle(.gray)
+                                    Spacer()
+                                }
+                                .padding()
+                            }
+                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
+                            GreenFrame {
+                                VStack {
+                                    Text("Фикс")
+                                    Spacer()
+                                    Button("Адрес") {
+                                        //
+                                    }
+                                    .font(.footnote)
+                                    .buttonStyle(GreenButton())
+                                    Spacer()
+                                }
+                                .padding()
+                            }
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+                        }
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: outOfZone ? 100 : 50, trailing: 0))
                 }
+                .padding(.vertical)
             }
-        } else {
-            CarInfoView(mapVM: mapVM)
-                .presentationDetents([.height(255)])
-                .presentationBackgroundInteraction(.enabled(upThrough: .height(255)))
-                .presentationCornerRadius(15)
         }
+        .ignoresSafeArea()
     }
 }
 
-struct CarInfoView: View {
-    @ObservedObject var mapVM: MapViewModel
-    @Environment(\.colorScheme) var colorScheme
-    @State var openTariffInfo = false
+struct GreenFrame<Content: View>: View {
+    let content: Content
+
+    init(@ViewBuilder _ content: () -> Content) {
+        self.content = content()
+    }
 
     var body: some View {
-        VStack {
-            HStack {
-                Text(mapVM.currentCar?.model ?? "")
-                    .font(.title3)
-                    .bold()
-                    .frame(minWidth: 100)
-                Spacer()
-                CarNumberView(number: mapVM.currentCar?.number)
-                Spacer()
-                ZStack {
-                    HStack {
-                        Text(mapVM.currentCarTariff?.usage.costToString ?? "12,23 P")
-                            .bold()
-                        Button {
-                            openTariffInfo.toggle()
-                        } label: {
-                            Image(systemName: "info.circle")
-                                .foregroundStyle(colorScheme == .dark ? .white : .black)
-                                .opacity(0.5)
-                        }
-                    }
-                }
-                .alert(isPresented: $openTariffInfo) {
-                    Alert(
-                        title: Text("Тариф"),
-                        message: Text(
-                            // swiftlint:disable line_length
-                            "Использование: \(mapVM.currentCarTariff?.usage.costToString ?? "")/мин\nПарковка: \(mapVM.currentCarTariff?.parking.costToString ?? "")/мин\nПередача: \(mapVM.currentCarTariff?.transfer.costToString ?? "")/мин"
-                            // swiftlint:enable line_length
-                        ),
-                        dismissButton: .default(Text("Хорошо"))
-                    )
-                }
-                .font(.callout)
-            }
-            HStack {
-                AsyncImage(url: mapVM.currentCar?.img) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                } placeholder: {
-                    Image("illustration")
-                        .resizable()
-                        .scaledToFit()
-                }
-                Spacer()
-                VStack(alignment: .leading, spacing: 3) {
-                    HStack {
-                        Image(systemName: "fuelpump.fill")
-                            .frame(minWidth: 1, maxWidth: 20)
-                        Text("\(mapVM.currentCar?.powerReserveKilometers ?? 0) км")
-                    }
-                    .opacity(0.9)
-
-                    HStack {
-                        Image(systemName: "figure.walk")
-                            .frame(minWidth: 1, maxWidth: 20)
-                        if let walktime = mapVM.currentCarWalktime {
-                            if walktime == 0 {
-                                Text("Меньше минуты")
-                            } else if walktime > 60 {
-                                Text("Слишком долго")
-                            } else {
-                                Text("\(walktime) мин")
-                            }
-                        }
-                        Button {
-                            mapVM.drawRoad.toggle()
-                        } label: {
-                            Image(systemName: "chevron.forward")
-                                .imageScale(.small)
-                                .foregroundStyle(colorScheme == .dark ? .white : .black)
-                        }
-                    }
-                    .opacity(0.9)
-
-                    HStack {
-                        Image(systemName: "figure.seated.seatbelt")
-                            .frame(minWidth: 1, maxWidth: 20)
-                        Text("\(mapVM.currentCar?.seats ?? 0) мест")
-                    }
-                    .opacity(0.9)
-
-                    if mapVM.currentCar?.hasTransponder ?? false {
-                        HStack {
-                            Image(systemName: "road.lanes")
-                                .frame(minWidth: 1, maxWidth: 20)
-                            Text("Транспондер")
-                        }
-                        .opacity(0.9)
-                    }
-                    if mapVM.currentCar?.isElectric ?? false {
-                        HStack {
-                            Image(systemName: "bolt.fill")
-                                .frame(minWidth: 1, maxWidth: 20)
-                            Text("Электрокарш")
-                        }
-                        .opacity(0.9)
-                    }
-                }
-                .font(.footnote)
-            }
-            .padding(.horizontal)
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(lineWidth: 2)
+                .fill(AppColor.green())
+            content
         }
-        .padding()
     }
 }
 
-struct CarView_Previews: PreviewProvider {
+struct CarView1_Previews: PreviewProvider {
     static var previews: some View {
         let img = "https://admin.citydrive.ru/static/img/cars/citydrive/chery_tiggo_4/moscow/white_face.png"
         let car = Car(
@@ -164,6 +105,88 @@ struct CarView_Previews: PreviewProvider {
             model: "Kia Ria",
             number: CarNumber(number: "a321aa111"),
             transferable: true,
+            powerReserveMeters: 45,
+            seats: 12,
+            remainPath: 43,
+            hasTransponder: true,
+            boosterSeat: true,
+            babySeat: true,
+            forSale: true,
+            engineWarnUpAvailable: true,
+            isElectric: true,
+            fuelType: ""
+        )
+        let tariff = Tariff(usage: 12, parking: 13, transfer: 34)
+        let mapVM = MapViewModel()
+        mapVM.currentCar = car
+        mapVM.currentCarTariff = tariff
+        return TabView {
+            Group {
+                CarView(mapVM: mapVM)
+                    .tabItem {
+                        Text("tab")
+                    }
+                CarView(mapVM: mapVM)
+                    .tabItem {
+                        Text("bar")
+                    }
+            }
+            .toolbarBackground(.visible, for: .tabBar)
+        }
+    }
+}
+
+struct CarView2_Previews: PreviewProvider {
+    static var previews: some View {
+        let img = "https://admin.citydrive.ru/static/img/cars/citydrive/chery_tiggo_4/moscow/white_face.png"
+        let car = Car(
+            id: UUID(),
+            location: Point(latitude: 12, longitude: 21),
+            img: URL(string: img)!,
+            model: "Kia Ria",
+            number: CarNumber(number: "a321aa111"),
+            transferable: false,
+            powerReserveMeters: 45,
+            seats: 12,
+            remainPath: 43,
+            hasTransponder: true,
+            boosterSeat: true,
+            babySeat: true,
+            forSale: true,
+            engineWarnUpAvailable: true,
+            isElectric: true,
+            fuelType: ""
+        )
+        let tariff = Tariff(usage: 12, parking: 13, transfer: 34)
+        let mapVM = MapViewModel()
+        mapVM.currentCar = car
+        mapVM.currentCarTariff = tariff
+        return TabView {
+            Group {
+                CarView(mapVM: mapVM)
+                    .tabItem {
+                        Text("tab")
+                    }
+                CarView(mapVM: mapVM)
+                    .tabItem {
+                        Text("bar")
+                    }
+            }
+            .toolbarBackground(.visible, for: .tabBar)
+        }
+    }
+}
+
+struct SimplePanel_Previews: PreviewProvider {
+    static var previews: some View {
+        let img = "https://admin.citydrive.ru/static/img/cars/citydrive/chery_tiggo_4/moscow/white_face.png"
+        let car = Car(
+            id: UUID(),
+            location: Point(latitude: 12, longitude: 21),
+            img: URL(string: img)!,
+            model: "Kia Ria",
+            number: CarNumber(number: "a321aa111"),
+            transferable: false,
             powerReserveMeters: 45,
             seats: 12,
             remainPath: 43,
