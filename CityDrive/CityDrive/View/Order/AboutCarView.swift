@@ -4,25 +4,29 @@ struct AboutCarView: View {
     var car: CarOrder?
 
     var body: some View {
-        List {
-            Section("Информация") {
-                SimpleCellView(name: "Модель", value: car?.model)
-                SimpleCellView(name: "Номер", value: car?.number)
-                SimpleCellView(name: "ID", value: car?.id).textSelection(.enabled)
+        Form {
+            HStack {
+                Text(car?.model ?? "")
+                    .font(.title2)
+                    .bold()
+                Spacer()
+                CarNumberView(number: car?.number)
             }
-
-            Section("Значения одометра") {
-                SimpleCellView(name: "В начале", value: car?.odometer.atStart)
-                SimpleCellView(name: "В конце", value: car?.odometer.atFinish)
-            }
-
-            Section("Фотокарточка") {
+            .padding()
+            HStack {
+                Spacer()
                 AsyncImage(url: URL(string: car?.img ?? "")) { image in // img
                     image
                 } placeholder: {
                     Image(systemName: "car")
                 }
+                Spacer()
             }
+            Section("Значения одометра") {
+                SimpleCellView(name: "В начале", value: car?.odometer.atStart)
+                SimpleCellView(name: "В конце", value: car?.odometer.atFinish)
+            }
+            SimpleCellView(name: "ID", value: car?.id).textSelection(.enabled)
         }
     }
 }
@@ -31,9 +35,9 @@ struct AboutCarView: View {
     AboutCarView(
         car: CarOrder(
             id: "1",
-            number: "2",
-            model: "m513as",
-            img: "img",
+            model: "Kia Ria",
+            img: "https://admin.citydrive.ru/static/img/cars/citydrive/chery_tiggo_4/moscow/white_face.png",
+            number: CarNumber(number: "а123аа231"),
             odometer: Odometer(atStart: 21, atFinish: 423)
         )
     )

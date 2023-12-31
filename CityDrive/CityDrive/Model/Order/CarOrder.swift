@@ -1,7 +1,8 @@
 import Foundation
 
 struct CarOrder {
-    var id, number, model, img: String
+    var id, model, img: String
+    var number: CarNumber
     var odometer: Odometer
 }
 

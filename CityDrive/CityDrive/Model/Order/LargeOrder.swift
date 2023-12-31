@@ -80,9 +80,9 @@ extension LargeOrderResponse {
             bonusAccrualAmount: 0,
             car: CarOrder(
                 id: self.carID ?? "",
-                number: self.carNumber ?? "",
                 model: self.carModel ?? "",
                 img: self.carImg ?? "",
+                number: CarNumber(number: self.carNumber ?? ""),
                 odometer: Odometer(
                     atStart: self.carOdometer?.atStart ?? 0,
                     atFinish: self.carOdometer?.atFinish ?? 0)
