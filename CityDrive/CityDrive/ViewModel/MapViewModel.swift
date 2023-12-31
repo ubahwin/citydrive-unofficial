@@ -27,7 +27,6 @@ class MapViewModel: ObservableObject {
     @AppStorage(Settings.mapType) var mapType: MapType = .standard
 
     init() {
-        loadCarsStatus()
         loadGreenArea()
     }
 

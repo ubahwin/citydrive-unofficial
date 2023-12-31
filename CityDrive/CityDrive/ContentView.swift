@@ -48,7 +48,9 @@ struct ContentView: View {
             }
             .accentColor(AppColor.green())
         } else {
-            LoadingAppView()
+            LoadingAppView {
+                mapVM.loadCarsStatus()
+            }
         }
     }
 }
