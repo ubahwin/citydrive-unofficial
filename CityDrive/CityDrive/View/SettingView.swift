@@ -42,12 +42,12 @@ struct SettingView: View {
                     Section(content: {
                         Toggle("Водитель платит меньше", isOn: settingVM.$isDriverDiscont)
                         if settingVM.isDriverDiscont {
-                            Stepper(value: settingVM.$paybackPercent) {
+                            Stepper(value: settingVM.$paybackPercent, in: 0...100) {
                                 Text("Процент: \(settingVM.paybackPercent)")
                             }
                         }
                     }, footer: {
-                        Text("Из доли водителя вычтется процент и распределится между остальными участниками поездки.")
+                        Text("С доли водителя берется процент и накладывается каждому участнику поездки.")
                     })
                     Toggle("Тёмная тема", isOn: settingVM.$isDarkMode)
                 }
