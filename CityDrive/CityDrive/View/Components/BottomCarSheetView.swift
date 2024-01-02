@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct BottomCarSheetView<Content: View>: View {
+    @Environment(\.colorScheme) var colorScheme
+
     @Binding var isFull: Bool
     @Binding var isOpen: Bool
 
@@ -8,14 +10,17 @@ struct BottomCarSheetView<Content: View>: View {
     let content: Content
 
     let redOffset: CGFloat = 50
+
+    let constMaxHeight: CGFloat = 500
+    let constMinHeight: CGFloat = UIDevice.current.hasDynamicIsland ? 380 : 350
     @GestureState private var translation: CGFloat = 0
 
     var maxHeight: CGFloat {
-        outOfZone ? 500 : 450
+        outOfZone ? constMaxHeight : constMaxHeight - redOffset
     }
 
     var minHeight: CGFloat {
-        outOfZone ? 350 : 300
+        outOfZone ? constMinHeight : constMinHeight - redOffset
     }
 
     private var offset: CGFloat {
@@ -51,8 +56,13 @@ struct BottomCarSheetView<Content: View>: View {
                             Spacer()
                         }
                     }
-                    content
-                        .offset(y: outOfZone ? 50 : 0)
+                    ZStack {
+                        Rectangle()
+                            .fill(colorScheme == .dark ? .black : .white)
+                            .clipShape(.rect(cornerRadius: 15))
+                        content
+                    }
+                    .offset(y: outOfZone ? 50 : 0)
                 }
                 VStack {
                     RoundedRectangle(cornerRadius: 15)

@@ -3,7 +3,6 @@ import SwiftUI
 
 struct CarView: View {
     @ObservedObject var mapVM: MapViewModel
-    @Environment(\.colorScheme) var colorScheme
 
     @State var bottomPanelIsFull = false
 
@@ -17,62 +16,55 @@ struct CarView: View {
             isOpen: $mapVM.openCarDetail,
             outOfZone: outOfZone
         ) {
-            ZStack {
-                Rectangle()
-                    .fill(colorScheme == .dark ? .black : .white)
-                    .clipShape(.rect(cornerRadius: 15))
-                VStack {
-                    VStack {
-                        CarCardView(
-                            mapVM: mapVM,
-                            modelInFull: $bottomPanelIsFull
-                        )
-                        HStack {
-                            GreenFrame {
-                                VStack {
-                                    if bottomPanelIsFull {
-                                        Text("Поминутный")
-                                    }
-                                    Text("\(mapVM.currentCarTariff?.usage.costToString ?? "")/мин")
-                                        .bold()
-                                    Spacer()
-                                    VStack(alignment: .leading) {
-                                        HStack {
-                                            Text("Парковка:")
-                                            Text("\(mapVM.currentCarTariff?.parking.costToString ?? "")/мин")
-                                        }
-                                        HStack {
-                                            Text("Передача:")
-                                            Text("\(mapVM.currentCarTariff?.transfer.costToString ?? "")/мин")
-                                        }
-                                    }
-                                    .font(.footnote)
-                                    .foregroundStyle(.gray)
-                                    Spacer()
-                                }
-                                .padding()
+            VStack {
+                CarCardView(
+                    mapVM: mapVM,
+                    modelInFull: $bottomPanelIsFull
+                )
+                HStack {
+                    GreenFrame {
+                        VStack {
+                            if bottomPanelIsFull {
+                                Text("Поминутный")
                             }
-                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
-                            GreenFrame {
-                                VStack {
-                                    Text("Фикс")
-                                    Spacer()
-                                    Button("Адрес") {
-                                        //
-                                    }
-                                    .font(.footnote)
-                                    .buttonStyle(GreenButton())
-                                    Spacer()
+                            Text("\(mapVM.currentCarTariff?.usage.costToString ?? "")/мин")
+                                .bold()
+                            Spacer()
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text("Парковка:")
+                                    Text("\(mapVM.currentCarTariff?.parking.costToString ?? "")/мин")
                                 }
-                                .padding()
+                                HStack {
+                                    Text("Передача:")
+                                    Text("\(mapVM.currentCarTariff?.transfer.costToString ?? "")/мин")
+                                }
                             }
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+                            .font(.footnote)
+                            .foregroundStyle(.gray)
+                            Spacer()
                         }
+                        .padding()
                     }
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: outOfZone ? 100 : 50, trailing: 0))
+                    .padding(.leading)
+                    GreenFrame {
+                        VStack {
+                            Text("Фикс")
+                            Spacer()
+                            Button("Адрес") {
+                                //
+                            }
+                            .font(.footnote)
+                            .buttonStyle(GreenButton())
+                            Spacer()
+                        }
+                        .padding()
+                    }
+                    .padding(.trailing)
                 }
-                .padding(.vertical)
             }
+            .padding(EdgeInsets(top: 10, leading: 0, bottom: UIDevice.current.hasDynamicIsland ? 50 : 0, trailing: 0))
+            .padding(EdgeInsets(top: 10, leading: 0, bottom: outOfZone ? 100 : 50, trailing: 0))
         }
         .ignoresSafeArea()
     }

@@ -86,6 +86,7 @@
 		B7DB05EF2A59BC6900ACE3BC /* LargeOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB05EE2A59BC6900ACE3BC /* LargeOrderResponse.swift */; };
 		B7E12E912AE96039003FA578 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E12E902AE96039003FA578 /* Settings.swift */; };
 		B7E508612B16397C001F7C0B /* LoadingAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E508602B16397C001F7C0B /* LoadingAppView.swift */; };
+		B7F20EA62B4454BC00D935DB /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F20EA52B4454BC00D935DB /* UIDevice.swift */; };
 		B7F29ABE2B110714002FC634 /* CityDriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F29ABD2B110714002FC634 /* CityDriveTests.swift */; };
 		B7F880872AF9431200D2EF2D /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F880862AF9431200D2EF2D /* Point.swift */; };
 		B7F880892AF9F4C200D2EF2D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F880882AF9F4C200D2EF2D /* Image.swift */; };
@@ -184,6 +185,7 @@
 		B7DB05EE2A59BC6900ACE3BC /* LargeOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeOrderResponse.swift; sourceTree = "<group>"; };
 		B7E12E902AE96039003FA578 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B7E508602B16397C001F7C0B /* LoadingAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAppView.swift; sourceTree = "<group>"; };
+		B7F20EA52B4454BC00D935DB /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		B7F29ABB2B110714002FC634 /* CityDriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityDriveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7F29ABD2B110714002FC634 /* CityDriveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDriveTests.swift; sourceTree = "<group>"; };
 		B7F880862AF9431200D2EF2D /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				B7CAC3FA2A61D44C00E5B271 /* String.swift */,
 				B7CAC3FC2A61D54900E5B271 /* Double.swift */,
 				B7F880882AF9F4C200D2EF2D /* Image.swift */,
+				B7F20EA52B4454BC00D935DB /* UIDevice.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				B71E3BC42AE56B7F00DBE6AF /* ImperativeMapView.swift in Sources */,
 				B7A12F7E2B3B2908003F7B1B /* CarCardView.swift in Sources */,
 				B7A12F802B3CD89A003F7B1B /* BottomCarSheetView.swift in Sources */,
+				B7F20EA62B4454BC00D935DB /* UIDevice.swift in Sources */,
 				B7CDD0A52A3F92680034278B /* HTTPTask.swift in Sources */,
 				B7CDD0A92A3F94C80034278B /* CityDriveEndpoint.swift in Sources */,
 				B79764A22A60746A008B6C7E /* CarOrder.swift in Sources */,
