@@ -168,30 +168,3 @@ struct CarView2_Previews: PreviewProvider {
         }
     }
 }
-
-struct SimplePanel_Previews: PreviewProvider {
-    static var previews: some View {
-        let img = "https://admin.citydrive.ru/static/img/cars/citydrive/chery_tiggo_4/moscow/white_face.png"
-        let car = Car(
-            id: UUID(),
-            location: Point(latitude: 12, longitude: 21),
-            img: URL(string: img)!,
-            model: "Kia Ria",
-            number: CarNumber(number: "a321aa111"),
-            transferable: false,
-            powerReserveMeters: 45,
-            seats: 12,
-            remainPath: 43,
-            hasTransponder: true,
-            boosterSeat: true,
-            babySeat: true,
-            forSale: true,
-            engineWarnUpAvailable: true,
-            isElectric: true,
-            fuelType: ""
-        )
-        let mapVM = MapViewModel()
-        mapVM.currentCar = car
-        return CarView(mapVM: mapVM)
-    }
-}
