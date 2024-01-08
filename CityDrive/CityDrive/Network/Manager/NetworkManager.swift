@@ -179,4 +179,13 @@ class NetworkManager {
             )
         }
     }
+
+    func spendingBonuses(
+        enable: Bool,
+        completion: @escaping (_ success: SessionIDResponse?, _ error: String?) -> Void
+    ) {
+        router.request(.spendingBonuses(enable: enable)) { data, response, error in
+            self.processResponse(data: data, response: response, error: error, completion: completion)
+        }
+    }
 }

@@ -35,6 +35,9 @@ public enum CityDriveApi {
 
     /// Запросить текущий тариф на авто
     case getCarTariff(id: String)
+
+    /// Включить / выключить списывание баллов
+    case spendingBonuses(enable: Bool)
 }
 
 extension CityDriveApi: EndpointType {
@@ -56,13 +59,14 @@ extension CityDriveApi: EndpointType {
         case .getGreenArea: return "info"
         case .getMapCities: return "map/cities"
         case .getCarTariff(let id): return "cars/" + id + "/tariff-packages"
+        case .spendingBonuses: return "loyalty/spending-bonuses"
         }
     }
 
     var httpMethod: HTTPMethod {
         switch self {
         // только для входа требуется POST запрос
-        case .sendSms, .sendPhone, .sendTokenVK: return .post
+        case .sendSms, .sendPhone, .sendTokenVK, .spendingBonuses: return .post
 
         default: return .get
         }
@@ -80,7 +84,7 @@ extension CityDriveApi: EndpointType {
         let sessionID: String = Settings.sessionID
 
         switch self {
-        case .getOrders, .getOrder, .getBonusCount: return [
+        case .getOrders, .getOrder, .getBonusCount, .spendingBonuses: return [
             "User-Agent": "carsharing/4.13.1 (Linux; Android 12; M2101K7BNY Build/REL)",
             "Cookie": "session_id=" + sessionID
         ]
@@ -119,6 +123,9 @@ extension CityDriveApi: EndpointType {
         case .sendTokenVK(let token, let uuid): return [
             "vk_token": token,
             "uuid": uuid
+        ]
+        case .spendingBonuses(let enable): return [
+            "value": enable
         ]
         default: return nil
         }

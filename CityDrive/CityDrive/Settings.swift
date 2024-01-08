@@ -8,6 +8,7 @@ struct Settings {
     static var isDarkMode = "isDarkMode"
     static var paybackPercent = "paybackPercent"
     static var isDriverDiscont = "paybackPercent"
+    static var spendingBonuses = "spendingBonuses"
 
     static var sessionID: String {
         get {

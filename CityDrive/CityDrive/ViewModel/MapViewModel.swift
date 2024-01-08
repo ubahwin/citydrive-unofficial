@@ -7,7 +7,9 @@ class MapViewModel: ObservableObject {
 
     @Published var cars: [UUID: Car] = [:]
     @Published var greenArea: GreenArea? = Settings.greenArea
+
     @Published var bonusBalance = ""
+    @AppStorage(Settings.spendingBonuses) var spendingBonuses: Bool = false
 
     @Published var mapIsLoad = false
     @Published var carsIsLoaded = false
@@ -28,6 +30,7 @@ class MapViewModel: ObservableObject {
 
     init() {
         loadGreenArea()
+        loadBonusBalance()
     }
 
     func loadGreenArea() {
@@ -82,6 +85,21 @@ class MapViewModel: ObservableObject {
 
             DispatchQueue.main.async {
                 self.bonusBalance = String(response?.balance ?? 0)
+            }
+        }
+    }
+
+    func spendingBonuses(_ flag: Bool) {
+        networkManager.spendingBonuses(enable: flag) { response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+
+            if let success = response?.success, success {
+                DispatchQueue.main.async {
+                    self.spendingBonuses = flag
+                }
             }
         }
     }
