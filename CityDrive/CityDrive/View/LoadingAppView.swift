@@ -19,6 +19,7 @@ struct LoadingAppView: View {
                 Button("Ещё раз") {
                     reload = false
                 }
+                .sensoryFeedback(.increase, trigger: reload)
                 .buttonStyle(GreenButton())
             } else {
                 ProgressView()

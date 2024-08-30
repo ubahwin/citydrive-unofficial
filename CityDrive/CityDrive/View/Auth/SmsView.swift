@@ -17,6 +17,7 @@ struct SmsView: View {
             Button("Войти") {
                 loginVM.enter(with: smsCode)
             }
+            .sensoryFeedback(.increase, trigger: loginVM.isLogged)
             .buttonStyle(GreenButton())
             Spacer().frame(height: 50)
         }

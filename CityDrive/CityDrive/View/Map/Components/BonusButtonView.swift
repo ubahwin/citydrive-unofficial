@@ -20,6 +20,7 @@ struct BonusButtonView: View {
                     }
                 }
             )
+            .sensoryFeedback(.increase, trigger: openBonusInfo)
             .padding(10)
             .background(colorScheme == .dark ? .black : .white)
             .foregroundStyle(colorScheme == .dark ? AppColor.green() : .black)
@@ -65,11 +66,10 @@ struct BonusInfoView: View {
             Rectangle()
                 .fill(Color(hex: 0x21233c))
                 .ignoresSafeArea()
-                .clipShape(.rect(cornerRadius: 15))
             Rectangle()
                 .fill(.white)
                 .ignoresSafeArea()
-                .clipShape(.rect(cornerRadius: 15))
+                .clipShape(.rect(cornerRadius: 10))
                 .offset(y: 180)
 
             VStack {

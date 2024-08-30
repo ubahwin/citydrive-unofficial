@@ -11,6 +11,7 @@ struct UserLocationButtonView: View {
                 action: { goToUser.toggle() },
                 label: { Image(systemName: "location.fill") }
             )
+            .sensoryFeedback(.increase, trigger: goToUser)
             .padding(10)
             .background(colorScheme == .dark ? .black : .white)
             .foregroundStyle(colorScheme == .dark ? AppColor.green() : .black)

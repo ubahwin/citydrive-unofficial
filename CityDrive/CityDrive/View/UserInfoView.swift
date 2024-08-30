@@ -90,6 +90,7 @@ struct UserInfoView: View {
                 openLogin = true
             }
             .foregroundStyle(.red)
+            .sensoryFeedback(.increase, trigger: openLogin)
         }
         .fullScreenCover(isPresented: $openLogin) { LoginView() }
     }
