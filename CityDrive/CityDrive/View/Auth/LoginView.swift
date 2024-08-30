@@ -23,21 +23,9 @@ struct LoginView: View {
                     Button("Дальше") {
                         loginVM.sendSmsToPhone(phone)
                     }
+                    .sensoryFeedback(.increase, trigger: loginVM.next)
                     .buttonStyle(GreenButton())
-                    Spacer().frame(height: 30)
-
-//                    Button(action: {
-//                        loginVM.signInVK()
-//                    }, label: {
-//                        HStack {
-//                            Text("Войти через")
-//                            Image("vk")
-//                                .resizable()
-//                                .frame(width: 25, height: 25)
-//                        }
-//                    })
-
-                    Spacer().frame(height: 20)
+                    Spacer().frame(height: 50)
                 }
             }
         }

@@ -293,10 +293,12 @@ extension MapViewController: CLLocationManagerDelegate {
                 center: initialLocation,
                 span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             )
+
             mapView.setRegion(region, animated: true)
             currentUserLocationIsLoad = true
 
-//            mapVM.city = City.nearestCity(with: location)
+            print("nearestCity with \(location)")
+            mapVM.city = City.nearestCity(with: location)
         }
     }
 

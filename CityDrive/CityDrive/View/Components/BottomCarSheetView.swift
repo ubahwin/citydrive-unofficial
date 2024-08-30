@@ -76,6 +76,7 @@ struct BottomCarSheetView<Content: View>: View {
                     Spacer()
                 }
             }
+            .sensoryFeedback(.increase, trigger: isFull)
             .ignoresSafeArea()
             .frame(maxHeight: maxHeight)
             .frame(height: geometry.size.height, alignment: .bottom)
