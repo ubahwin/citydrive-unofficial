@@ -1,6 +1,5 @@
 import Foundation
 import SwiftUI
-import _MapKit_SwiftUI
 
 class SettingViewModel: ObservableObject {
     private let networkManager: NetworkManager

@@ -1,21 +1,21 @@
 import Foundation
-import SwiftKeychainWrapper
 
 struct Settings {
-    static var isLogged = "isLogged"
-    static var mapType = "mapType"
-    static var city = "city"
-    static var isDarkMode = "isDarkMode"
-    static var paybackPercent = "paybackPercent"
-    static var isDriverDiscont = "paybackPercent"
-    static var spendingBonuses = "spendingBonuses"
+    static let isLogged = "isLogged"
+    static let mapType = "mapType"
+    static let city = "city"
+    static let isDarkMode = "isDarkMode"
+    static let paybackPercent = "paybackPercent"
+    static let isDriverDiscont = "paybackPercent"
+    static let spendingBonuses = "spendingBonuses"
+    static let enableFeedbackGenerator = "enableFeedbackGenerator"
 
     static var sessionID: String {
         get {
-            return KeychainWrapper.standard.string(forKey: "sessionID") ?? ""
+            KeychainManager.shared.getToken(forKey: "sessionID") ?? ""
         }
         set {
-            KeychainWrapper.standard.set(newValue, forKey: "sessionID")
+            try? KeychainManager.shared.saveToken(newValue, forKey: "sessionID")
         }
     }
 
