@@ -1,5 +1,4 @@
 import Foundation
-import SwiftKeychainWrapper
 
 public enum CityDriveApi {
     /// Отправить смс на телефон
