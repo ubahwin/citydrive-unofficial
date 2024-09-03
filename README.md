@@ -11,7 +11,7 @@
 
 ## Приложение
 
-> Цвета соответствуют [brendbook](https://vc.ru/citydrive/320352-keys-sitidrayv-kak-brendu-s-mnogoletney-istoriey-za-mesyac-obnovit-aydentiku-i-dizayn-vseh-poverhnostey) СитиДрайв
+> Цвета соответствуют [brandbook](https://vc.ru/citydrive/320352-keys-sitidrayv-kak-brendu-s-mnogoletney-istoriey-za-mesyac-obnovit-aydentiku-i-dizayn-vseh-poverhnostey) СитиДрайв
 
 Более удобная версия клиента, по сравнению с оригинальным СитиДрайв
 * Нет бургер-меню – используется таббар
